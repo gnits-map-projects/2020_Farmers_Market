@@ -1,0 +1,13 @@
+.auth-home {
+    width: auto;
+    margin: inherit;
+    background: #ffffff;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-image: url("./thumbs-up.jpg"); */
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 100px 100px 670px 100px;
+    transition: all .3s;
+    background-attachment: fixed;
+}
+
