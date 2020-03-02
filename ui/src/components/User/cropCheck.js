@@ -21,7 +21,7 @@ export default class CropCheck extends Component{
 
     approve() {
         const url = 'http://localhost:9000/approveCrop'+this.state.id
-        console.log(this.state.location)
+        console.log("ON CLICK APPROVE.")
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -44,7 +44,7 @@ export default class CropCheck extends Component{
 
     reject() {
         const url = 'http://localhost:9000/rejectCrop'+this.state.id
-        console.log(this.state.location)
+        console.log("ON CLICK REJECT.")
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -53,10 +53,11 @@ export default class CropCheck extends Component{
         headers.append('Access-Control-Allow-origin', url);
         headers.append('Access-Control-Allow-Credentials', 'true');
 
-        headers.append('POST', 'GET');
+        headers.append('POST', 'GET', 'DELETE');
 
         fetch(url,{
-            headers: headers
+            headers: headers,
+            method : 'DELETE'
         })
         .then(response => response.json()) 
         .then(response => this.setState({ 'data' : response}));
@@ -66,6 +67,7 @@ export default class CropCheck extends Component{
     }
     
     render() {
+        console.log("IN CROP CHECK COMPONENT.")
         return (<div>
             <Nav/>
         <div className = "userhomebg">
