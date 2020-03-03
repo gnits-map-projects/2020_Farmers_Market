@@ -13,5 +13,7 @@ public interface RegisterRepository {
 
     CompletionStage<Register> add(Register register);
 
+    CompletionStage<Register> getFarmer(Long fid);
+
     abstract Register login(String email,String password);
 }

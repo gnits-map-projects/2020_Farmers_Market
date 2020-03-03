@@ -36,13 +36,9 @@ public class JPARegisterRepository implements RegisterRepository {
         return supplyAsync(() -> wrap(em -> insert(em, register)), executionContext);
     }
 
-    private <T> T wrap(Function<EntityManager, T> function) {
-        return jpaApi.withTransaction(function);
-    }
-
-    private Register insert(EntityManager em, Register register) {
-        em.persist(register);
-        return register;
+    @Override
+    public CompletionStage<Register> getFarmer(Long fid) {
+        return supplyAsync(() -> wrap(em -> getFarmer(em, fid)), executionContext);
     }
 
     @Override
@@ -53,4 +49,19 @@ public class JPARegisterRepository implements RegisterRepository {
         Register foundRegister = em.createQuery("select p from Register p where p.email =: email and p.password =: password",Register.class).setParameter("email",email).setParameter("password",password).getSingleResult();
         return foundRegister;
     }
+
+    private <T> T wrap(Function<EntityManager, T> function) {
+        return jpaApi.withTransaction(function);
+    }
+
+    private Register insert(EntityManager em, Register register) {
+        em.persist(register);
+        return register;
+    }
+
+    private Register getFarmer(EntityManager em, Long fid) {
+        Register register = em.createQuery("select r from Register r where r.id=:fid", Register.class).setParameter("fid", fid).getSingleResult();
+        return register;
+    }
+
 }

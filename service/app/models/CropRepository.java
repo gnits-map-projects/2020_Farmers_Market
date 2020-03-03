@@ -22,4 +22,6 @@ public interface CropRepository {
     CompletionStage<Stream<Crop>> listl();
 
     CompletionStage<Stream<Crop>> listCinL(String location);
+
+    CompletionStage<Stream<Crop>> listct(String location);
 }

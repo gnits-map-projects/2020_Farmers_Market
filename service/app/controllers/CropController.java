@@ -69,4 +69,10 @@ public class CropController extends Controller {
             return ok(toJson(cropStream.collect(Collectors.toList())));
         }, ec.current());
     }
+
+    public CompletionStage<Result> getCropTypes(String location) {
+        return cropRepository.listct(location).thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
 }

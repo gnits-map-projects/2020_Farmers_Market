@@ -55,6 +55,11 @@ public class JPACropRepository implements CropRepository {
         return supplyAsync(() -> wrap(em -> listfc(em, location)), executionContext);
     }
 
+    @Override
+    public CompletionStage<Stream<Crop>> listct(String location) {
+        return supplyAsync(() -> wrap(em -> listct(em, location)), executionContext);
+    }
+
 
     private <T> T wrap(Function<EntityManager, T> function) {
         return jpaApi.withTransaction(function);
@@ -76,7 +81,7 @@ public class JPACropRepository implements CropRepository {
     }
 
     private Stream<Crop> listc(EntityManager em) {
-        List<Crop> crops = em.createQuery("select c from Crop c", Crop.class).getResultList();
+        List<Crop> crops = em.createQuery("select c from Crop c order by c.endtime asc", Crop.class).setMaxResults(5).getResultList();
         return crops.stream();
     }
 
@@ -88,5 +93,10 @@ public class JPACropRepository implements CropRepository {
     private Stream<Crop> listfc(EntityManager em, String location) {
         List<Crop> crops = em.createQuery("select c from Crop c where c.location=:location order by c.id desc", Crop.class).setParameter("location", location).getResultList();
         return crops.stream();
+    }
+
+    private Stream<Crop> listct(EntityManager em, String location) {
+        List<Crop> locations = em.createQuery("select distinct c.name from Crop c where c.name in (select c1.name from Crop c1 where c1.location=:location)").setParameter("location",location).getResultList();
+        return locations.stream();
     }
 }

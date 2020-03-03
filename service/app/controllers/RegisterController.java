@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 import java.util.stream.Collectors;
 import static play.libs.Json.fromJson;
+import static play.libs.Json.toJson;
 
 /**
  * The controller keeps all database operations behind the repository, and uses
@@ -34,7 +35,7 @@ public class RegisterController extends Controller {
         JsonNode js = request().body().asJson();
         Register register = fromJson(js, Register.class);
         return registerRepository.add(register).thenApplyAsync(p -> {
-            return ok("created");
+            return ok("Created");
         }, ec.current());
     }
 
@@ -51,6 +52,12 @@ public class RegisterController extends Controller {
             //return ok("You are a valid user. "+ps.role);  //for postman
             return ok(Json.parse(msg));
         }
+    }
+
+    public CompletionStage<Result> getFarmer(Long fid) {
+        return registerRepository.getFarmer(fid).thenApplyAsync(farmer -> {
+            return ok(toJson(farmer));
+        }, ec.current());
     }
 
 }
