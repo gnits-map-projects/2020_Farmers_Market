@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import logo from '../images/userhome.jpg';
 import '../images/bgimage.css';
 import './home.css';
-import Nav from './Nav.js';
+import NavUnset from './Nav.js';
+import NavSet from '../User/nav.js'
 import Carousel from 'react-bootstrap/Carousel';
 import { Slide } from 'react-slideshow-image';
 import slide1 from '../images/f1.jpeg';
@@ -10,6 +11,7 @@ import slide2 from '../images/f2.jpeg';
 import slide3 from '../images/f3.jpeg';
 
 //import { useHistory, withRouter,Link } from "react-router-dom";
+var Nav;
 
 const properties = {
   duration: 2000,
@@ -20,6 +22,17 @@ const properties = {
 }
 
 export default class Home extends Component {
+
+    componentWillMount(){
+      // alert(window.localStorage.getItem("uid")) 
+      if (window.localStorage.getItem("uid") == null){
+          Nav = NavUnset;
+        } else{
+          Nav = NavSet;
+        }
+        console.log(Nav)
+        
+    }
     render() {
         return (<div>
             <Nav/>

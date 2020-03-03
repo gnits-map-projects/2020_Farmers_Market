@@ -6,7 +6,7 @@ import Nav from './nav.js';
 import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import CropProfile from './CropProfile'
+import UncheckedCropProfile from './UncheckedCropProfile'
 import FarmerProfile from './FarmerProfile'
 
 export default class CropCheck extends Component{
@@ -20,7 +20,7 @@ export default class CropCheck extends Component{
     }
 
     approve() {
-        const url = 'http://localhost:9000/approveCrop'+this.state.id
+        const url = 'http://localhost:9000/approveCrop/'+this.state.id
         console.log("ON CLICK APPROVE.")
         let headers = new Headers();
 
@@ -36,14 +36,17 @@ export default class CropCheck extends Component{
             headers: headers,
             method: 'GET'
         })
-        .then(response => response.json()) 
-        .then(response => this.setState({ 'data' : response}));
+        .then(response => response) ////for alert, convert response promise object to string
+        .then(response => {this.setState({ 'data' : response});
         console.log(this.state.data);
-        window.location.href = "/adminhome/"+window.localStorage.getItem('uid') 
+        // alert(this.state.data);
+        window.location.href = "/adminhome/"+window.localStorage.getItem('uid')}
+        );
+         
     }
 
     reject() {
-        const url = 'http://localhost:9000/rejectCrop'+this.state.id
+        const url = 'http://localhost:9000/rejectCrop/'+this.state.id
         console.log("ON CLICK REJECT.")
         let headers = new Headers();
 
@@ -80,13 +83,13 @@ export default class CropCheck extends Component{
             <Row>
                 <Col>
                 <br/><h1>Crop Profile</h1><br/>
-                <CropProfile id = {this.state.id}/>
+                <UncheckedCropProfile id = {this.state.id}/>
                 <br/>
                 </Col>
             </Row>
                 <Col>
                 <br/><h1>Farmer:</h1><br/>
-                {/* <FarmerProfile id = {this.state.fid}/> */}
+                <FarmerProfile id = {this.state.fid}/>
                 <br/>
                 </Col>
             <Row>

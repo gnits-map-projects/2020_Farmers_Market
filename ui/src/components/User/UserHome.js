@@ -29,16 +29,16 @@ render() {
     <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
         <Container >
             <Row>
-                <Col>
+                <Col xs = "5">
                     <br/><h1>Add Crop</h1><br/>
                     <div>
                         <CropForm id={uid}/>
                     </div> 
                 </Col>
-                
-                <Col>
+                <Col xs = "2"></Col>
+                <Col xs = "5">
                     <Row>
-                        <br/><h1>Your Crops</h1><br/><br/>
+                        <br/><br/><h1>Your Crops</h1><br/><br/>
                         <div>
                         <br/>
                             <Recents id={uid}/>

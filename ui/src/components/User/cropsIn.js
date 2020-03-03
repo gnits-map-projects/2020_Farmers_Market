@@ -6,6 +6,7 @@ import Nav from './nav.js';
 import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import ListCropTypes from './listCropTypes.js'
 
 class CropsIn extends Component {
     constructor(props) {
@@ -54,22 +55,25 @@ class CropsIn extends Component {
             <div className = "userhomebg">
             <div class = "recentbids">
                 <br/><h1 align = "center">Crops Found in {this.state.location}</h1><br/>
-                <div className="auth-inner">
                 <Container>
+                <ListCropTypes location = {this.state.location}/>
+                <br/>
+                <div className="auth-inner">
                 <ul>
                    {this.state.items.map(function(item){
                        return(
                            <div key={item.id}>
                                 <Row>
-                                <Col>{item.name},{item.area},{item.price},{item.id}</Col>
-                                <Col><button id={item.id} className="btn btn-success">Bid</button></Col>
+                                <Col xs="3">{item.name}</Col><Col xs="3">{item.area}</Col><Col xs="4">{item.location}</Col>
+                                {/* <Col>{item.price}</Col> */}
+                                <Col xs = "2"><button id={item.id} className="btn btn-success">Bid</button></Col>
                                 </Row><Row><br/></Row>
                             </div>
                        );
                    }.bind(this))}
                </ul>
-               </Container>
                </div>
+               </Container>
                <br/>
             </div>
             </div>

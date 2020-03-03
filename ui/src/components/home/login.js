@@ -66,17 +66,21 @@ class Login extends Component{
               console.log(result)
               if(urole=="farmer"){
                 window.localStorage.setItem("username",uname)
-                window.localStorage.setItem("uid",uid)
+                window.localStorage.setItem("uid",uid);
                 window.location.href  = "/userhome/"+uid;
                 }  //"/userhome" 
-              else{
+              else if(urole=="buyer"){
                 window.localStorage.setItem("username",uname)
                 window.location.href  = "/buyerhome/";  
-                window.localStorage.setItem("uid",uid)
+                window.localStorage.setItem("uid",uid);
                 //alert("buyer")
+            }
+            else{
+              alert("You are not authenticated. Go Back!!!")
             }
             })
             
+            window.localStorage.getItem('uid');
             
           }else{
             console.log("Please check your username and password.");

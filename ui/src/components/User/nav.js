@@ -22,7 +22,7 @@ class Navigation extends Component {
                         <Nav.Link href="/Home">HOME</Nav.Link>
                         <NavDropdown title={window.localStorage.getItem("username")} id="basic-nav-dropdown">
                             <NavDropdown.Item href="">Profile</NavDropdown.Item>
-                            <NavDropdown.Item href="/Home">Sign out</NavDropdown.Item>
+                            <NavDropdown.Item href="/Home" onClick={ sessionStorage.clear() }>Sign out</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>

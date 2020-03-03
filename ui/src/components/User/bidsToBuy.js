@@ -43,8 +43,9 @@ class BidsToBuy extends Component {
             return(
                 <div key={item.id}>
                     <Row>
-                        <Col>{item.name}</Col><Col>{item.area}</Col><Col>{item.location}</Col><Col>{item.price}</Col>
-                        <Col><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id}}>Bid</button></Col>
+                        <Col xs="3">{item.name}</Col><Col xs="3">{item.area}</Col><Col xs="4">{item.location}</Col>
+                        {/* <Col xs="3">{item.price}</Col> */}
+                        <Col xs="2"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid}}>Bid</button></Col>
                     </Row><Row><br/></Row>
                 </div>
             )

@@ -23,55 +23,20 @@ class Navigation extends Component {
   render(){
   return (
     <div>
-      {/* <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02"> 
-          <div className="navbar-nav mr-auto">
-          <Link className="nav-link" ><b>CITIZENS ENGAGE</b></Link>
-          </div>
-
-            <ul className="navbar-nav ml-auto">
-
-            <li className="nav-item">
-                <Link className="nav-link" to={"/Home"}>Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/Login"}>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/adminlogin"}>Admin</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/about"}>About</Link>
-              </li>
-             
-            </ul>
-          </div>
-        </div>
-        
-      </nav> */}
-
-  <Navbar bg="light" expand="md">
-    <Navbar.Brand href="#home"><h3><b>FARMER'S MARKET</b></h3></Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="mr-auto"></Nav>
-      <Nav>
-      
-        <Nav.Link href="/Home">HOME</Nav.Link>
-        <Nav.Link href="/signup">SIGN UP</Nav.Link>
-        <Nav.Link href="/login">LOGIN</Nav.Link>
-        <Nav.Link href="/adminlogin">ADMIN</Nav.Link>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-
-</div>
-         
-        
+      <Navbar bg="light" expand="md">
+        <Navbar.Brand href="#home"><h3><b>FARMER'S MARKET</b></h3></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto"></Nav>
+          <Nav>
+            <Nav.Link href="/Home">HOME</Nav.Link>
+            <Nav.Link href="/signup">SIGN UP</Nav.Link>
+            <Nav.Link href="/login">LOGIN</Nav.Link>
+            <Nav.Link href="/adminlogin">ADMIN</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </div>            
   );
 }}
 

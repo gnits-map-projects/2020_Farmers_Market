@@ -13,11 +13,16 @@ import { BrowserRouter as Router,
    import CropsIn from "./components/User/cropsIn";
    import AdminLogin from "./components/home/AdminLogin.js";
    import CropCheck from "./components/User/cropCheck.js";
+   import CropBid from "./components/User/cropBid.js";
 
 
 class App extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount(){
+    window.localStorage.removeItem('uid')
   }
   render(){
   return (
@@ -35,6 +40,7 @@ class App extends Component {
             <Route path="/adminlogin" component= { AdminLogin }/>
             <Route path="/cropsIn/:location" component= { CropsIn }/>
             <Route path="/cropCheck/:id/:fid" component= { CropCheck }/>
+            <Route path="/cropBid/:id/:fid" component= { CropBid }/>
                 </Switch>
             </Router>
             </div>

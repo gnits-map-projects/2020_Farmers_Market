@@ -3,9 +3,34 @@ import React, { Component } from "react";
 import './home.css';
 import Form from 'react-bootstrap/Form';
 var body;
-var dt = new Date();
+
 //var uid = window.uid;
-var today = dt.getFullYear()+"-"+dt.getMonth()+"-"+dt.getDate();
+
+var dt = new Date();
+var month = dt.getMonth()+1;
+if(month<10){
+  month = "0"+month.toString();
+}
+var date = dt.getDate();
+if(date<10){
+  date = "0"+date.toString();
+}
+var year = dt.getFullYear().toString();
+var today = year+"-"+month+"-"+date;
+
+var days = 15; //BID WINDOW
+var dtR = new Date(dt.getTime() + (days * 24 * 60 * 60 * 1000));
+month = dtR.getMonth()+1;
+if(month<10){
+  month = "0"+month.toString();
+}
+date = dtR.getDate();
+if(date<10){
+  date = "0"+date.toString();
+}
+year = dtR.getFullYear().toString();
+var restrictTo = year+"-"+month+"-"+date;
+
 class CropForm extends Component{
     constructor(props) {
       super(props);
@@ -25,6 +50,7 @@ class CropForm extends Component{
       this.handleEndtimeChange = this.handleEndtimeChange.bind(this);
       this.handleLocationChange = this.handleLocationChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      //alert(today)
     }
 
     handleNameChange = event => {
@@ -136,7 +162,7 @@ class CropForm extends Component{
         return (
             <div class = "recentbids">
             <div className="cropform">
-            <Form onSubmit={this.handleSubmit}><h3>Fill crop form</h3>            
+            <Form onSubmit={this.handleSubmit}><h3>Fill crop form</h3><br/>            
                 <div className="form-group">
                     <label>Crop Name</label>
                     <input type="Text" name="name" id="examplename" className="form-control" placeholder="Enter name"
@@ -167,13 +193,10 @@ class CropForm extends Component{
 
                 <div className="form-group">
                     <label>End time</label>
-                    <input type="Date" min={today.toString()} name="endtime" className="form-control" id="exampleendtime" placeholder="Enter bid end time"
+                    <input type="Date" min={today} max={restrictTo} name="endtime" className="form-control" id="exampleendtime" placeholder="Enter bid end time"
                                 value = {this.state.endtime} onChange = {this.handleEndtimeChange} />
                 </div>
 
-                
-              {/*<input type="hidden" name="fid" value={window.localStorage.getItem("uid")}*/}
-           
                 <button type="submit" className="btn btn-primary btn-block" onClick = {this.handleSubmit}>ADD</button>
                 
             </Form>

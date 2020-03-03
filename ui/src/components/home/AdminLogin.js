@@ -65,8 +65,9 @@ class AdminLogin extends Component{
               aid = result.id
               console.log(result)
               if(arole=="admin"){
-                window.localStorage.setItem("username",aname)
-                window.localStorage.setItem("uid",aid)
+                window.localStorage.setItem("username",aname);
+                window.localStorage.setItem("uid",aid);
+                window.sessionStorage.setItem("uid",aid);
                 window.location.href  = "/adminhome/"+aid;
                 }  //"/userhome" 
               else{

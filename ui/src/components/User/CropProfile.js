@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-class CropProfile extends Component {
+class UncheckedCropProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +16,7 @@ class CropProfile extends Component {
     
     componentDidMount() {
         console.log("component did mount")
-        const url = 'http://localhost:9000/getUncheckedCrop/'+this.state.id
+        const url = 'http://localhost:9000/getCrop/'+this.state.id
         console.log(this.state.id)
         let headers = new Headers();
 
@@ -44,16 +44,16 @@ class CropProfile extends Component {
         return (
             <div className = "recentbids">
             <div className="auth-inner">
-                {this.state.crop.name}<br/>
-                {this.state.crop.location}<br/>
-                {this.state.crop.area}<br/>
-                {this.state.crop.duration}<br/>
-                {this.state.crop.price}<br/>
+                <Row><Col>Type:</Col><Col>{this.state.crop.name}<br/></Col></Row>
+                <Row><Col>Location:</Col><Col>{this.state.crop.location}<br/></Col></Row>
+                <Row><Col>Area:</Col><Col>{this.state.crop.area}<br/></Col></Row>
+                <Row><Col>Harvest Duration:</Col><Col>{this.state.crop.duration}<br/></Col></Row>
+                <Row><Col>Price:</Col><Col>{this.state.crop.price}<br/></Col></Row>
             </div>
             </div>
         );
     }
 }
 
-export default CropProfile;
+export default UncheckedCropProfile;
 

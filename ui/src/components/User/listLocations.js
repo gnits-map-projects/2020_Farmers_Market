@@ -80,6 +80,7 @@ export default class ListLocations extends Component {
               }}
               defaultValue="Select Location"
               name="location"
+              placeholder = "Select Location..."
               options={this.state.locationOptions}
               onMouseEnter={this.focus}
               onChange = {this.handleChange}/>
