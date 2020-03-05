@@ -36,11 +36,11 @@ class App extends Component {
             <Route path="/signup" component={ SignUp } />
             <Route path="/userhome/:id" component={ UserHome }/>
             <Route path="/adminhome/:id" component={ AdminHome }/>
-            <Route path="/buyerhome" component={ BuyerHome }/>
+            <Route path="/buyerhome/:id" component={ BuyerHome }/>
             <Route path="/adminlogin" component= { AdminLogin }/>
             <Route path="/cropsIn/:location" component= { CropsIn }/>
             <Route path="/cropCheck/:id/:fid" component= { CropCheck }/>
-            <Route path="/cropBid/:id/:fid" component= { CropBid }/>
+            <Route path="/cropBid/:id/:fid/:buyerId" component= { CropBid }/>
                 </Switch>
             </Router>
             </div>

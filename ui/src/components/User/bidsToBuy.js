@@ -13,12 +13,13 @@ class BidsToBuy extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            'items' : []
+            'items' : [],
+            'id' : this.props.id
         };
     }
     componentDidMount() {
         const url = 'http://localhost:9000/getCrops'
-        console.log(this.props.fid)
+        console.log(this.state.id)
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -38,14 +39,14 @@ class BidsToBuy extends Component {
         .then(response => this.setState({ 'items' : response}));          
     }
 
-   renderList(){
+   renderList(buyer){
         return this.state.items.map(function(item){
+            console.log("in render list" + buyer);
             return(
                 <div key={item.id}>
                     <Row>
                         <Col xs="3">{item.name}</Col><Col xs="3">{item.area}</Col><Col xs="4">{item.location}</Col>
-                        {/* <Col xs="3">{item.price}</Col> */}
-                        <Col xs="2"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid}}>Bid</button></Col>
+                        <Col xs="2"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + buyer}}>Bid</button></Col>
                     </Row><Row><br/></Row>
                 </div>
             )
@@ -57,7 +58,7 @@ class BidsToBuy extends Component {
             <div className = "recentbids">
             <div className="auth-inner">
                 <ul>
-                   {this.renderList()}
+                   {this.renderList(this.state.id)}
                </ul>
             </div>
             </div>

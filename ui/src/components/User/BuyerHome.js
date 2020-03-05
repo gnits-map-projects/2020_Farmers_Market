@@ -11,7 +11,14 @@ import BidsToBuy from "./bidsToBuy";
 import ListLocations from "./listLocations";
 
 export default class BuyerHome extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            'id' :this.props.match.params.id,
+        };
+    }
 render() {
+    window.localStorage.setItem('buyerId',this.state.id);
     return (<div>
         <Nav/>
     <div className = "userhomebg">
@@ -27,7 +34,7 @@ render() {
         <Col>
         <div background-color="#aacfb0">
          <br/><h1>Recent Crops</h1><br/>
-        <BidsToBuy/>
+        <BidsToBuy id={this.state.id}/>
         </div>
         </Col>
         <Col>

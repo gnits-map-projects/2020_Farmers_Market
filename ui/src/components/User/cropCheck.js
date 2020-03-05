@@ -82,13 +82,13 @@ export default class CropCheck extends Component{
             <Container>
             <Row>
                 <Col>
-                <br/><h1>Crop Profile</h1><br/>
+                <br/><h1>Crop Profile:</h1><br/>
                 <UncheckedCropProfile id = {this.state.id}/>
                 <br/>
                 </Col>
             </Row>
                 <Col>
-                <br/><h1>Farmer:</h1><br/>
+                <br/><h1>Farmer Profile:</h1><br/>
                 <FarmerProfile id = {this.state.fid}/>
                 <br/>
                 </Col>

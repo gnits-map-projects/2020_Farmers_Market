@@ -12,6 +12,11 @@ class UncheckedCropProfile extends Component {
             'crop' : {},
             id: this.props.id,
         };
+        this.setPrice = this.setPrice.bind(this);
+    }
+
+    setPrice(price){
+        this.props.getPrice(price);
     }
     
     componentDidMount() {
@@ -32,7 +37,9 @@ class UncheckedCropProfile extends Component {
             headers: headers,
         })
         .then(response => response.json()) 
-        .then(response => this.setState({ 'crop' : response}),
+        .then(response => 
+        {this.setState({ 'crop' : response});
+        this.setPrice(this.state.crop.price)},
         console.log(this.state.crop))
         .catch((error) => {console.error('Error:', error);}); 
                   

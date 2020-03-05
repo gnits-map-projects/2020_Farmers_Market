@@ -2,8 +2,9 @@ import React ,{ Component } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './UserHome.css'
 import { Container } from "react-bootstrap";
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Rating from './Rating.js';
 
 class FarmerProfile extends Component {
     constructor(props) {
@@ -45,6 +46,7 @@ class FarmerProfile extends Component {
         return (
             <div className = "recentbids">
             <div className="auth-inner">
+                <Rating/>
                 <Row><Col>Name:</Col><Col>{this.state.farmer.name}<br/></Col></Row>
                 <Row><Col>Mobile:</Col><Col>{this.state.farmer.mobile}<br/></Col></Row>
                 <Row><Col>Email:</Col><Col>{this.state.farmer.email}<br/></Col></Row>

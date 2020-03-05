@@ -25,7 +25,7 @@ export default class Home extends Component {
 
     componentWillMount(){
       // alert(window.localStorage.getItem("uid")) 
-      if (window.localStorage.getItem("uid") == null){
+      if (window.localStorage.getItem("uid") == null){    ////Call back to be tried
           Nav = NavUnset;
         } else{
           Nav = NavSet;

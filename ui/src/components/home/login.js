@@ -71,8 +71,9 @@ class Login extends Component{
                 }  //"/userhome" 
               else if(urole=="buyer"){
                 window.localStorage.setItem("username",uname)
-                window.location.href  = "/buyerhome/";  
                 window.localStorage.setItem("uid",uid);
+                window.location.href  = "/buyerhome/"+uid;  
+                
                 //alert("buyer")
             }
             else{
@@ -80,7 +81,7 @@ class Login extends Component{
             }
             })
             
-            window.localStorage.getItem('uid');
+           // window.localStorage.getItem('uid');
             
           }else{
             console.log("Please check your username and password.");
