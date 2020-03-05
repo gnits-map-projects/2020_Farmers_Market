@@ -50,6 +50,12 @@ public class JPARegisterRepository implements RegisterRepository {
         return foundRegister;
     }
 
+    @Override
+    public CompletionStage<Register> update(Long id, String name, String email, String password, String mobile) {
+        return supplyAsync(() -> wrap(em -> updatevalue(em, id, name, email,password,mobile)), executionContext);
+    }
+
+
     private <T> T wrap(Function<EntityManager, T> function) {
         return jpaApi.withTransaction(function);
     }
@@ -63,5 +69,23 @@ public class JPARegisterRepository implements RegisterRepository {
         Register register = em.createQuery("select r from Register r where r.id=:fid", Register.class).setParameter("fid", fid).getSingleResult();
         return register;
     }
+
+    private Register updatevalue(EntityManager em, Long id, String name, String email, String password, String mobile){
+        // EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
+        // EntityManager em = entityManagerFactory.createEntityManager();
+        //em.getTransaction().begin();
+        int i= em.createQuery("update Register r set r.name =: name, r.email =: email, r.password =: password, r.mobile=:mobile where r.id =: id").setParameter("name",name).setParameter("email",email).setParameter("password",password).setParameter("mobile",mobile).setParameter("id",id).executeUpdate();
+        if(i!=0){
+            Register register=em.createQuery("select r from Register r where r.id=:id",Register.class).setParameter("id",id).getSingleResult();
+            return register;
+        }
+        else{
+            return null;
+
+         }
+
+    }
+
+
 
 }

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Tue Mar 03 12:02:23 IST 2020
+// @DATE:Thu Mar 05 09:55:41 IST 2020
 
 import play.api.mvc.Call
 
@@ -49,14 +49,14 @@ package controllers {
   
   }
 
-  // @LINE:43
+  // @LINE:45
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:43
+    // @LINE:45
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -70,6 +70,12 @@ package controllers {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:42
+    def updateRegister(id:Long): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "updateProfile/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
   
     // @LINE:38
     def getFarmer(fid:Long): Call = {

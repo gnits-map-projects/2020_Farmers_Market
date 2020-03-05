@@ -60,5 +60,17 @@ public class RegisterController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> updateRegister(Long id){
+        JsonNode js = request().body().asJson();
+        String name = js.get("name").asText();
+        String email = js.get("email").asText();
+        String password = js.get("password").asText();
+        String mobile = js.get("mobile").asText();
+        return registerRepository.update(id, name, email, password, mobile).thenApplyAsync(p->{
+            return ok("update successful");
+        },ec.current());
+
+    }
+
 }
 

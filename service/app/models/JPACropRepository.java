@@ -71,7 +71,7 @@ public class JPACropRepository implements CropRepository {
     }
 
     private Stream<Crop> listfc(EntityManager em, Long fid) {
-        List<Crop> crops = em.createQuery("select c from Crop c where c.fid=:fid order by c.id desc", Crop.class).setParameter("fid", fid).getResultList();
+        List<Crop> crops = em.createQuery("select c from Crop c where c.fid=:fid order by c.id desc", Crop.class).setParameter("fid", fid).setMaxResults(5).getResultList();
         return crops.stream();
     }
 

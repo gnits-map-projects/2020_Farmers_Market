@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Tue Mar 03 12:02:23 IST 2020
+// @DATE:Thu Mar 05 09:55:41 IST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -70,7 +70,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:43
+  // @LINE:45
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -78,7 +78,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:43
+    // @LINE:45
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -97,6 +97,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:42
+    def updateRegister: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RegisterController.updateRegister",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "updateProfile/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
   
     // @LINE:38
     def getFarmer: JavaScriptReverseRoute = JavaScriptReverseRoute(

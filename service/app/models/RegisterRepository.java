@@ -16,4 +16,6 @@ public interface RegisterRepository {
     CompletionStage<Register> getFarmer(Long fid);
 
     abstract Register login(String email,String password);
+
+    public CompletionStage<Register> update(Long id, String name, String email, String password, String mobile);
 }
