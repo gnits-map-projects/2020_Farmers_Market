@@ -8,12 +8,14 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import ListCropTypes from './listCropTypes.js'
 
+var buyer
 class CropsIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
             'items' : [],
-            location : this.props.match.params.location
+            location : this.props.match.params.location,
+            id : this.props.match.params.id
         };
     
         //this.handleChange = this.handleChange.bind(this);
@@ -66,7 +68,7 @@ class CropsIn extends Component {
                                 <Row>
                                 <Col xs="3">{item.name}</Col><Col xs="3">{item.area}</Col><Col xs="4">{item.location}</Col>
                                 {/* <Col>{item.price}</Col> */}
-                                <Col xs = "2"><button id={item.id} className="btn btn-success">Bid</button></Col>
+                                <Col xs = "2"><button id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + this.state.id}}>Bid</button></Col>
                                 </Row><Row><br/></Row>
                             </div>
                        );
@@ -74,7 +76,9 @@ class CropsIn extends Component {
                </ul>
                </div>
                </Container>
-               <br/>
+               <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+               <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/><br/> <br/>
+               <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/><br/> <br/>
             </div>
             </div>
             </div>

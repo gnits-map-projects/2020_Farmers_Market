@@ -20,7 +20,7 @@ export default class UserHome extends Component{
 render() {
     var uid=this.props.match.params.id
     return (<div>
-        <Nav/>
+        <Nav uid = {uid}/>
     <div className = "userhomebg">
     <div className="wrapper">
     <div className="main_content">
@@ -56,9 +56,9 @@ render() {
                 
             </Row>
         </Container>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
     </div>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </div>
+   
     </div>
     );
 }

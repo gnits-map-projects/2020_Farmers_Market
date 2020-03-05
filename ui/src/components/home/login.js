@@ -67,11 +67,13 @@ class Login extends Component{
               if(urole=="farmer"){
                 window.localStorage.setItem("username",uname)
                 window.localStorage.setItem("uid",uid);
+                window.sessionStorage.setItem("uid",uid);
                 window.location.href  = "/userhome/"+uid;
                 }  //"/userhome" 
               else if(urole=="buyer"){
                 window.localStorage.setItem("username",uname)
                 window.localStorage.setItem("uid",uid);
+                window.sessionStorage.setItem("uid",uid);
                 window.location.href  = "/buyerhome/"+uid;  
                 
                 //alert("buyer")

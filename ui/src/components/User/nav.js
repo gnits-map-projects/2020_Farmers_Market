@@ -9,6 +9,9 @@ NavDropdown,
 class Navigation extends Component {
     constructor(props) {
         super(props);
+        this.state ={
+            uid : this.props.uid,
+        }
     }
     render(){
         return (
@@ -21,8 +24,8 @@ class Navigation extends Component {
                     <Nav>
                         <Nav.Link href="/Home">HOME</Nav.Link>
                         <NavDropdown title={window.localStorage.getItem("username")} id="basic-nav-dropdown">
-                            <NavDropdown.Item href="">Profile</NavDropdown.Item>
-                            <NavDropdown.Item href="/Home" onClick={ sessionStorage.clear() }>Sign out</NavDropdown.Item>
+                            <NavDropdown.Item href={"/updateProfile/" + this.state.uid}>Profile</NavDropdown.Item>
+                            <NavDropdown.Item href="/Home" onClick={() => window.sessionStorage.clear() }>Sign out</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>

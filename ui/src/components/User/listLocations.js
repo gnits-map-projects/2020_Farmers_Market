@@ -18,14 +18,15 @@ export default class ListLocations extends Component {
   
   handleChange(selectedOption){
     console.log(selectedOption.value)
-    window.location.href  = "/cropsIn/" + selectedOption.value;
+    window.location.href  = "/cropsIn/" + selectedOption.value +'/' +this.state.id;
   }
 
   constructor(props) {
         super(props);
         this.state = {
             'locationOptions' : [],
-            location:""
+            location:"",
+            'id' : this.props.id
         };
         this.handleChange = this.handleChange.bind(this);
     }

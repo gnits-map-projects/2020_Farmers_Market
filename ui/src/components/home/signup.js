@@ -51,7 +51,7 @@ const { name, value } = event.target;
 let errors = this.state.errors;
 errors.name =
 value.length < 5
-? 'Full Name must be 3 characters long!'
+? 'Full Name must be 5 characters long!'
 : '';
 if(errors.name == '')
 {
@@ -155,7 +155,7 @@ body: JSON.stringify(body)
 .then(response => response.json())
 .then(contents => {console.log(contents);})
 .catch(()=> console.log("can't access " + url + " response. "))
-alert("Details inserted successfully!");
+alert("Registration successful!");
 //this.props.history.push("/login");
 window.location.href = '/login'
 }

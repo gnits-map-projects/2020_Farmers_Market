@@ -25,9 +25,11 @@ export default class Home extends Component {
 
     componentWillMount(){
       // alert(window.localStorage.getItem("uid")) 
-      if (window.localStorage.getItem("uid") == null){    ////Call back to be tried
+      if (window.sessionStorage.getItem("uid") == null){    ////Call back to be tried
+          console.log("Not logged in.")
           Nav = NavUnset;
         } else{
+          console.log("Logged in." + window.sessionStorage.getItem("uid"))
           Nav = NavSet;
         }
         console.log(Nav)
@@ -53,17 +55,19 @@ Farmers can use the upfront money to pay for the crop and insure it against any 
 scenarios.
                 </p></h2>
 
+                <br/><br/>
+
 
       <div className="containerSlide">
           <Slide {...properties}>
               <div  className="each-slide">
-                  <div><img src={slide1} height = "500px" width = "2000px"/></div>
+                  <div><img src={slide1} height = "700px" width = "1900px"/></div>
               </div>
               <div className="each-slide" >
-                  <div><img src={slide2} height = "500px" width = "2000px"/></div>
+                  <div><img src={slide2} height = "700px" width = "1900px"/></div>
               </div>
                <div  className="each-slide">
-                  <div><img src={slide3} height = "500px" width = "2000px"/></div>
+                  <div><img src={slide3} height = "700px" width = "1900px"/></div>
               </div>
           </Slide>
       </div>

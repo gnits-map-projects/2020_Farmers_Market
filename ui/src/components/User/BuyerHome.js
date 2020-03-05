@@ -28,7 +28,7 @@ render() {
     </div>
     <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
         <Container >
-        <ListLocations/>
+        <ListLocations id={this.state.id}/>
         <br/>
         <Row>
         <Col>

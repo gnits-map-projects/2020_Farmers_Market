@@ -14,6 +14,7 @@ import { BrowserRouter as Router,
    import AdminLogin from "./components/home/AdminLogin.js";
    import CropCheck from "./components/User/cropCheck.js";
    import CropBid from "./components/User/cropBid.js";
+   import UpdateProfile from "./components/home/updateProfile.js";
 
 
 class App extends Component {
@@ -38,9 +39,10 @@ class App extends Component {
             <Route path="/adminhome/:id" component={ AdminHome }/>
             <Route path="/buyerhome/:id" component={ BuyerHome }/>
             <Route path="/adminlogin" component= { AdminLogin }/>
-            <Route path="/cropsIn/:location" component= { CropsIn }/>
+            <Route path="/cropsIn/:location/:id" component= { CropsIn }/>
             <Route path="/cropCheck/:id/:fid" component= { CropCheck }/>
             <Route path="/cropBid/:id/:fid/:buyerId" component= { CropBid }/>
+            <Route path="/updateProfile/:id" component= { UpdateProfile }/>
                 </Switch>
             </Router>
             </div>
