@@ -1,12 +1,15 @@
 products:
+   app/controllers/BiddingController.java -> build/playBinary/classes/controllers/BiddingController.class
    app/controllers/CropController.java -> build/playBinary/classes/controllers/CropController.class
    app/controllers/PersonController.java -> build/playBinary/classes/controllers/PersonController.class
    app/controllers/RegisterController.java -> build/playBinary/classes/controllers/RegisterController.class
    app/controllers/UncheckedCropController.java -> build/playBinary/classes/controllers/UncheckedCropController.class
    app/models/Bidding.java -> build/playBinary/classes/models/Bidding.class
+   app/models/BiddingRepository.java -> build/playBinary/classes/models/BiddingRepository.class
    app/models/Crop.java -> build/playBinary/classes/models/Crop.class
    app/models/CropRepository.java -> build/playBinary/classes/models/CropRepository.class
    app/models/DatabaseExecutionContext.java -> build/playBinary/classes/models/DatabaseExecutionContext.class
+   app/models/JPABiddingRepository.java -> build/playBinary/classes/models/JPABiddingRepository.class
    app/models/JPACropRepository.java -> build/playBinary/classes/models/JPACropRepository.class
    app/models/JPAPersonRepository.java -> build/playBinary/classes/models/JPAPersonRepository.class
    app/models/JPARegisterRepository.java -> build/playBinary/classes/models/JPARegisterRepository.class
@@ -18,11 +21,13 @@ products:
    app/models/UncheckedCrop.java -> build/playBinary/classes/models/UncheckedCrop.class
    app/models/UncheckedCropRepository.java -> build/playBinary/classes/models/UncheckedCropRepository.class
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReverseAssets.class
+   build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReverseBiddingController.class
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReverseCropController.class
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReversePersonController.class
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReverseRegisterController.class
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> build/playBinary/classes/controllers/ReverseUncheckedCropController.class
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> build/playBinary/classes/controllers/javascript/ReverseAssets.class
+   build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> build/playBinary/classes/controllers/javascript/ReverseBiddingController.class
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> build/playBinary/classes/controllers/javascript/ReverseCropController.class
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> build/playBinary/classes/controllers/javascript/ReversePersonController.class
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> build/playBinary/classes/controllers/javascript/ReverseRegisterController.class
@@ -38,6 +43,8 @@ products:
    build/src/play/binary/twirlTemplatesScalaSources/views/html/main.template.scala -> build/playBinary/classes/views/html/main$.class
    build/src/play/binary/twirlTemplatesScalaSources/views/html/main.template.scala -> build/playBinary/classes/views/html/main.class
 binary dependencies:
+   app/controllers/BiddingController.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
+   app/controllers/BiddingController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play_2.12/2.6.21/30f4b40d6f7f6d7e56810e1b18f96c0e4bd60b8d/play_2.12-2.6.21.jar
    app/controllers/CropController.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/controllers/CropController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-forms_2.12/2.6.21/1025b34708ab59bca73ed4a8519601ecb7ee7bfc/play-java-forms_2.12-2.6.21.jar
    app/controllers/CropController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play_2.12/2.6.21/30f4b40d6f7f6d7e56810e1b18f96c0e4bd60b8d/play_2.12-2.6.21.jar
@@ -52,11 +59,15 @@ binary dependencies:
    app/controllers/UncheckedCropController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-forms_2.12/2.6.21/1025b34708ab59bca73ed4a8519601ecb7ee7bfc/play-java-forms_2.12-2.6.21.jar
    app/controllers/UncheckedCropController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play_2.12/2.6.21/30f4b40d6f7f6d7e56810e1b18f96c0e4bd60b8d/play_2.12-2.6.21.jar
    app/models/Bidding.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
+   app/models/BiddingRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/models/Crop.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/models/CropRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/models/DatabaseExecutionContext.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/models/DatabaseExecutionContext.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.akka/akka-actor_2.12/2.5.19/24707fdb38b1d8e74ccfe816f9fa145cf8c097e3/akka-actor_2.12-2.5.19.jar
    app/models/DatabaseExecutionContext.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.12.6/6bd975dd5ca2a50b94413b708389b892ae423181/scala-library-2.12.6.jar
+   app/models/JPABiddingRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
+   app/models/JPABiddingRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-jpa_2.12/2.6.21/520c62491bc9a506f48033a8f192e75b751fabb1/play-java-jpa_2.12-2.6.21.jar
+   app/models/JPABiddingRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/1.0.2/cc986fd1a62ae50308a56041c7a7d52ee5f49fb6/hibernate-jpa-2.1-api-1.0.2.jar
    app/models/JPACropRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/models/JPACropRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-jpa_2.12/2.6.21/520c62491bc9a506f48033a8f192e75b751fabb1/play-java-jpa_2.12-2.6.21.jar
    app/models/JPACropRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/1.0.2/cc986fd1a62ae50308a56041c7a7d52ee5f49fb6/hibernate-jpa-2.1-api-1.0.2.jar
@@ -100,6 +111,9 @@ binary dependencies:
    build/src/play/binary/twirlTemplatesScalaSources/views/html/main.template.scala -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/twirl-api_2.12/1.3.15/961caec29c1d612828b99192f0f54abe39ca898a/twirl-api_2.12-1.3.15.jar
    build/src/play/binary/twirlTemplatesScalaSources/views/html/main.template.scala -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.12.6/6bd975dd5ca2a50b94413b708389b892ae423181/scala-library-2.12.6.jar
 source dependencies:
+   app/controllers/BiddingController.java -> app/controllers/BiddingController.java
+   app/controllers/BiddingController.java -> app/models/Bidding.java
+   app/controllers/BiddingController.java -> app/models/BiddingRepository.java
    app/controllers/CropController.java -> app/controllers/CropController.java
    app/controllers/CropController.java -> app/models/Crop.java
    app/controllers/CropController.java -> app/models/CropRepository.java
@@ -119,10 +133,15 @@ source dependencies:
    app/controllers/UncheckedCropController.java -> app/models/UncheckedCrop.java
    app/controllers/UncheckedCropController.java -> app/models/UncheckedCropRepository.java
    app/models/Bidding.java -> app/models/Bidding.java
+   app/models/BiddingRepository.java -> app/models/Bidding.java
+   app/models/BiddingRepository.java -> app/models/BiddingRepository.java
    app/models/Crop.java -> app/models/Crop.java
    app/models/CropRepository.java -> app/models/Crop.java
    app/models/CropRepository.java -> app/models/CropRepository.java
    app/models/DatabaseExecutionContext.java -> app/models/DatabaseExecutionContext.java
+   app/models/JPABiddingRepository.java -> app/models/Bidding.java
+   app/models/JPABiddingRepository.java -> app/models/DatabaseExecutionContext.java
+   app/models/JPABiddingRepository.java -> app/models/JPABiddingRepository.java
    app/models/JPACropRepository.java -> app/models/Crop.java
    app/models/JPACropRepository.java -> app/models/DatabaseExecutionContext.java
    app/models/JPACropRepository.java -> app/models/JPACropRepository.java
@@ -148,6 +167,7 @@ source dependencies:
    build/src/play/binary/routesScalaSources/controllers/routes.java -> build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala
    build/src/play/binary/routesScalaSources/controllers/routes.java -> build/src/play/binary/routesScalaSources/controllers/routes.java
    build/src/play/binary/routesScalaSources/controllers/routes.java -> build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala
+   build/src/play/binary/routesScalaSources/router/Routes.scala -> app/controllers/BiddingController.java
    build/src/play/binary/routesScalaSources/router/Routes.scala -> app/controllers/CropController.java
    build/src/play/binary/routesScalaSources/router/Routes.scala -> app/controllers/PersonController.java
    build/src/play/binary/routesScalaSources/router/Routes.scala -> app/controllers/RegisterController.java
@@ -160,14 +180,17 @@ source dependencies:
    build/src/play/binary/twirlTemplatesScalaSources/views/html/main.template.scala -> build/src/play/binary/routesScalaSources/controllers/routes.java
 external dependencies:
 class names:
+   app/controllers/BiddingController.java -> controllers.BiddingController
    app/controllers/CropController.java -> controllers.CropController
    app/controllers/PersonController.java -> controllers.PersonController
    app/controllers/RegisterController.java -> controllers.RegisterController
    app/controllers/UncheckedCropController.java -> controllers.UncheckedCropController
    app/models/Bidding.java -> models.Bidding
+   app/models/BiddingRepository.java -> models.BiddingRepository
    app/models/Crop.java -> models.Crop
    app/models/CropRepository.java -> models.CropRepository
    app/models/DatabaseExecutionContext.java -> models.DatabaseExecutionContext
+   app/models/JPABiddingRepository.java -> models.JPABiddingRepository
    app/models/JPACropRepository.java -> models.JPACropRepository
    app/models/JPAPersonRepository.java -> models.JPAPersonRepository
    app/models/JPARegisterRepository.java -> models.JPARegisterRepository
@@ -179,11 +202,13 @@ class names:
    app/models/UncheckedCrop.java -> models.UncheckedCrop
    app/models/UncheckedCropRepository.java -> models.UncheckedCropRepository
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReverseAssets
+   build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReverseBiddingController
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReverseCropController
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReversePersonController
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReverseRegisterController
    build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala -> controllers.ReverseUncheckedCropController
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> controllers.javascript.ReverseAssets
+   build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> controllers.javascript.ReverseBiddingController
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> controllers.javascript.ReverseCropController
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> controllers.javascript.ReversePersonController
    build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala -> controllers.javascript.ReverseRegisterController

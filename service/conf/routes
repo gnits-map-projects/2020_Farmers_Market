@@ -37,6 +37,8 @@ DELETE  /rejectCrop/:cid            controllers.UncheckedCropController.deleteCr
 
 GET   /getFarmer/:fid                 controllers.RegisterController.getFarmer(fid: Long)
 
+POST  /insertBid                    controllers.BiddingController.add()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 

@@ -20,65 +20,35 @@ public class Bidding {
         this.id = id;
     }
 
-    public String name;
+    public Long buyerId;
 
-    public String getName() {
-        return name;
+    public Long getBuyerId() {
+        return buyerId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBuyerId(Long buyerId) {
+        this.buyerId = buyerId;
     }
 
-    public String area;
+    public Long cropId;
 
-    public String getArea() {
-        return area;
+    public Long getCropId() {
+        return cropId;
     }
 
-    public void setArea(String area) {
-        this.area = area;
+    public void setCropId(Long cropId) {
+        this.cropId = cropId;
     }
 
-    public String endtime;
+    public Long biddingPrice;
 
-    public String getEndtime() {
-        return endtime;
+    public Long getBiddingPrice() {
+        return biddingPrice;
     }
 
-    public void setEndtime(String endtime) {
-        this.endtime = endtime;
-    }
+    public void setBiddingPrice(Long biddingPrice) { this.biddingPrice = biddingPrice; }
 
-    public String duration;
 
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public String location;
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Long price;
-
-    public Long getPrice() {
-        return price;
-    }
-
-    public void setPrice(Long price) {
-        this.price = price;
-    }
 }
 
 

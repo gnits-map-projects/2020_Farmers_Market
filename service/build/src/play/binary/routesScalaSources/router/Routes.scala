@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Mon Mar 02 14:50:01 IST 2020
+// @DATE:Tue Mar 03 12:02:23 IST 2020
 
 package router
 
@@ -16,13 +16,15 @@ class Routes(
   // @LINE:6
   PersonController_0: controllers.PersonController,
   // @LINE:12
-  UncheckedCropController_3: controllers.UncheckedCropController,
+  UncheckedCropController_4: controllers.UncheckedCropController,
   // @LINE:20
   RegisterController_2: controllers.RegisterController,
   // @LINE:24
   CropController_1: controllers.CropController,
-  // @LINE:41
-  Assets_4: controllers.Assets,
+  // @LINE:40
+  BiddingController_3: controllers.BiddingController,
+  // @LINE:43
+  Assets_5: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -31,18 +33,20 @@ class Routes(
     // @LINE:6
     PersonController_0: controllers.PersonController,
     // @LINE:12
-    UncheckedCropController_3: controllers.UncheckedCropController,
+    UncheckedCropController_4: controllers.UncheckedCropController,
     // @LINE:20
     RegisterController_2: controllers.RegisterController,
     // @LINE:24
     CropController_1: controllers.CropController,
-    // @LINE:41
-    Assets_4: controllers.Assets
-  ) = this(errorHandler, PersonController_0, UncheckedCropController_3, RegisterController_2, CropController_1, Assets_4, "/")
+    // @LINE:40
+    BiddingController_3: controllers.BiddingController,
+    // @LINE:43
+    Assets_5: controllers.Assets
+  ) = this(errorHandler, PersonController_0, UncheckedCropController_4, RegisterController_2, CropController_1, BiddingController_3, Assets_5, "/")
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, PersonController_0, UncheckedCropController_3, RegisterController_2, CropController_1, Assets_4, prefix)
+    new Routes(errorHandler, PersonController_0, UncheckedCropController_4, RegisterController_2, CropController_1, BiddingController_3, Assets_5, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -69,6 +73,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getCropTypes/""" + "$" + """location<[^/]+>""", """controllers.CropController.getCropTypes(location:String)"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rejectCrop/""" + "$" + """cid<[^/]+>""", """controllers.UncheckedCropController.deleteCrop(cid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getFarmer/""" + "$" + """fid<[^/]+>""", """controllers.RegisterController.getFarmer(fid:Long)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """insertBid""", """controllers.BiddingController.add()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -172,7 +177,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addUncheckedCrop")))
   )
   private[this] lazy val controllers_UncheckedCropController_addUncheckedCrop5_invoker = createInvoker(
-    UncheckedCropController_3.addUncheckedCrop(),
+    UncheckedCropController_4.addUncheckedCrop(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UncheckedCropController",
@@ -190,7 +195,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getUncheckedCrops")))
   )
   private[this] lazy val controllers_UncheckedCropController_getUncheckedCrops6_invoker = createInvoker(
-    UncheckedCropController_3.getUncheckedCrops(),
+    UncheckedCropController_4.getUncheckedCrops(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UncheckedCropController",
@@ -208,7 +213,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getUncheckedCrop/"), DynamicPart("cid", """[^/]+""",true)))
   )
   private[this] lazy val controllers_UncheckedCropController_getUncheckedCrop7_invoker = createInvoker(
-    UncheckedCropController_3.getUncheckedCrop(fakeValue[Long]),
+    UncheckedCropController_4.getUncheckedCrop(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UncheckedCropController",
@@ -226,7 +231,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("approveCrop/"), DynamicPart("cid", """[^/]+""",true)))
   )
   private[this] lazy val controllers_UncheckedCropController_approveCrop8_invoker = createInvoker(
-    UncheckedCropController_3.approveCrop(fakeValue[Long]),
+    UncheckedCropController_4.approveCrop(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UncheckedCropController",
@@ -388,7 +393,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("rejectCrop/"), DynamicPart("cid", """[^/]+""",true)))
   )
   private[this] lazy val controllers_UncheckedCropController_deleteCrop17_invoker = createInvoker(
-    UncheckedCropController_3.deleteCrop(fakeValue[Long]),
+    UncheckedCropController_4.deleteCrop(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UncheckedCropController",
@@ -419,12 +424,30 @@ class Routes(
     )
   )
 
-  // @LINE:41
-  private[this] lazy val controllers_Assets_at19_route = Route("GET",
+  // @LINE:40
+  private[this] lazy val controllers_BiddingController_add19_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("insertBid")))
+  )
+  private[this] lazy val controllers_BiddingController_add19_invoker = createInvoker(
+    BiddingController_3.add(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.BiddingController",
+      "add",
+      Nil,
+      "POST",
+      this.prefix + """insertBid""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:43
+  private[this] lazy val controllers_Assets_at20_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at19_invoker = createInvoker(
-    Assets_4.at(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_Assets_at20_invoker = createInvoker(
+    Assets_5.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -473,25 +496,25 @@ class Routes(
     // @LINE:12
     case controllers_UncheckedCropController_addUncheckedCrop5_route(params@_) =>
       call { 
-        controllers_UncheckedCropController_addUncheckedCrop5_invoker.call(UncheckedCropController_3.addUncheckedCrop())
+        controllers_UncheckedCropController_addUncheckedCrop5_invoker.call(UncheckedCropController_4.addUncheckedCrop())
       }
   
     // @LINE:14
     case controllers_UncheckedCropController_getUncheckedCrops6_route(params@_) =>
       call { 
-        controllers_UncheckedCropController_getUncheckedCrops6_invoker.call(UncheckedCropController_3.getUncheckedCrops())
+        controllers_UncheckedCropController_getUncheckedCrops6_invoker.call(UncheckedCropController_4.getUncheckedCrops())
       }
   
     // @LINE:16
     case controllers_UncheckedCropController_getUncheckedCrop7_route(params@_) =>
       call(params.fromPath[Long]("cid", None)) { (cid) =>
-        controllers_UncheckedCropController_getUncheckedCrop7_invoker.call(UncheckedCropController_3.getUncheckedCrop(cid))
+        controllers_UncheckedCropController_getUncheckedCrop7_invoker.call(UncheckedCropController_4.getUncheckedCrop(cid))
       }
   
     // @LINE:18
     case controllers_UncheckedCropController_approveCrop8_route(params@_) =>
       call(params.fromPath[Long]("cid", None)) { (cid) =>
-        controllers_UncheckedCropController_approveCrop8_invoker.call(UncheckedCropController_3.approveCrop(cid))
+        controllers_UncheckedCropController_approveCrop8_invoker.call(UncheckedCropController_4.approveCrop(cid))
       }
   
     // @LINE:20
@@ -545,7 +568,7 @@ class Routes(
     // @LINE:36
     case controllers_UncheckedCropController_deleteCrop17_route(params@_) =>
       call(params.fromPath[Long]("cid", None)) { (cid) =>
-        controllers_UncheckedCropController_deleteCrop17_invoker.call(UncheckedCropController_3.deleteCrop(cid))
+        controllers_UncheckedCropController_deleteCrop17_invoker.call(UncheckedCropController_4.deleteCrop(cid))
       }
   
     // @LINE:38
@@ -554,10 +577,16 @@ class Routes(
         controllers_RegisterController_getFarmer18_invoker.call(RegisterController_2.getFarmer(fid))
       }
   
-    // @LINE:41
-    case controllers_Assets_at19_route(params@_) =>
+    // @LINE:40
+    case controllers_BiddingController_add19_route(params@_) =>
+      call { 
+        controllers_BiddingController_add19_invoker.call(BiddingController_3.add())
+      }
+  
+    // @LINE:43
+    case controllers_Assets_at20_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at19_invoker.call(Assets_4.at(path, file))
+        controllers_Assets_at20_invoker.call(Assets_5.at(path, file))
       }
   }
 }
