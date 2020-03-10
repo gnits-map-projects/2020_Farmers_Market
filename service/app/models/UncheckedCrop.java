@@ -31,6 +31,16 @@ public class UncheckedCrop {
         this.name = name;
     }
 
+    public String location;
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public Long area;
 
     public Long getArea() {
@@ -39,6 +49,26 @@ public class UncheckedCrop {
 
     public void setArea(Long area) {
         this.area = area;
+    }
+
+    public Long price;
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    public Date starttime;
+
+    public Date getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(Date starttime) {
+        this.starttime = starttime;
     }
 
     public Date endtime;
@@ -51,35 +81,28 @@ public class UncheckedCrop {
         this.endtime = endtime;
     }
 
-    public Long duration;
+    public Date bidendtime;
 
-    public Long getDuration() {
-        return duration;
+    public Date getBidendtime() {
+        return bidendtime;
     }
 
-    public void setDuration(Long duration) {
-        this.duration = duration;
+    public void setBidendtime(Date bidendtime) {
+        this.bidendtime = bidendtime;
     }
 
-    public String location;
+    public String transport;
 
-    public String getLocation() {
-        return location;
-    }
+    public String getTransport() { return transport;}
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    public void setTransport(String transport) { this.transport = transport; }
 
-    public Long price;
+    public String description;
 
-    public Long getPrice() {
-        return price;
-    }
+    public String getDescription() { return description;}
 
-    public void setPrice(Long price) {
-        this.price = price;
-    }
+    public void setDescription(String description) { this.description = description; }
+
 
     public Long fid;
 
