@@ -16,8 +16,8 @@ class Navigation extends Component {
     render(){
         return (
             <div>
-            <Navbar bg="light" expand="md">
-                <Navbar.Brand href="#home"><h3><b>FARMER'S MARKET</b></h3></Navbar.Brand>
+            <Navbar className="navbar-light" expand="md">
+                <Navbar.Brand href="/Home"><h3><b>FARMER'S MARKET</b></h3></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto"></Nav>

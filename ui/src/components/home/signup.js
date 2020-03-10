@@ -3,8 +3,11 @@ import { useHistory, withRouter,Link } from "react-router-dom";
 import './home.css';
 import Navigation from './Nav.js';
 import Form from 'react-bootstrap/Form';
+import TandC from './tandc.js';
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
-
+var result;
 var body;
 const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 const validMobileRegex = RegExp(/^[6-9]{1}[0-9]{9}$/);
@@ -47,17 +50,14 @@ return this.state.name.length > 0 && this.state.passwordd.length > 5 ;
 
 
 handleNameChange = event => {
-const { name, value } = event.target;
-let errors = this.state.errors;
-errors.name =
-value.length < 5
-? 'Full Name must be 5 characters long!'
-: '';
-if(errors.name == '')
-{
-this.setState({n : true});
-}
-this.setState({errors, [name]: value});
+    const { name, value } = event.target;
+    let errors = this.state.errors;
+    errors.name = value.length < 5 ? 'Full Name must be 5 characters long!' : '';
+    if(errors.name == '')
+    {
+        this.setState({n : true});
+    }
+    this.setState({errors, [name]: value});
 }
 
 handleEmailChange = event => {
@@ -152,10 +152,13 @@ headers:headers,
 method: 'POST',
 body: JSON.stringify(body)
 })
-.then(response => response.json())
-.then(contents => {console.log(contents);})
+.then(response => {if(response.ok){
+    alert("Registration successful!");
+    result = response.json();
+    console.log(result);
+}})
 .catch(()=> console.log("can't access " + url + " response. "))
-alert("Registration successful!");
+
 //this.props.history.push("/login");
 window.location.href = '/login'
 }
@@ -170,71 +173,54 @@ return (<div className ="bg">
 
 <br></br><br/>
 <br/><br/><br/><br/>
+<Row>
+<Col>
+    <TandC/>
+</Col>
+<Col>
 
 <div className="auth-wrapper1">
 <div className="auth-inner">
 <form>
 <center><h3>Sign Up</h3></center>
  
-<div className="form-group">
-<label>Name</label>
-<input type="name"
-name="name"
-id="examplename"
-className="form-control"
-placeholder="Enter name"
-value = {this.state.name}
-onChange = {this.handleNameChange} required/>
-<span className='error'>{errors.name}</span>
-</div>
+    <div className="form-group">
+        <label>Name</label>
+        <input type="name" name="name" id="examplename" className="form-control" placeholder="Enter name" value = {this.state.name} onChange = {this.handleNameChange} required/>
+        <span className='error'>{errors.name}</span>
+    </div>
 
-<div className="form-group">
-<label>Email address</label>
-<input type="email"
-name="email"
-id="exampleEmail"
-className="form-control"
-placeholder="mygmail@gmail.com"
-value = {this.state.email}
-onChange = {this.handleEmailChange} required/>
-<span className='error'>{errors.email}</span>
-</div>
+    <div className="form-group">
+        <label>Email address</label>
+        <input type="email" name="email" id="exampleEmail" className="form-control" placeholder="mygmail@gmail.com" value = {this.state.email}  onChange = {this.handleEmailChange} required/>
+        <span className='error'>{errors.email}</span>
+    </div>
 
-<div className="form-group">
-<label>Mobile</label>
-<input type="phone" name="mobile" className="form-control" id="examplePhone"
-placeholder="Enter mobile number"
-value = {this.state.phoneNumber}
-onChange = {this.handleMobileChange} required/>
-<span className='error'>{errors.mobile}</span>
-</div>
+    <div className="form-group">
+        <label>Mobile</label>
+        <input type="phone" name="mobile" className="form-control" id="examplePhone" placeholder="Enter mobile number" value = {this.state.phoneNumber} onChange = {this.handleMobileChange} required/>
+        <span className='error'>{errors.mobile}</span>
+    </div>
 
-<div key={'inline-radio'} className='form-group'>
-<Form.Label>Role</Form.Label><br />
-<Form.Check inline type='radio' name='role' value='farmer' label='Farmer' onChange={this.handleRoleChange} />
-<Form.Check inline type='radio' name='role' value='buyer' label='Buyer' onChange={this.handleRoleChange} />
-</div>
+    <div key={'inline-radio'} className='form-group'>
+        <Form.Label>Role</Form.Label><br />
+        <Form.Check inline type='radio' name='role' value='farmer' label='Farmer' onChange={this.handleRoleChange} />
+        <Form.Check inline type='radio' name='role' value='buyer' label='Buyer' onChange={this.handleRoleChange} />
+    </div>
 
-<div className="form-group">
-<label>Password</label>
-<input type="password"
-name="password"
-id="examplePassword"
-placeholder="********"
-className="form-control"
-value = {this.state.psw}
-onChange = {this.handlePasswordChange} required/>
-<span className='error'>{errors.password}</span>
-</div>
-<button type="submit" className="btn btn-primary btn-block" onClick = {this.handleSubmit}>Sign Up</button>
-<p className="forgot-password text-right">
-Already registered <a href="/Login">Login?</a>
-</p>
-</form>
-</div>
-
+    <div className="form-group">
+        <label>Password</label>
+        <input type="password" name="password" id="examplePassword" placeholder="********" className="form-control" value = {this.state.psw} onChange = {this.handlePasswordChange} required/>
+        <span className='error'>{errors.password}</span>
+    </div>
+    <button type="submit" className="btn btn-primary btn-block" onClick = {this.handleSubmit}>SIGN UP</button>
+    <p className="forgot-password text-right"> Already registered? <a href="/Login">Login</a></p>
+    </form>
 </div>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
+</Col>
+</Row>
 </div>
 );
 }

@@ -6,7 +6,8 @@
   height: 100%;
   display: flex;
   font-weight: 400;
-  font-family: 'Coronetscript', cursive;
+  font-family: 'Candara';
+  font-size: 24px;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -15,7 +16,9 @@
 
 h1,h2,h3,h4,h5,h6,label,span {
   font-weight: 500;
-  font-family: 'Coronetscript', cursive;
+  font-size: 24px;
+  font-family: 'Candara';
+  margin-left: 10;
 }
 
 body, html, .App, #root,.auth-wrapper {
@@ -35,6 +38,8 @@ body, html, .App, #root,.auth-wrapper {
 .navbar-light {
   background-color: #ffffff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  font-size: 24px;
+  border-right: rgba(34, 35, 58, 0.2);
 }
 
 .auth-wrapper {
@@ -45,13 +50,14 @@ body, html, .App, #root,.auth-wrapper {
 }
 
 .auth-inner {
-  width: 450px;
+  width: 700px;
   margin: auto;
-  background: #ffffff;
+  background: #ffffffda;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all .3s;
+  font-size: 20px;
 }
 
 .auth-wrapper .form-control:focus {
@@ -73,7 +79,7 @@ body, html, .App, #root,.auth-wrapper {
 .forgot-password,
 .forgot-password a {
   text-align: right;
-  font-size: 13px;
+  font-size: 20px;
   padding-top: 10px;
   color: #7f7d7d;
   margin: 0;
@@ -105,10 +111,20 @@ body, html, .App, #root,.auth-wrapper {
   display: none;
   background-color: white;
   overflow: hidden;
+  font-size: 24px;
 }
 
 .cbg{
   background-color: rgba(0, 0, 0, 0.21);
 
+}
+
+::placeholder {
+  font-size: 20px;
+}
+
+.error{
+  font-size: 20px;
+  color: red;
 }
 

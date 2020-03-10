@@ -37,12 +37,12 @@ class Recents extends Component {
     renderList(){
         return this.state.items.map(function(item){
             return(
-                <div key={item.id}>
+                <div key={item.id} className = "cropList">
                     <Row>
-                        <Col xs="3">{item.name}</Col><Col xs="3">{item.area}</Col><Col xs="4">{item.location}</Col>
+                        <Col xs="3">{item.name}</Col><Col xs="3">{item.area} acres</Col><Col xs="4">{item.location}</Col>
                         {/* <Col>{item.price}</Col> */}
                         <Col xs="2"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + '/' + item.fid}}>Bid</button></Col>
-                    </Row><Row><br/></Row>
+                    </Row><hr/>
                 </div>
             )
         })
@@ -50,13 +50,17 @@ class Recents extends Component {
 
     render(){
         return (
-            <div className = "recentbids">
             <div className="auth-inner">
+            <div className = "cropList">
+            <Row>
+                <Col xs="2">CROP</Col><Col xs="1"></Col><Col xs="3">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="1">PRICE</Col><Col xs="1"></Col><Col xs="1">BID</Col>
+            </Row><hr/>
+            </div>
                 <ul>
                    {this.renderList()}
                </ul>
             </div>
-            </div>
+
         );
     }
 }

@@ -50,11 +50,16 @@ class CropsToCheck extends Component {
     render(){
         return this.state.items.map(function(item){
             return(
-                <div key={item.id}>
+                <div key={item.id} className= "cropList">
+
                     <Row>
-                        <Col>{item.name}</Col><Col>{item.area}</Col><Col>{item.location}</Col><Col>{item.price}</Col>
-                        <Col><button type="submit" id={item.id} className="btn btn-primary" onClick={() => {window.location.href = "/cropCheck/" + item.id + "/" + item.fid}}>Check</button></Col>
-                    </Row><Row><br/></Row>
+                        <Col xs="2">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="1"></Col><Col xs="1">CHECK</Col>
+                    </Row><hr/>
+                    <Row>
+                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col><Col xs="1"></Col>
+                        <Col xs="1"><button type="submit" id={item.id} className="btn btn-primary" onClick={() => {window.location.href = "/cropCheck/" + item.id + "/" + item.fid}}>Check</button></Col>
+                    </Row>
+                    <Row><br/></Row>
                 </div>
             )
         })

@@ -23,7 +23,7 @@ class PastBids extends Component {
                 <ul>
                    {this.state.items.map(function(item){
                        return(
-                           <div key={item.id}>
+                           <div key={item.id} className = "cropList">
                                 <h2>{item.name},{item.area},{item.location},{item.price}</h2>
                                 <button className="btn btn-warning btn-block" onClick={() => this.handleSubmit(item.id).bind(this)}>Bid</button>
                            </div>

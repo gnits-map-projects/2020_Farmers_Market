@@ -3,7 +3,6 @@ import logo from '../images/userhome.jpg';
 import '../images/bgimage.css';
 import './UserHome.css'
 import Nav from './nav.js';
-import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Recents from "./recentBids";
@@ -27,20 +26,18 @@ render() {
     </div>
     </div>
     <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
-        <Container >
             <Row>
-                <Col xs = "5">
+                <Col xs="6">
                     <br/><h1>Add Crop</h1><br/>
                     <div>
                         <CropForm id={uid}/>
                     </div> 
                 </Col>
-                <Col xs = "2"></Col>
-                <Col xs = "5">
-                    <Row>
-                        <br/><br/><h1>Your Crops</h1><br/><br/>
+                <Col xs="6">
+                    <Row> 
+                        <br/><br/><h1>Your Crops</h1><br/><br/><br/>
                         <div>
-                        <br/>
+                        <br/><br/><br/>
                             <Recents id={uid}/>
                         </div>
                     </Row>
@@ -48,14 +45,14 @@ render() {
                     <Row>
                         <br/><h1>Recent Crops</h1><br/><br/>
                         <div>    
-                        <br/>                   
+                        <br/> <br/><br/>                  
                             <BidsToBuy/>
                         </div>
                     </Row>
                 </Col>
                 
             </Row>
-        </Container>
+
     </div>
     </div>
    

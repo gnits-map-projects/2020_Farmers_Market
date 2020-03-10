@@ -4,7 +4,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: 'Coronetscript', cursive;
+  font-family: 'Candara';
 }
 
 body{
@@ -112,7 +112,8 @@ color: #020202;
   height: 100%;
   display: flex;
   font-weight: 400;
-  font-family: 'Coronetscript', cursive;
+  font-family: 'Candara';
+  font-size: 24px;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -144,6 +145,7 @@ color: #020202;
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all .3s;
+  font-size: 24px;
 }
 
 @media (max-height: 500px){
@@ -154,4 +156,8 @@ color: #020202;
   .cont{
     width : 80%;
   }
+}
+
+.cropList {
+  font-size: 20px;
 }
