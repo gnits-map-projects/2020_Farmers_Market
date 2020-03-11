@@ -27,6 +27,14 @@
 .App-link {
   color: #61dafb;
 }
+.bg{
+  background-image: url("./images/userhome.jpg");
+  width: auto;
+  margin: inherit;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: scroll;
+}
 
 @keyframes App-logo-spin {
   from {

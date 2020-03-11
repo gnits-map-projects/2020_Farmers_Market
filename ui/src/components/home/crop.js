@@ -2,6 +2,9 @@ import React, { Component } from "react";
 //import { useHistory, withRouter,Link } from "react-router-dom";
 import './home.css';
 import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+
 var body;
 
 //var uid = window.uid;
@@ -44,6 +47,8 @@ class CropForm extends Component{
         location : '',
         transport : '',
         description : '',
+        quantitymin : '',
+        quantitymax : '',
         uid : this.props.id,
       }
       this.handleNameChange = this.handleNameChange.bind(this);
@@ -55,6 +60,8 @@ class CropForm extends Component{
       this.handleBidendtimeChange = this.handleBidendtimeChange.bind(this);
       this.handleTransportChange = this.handleTransportChange.bind(this);
       this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+      this.handleQuantityminChange = this.handleQuantityminChange.bind(this);
+      this.handleQuantitymaxChange = this.handleQuantitymaxChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       //alert(today)
     }
@@ -113,6 +120,18 @@ class CropForm extends Component{
         });
       }
 
+    handleQuantityminChange = event => {
+        this.setState({
+          quantitymin: event.target.value
+        });
+      }
+
+    handleQuantitymaxChange = event => {
+        this.setState({
+          quantitymax: event.target.value
+        });
+      }
+
     handleSubmit(event) {
         event.preventDefault();
         body = {
@@ -125,6 +144,8 @@ class CropForm extends Component{
           location: this.state.location,
           transport: this.state.transport,
           description: this.state.description,
+          quantitymin: this.state.quantitymin,
+          quantitymax: this.state.quantitymax,
           fid: this.state.uid,
          
         }
@@ -159,6 +180,16 @@ class CropForm extends Component{
 
         else if (this.state.transport == "") {
           alert('Please select the transport option')
+    
+        }
+
+        else if (this.state.quantitymin == "") {
+          alert('Please enter the minimum quantity')
+    
+        }
+
+        else if (this.state.quantitymax == "") {
+          alert('Please enter the maximum quantity')
     
         }
     
@@ -202,47 +233,51 @@ class CropForm extends Component{
             <Form onSubmit={this.handleSubmit}><h3>Fill crop form</h3><br/>            
                 <div className="form-group">
                     <label>Crop Name</label>
-                    <input type="Text" name="name" id="examplename" className="form-control" placeholder="Enter name."
+                    <input type="Text" name="name" id="examplename" className="form-control" placeholder="Enter name"
                                 value = {this.state.name} onChange = {this.handleNameChange} />
                 </div>
                 <div className="form-group">
                     <label>Farm Location</label>
-                    <input type="Text" name="location" className="form-control" id="examplelocation" placeholder="Enter location."
+                    <input type="Text" name="location" className="form-control" id="examplelocation" placeholder="Enter location"
                                 value = {this.state.location} onChange = {this.handleLocationChange} />
                 </div>
                 <div className="form-group">
                     <label>Area</label>
-                    <input type="Number" name="area" id="examplearea" className="form-control" placeholder="Enter area in acres."
+                    <input type="Number" name="area" id="examplearea" className="form-control" placeholder="Enter area in acres"
                                 value = {this.state.area} onChange = {this.handleAreaChange} />
                 </div>
 
                 <div className="form-group">
                     <label>Price</label>
-                    <input type="Number" name="price" className="form-control" id="exampleprice" placeholder="Enter price."
+                    <input type="Number" name="price" className="form-control" id="exampleprice" placeholder="Enter price in ₹"
                                 value = {this.state.price} onChange = {this.handlePriceChange} />
                 </div>
 
-                {/* <div className="form-group">
-                    <label>Duration</label>
-                    <input type="Number" name="duration" className="form-control" id="exampleduration" placeholder="Enter duration in days"
-                                value = {this.state.duration} onChange = {this.handleDurationChange} />
-                </div> */}
+                <div className="form-group">
+                    <label>Quantity range: (In quintals)</label>
+                    <Row>
+                    <Col><input type="Number" name="quantitymin" className="form-control" id="examplequantitymin" placeholder="Enter minimum quantity"
+                                value = {this.state.quantitymin} onChange = {this.handleQuantityminChange} /></Col>
+                    <Col><input type="Number" name="quantitymax" className="form-control" id="examplequantitymax" placeholder="Enter maximum quantity"
+                                value = {this.state.quantitymax} onChange = {this.handleQuantitymaxChange} /></Col>
+                    </Row>
+                </div>
 
                 <div className="form-group">
                     <label>Farming start date</label>
-                    <input type="Date" min={today} name="starttime" className="form-control" id="exampleendtime" placeholder="Enter farming start date."
+                    <input type="Date" min={today} name="starttime" className="form-control" id="exampleendtime" placeholder="Enter farming start date"
                                 value = {this.state.starttime} onChange = {this.handleStarttimeChange} />
                 </div>
 
                 <div className="form-group">
                     <label>Harvest date</label>
-                    <input type="Date" min={today} name="endtime" className="form-control" id="exampleendtime" placeholder="Enter harvest date."
+                    <input type="Date" min={today} name="endtime" className="form-control" id="exampleendtime" placeholder="Enter harvest date"
                                 value = {this.state.endtime} onChange = {this.handleEndtimeChange} />
                 </div>
 
                 <div className="form-group">
                     <label>Bid end date</label>
-                    <input type="Date" min={today} max={restrictTo} name="bidendtime" className="form-control" id="exampleendtime" placeholder="Enter bid end date."
+                    <input type="Date" min={today} max={restrictTo} name="bidendtime" className="form-control" id="exampleendtime" placeholder="Enter bid end date"
                                 value = {this.state.bidendtime} onChange = {this.handleBidendtimeChange} />
                 </div>
 
@@ -255,7 +290,7 @@ class CropForm extends Component{
                 <div className="form-group">
                     <label>Other details <i>(Optional)</i></label>
                     <textarea rows = "5" cols = "70" className="form-control" name = "description" 
-                    placeholder = "Enter any extra information that you want your buyer to know and accept." onChange={this.handleTransportChange}/><br/>
+                    placeholder = "Enter any extra information that you want your buyer to know and accept" onChange={this.handleTransportChange}/><br/>
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block" onClick = {this.handleSubmit}>ADD YOUR CROP</button>

@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import CropProfile from './CropProfile'
 import FarmerProfile from './FarmerProfile'
+import TandC from '../home/tandc.js';
 
 var body;
 
@@ -15,12 +16,13 @@ export default class CropBid extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            'data' : [],
+            'data': [],
             cid: this.props.match.params.id,
             fid: this.props.match.params.fid,
             buyerId: this.props.match.params.buyerId,
             'price': '',
             'biddingPrice': '',
+            showBidForm: false,
             
         };
         this.getPrice = this.getPrice.bind(this);
@@ -30,6 +32,10 @@ export default class CropBid extends Component{
 
     getPrice(price){
         this.setState({price : price});
+    }
+
+    handleBidForm () {
+      this.setState({showBidForm: !this.state.showBidForm})
     }
 
     handleBiddingPriceChange (event) {
@@ -50,27 +56,32 @@ export default class CropBid extends Component{
             cropId: this.state.cid,
             biddingPrice: this.state.biddingPrice
         }
-        const url = 'http://localhost:9000/insertBid'
-        console.log("ON CLICK BIDDING.")
-        console.log(body)
-        let headers = new Headers();
+        if(this.state.biddingPrice > this.state.price){
+            const url = 'http://localhost:9000/insertBid'
+            console.log("ON CLICK BIDDING.")
+            console.log(body)
+            let headers = new Headers();
 
-        headers.append('Content-Type', 'application/json');
-        headers.append('Accept', 'application/json');
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', 'application/json');
 
-        headers.append('Access-Control-Allow-origin', url);
-        headers.append('Access-Control-Allow-Credentials', 'true');
+            headers.append('Access-Control-Allow-origin', url);
+            headers.append('Access-Control-Allow-Credentials', 'true');
 
-        headers.append('POST', 'GET', 'DELETE');
+            headers.append('POST', 'GET', 'DELETE');
 
-        fetch(url,{
-            headers: headers,
-            method : 'POST',
-            body: JSON.stringify(body)
-        })
-        .then(response => {if(response.ok){alert("Bid Successful.");
-        window.location.href = "/buyerhome/" + this.state.buyerId}
-        else{alert("Bid UnSuccessful.")}})
+            fetch(url,{
+                headers: headers,
+                method : 'POST',
+                body: JSON.stringify(body)
+            })
+            .then(response => {if(response.ok){alert("Bid Successful.");
+            window.location.href = "/buyerhome/" + this.state.buyerId}
+            else{alert("Bid UnSuccessful.")}})
+        }
+        else{
+            alert('Bidding price not sufficient')
+        }
 
         //TO DO
         //window.location.href = "/buyerhome/" + this.state.buyerId
@@ -78,6 +89,7 @@ export default class CropBid extends Component{
     }
     
     render() {
+        const {showBidForm} = this.state;
         return (<div>
             <Nav/>
         <div className = "userhomebg">
@@ -86,35 +98,36 @@ export default class CropBid extends Component{
         </div>
         </div>
         <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
-            <Container>
-            <Row>
-                <Col>
-                <br/><h1>Crop Profile:</h1><br/>
-                <CropProfile id = {this.state.cid}
-                getPrice = {this.getPrice}/>
-                <br/>
-                </Col>
-            </Row>
-                <Col>
-                <br/><h1>Farmer Profile:</h1><br/>
-                <FarmerProfile id = {this.state.fid}/>
-                <br/>
-                </Col>
-            <Row>
-            <form>
-            <Col><input type="number" min = {this.state.price + 1} placeholder={'Enter > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/></Col>
-            <Col><button type="submit" className="btn btn-primary" onClick={this.bidding}>Bid</button></Col>    
-            {/* // TO DO */}
-            </form>
-            </Row>
-            <Row>
-            Highest Bids        
-            {/* //TO DO */}
-            </Row>            
-            </Container>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
+        <Row>
+            <Col>
+                <Row>
+                    <br/><h1>Crop Profile:</h1><br/>
+                    <hr/></Row><Row>
+                    <CropProfile id = {this.state.cid}
+                    getPrice = {this.getPrice}/>
+                    <br/>
+                </Row>
+                <Row>
+                    <br/><h1>Farmer Profile:</h1><br/>
+                    <hr/></Row><Row>
+                    <FarmerProfile id = {this.state.fid}/>
+                    <br/>
+                </Row>
+            </Col>
+            <Col>
+                <Row>
+                  <TandC handleBidForm={() => this.handleBidForm()}/>
+                </Row>
+                <Row><br/></Row>
+                <Row>
+                <form className="auth-inner">
+                <input type="number" min = {this.state.price + 1} placeholder={'Enter > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/>
+                <button type="submit" className="btn btn-primary" size="lg" disabled = {!showBidForm} onClick={this.bidding}>Bid</button>   
+                </form></Row>
+            </Col>  
+            </Row>          
         </div>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
         </div>
         );
     }

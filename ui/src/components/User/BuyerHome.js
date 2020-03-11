@@ -33,7 +33,7 @@ render() {
         <Row>
         <Col>
         <div background-color="#aacfb0">
-         <br/><h1>Recent Crops</h1><br/>
+         <br/><h1>Bids closing soon</h1><br/>
         <BidsToBuy id={this.state.id}/>
         </div>
         </Col>

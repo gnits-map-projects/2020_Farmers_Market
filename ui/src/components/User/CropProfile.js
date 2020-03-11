@@ -53,9 +53,10 @@ class UncheckedCropProfile extends Component {
             <div className="auth-inner">
                 <Row><Col>Crop :</Col><Col>{this.state.crop.name}<br/></Col></Row>
                 <Row><Col>Location :</Col><Col>{this.state.crop.location}<br/></Col></Row>
-                <Row><Col>Area :</Col><Col>{this.state.crop.area}<br/></Col></Row>
-                <Row><Col>Start date :</Col><Col>{this.state.crop.starttime}<br/></Col></Row>
-                <Row><Col>End date :</Col><Col>{this.state.crop.endtime}<br/></Col></Row>
+                <Row><Col>Area :</Col><Col>{this.state.crop.area} acres<br/></Col></Row>
+                <Row><Col>Farming start date :</Col><Col>{this.state.crop.starttime}<br/></Col></Row>
+                <Row><Col>Harvest date :</Col><Col>{this.state.crop.endtime}<br/></Col></Row>
+                <Row><Col>Bid end date :</Col><Col>{this.state.crop.bidendtime}<br/></Col></Row>
                 <Row><Col>Price :</Col><Col>{this.state.crop.price} ₹<br/></Col></Row>
             </div>
             </div>
