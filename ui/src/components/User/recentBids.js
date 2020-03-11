@@ -39,9 +39,8 @@ class Recents extends Component {
             return(
                 <div key={item.id} className = "cropList">
                     <Row>
-                        <Col xs="3">{item.name}</Col><Col xs="3">{item.area} acres</Col><Col xs="4">{item.location}</Col>
-                        {/* <Col>{item.price}</Col> */}
-                        <Col xs="2"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + '/' + item.fid}}>Bid</button></Col>
+                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="1">{item.price} ₹</Col><Col xs="1"></Col>
+                        <Col xs="1"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/bids/" + item.id +'/'+ item.fid}}>View bids</button></Col>
                     </Row><hr/>
                 </div>
             )
@@ -53,7 +52,7 @@ class Recents extends Component {
             <div className="auth-inner">
             <div className = "cropList">
             <Row>
-                <Col xs="2">CROP</Col><Col xs="1"></Col><Col xs="3">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="1">PRICE</Col><Col xs="1"></Col><Col xs="1">BID</Col>
+                <Col xs="2">CROP</Col><Col xs="1"></Col><Col xs="3">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="1">PRICE</Col><Col xs="1"></Col><Col xs="1">VIEW BIDS</Col>
             </Row><hr/>
             </div>
                 <ul>
