@@ -103,7 +103,26 @@ public class UncheckedCrop {
 
     public void setDescription(String description) { this.description = description; }
 
+    public Long quantitymin;
 
+    public Long getQuantitymin() {
+        return quantitymin;
+    }
+
+    public void setQuantitymin(Long quantitymin) {
+        this.quantitymin = quantitymin;
+    }
+
+    public Long quantitymax;
+
+    public Long getQuantitymax() {
+        return quantitymax;
+    }
+
+    public void setQuantitymax(Long quantitymax) {
+        this.quantitymax = quantitymax;
+    }
+    
     public Long fid;
 
     public Long getFid() {

@@ -81,7 +81,7 @@ public class JPACropRepository implements CropRepository {
     }
 
     private Stream<Crop> listc(EntityManager em) {
-        List<Crop> crops = em.createQuery("select c from Crop c order by c.endtime asc", Crop.class).setMaxResults(5).getResultList();
+        List<Crop> crops = em.createQuery("select c from Crop c order by c.bidendtime asc", Crop.class).setMaxResults(5).getResultList();
         return crops.stream();
     }
 
