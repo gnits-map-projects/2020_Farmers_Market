@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Thu Mar 05 09:55:41 IST 2020
+// @DATE:Wed Mar 11 15:25:28 IST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -70,7 +70,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:45
+  // @LINE:48
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -78,7 +78,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:45
+    // @LINE:48
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -217,6 +217,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:44
+    def getCropBids: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.BiddingController.getCropBids",
+      """
+        function(cid0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getCropBids/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("cid", cid0))})
+        }
+      """
+    )
   
     // @LINE:40
     def add: JavaScriptReverseRoute = JavaScriptReverseRoute(

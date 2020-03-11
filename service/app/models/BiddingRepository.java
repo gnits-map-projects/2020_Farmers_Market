@@ -8,5 +8,7 @@ public interface BiddingRepository {
 
     CompletionStage<Bidding> add(Bidding bidding);
 
+    CompletionStage<Stream<Bidding>> listcb(Long cid);
+
 
 }

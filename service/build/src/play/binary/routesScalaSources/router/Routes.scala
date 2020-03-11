@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Thu Mar 05 09:55:41 IST 2020
+// @DATE:Wed Mar 11 15:25:28 IST 2020
 
 package router
 
@@ -23,7 +23,7 @@ class Routes(
   CropController_1: controllers.CropController,
   // @LINE:40
   BiddingController_3: controllers.BiddingController,
-  // @LINE:45
+  // @LINE:48
   Assets_5: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -40,7 +40,7 @@ class Routes(
     CropController_1: controllers.CropController,
     // @LINE:40
     BiddingController_3: controllers.BiddingController,
-    // @LINE:45
+    // @LINE:48
     Assets_5: controllers.Assets
   ) = this(errorHandler, PersonController_0, UncheckedCropController_4, RegisterController_2, CropController_1, BiddingController_3, Assets_5, "/")
 
@@ -75,6 +75,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getFarmer/""" + "$" + """fid<[^/]+>""", """controllers.RegisterController.getFarmer(fid:Long)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """insertBid""", """controllers.BiddingController.add()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateProfile/""" + "$" + """id<[^/]+>""", """controllers.RegisterController.updateRegister(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getCropBids/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.getCropBids(cid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -461,11 +462,29 @@ class Routes(
     )
   )
 
-  // @LINE:45
-  private[this] lazy val controllers_Assets_at21_route = Route("GET",
+  // @LINE:44
+  private[this] lazy val controllers_BiddingController_getCropBids21_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getCropBids/"), DynamicPart("cid", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_BiddingController_getCropBids21_invoker = createInvoker(
+    BiddingController_3.getCropBids(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.BiddingController",
+      "getCropBids",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """getCropBids/""" + "$" + """cid<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:48
+  private[this] lazy val controllers_Assets_at22_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at21_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at22_invoker = createInvoker(
     Assets_5.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -608,10 +627,16 @@ class Routes(
         controllers_RegisterController_updateRegister20_invoker.call(RegisterController_2.updateRegister(id))
       }
   
-    // @LINE:45
-    case controllers_Assets_at21_route(params@_) =>
+    // @LINE:44
+    case controllers_BiddingController_getCropBids21_route(params@_) =>
+      call(params.fromPath[Long]("cid", None)) { (cid) =>
+        controllers_BiddingController_getCropBids21_invoker.call(BiddingController_3.getCropBids(cid))
+      }
+  
+    // @LINE:48
+    case controllers_Assets_at22_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at21_invoker.call(Assets_5.at(path, file))
+        controllers_Assets_at22_invoker.call(Assets_5.at(path, file))
       }
   }
 }

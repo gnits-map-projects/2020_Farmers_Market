@@ -33,4 +33,10 @@ public class BiddingController extends Controller {
             return ok("Created.");
         }, ec.current());
     }
+
+    public CompletionStage<Result> getCropBids(Long cid) {
+        return biddingRepository.listcb(cid).thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
 }
