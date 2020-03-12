@@ -15,6 +15,7 @@ import { BrowserRouter as Router,
    import CropCheck from "./components/User/cropCheck.js";
    import CropBid from "./components/User/cropBid.js";
    import UpdateProfile from "./components/home/updateProfile.js";
+   import Bids from './components/User/bids.js';
 
 
 class App extends Component {
@@ -43,6 +44,7 @@ class App extends Component {
             <Route path="/cropCheck/:id/:fid" component= { CropCheck }/>
             <Route path="/cropBid/:id/:fid/:buyerId" component= { CropBid }/>
             <Route path="/updateProfile/:id" component= { UpdateProfile }/>
+            <Route path="/bids/:cid/:fid" component= { Bids}/>
                 </Switch>
             </Router>
             </div>

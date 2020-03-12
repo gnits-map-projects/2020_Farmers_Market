@@ -51,6 +51,7 @@ class UncheckedCropProfile extends Component {
         return (
             <div className = "recentbids">
             <div className="auth-inner">
+            <h1>Crop Profile:</h1><hr/>
                 <Row><Col>Crop :</Col><Col>{this.state.crop.name}<br/></Col></Row>
                 <Row><Col>Location :</Col><Col>{this.state.crop.location}<br/></Col></Row>
                 <Row><Col>Area :</Col><Col>{this.state.crop.area} acres<br/></Col></Row>

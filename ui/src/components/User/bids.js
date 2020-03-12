@@ -7,8 +7,10 @@ import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import CropProfile from './CropProfile'
+import BuyerProfile from './BuyerProfile'
 
-var body;
+var profile;
+var buyer;
 
 export default class Bids extends Component{
     constructor(props) {
@@ -16,42 +18,30 @@ export default class Bids extends Component{
         this.state = {
             cid : this.props.match.params.cid,
             fid : this.props.match.params.fid,
+            profile : false,
+            'items' : [],
+            buyer : '',
         };
         this.getPrice = this.getPrice.bind(this);
-        this.bidding = this.bidding.bind(this);
-        this.handleBiddingPriceChange = this.handleBiddingPriceChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     getPrice(price){
         this.setState({price : price});
     }
 
-    handleBidForm () {
-      this.setState({showBidForm: !this.state.showBidForm})
+    handleClick = (event,id) => {
+
+        console.log("hello, id: " +id)
+        console.log(this.state.profile)
+        this.setState({'profile': true})
+        this.setState({'buyer' : id})
+        console.log(this.state.buyer)
+        this.renderProfile()
     }
-
-    handleBiddingPriceChange (event) {
-    this.setState({
-      
-      biddingPrice: event.target.value
-
-    });
-    console.log(event.target.value)
-  }
-
-
-
-    bidding(event) {
-        event.preventDefault();
-        body = {
-            buyerId: this.state.buyerId,
-            cropId: this.state.cid,
-            biddingPrice: this.state.biddingPrice
-        }
-        if(this.state.biddingPrice > this.state.price){
-            const url = 'http://localhost:9000/getCropBids/'+this.state.cid
-            console.log("ON CLICK BIDDING.")
-            console.log(body)
+    
+    componentDidMount(){
+            const url = 'http://localhost:9000/getCropBids/'+this.state.cid;
             let headers = new Headers();
 
             headers.append('Content-Type', 'application/json');
@@ -64,25 +54,33 @@ export default class Bids extends Component{
 
             fetch(url,{
                 headers: headers,
-                method : 'POST',
-                body: JSON.stringify(body)
+                method : 'GET',
             })
-            .then(response => {if(response.ok){alert("Bid Successful.");
-            window.location.href = "/userhome/" + this.state.fid}
-            else{alert("Bid UnSuccessful.")}})
+            .then(response => response.json()) 
+            .then(response => this.setState({ 'items' : response})); 
+            console.log(this.state.items)
         }
-        else{
-            alert('Bidding price not sufficient')
-        } 
+
+    renderProfile(){
+        console.log(this.state.buyer)
+        return(  
+            this.state.profile &&
+                (<Row>
+                <br/>
+                <BuyerProfile id = {this.state.buyer}/>
+                <br/></Row>))
     }
 
     renderBids() {
-        return this.state.items.map(function(item){
+        return this.state.items.map((item) => {
+            console.log('In render bids')
+            console.log(item)
             return(
                 <div key={item.id} className = "cropList">
                     <Row>
-                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="1">{item.price} ₹</Col><Col xs="1"></Col>
-                        <Col xs="1"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/bids/" + item.id}}>View bids</button></Col>
+                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.rating}</Col><Col xs="1"></Col><Col xs="2">{item.biddingPrice} ₹</Col><Col xs="1"></Col>
+                        <Col xs="2"><button type="submit" id={item.buyerId} className="btn btn-success" onClick={(event) => this.handleClick(event, item.buyerId)}
+                            >Proceed</button></Col>
                     </Row><hr/>
                 </div>
             )
@@ -90,26 +88,31 @@ export default class Bids extends Component{
     }
     
     render() {
-        const {showBidForm} = this.state;
         return (<div>
             <Nav/>
         <div className = "userhomebg">
-        <div className="wrapper">
-        <div className="main_content">
-        </div>
-        </div>
+        
         <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
-        <Row>
+        <Row>        
             <Col>
-                {renderBids()}
+            <div className="auth-inner">
+            <div className = "cropList">
+            <Row>
+                <Col xs="2">NAME</Col><Col xs="1"></Col><Col xs="3">RATING</Col><Col xs="1"></Col><Col xs="2">BIDDING PRICE</Col><Col xs="1"></Col><Col xs="2">VIEW PROFILE</Col>
+            </Row><hr/>
+                <ul>
+                {this.renderBids()}
+                </ul>
+            </div>
+            </div>
             </Col>
+
             <Col>
-                <br/><h1>Crop Profile:</h1><br/>
-                <hr/></Row><Row>
-                <CropProfile id = {this.state.cid}
-                getPrice = {this.getPrice}/>
+                <Row>
+                <CropProfile id = {this.state.cid} getPrice = {this.getPrice}/>
+                <br/></Row>
                 <br/>
-                
+                {this.renderProfile()}                
             </Col>
         </Row>          
         </div>

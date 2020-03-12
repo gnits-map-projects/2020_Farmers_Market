@@ -54,7 +54,8 @@ export default class CropBid extends Component{
         body = {
             buyerId: this.state.buyerId,
             cropId: this.state.cid,
-            biddingPrice: this.state.biddingPrice
+            biddingPrice: this.state.biddingPrice,
+            status : "waiting"
         }
         if(this.state.biddingPrice > this.state.price){
             const url = 'http://localhost:9000/insertBid'
