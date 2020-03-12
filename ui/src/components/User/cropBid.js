@@ -102,15 +102,12 @@ export default class CropBid extends Component{
         <Row>
             <Col>
                 <Row>
-                    <br/><h1>Crop Profile:</h1><br/>
-                    <hr/></Row><Row>
                     <CropProfile id = {this.state.cid}
                     getPrice = {this.getPrice}/>
                     <br/>
                 </Row>
+                <Row><br/></Row>
                 <Row>
-                    <br/><h1>Farmer Profile:</h1><br/>
-                    <hr/></Row><Row>
                     <FarmerProfile id = {this.state.fid}/>
                     <br/>
                 </Row>

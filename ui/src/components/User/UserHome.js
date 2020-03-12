@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Recents from "./recentBids";
 import CropForm from "../home/crop";
-import BidsToBuy from "./bidsToBuy";
+import BidsToFarmer from "./bidsToFarmer";
 
 //import SignUp from "../components/signup.component";
 //import User from "./components/user"
@@ -28,25 +28,20 @@ render() {
     <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <Row>
                 <Col xs="6">
-                    <br/><h1>Add Crop</h1><br/>
                     <div>
                         <CropForm id={uid}/>
                     </div> 
                 </Col>
                 <Col xs="6">
                     <Row> 
-                        <br/><br/><h1>Your Crops</h1><br/><br/><br/>
                         <div>
-                        <br/><br/><br/>
                             <Recents id={uid}/>
                         </div>
                     </Row>
-                        <br/><br/><br/>
+                        <br/>
                     <Row>
-                        <br/><h1>Recent Crops</h1><br/><br/>
-                        <div>    
-                        <br/> <br/><br/>                  
-                            <BidsToBuy/>
+                        <div>               
+                            <BidsToFarmer/>
                         </div>
                     </Row>
                 </Col>

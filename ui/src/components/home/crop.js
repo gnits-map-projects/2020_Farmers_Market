@@ -230,7 +230,7 @@ class CropForm extends Component{
         return (
             <div className = "auth-inner">
             
-            <Form onSubmit={this.handleSubmit}><h3>Fill crop form</h3><br/>            
+            <Form onSubmit={this.handleSubmit}><h1>Add Crop</h1><hr/>         
                 <div className="form-group">
                     <label>Crop Name</label>
                     <input type="Text" name="name" id="examplename" className="form-control" placeholder="Enter name"

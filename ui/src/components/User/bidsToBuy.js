@@ -45,8 +45,8 @@ class BidsToBuy extends Component {
             return(
                 <div key={item.id} className = "cropList">
                     <Row>
-                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="1">{item.price} ₹</Col><Col xs="1"></Col>
-                        <Col xs="1"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + buyer}}>Bid</button></Col>
+                        <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="1">{item.price} ₹</Col><Col xs="1"></Col>
+                        <Col xs="2"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + buyer}}>Bid</button></Col>
                     </Row><hr/>
                 </div>
             )
@@ -57,8 +57,9 @@ class BidsToBuy extends Component {
         return (
             <div className= "auth-inner">
             <div className = "cropList">
+            <h1>Recent Crops</h1><hr/>
             <Row>
-                <Col xs="2">CROP</Col><Col xs="1"></Col><Col xs="3">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="1">PRICE</Col><Col xs="1"></Col><Col xs="1">BID</Col>
+                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="3">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="1">PRICE</Col><Col xs="1"></Col><Col xs="2">BID</Col>
             </Row><hr/>
             </div>
             <ul>

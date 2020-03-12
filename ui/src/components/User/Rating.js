@@ -16,12 +16,14 @@ this.handleChange = this.handleChange.bind(this);
 
 handleChange(event){
 this.setState({'rate' : event.target.value})
-console.log('Rating: ' + this.state.rate)
+
 }
 
 render(){
+    console.log('Rating: ' + this.state.rate)
 let s=this.state.crop
 return (
+    <div>
 <form class="rating" onClick = {this.handleChange}>
 <label>
 <input type="radio" name="stars" value="1" />
@@ -54,6 +56,7 @@ return (
 <span class="icon">★</span>
 </label>
 </form>
+</div>
 );
 }
 }

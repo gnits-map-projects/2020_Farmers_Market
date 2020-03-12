@@ -21,6 +21,7 @@ export default class Bids extends Component{
             profile : false,
             'items' : [],
             buyer : '',
+            bid: ''
         };
         this.getPrice = this.getPrice.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -30,14 +31,16 @@ export default class Bids extends Component{
         this.setState({price : price});
     }
 
-    handleClick = (event,id) => {
+    handleClick = (event,id, bid) => {
 
         console.log("hello, id: " +id)
         console.log(this.state.profile)
         this.setState({'profile': true})
         this.setState({'buyer' : id})
+        this.setState({'bid' : bid})
         console.log(this.state.buyer)
-        this.renderProfile()
+        console.log(this.state.bid)
+        this.renderProfile(bid)
     }
     
     componentDidMount(){
@@ -61,13 +64,14 @@ export default class Bids extends Component{
             console.log(this.state.items)
         }
 
-    renderProfile(){
+    renderProfile(bid){
         console.log(this.state.buyer)
+        console.log(bid)
         return(  
             this.state.profile &&
                 (<Row>
                 <br/>
-                <BuyerProfile id = {this.state.buyer}/>
+                <BuyerProfile id = {this.state.buyer} bid = {this.state.bid}/>
                 <br/></Row>))
     }
 
@@ -79,7 +83,7 @@ export default class Bids extends Component{
                 <div key={item.id} className = "cropList">
                     <Row>
                         <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.rating}</Col><Col xs="1"></Col><Col xs="2">{item.biddingPrice} ₹</Col><Col xs="1"></Col>
-                        <Col xs="2"><button type="submit" id={item.buyerId} className="btn btn-success" onClick={(event) => this.handleClick(event, item.buyerId)}
+                        <Col xs="2"><button type="submit" id={item.buyerId} className="btn btn-primary" onClick={(event) => this.handleClick(event, item.buyerId, item.id)}
                             >Proceed</button></Col>
                     </Row><hr/>
                 </div>
@@ -112,7 +116,7 @@ export default class Bids extends Component{
                 <CropProfile id = {this.state.cid} getPrice = {this.getPrice}/>
                 <br/></Row>
                 <br/>
-                {this.renderProfile()}                
+                {this.renderProfile(this.state.bid)}                
             </Col>
         </Row>          
         </div>
