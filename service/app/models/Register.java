@@ -27,7 +27,6 @@ public class Register {
         this.name = name;
     }
 
-
     public String email;
 
     public String getEmail() {
@@ -67,6 +66,17 @@ public class Register {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public Float rating;
+
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
+
 
 
 }

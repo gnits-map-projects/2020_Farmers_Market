@@ -66,6 +66,7 @@ binary dependencies:
    app/models/DatabaseExecutionContext.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.akka/akka-actor_2.12/2.5.19/24707fdb38b1d8e74ccfe816f9fa145cf8c097e3/akka-actor_2.12-2.5.19.jar
    app/models/DatabaseExecutionContext.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.12.6/6bd975dd5ca2a50b94413b708389b892ae423181/scala-library-2.12.6.jar
    app/models/JPABiddingRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
+   app/models/JPABiddingRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/844df5aba5a1a56e00905b165b12bb34116ee858/jackson-databind-2.8.11.3.jar
    app/models/JPABiddingRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-jpa_2.12/2.6.21/520c62491bc9a506f48033a8f192e75b751fabb1/play-java-jpa_2.12-2.6.21.jar
    app/models/JPABiddingRepository.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/1.0.2/cc986fd1a62ae50308a56041c7a7d52ee5f49fb6/hibernate-jpa-2.1-api-1.0.2.jar
    app/models/JPACropRepository.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar

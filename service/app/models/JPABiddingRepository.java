@@ -1,8 +1,12 @@
 package models;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
 import play.db.jpa.JPAApi;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
 import java.util.function.Function;
@@ -31,7 +35,7 @@ public class JPABiddingRepository implements BiddingRepository {
     }
 
     @Override
-    public CompletionStage<Stream<Bidding>> listcb(Long cid) {
+    public CompletionStage<Stream<JsonNode>> listcb(Long cid) {
         return supplyAsync(() -> wrap(em -> listcb(em, cid)), executionContext);
     }
 
@@ -44,16 +48,27 @@ public class JPABiddingRepository implements BiddingRepository {
         return bidding;
     }
 
-    private Stream<Bidding> listcb(EntityManager em, Long cid) {
+    private Stream<JsonNode> listcb(EntityManager em, Long cid) {
         List<Bidding> bids = em.createQuery("select b from Bidding b where b.cropId=:cid order by b.biddingPrice desc", Bidding.class).setParameter("cid", cid).getResultList();
-        List<String> buyers = new ArrayList<String>();
+        List<JsonNode> bidDetails = new ArrayList<JsonNode>();
         for(int i =0; i<bids.size(); i++){
-            System.out.println(bids.get(i).buyerId);
-            String buyer =  em.createQuery("select name from Register r where r.id=:buyerId").setParameter("buyerId", bids.get(i).buyerId).getSingleResult().toString();
-            buyers.add(buyer);
+            String id = (bids.get(i).buyerId).toString();
+            String buyer = em.createQuery("select name from Register r where r.id=:buyerId").setParameter("buyerId", bids.get(i).buyerId).getSingleResult().toString();
+            String rating = em.createQuery("select rating from Register r where r.id=:buyerId").setParameter("buyerId", bids.get(i).buyerId).getSingleResult().toString();
+            System.out.println(rating);
+            if(rating.equals("6.0")) {
+                rating = "No rating yet";
+            }
+            System.out.println(rating);
+            try {
+                ObjectNode json = (ObjectNode) new ObjectMapper().readTree("{ \"id\" : \""+ bids.get(i).id +"\", \"buyerId\" : \""+id+"\", \"name\" : \""+buyer+"\", \"rating\" : \""+rating+"\", \"biddingPrice\" : \"" + (bids.get(i).biddingPrice).toString()+"\" }");
+                System.out.println(json);
+                bidDetails.add(json);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        System.out.println(buyers);
-        return bids.stream();
+        return bidDetails.stream();
     }
 
 
