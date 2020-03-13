@@ -16,6 +16,10 @@ class BuyerProfile extends Component {
         };
 
     }
+
+    componentWillReceiveProps(newProps){
+        console.log('componentWillReceiveProps is triggered')
+    }
     
     componentDidMount() {
         console.log("component did mount")
