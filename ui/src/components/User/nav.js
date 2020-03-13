@@ -11,6 +11,7 @@ class Navigation extends Component {
         super(props);
         this.state ={
             uid : this.props.uid,
+            role : this.props.role,
         }
     }
     render(){
@@ -23,8 +24,10 @@ class Navigation extends Component {
                     <Nav className="mr-auto"></Nav>
                     <Nav>
                         <Nav.Link href="/Home">HOME</Nav.Link>
+                        {this.state.role== 'farmer' && <Nav.Link href={"/userhome/"+this.state.uid}>DASHBOARD</Nav.Link>}
+                        {this.state.role== 'buyer' && <Nav.Link href={"/buyerhome/"+this.state.uid}>DASHBOARD</Nav.Link>}
                         <NavDropdown title={window.localStorage.getItem("username")} id="basic-nav-dropdown">
-                            <NavDropdown.Item href={"/updateProfile/" + this.state.uid}>Profile</NavDropdown.Item>
+                            <NavDropdown.Item href={"/updateProfile/" + this.state.uid}>Update Profile</NavDropdown.Item>
                             <NavDropdown.Item href="/Home" onClick={() => window.sessionStorage.clear() }>Sign out</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>

@@ -19,7 +19,7 @@ export default class UserHome extends Component{
 render() {
     var uid=this.props.match.params.id
     return (<div>
-        <Nav uid = {uid}/>
+        <Nav uid = {uid} role={'farmer'}/>
     <div className = "userhomebg">
     <div className="wrapper">
     <div className="main_content">

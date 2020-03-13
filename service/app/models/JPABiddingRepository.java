@@ -39,6 +39,11 @@ public class JPABiddingRepository implements BiddingRepository {
         return supplyAsync(() -> wrap(em -> listcb(em, cid)), executionContext);
     }
 
+    @Override
+    public CompletionStage<Bidding> acceptBid(Long bid) {
+        return supplyAsync(() -> wrap(em -> acceptBid(em, bid)), executionContext);
+    }
+
     private <T> T wrap(Function<EntityManager, T> function) {
         return jpaApi.withTransaction(function);
     }
@@ -69,6 +74,18 @@ public class JPABiddingRepository implements BiddingRepository {
             }
         }
         return bidDetails.stream();
+    }
+
+    private Bidding acceptBid(EntityManager em, Long bid){
+        int i= em.createQuery("update Bidding b set b.status =: status where b.id = bid").setParameter("status","accepted").executeUpdate();
+        if(i!=0){
+            Bidding bidding = em.createQuery("select b from Biding b where b.id=:bid",Bidding.class).setParameter("bid",bid).getSingleResult();
+            return bidding;
+        }
+        else{
+            return null;
+
+        }
     }
 
 

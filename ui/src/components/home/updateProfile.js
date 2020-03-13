@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { useHistory, withRouter,Link } from "react-router-dom";
 import './home.css';
-import Navigation from '../User/nav.js';
+import Nav from '../User/nav.js';
 import Form from 'react-bootstrap/Form';
 import FarmerProfile from '../User/FarmerProfile'
 //import Header from './Header'
@@ -190,11 +190,12 @@ this.setState({errors, [name]: value});
 
   render() {
       return (<div className ="bg">
-<Navigation/>
+<Nav uid={this.state.user} role={window.sessionStorage.getItem("role")}/>
 
 <br></br><br/>
 <br/><br/><br/><br/>
-<FarmerProfile id={this.state.user}/>
+<FarmerProfile id={this.state.user}/> 
+{/* Also for buyers since we don't need any buttons */}
 <br></br><br/>
 <br/><br/><br/><br/>
 <div className="auth-wrapper1">

@@ -39,4 +39,13 @@ public class BiddingController extends Controller {
             return ok(toJson(cropStream.collect(Collectors.toList())));
         }, ec.current());
     }
+
+    public CompletionStage<Result> acceptBid(Long bid){
+        return biddingRepository.acceptBid(bid).thenApplyAsync(p->{
+            return ok("update successful");
+        },ec.current());
+
+    }
+
+
 }

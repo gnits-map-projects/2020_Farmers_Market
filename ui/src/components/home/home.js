@@ -11,7 +11,7 @@ import slide2 from '../images/f2.jpeg';
 import slide3 from '../images/f3.jpeg';
 
 //import { useHistory, withRouter,Link } from "react-router-dom";
-var Nav;
+// var Nav;
 
 const properties = {
   duration: 2000,
@@ -25,19 +25,20 @@ export default class Home extends Component {
 
     componentWillMount(){
       // alert(window.localStorage.getItem("uid")) 
-      if (window.sessionStorage.getItem("uid") == null){    ////Call back to be tried
-          console.log("Not logged in.")
-          Nav = NavUnset;
-        } else{
-          console.log("Logged in." + window.sessionStorage.getItem("uid"))
-          Nav = NavSet;
-        }
-        console.log(Nav)
+      // if (window.sessionStorage.getItem("uid") == null){    ////Call back to be tried
+      //     console.log("Not logged in.")
+      //     Nav = NavUnset;
+      //   } else{
+      //     console.log("Logged in." + window.sessionStorage.getItem("uid"))
+      //     Nav = NavSet;
+      //   }
+      //   console.log(Nav)
         
     }
     render() {
         return (<div>
-            <Nav/>
+        {window.sessionStorage.getItem("uid")==null && <NavUnset/>}
+        {window.sessionStorage.getItem("uid")!=null && <NavSet uid = {window.sessionStorage.getItem("uid")} role = {window.sessionStorage.getItem("role")}/>}
             <div  style={{'background-image' : 'url(' + logo +')' }}  className = "auth-home">
     
             <h2>

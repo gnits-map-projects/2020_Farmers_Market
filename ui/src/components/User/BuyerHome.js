@@ -20,7 +20,7 @@ export default class BuyerHome extends Component{
 render() {
     window.localStorage.setItem('buyerId',this.state.id);
     return (<div>
-        <Nav/>
+        <Nav uid = {this.state.id} role={'buyer'}/>
     <div className = "userhomebg">
     <div className="wrapper">
     <div className="main_content">
