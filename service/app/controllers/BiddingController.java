@@ -40,12 +40,18 @@ public class BiddingController extends Controller {
         }, ec.current());
     }
 
-    public CompletionStage<Result> acceptBid(Long bid){
-        return biddingRepository.acceptBid(bid).thenApplyAsync(p->{
+    public CompletionStage<Result> acceptBid(Long bid, Long cid){
+        return biddingRepository.acceptBid(bid, cid).thenApplyAsync(p->{
             return ok("update successful");
         },ec.current());
 
     }
 
+    public CompletionStage<Result> rejectBid(Long bid){
+        return biddingRepository.rejectBid(bid).thenApplyAsync(p->{
+            return ok("update successful");
+        },ec.current());
+
+    }
 
 }

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Fri Mar 13 12:11:52 IST 2020
+// @DATE:Sat Mar 14 09:13:18 IST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -70,7 +70,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:50
+  // @LINE:54
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -78,7 +78,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:50
+    // @LINE:54
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -248,12 +248,32 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:48
+    def acceptBid: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.BiddingController.acceptBid",
+      """
+        function(bid0,cid1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "acceptBid/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("bid", bid0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("cid", cid1))})
+        }
+      """
+    )
+  
     // @LINE:40
     def add: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BiddingController.add",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "insertBid"})
+        }
+      """
+    )
+  
+    // @LINE:50
+    def rejectBid: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.BiddingController.rejectBid",
+      """
+        function(bid0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "rejectBid/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("bid", bid0))})
         }
       """
     )

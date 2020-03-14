@@ -13,13 +13,14 @@ class BuyerProfile extends Component {
             'buyer' : {},
             id: '',
             bid : '',
-            checkbx: false
+            checkbx: false,
+            fid: this.props.fid,
         };
 
     }
 
     accept(){
-       const url = 'http://localhost:9000/acceptBid/'+this.props.bid
+       const url = 'http://localhost:9000/acceptBid/'+this.props.bid+'/'+this.props.cid
        console.log("ON CLICK ACCEPT.")
         let headers = new Headers();
 
@@ -39,7 +40,7 @@ class BuyerProfile extends Component {
         .then(response => {this.setState({ 'data' : response});
         console.log(this.state.data);
         // alert(this.state.data);
-        window.location.href = "/userhome/"+window.localStorage.getItem('uid')}
+        window.location.href = "/userhome/"+this.state.fid}
         );
          
     }
@@ -64,7 +65,7 @@ class BuyerProfile extends Component {
         .then(response => response.json()) 
         .then(response => this.setState({ 'data' : response}));
         console.log(this.state.data);
-        window.location.href = "/userhome/"+window.localStorage.getItem('uid') 
+        window.location.href = "/userhome/"+this.state.fid 
  
     }
 

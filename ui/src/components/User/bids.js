@@ -114,7 +114,7 @@ export default class Bids extends Component{
                 {this.state.profile &&
                 <Row>
                 <br/>
-                <BuyerProfile id = {this.state.buyer} bid = {this.state.bid}/>
+                <BuyerProfile id = {this.state.buyer} bid = {this.state.bid} cid = {this.state.cid} fid={this.state.fid}/>
                 <br/></Row> }     
             </Col>
         </Row>          

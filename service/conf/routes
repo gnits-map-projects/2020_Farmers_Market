@@ -45,7 +45,7 @@ GET   /getCropBids/:cid             controllers.BiddingController.getCropBids(ci
 
 POST  /email/:to                        controllers.AdminController.sendEmail(to: String)
 
-GET   /acceptBid/:bid                    controllers.BiddingController.acceptBid(bid : Long)
+GET   /acceptBid/:bid/:cid                    controllers.BiddingController.acceptBid(bid : Long, cid : Long)
 
 GET   /rejectBid/:bid                    controllers.BiddingController.rejectBid(bid : Long)
 

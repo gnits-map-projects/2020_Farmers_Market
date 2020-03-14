@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Fri Mar 13 12:11:52 IST 2020
+// @DATE:Sat Mar 14 09:13:18 IST 2020
 
 package router
 
@@ -25,7 +25,7 @@ class Routes(
   BiddingController_4: controllers.BiddingController,
   // @LINE:46
   AdminController_1: controllers.AdminController,
-  // @LINE:50
+  // @LINE:54
   Assets_6: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -44,7 +44,7 @@ class Routes(
     BiddingController_4: controllers.BiddingController,
     // @LINE:46
     AdminController_1: controllers.AdminController,
-    // @LINE:50
+    // @LINE:54
     Assets_6: controllers.Assets
   ) = this(errorHandler, PersonController_0, UncheckedCropController_5, RegisterController_3, CropController_2, BiddingController_4, AdminController_1, Assets_6, "/")
 
@@ -81,6 +81,8 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateProfile/""" + "$" + """id<[^/]+>""", """controllers.RegisterController.updateRegister(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getCropBids/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.getCropBids(cid:Long)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """email/""" + "$" + """to<[^/]+>""", """controllers.AdminController.sendEmail(to:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """acceptBid/""" + "$" + """bid<[^/]+>/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.acceptBid(bid:Long, cid:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rejectBid/""" + "$" + """bid<[^/]+>""", """controllers.BiddingController.rejectBid(bid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -503,11 +505,47 @@ class Routes(
     )
   )
 
+  // @LINE:48
+  private[this] lazy val controllers_BiddingController_acceptBid23_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("acceptBid/"), DynamicPart("bid", """[^/]+""",true), StaticPart("/"), DynamicPart("cid", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_BiddingController_acceptBid23_invoker = createInvoker(
+    BiddingController_4.acceptBid(fakeValue[Long], fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.BiddingController",
+      "acceptBid",
+      Seq(classOf[Long], classOf[Long]),
+      "GET",
+      this.prefix + """acceptBid/""" + "$" + """bid<[^/]+>/""" + "$" + """cid<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
   // @LINE:50
-  private[this] lazy val controllers_Assets_at23_route = Route("GET",
+  private[this] lazy val controllers_BiddingController_rejectBid24_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("rejectBid/"), DynamicPart("bid", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_BiddingController_rejectBid24_invoker = createInvoker(
+    BiddingController_4.rejectBid(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.BiddingController",
+      "rejectBid",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """rejectBid/""" + "$" + """bid<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:54
+  private[this] lazy val controllers_Assets_at25_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at23_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at25_invoker = createInvoker(
     Assets_6.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -662,10 +700,22 @@ class Routes(
         controllers_AdminController_sendEmail22_invoker.call(AdminController_1.sendEmail(to))
       }
   
+    // @LINE:48
+    case controllers_BiddingController_acceptBid23_route(params@_) =>
+      call(params.fromPath[Long]("bid", None), params.fromPath[Long]("cid", None)) { (bid, cid) =>
+        controllers_BiddingController_acceptBid23_invoker.call(BiddingController_4.acceptBid(bid, cid))
+      }
+  
     // @LINE:50
-    case controllers_Assets_at23_route(params@_) =>
+    case controllers_BiddingController_rejectBid24_route(params@_) =>
+      call(params.fromPath[Long]("bid", None)) { (bid) =>
+        controllers_BiddingController_rejectBid24_invoker.call(BiddingController_4.rejectBid(bid))
+      }
+  
+    // @LINE:54
+    case controllers_Assets_at25_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at23_invoker.call(Assets_6.at(path, file))
+        controllers_Assets_at25_invoker.call(Assets_6.at(path, file))
       }
   }
 }

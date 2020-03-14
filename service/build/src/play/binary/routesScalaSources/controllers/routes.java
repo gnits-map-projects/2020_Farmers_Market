@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Fri Mar 13 12:11:52 IST 2020
+// @DATE:Sat Mar 14 09:13:18 IST 2020
 
 package controllers;
 

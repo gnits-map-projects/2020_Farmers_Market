@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Fri Mar 13 12:11:52 IST 2020
+// @DATE:Sat Mar 14 09:13:18 IST 2020
 
 import play.api.mvc.Call
 
@@ -49,14 +49,14 @@ package controllers {
   
   }
 
-  // @LINE:50
+  // @LINE:54
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:50
+    // @LINE:54
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -170,10 +170,22 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "getCropBids/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("cid", cid)))
     }
   
+    // @LINE:48
+    def acceptBid(bid:Long, cid:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "acceptBid/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("bid", bid)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("cid", cid)))
+    }
+  
     // @LINE:40
     def add(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "insertBid")
+    }
+  
+    // @LINE:50
+    def rejectBid(bid:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "rejectBid/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("bid", bid)))
     }
   
   }
