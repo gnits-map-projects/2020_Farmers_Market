@@ -93,8 +93,8 @@ export default class CropCheck extends Component{
                 <br/>
                 </Col>
             <Row>
-            <Col><button id={this.state.id} className="btn btn-success" onClick={() => {this.approve(this.state.id)}}>Approve</button></Col>
-            <Col><button id={this.state.id} className="btn btn-danger" onClick={() => {this.reject(this.state.id)}}>Reject</button></Col>
+            <Col><button id={this.state.id} className="btn btn-success btn-lg" onClick={() => {this.approve(this.state.id)}}>APPROVE</button></Col>
+            <Col><button id={this.state.id} className="btn btn-danger btn-lg" onClick={() => {this.reject(this.state.id)}}>REJECT</button></Col>
             </Row>
             
             </Container>

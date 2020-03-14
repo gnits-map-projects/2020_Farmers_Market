@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Sat Mar 14 09:13:18 IST 2020
+// @DATE:Sat Mar 14 14:27:00 IST 2020
 
 package router
 
@@ -25,7 +25,7 @@ class Routes(
   BiddingController_4: controllers.BiddingController,
   // @LINE:46
   AdminController_1: controllers.AdminController,
-  // @LINE:54
+  // @LINE:57
   Assets_6: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -44,7 +44,7 @@ class Routes(
     BiddingController_4: controllers.BiddingController,
     // @LINE:46
     AdminController_1: controllers.AdminController,
-    // @LINE:54
+    // @LINE:57
     Assets_6: controllers.Assets
   ) = this(errorHandler, PersonController_0, UncheckedCropController_5, RegisterController_3, CropController_2, BiddingController_4, AdminController_1, Assets_6, "/")
 
@@ -83,6 +83,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """email/""" + "$" + """to<[^/]+>""", """controllers.AdminController.sendEmail(to:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """acceptBid/""" + "$" + """bid<[^/]+>/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.acceptBid(bid:Long, cid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rejectBid/""" + "$" + """bid<[^/]+>""", """controllers.BiddingController.rejectBid(bid:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getBidTrends/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.getBidTrends(cid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -541,11 +542,29 @@ class Routes(
     )
   )
 
-  // @LINE:54
-  private[this] lazy val controllers_Assets_at25_route = Route("GET",
+  // @LINE:52
+  private[this] lazy val controllers_BiddingController_getBidTrends25_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getBidTrends/"), DynamicPart("cid", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_BiddingController_getBidTrends25_invoker = createInvoker(
+    BiddingController_4.getBidTrends(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.BiddingController",
+      "getBidTrends",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """getBidTrends/""" + "$" + """cid<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:57
+  private[this] lazy val controllers_Assets_at26_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at25_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at26_invoker = createInvoker(
     Assets_6.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -712,10 +731,16 @@ class Routes(
         controllers_BiddingController_rejectBid24_invoker.call(BiddingController_4.rejectBid(bid))
       }
   
-    // @LINE:54
-    case controllers_Assets_at25_route(params@_) =>
+    // @LINE:52
+    case controllers_BiddingController_getBidTrends25_route(params@_) =>
+      call(params.fromPath[Long]("cid", None)) { (cid) =>
+        controllers_BiddingController_getBidTrends25_invoker.call(BiddingController_4.getBidTrends(cid))
+      }
+  
+    // @LINE:57
+    case controllers_Assets_at26_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at25_invoker.call(Assets_6.at(path, file))
+        controllers_Assets_at26_invoker.call(Assets_6.at(path, file))
       }
   }
 }

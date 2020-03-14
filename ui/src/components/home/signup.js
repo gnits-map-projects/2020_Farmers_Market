@@ -228,7 +228,7 @@ return (<div className ="bg">
     <input type="checkbox" onChange={() => this.setState({checkbx : !this.state.checkbx})}/><span className='error'>  I accept the terms and conditions.</span>
     </div>
 
-    <button type="submit" className="btn btn-primary btn-block" size="lg" onClick = {this.handleSubmit} disabled = {!this.state.checkbx}>SIGN UP</button>
+    <button type="submit" className="btn btn-primary btn-block btn-lg" onClick = {this.handleSubmit} disabled = {!this.state.checkbx}>SIGN UP</button>
     <p className="forgot-password text-right"> Already registered? <a href="/Login">Login</a></p>
     </form>
 </div>

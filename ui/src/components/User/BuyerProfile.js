@@ -39,7 +39,7 @@ class BuyerProfile extends Component {
         .then(response => response) ////for alert, convert response promise object to string
         .then(response => {this.setState({ 'data' : response});
         console.log(this.state.data);
-        // alert(this.state.data);
+        alert('You have accepted this bid for this crop.')
         window.location.href = "/userhome/"+this.state.fid}
         );
          
@@ -65,6 +65,7 @@ class BuyerProfile extends Component {
         .then(response => response.json()) 
         .then(response => this.setState({ 'data' : response}));
         console.log(this.state.data);
+        alert('You have rejected this bid.')
         window.location.href = "/userhome/"+this.state.fid 
  
     }
@@ -144,8 +145,8 @@ class BuyerProfile extends Component {
                 <hr/>
                 <input type="checkbox" onChange={() => this.setState({checkbx : !this.state.checkbx})}/><span className='error'>  I understand that other bids will be rejected when I accept this bid.</span><br/><br/>
                 <Row>
-                    <Col><button id={this.state.id} className="btn btn-success" onClick={() => {this.accept()}} disabled = {!this.state.checkbx}>Accept</button></Col>
-                    <Col><button id={this.state.id} className="btn btn-danger" onClick={() => {this.reject()}}>Reject</button></Col>
+                    <Col><button id={this.state.id} className="btn btn-success btn-lg" onClick={() => {this.accept()}} disabled = {!this.state.checkbx}>ACCEPT</button></Col>
+                    <Col><button id={this.state.id} className="btn btn-danger btn-lg" onClick={() => {this.reject()}}>REJECT</button></Col>
                 </Row>
                 {/*Buttons to accept and reject */}
             </div>

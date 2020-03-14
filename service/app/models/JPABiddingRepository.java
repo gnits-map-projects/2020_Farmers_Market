@@ -40,6 +40,11 @@ public class JPABiddingRepository implements BiddingRepository {
     }
 
     @Override
+    public CompletionStage<JsonNode> listbt(Long cid) {
+        return supplyAsync(() -> wrap(em -> listbt(em, cid)), executionContext);
+    }
+
+    @Override
     public CompletionStage<Bidding> acceptBid(Long bid, Long cid) {
         return supplyAsync(() -> wrap(em -> acceptBid(em, bid, cid)), executionContext);
     }
@@ -61,6 +66,7 @@ public class JPABiddingRepository implements BiddingRepository {
     private Stream<JsonNode> listcb(EntityManager em, Long cid) {
         List<Bidding> bids = em.createQuery("select b from Bidding b where b.cropId=:cid order by b.biddingPrice desc", Bidding.class).setParameter("cid", cid).getResultList();
         List<JsonNode> bidDetails = new ArrayList<JsonNode>();
+
         for(int i =0; i<bids.size(); i++){
             String id = (bids.get(i).buyerId).toString();
             String buyer = em.createQuery("select name from Register r where r.id=:buyerId").setParameter("buyerId", bids.get(i).buyerId).getSingleResult().toString();
@@ -71,7 +77,7 @@ public class JPABiddingRepository implements BiddingRepository {
             }
             System.out.println(rating);
             try {
-                ObjectNode json = (ObjectNode) new ObjectMapper().readTree("{ \"id\" : \""+ bids.get(i).id +"\", \"buyerId\" : \""+id+"\", \"name\" : \""+buyer+"\", \"rating\" : \""+rating+"\", \"biddingPrice\" : \"" + (bids.get(i).biddingPrice).toString()+"\" }");
+                ObjectNode json = (ObjectNode) new ObjectMapper().readTree("{ \"id\" : \""+ bids.get(i).id +"\", \"buyerId\" : \""+id+"\", \"name\" : \""+buyer+"\", \"rating\" : \""+rating+"\", \"biddingPrice\" : \"" + (bids.get(i).biddingPrice).toString()+"\", \"status\" : \""+bids.get(i).status+"\" }");
                 System.out.println(json);
                 bidDetails.add(json);
             } catch (IOException e) {
@@ -81,9 +87,31 @@ public class JPABiddingRepository implements BiddingRepository {
         return bidDetails.stream();
     }
 
+    private JsonNode listbt(EntityManager em, Long cid) {
+        ObjectNode json = null;
+        if(em.createQuery("select b from Bidding b where b.cropId=:cid").setParameter("cid", cid).setMaxResults(1).getSingleResult().toString() == null){
+            String noBids = "No bids yet";
+            try {
+                json = (ObjectNode) new ObjectMapper().readTree("{ \"noBids\" : \"" + noBids + "\"}");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            String maxBid = em.createQuery("select max(b.biddingPrice) from Bidding b where b.cropId=:cid").setParameter("cid", cid).getSingleResult().toString();
+            String minBid = em.createQuery("select min(b.biddingPrice) from Bidding b where b.cropId=:cid").setParameter("cid", cid).getSingleResult().toString();
+            try {
+                json = (ObjectNode) new ObjectMapper().readTree("{ \"maxBid\" : \"" + maxBid + "\", \"minBid\" : \"" + minBid + "\"}");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return json;
+    }
+
     private Bidding acceptBid(EntityManager em, Long bid, Long cid){
         int i= em.createQuery("update Bidding b set b.status =: status where b.id =: bid").setParameter("status","accepted").setParameter("bid",bid).executeUpdate();
-        int j= em.createQuery("update Bidding b set b.status =: status where b.cid =: cid and b.id != :bid").setParameter("status","rejected").setParameter("bid",bid).setParameter("cid",cid).executeUpdate();
+        int j= em.createQuery("update Bidding b set b.status =: status where b.cropId =: cid and not b.id = :bid").setParameter("status","rejected").setParameter("bid",bid).setParameter("cid",cid).executeUpdate();
 
         if(i!=0){
             Bidding bidding = em.createQuery("select b from Bidding b where b.id=:bid",Bidding.class).setParameter("bid",bid).getSingleResult();

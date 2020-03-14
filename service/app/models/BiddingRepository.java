@@ -12,6 +12,8 @@ public interface BiddingRepository {
 
     CompletionStage<Stream<JsonNode>> listcb(Long cid);
 
+    CompletionStage<JsonNode> listbt(Long cid);
+
     public CompletionStage<Bidding> acceptBid(Long bid, Long cid);
 
     public CompletionStage<Bidding> rejectBid(Long bid);

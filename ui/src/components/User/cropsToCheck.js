@@ -57,7 +57,7 @@ class CropsToCheck extends Component {
                     </Row><hr/>
                     <Row>
                         <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col><Col xs="1"></Col>
-                        <Col xs="1"><button type="submit" id={item.id} className="btn btn-primary" onClick={() => {window.location.href = "/cropCheck/" + item.id + "/" + item.fid}}>Check</button></Col>
+                        <Col xs="1"><button type="submit" id={item.id} className="btn btn-primary btn-lg" onClick={() => {window.location.href = "/cropCheck/" + item.id + "/" + item.fid}}>CHECK</button></Col>
                     </Row>
                     <Row><br/></Row>
                 </div>

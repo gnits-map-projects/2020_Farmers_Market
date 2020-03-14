@@ -40,6 +40,12 @@ public class BiddingController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> getBidTrends(Long cid) {
+        return biddingRepository.listbt(cid).thenApplyAsync(bidTrend -> {
+            return ok(toJson(bidTrend));
+        }, ec.current());
+    }
+
     public CompletionStage<Result> acceptBid(Long bid, Long cid){
         return biddingRepository.acceptBid(bid, cid).thenApplyAsync(p->{
             return ok("update successful");

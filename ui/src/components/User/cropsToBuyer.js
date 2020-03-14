@@ -9,7 +9,7 @@ var body
 var result
 var key
 
-class BidsToFarmer extends Component {
+class CropsToBuyer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -45,8 +45,8 @@ class BidsToFarmer extends Component {
             return(
                 <div key={item.id} className = "cropList">
                     <Row>
-                        <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="1">{item.price} ₹</Col><Col xs="1"></Col>
-                        <Col xs="2"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + buyer}}>View Trends</button></Col>
+                        <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
+                        <Col xs="3"><button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + buyer}}>BID</button></Col>
                     </Row><hr/>
                 </div>
             )
@@ -57,9 +57,12 @@ class BidsToFarmer extends Component {
         return (
             <div className= "auth-inner">
             <div className = "cropList">
-            <h1>Recent Crops</h1><hr/>
             <Row>
-                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="3">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="1">PRICE</Col><Col xs="1"></Col><Col xs="2">TRENDS</Col>
+            <h1>Recent Crops</h1>
+            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allBids/"+ this.state.fid}}>VIEW ALL CROPS</button>
+            </Row><hr/>
+            <Row>
+                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">BID</Col>
             </Row><hr/>
             </div>
             <ul>
@@ -70,4 +73,4 @@ class BidsToFarmer extends Component {
     }
 }
 
-export default BidsToFarmer;
+export default CropsToBuyer;

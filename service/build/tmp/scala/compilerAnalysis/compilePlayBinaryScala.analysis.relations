@@ -52,6 +52,7 @@ binary dependencies:
    app/controllers/AdminController.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/controllers/AdminController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play_2.12/2.6.21/30f4b40d6f7f6d7e56810e1b18f96c0e4bd60b8d/play_2.12-2.6.21.jar
    app/controllers/BiddingController.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
+   app/controllers/BiddingController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/844df5aba5a1a56e00905b165b12bb34116ee858/jackson-databind-2.8.11.3.jar
    app/controllers/BiddingController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play_2.12/2.6.21/30f4b40d6f7f6d7e56810e1b18f96c0e4bd60b8d/play_2.12-2.6.21.jar
    app/controllers/CropController.java -> /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/jre/lib/rt.jar
    app/controllers/CropController.java -> /Users/macadmin/.gradle/caches/modules-2/files-2.1/com.typesafe.play/play-java-forms_2.12/2.6.21/1025b34708ab59bca73ed4a8519601ecb7ee7bfc/play-java-forms_2.12-2.6.21.jar

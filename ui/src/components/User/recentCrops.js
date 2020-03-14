@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-class Recents extends Component {
+class RecentCrops extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -39,8 +39,8 @@ class Recents extends Component {
             return(
                 <div key={item.id} className = "cropList">
                     <Row>
-                        <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="1">{item.price} ₹</Col><Col xs="1"></Col>
-                        <Col xs="2"><button type="submit" id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/bids/" + item.id +'/'+ item.fid}}>View bids</button></Col>
+                        <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
+                        <Col xs="3"><button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/bids/" + item.id +'/'+ item.fid}}>VIEW BIDS</button></Col>
                     </Row><hr/>
                 </div>
             )
@@ -51,9 +51,12 @@ class Recents extends Component {
         return (
             <div className="auth-inner">
             <div className = "cropList">
-            <h1>Your Crops</h1><hr/>
             <Row>
-                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="3">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="1">PRICE</Col><Col xs="1"></Col><Col xs="2">VIEW BIDS</Col>
+            <h1>Your Crops</h1>
+            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allBids/"+ this.state.fid}}>VIEW ALL CROPS</button>
+            </Row><hr/>
+            <Row>
+                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">VIEW BIDS</Col>
             </Row><hr/>
             </div>
                 <ul>
@@ -65,5 +68,5 @@ class Recents extends Component {
     }
 }
 
-export default Recents;
+export default RecentCrops;
 

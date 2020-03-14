@@ -7,7 +7,7 @@ import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import PastBids from "./pastBids";
-import BidsToBuy from "./bidsToBuy";
+import CropsToBuyer from "./cropsToBuyer";
 import ListLocations from "./listLocations";
 
 export default class BuyerHome extends Component{
@@ -34,7 +34,7 @@ render() {
         <Col>
         <div background-color="#aacfb0">
          <br/><h1>Bids closing soon</h1><br/>
-        <BidsToBuy id={this.state.id}/>
+        <CropsToBuyer id={this.state.id}/>
         </div>
         </Col>
         <Col>

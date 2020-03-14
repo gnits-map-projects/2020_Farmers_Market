@@ -68,7 +68,7 @@ class CropsIn extends Component {
                                 <Row>
                                 <Col xs="3">{item.name}</Col><Col xs="3">{item.area}</Col><Col xs="4">{item.location}</Col>
                                 {/* <Col>{item.price}</Col> */}
-                                <Col xs = "2"><button id={item.id} className="btn btn-success" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + this.state.id}}>Bid</button></Col>
+                                <Col xs = "2"><button id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + this.state.id}}>BID</button></Col>
                                 </Row><Row><br/></Row>
                             </div>
                        );

@@ -21,7 +21,6 @@ render() {
     <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
         <Container>
         <br/>
-        <br/><h1>Manage Crops</h1><br/>
         <div className="inner">
         <CropsToCheck/>
         </div>       

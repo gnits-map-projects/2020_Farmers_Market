@@ -5,9 +5,9 @@ import './UserHome.css'
 import Nav from './nav.js';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Recents from "./recentBids";
+import RecentCrops from "./recentCrops";
 import CropForm from "../home/crop";
-import BidsToFarmer from "./bidsToFarmer";
+import CropsToFarmer from "./cropsToFarmer";
 
 //import SignUp from "../components/signup.component";
 //import User from "./components/user"
@@ -35,13 +35,13 @@ render() {
                 <Col xs="6">
                     <Row> 
                         <div>
-                            <Recents id={uid}/>
+                            <RecentCrops id={uid}/>
                         </div>
                     </Row>
                         <br/>
                     <Row>
                         <div>               
-                            <BidsToFarmer/>
+                            <CropsToFarmer/>
                         </div>
                     </Row>
                 </Col>

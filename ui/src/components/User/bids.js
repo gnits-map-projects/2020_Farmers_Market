@@ -12,6 +12,8 @@ import BuyerProfile from './BuyerProfile'
 var profile;
 var buyer;
 var bid;
+var flag;
+var i;
 
 export default class Bids extends Component{
     constructor(props) {
@@ -71,19 +73,36 @@ export default class Bids extends Component{
         }
 
     renderBids() {
-        return this.state.items.map((item) => {
-            console.log('In render bids')
-            console.log(item)
-            return(
-                <div key={item.id} className = "cropList">
-                    <Row>
-                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.rating}</Col><Col xs="1"></Col><Col xs="2">{item.biddingPrice} ₹</Col><Col xs="1"></Col>
-                        <Col xs="2"><button type="submit" id={item.buyerId} className="btn btn-primary" onClick={(event) => this.handleClick(event, item.buyerId, item.id)}
-                            >Proceed</button></Col>
-                    </Row><hr/>
-                </div>
-            )
-        })
+        for(i=0;i< this.state.items.length ;i++)
+        {
+            if(this.state.items[i].status == "accepted")
+            {
+                flag = 1;
+            }
+            else{
+                flag = 0;
+            }
+        }
+        if(flag == 0)
+        {
+            return this.state.items.map((item) => {
+                console.log('In render bids')
+                console.log(item)
+                console.log(item.status)
+                return(
+                    <div key={item.id} className = "cropList">
+                        <Row>
+                            <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.rating}</Col><Col xs="1"></Col><Col xs="2">{item.biddingPrice} ₹</Col><Col xs="1"></Col>
+                            <Col xs="2"><button type="submit" id={item.buyerId} className="btn btn-primary btn-lg" onClick={(event) => this.handleClick(event, item.buyerId, item.id)}
+                                >PROCEED</button></Col>
+                        </Row><hr/>
+                    </div>
+                )
+            })
+        }
+        else{
+            return(<h3>bid closed</h3>)
+        }
     }
     
     render() {

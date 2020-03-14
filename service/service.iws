@@ -28,11 +28,27 @@
       <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/Routes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/Routes.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service.iws" beforeDir="false" afterPath="$PROJECT_DIR$/service.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/AdminHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/components/User/BuyerProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/BuyerProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/UncheckedCropProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/UncheckedCropProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bids.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/bids.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bidsToBuy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bidsToFarmer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropBid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropBid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropCheck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropsIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropsIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropsToCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropsToCheck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/recentBids.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/signup.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,10 +234,10 @@
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="609" y="616" key="com.intellij.ide.util.TipDialog" timestamp="1584156913130">
+    <state x="609" y="616" key="com.intellij.ide.util.TipDialog" timestamp="1584168669196">
       <screen x="0" y="23" width="2880" height="1517" />
     </state>
-    <state x="609" y="616" key="com.intellij.ide.util.TipDialog/0.23.2880.1517@0.23.2880.1517" timestamp="1584156913130" />
+    <state x="609" y="616" key="com.intellij.ide.util.TipDialog/0.23.2880.1517@0.23.2880.1517" timestamp="1584168669196" />
     <state x="617" y="371" width="670" height="675" key="run.anything.popup" timestamp="1583132296623">
       <screen x="0" y="23" width="2880" height="1517" />
     </state>
