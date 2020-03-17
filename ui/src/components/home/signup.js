@@ -122,7 +122,8 @@ var body = {
         email : this.state.email,
         password : this.state.password,
         mobile : this.state.mobile,
-        role : this.state.role
+        role : this.state.role,
+        rating : 6.0,
     }
 console.log(body);
 if(this.state.name==""){
@@ -161,12 +162,12 @@ else{
         body: JSON.stringify(body)
         })
         .then(response => {if(response.ok){
-            alert("Registration successful!");
+            alert("Registration successful!\nYou will be redirected to login page.");
             result = response.json();
             console.log(result);
+            window.location.href = '/login'
         }})
-        .catch(()=> console.log("can't access " + url + " response. "))
-        window.location.href = '/login'
+        .catch(()=> console.log("Can't access " + url + " response. "))
     }
 }
 
@@ -186,7 +187,7 @@ return (<div className ="bg">
 <div className="auth-wrapper1">
 <div className="auth-inner">
 <form>
-<center><h3>Sign Up</h3></center>
+<h1>SIGN UP</h1><hr/>
  
     <div className="form-group">
         <label>Name</label>

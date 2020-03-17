@@ -26,9 +26,10 @@ class App extends Component {
     super(props);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     window.localStorage.removeItem('uid')
   }
+
   render(){
   return (
     <div className="bg">
@@ -47,10 +48,10 @@ class App extends Component {
                     <Route path="/cropCheck/:id/:fid" component= { CropCheck }/>
                     <Route path="/cropBid/:id/:fid/:buyerId" component= { CropBid }/>
                     <Route path="/updateProfile/:id" component= { UpdateProfile }/>
-                    <Route path="/bids/:cid/:fid" component= { Bids}/>
-                    <Route path="/buyerProfile/:buyerId/:bid" component= { BuyerProfile}/>
-                    <Route path="/viewingTrends/:cid" component= { ViewingTrends}/>
-                    <Route path="/rating" component= { Rating}/>
+                    <Route path="/bids/:cid/:fid" component= { Bids }/>
+                    <Route path="/buyerProfile/:buyerId/:bid" component= { BuyerProfile }/>
+                    <Route path="/viewingTrends/:cid" component= { ViewingTrends }/>
+                    <Route path="/rating" component= { Rating }/>
                   
                 </Switch>
             </Router>
