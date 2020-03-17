@@ -2,102 +2,102 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="427cb748-50c6-49ae-bb8f-ca8317381bfd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BiddingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BiddingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/BiddingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/BiddingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseBiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseBiddingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseUncheckedCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseUncheckedCropController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseBiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseBiddingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseUncheckedCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseUncheckedCropController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/BiddingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/BiddingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/Routes$$anonfun$routes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/router/Routes$$anonfun$routes$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/Routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/router/Routes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/lib/service.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/lib/service.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/resources/routes" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/resources/routes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/routes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/Routes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/Routes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.iws" beforeDir="false" afterPath="$PROJECT_DIR$/service.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/AdminHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/BuyerProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/BuyerProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/UncheckedCropProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/UncheckedCropProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bids.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/bids.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bidsToBuy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bidsToFarmer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropBid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropBid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropCheck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropsIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropsIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropsToCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropsToCheck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/recentBids.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/resourceHashesCache.bin" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/app/controllers/BiddingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BiddingController.java" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/app/models/BiddingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/BiddingRepository.java" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseBiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseBiddingController.class" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseUncheckedCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseUncheckedCropController.class" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseBiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseBiddingController.class" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseUncheckedCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseUncheckedCropController.class" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/BiddingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/BiddingRepository.class" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/Routes$$anonfun$routes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/router/Routes$$anonfun$routes$1.class" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/Routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/router/Routes.class" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/lib/service.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/lib/service.jar" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/playBinary/resources/routes" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/resources/routes" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/controllers/routes.java" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/Routes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/Routes.scala" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/service.iws" beforeDir="false" afterPath="$PROJECT_DIR$/service.iws" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/App.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/AdminHome.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/BuyerProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/BuyerProfile.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/UncheckedCropProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/UncheckedCropProfile.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bids.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/bids.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bidsToBuy.js" beforeDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bidsToFarmer.js" beforeDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropBid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropBid.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropCheck.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropsIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropsIn.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropsToCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropsToCheck.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/recentBids.js" beforeDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/home.css" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/login.js" afterDir="false"/>
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/signup.js" afterDir="false"/>
     </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
+    <option name="SHOW_DIALOG" value="false"/>
+    <option name="HIGHLIGHT_CONFLICTS" value="true"/>
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false"/>
+    <option name="LAST_RESOLUTION" value="IGNORE"/>
   </component>
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
-    <option name="REVERSE_PATCH" value="false" />
+    <option name="PATCH_PATH" value=""/>
+    <option name="REVERSE_PATCH" value="false"/>
   </component>
   <component name="DebuggerManager">
     <breakpoint_any converted="true">
       <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="NOTIFY_CAUGHT" value="true"/>
+        <option name="NOTIFY_UNCAUGHT" value="true"/>
+        <option name="ENABLED" value="false"/>
+        <option name="LOG_ENABLED" value="false"/>
+        <option name="LOG_EXPRESSION_ENABLED" value="false"/>
+        <option name="SUSPEND_POLICY" value="SuspendAll"/>
+        <option name="COUNT_FILTER_ENABLED" value="false"/>
+        <option name="COUNT_FILTER" value="0"/>
+        <option name="CONDITION_ENABLED" value="false"/>
+        <option name="CLASS_FILTERS_ENABLED" value="false"/>
+        <option name="INSTANCE_FILTERS_ENABLED" value="false"/>
+        <option name="CONDITION" value=""/>
+        <option name="LOG_MESSAGE" value=""/>
       </breakpoint>
       <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="NOTIFY_CAUGHT" value="true"/>
+        <option name="NOTIFY_UNCAUGHT" value="true"/>
+        <option name="ENABLED" value="false"/>
+        <option name="LOG_ENABLED" value="false"/>
+        <option name="LOG_EXPRESSION_ENABLED" value="false"/>
+        <option name="SUSPEND_POLICY" value="SuspendAll"/>
+        <option name="COUNT_FILTER_ENABLED" value="false"/>
+        <option name="COUNT_FILTER" value="0"/>
+        <option name="CONDITION_ENABLED" value="false"/>
+        <option name="CLASS_FILTERS_ENABLED" value="false"/>
+        <option name="INSTANCE_FILTERS_ENABLED" value="false"/>
+        <option name="CONDITION" value=""/>
+        <option name="LOG_MESSAGE" value=""/>
       </breakpoint>
     </breakpoint_any>
-    <breakpoint_rules converted="true" />
-    <ui_properties converted="true" />
+    <breakpoint_rules converted="true"/>
+    <ui_properties converted="true"/>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
-      <ProjectState />
+      <ProjectState/>
     </projectState>
   </component>
   <component name="ExternalProjectsManager">
@@ -105,8 +105,8 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
-            <select />
+            <expand/>
+            <select/>
           </tree_state>
         </projects_view>
       </state>
@@ -115,58 +115,58 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="Interface" />
+        <option value="Class"/>
+        <option value="Interface"/>
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.."/>
   </component>
   <component name="ModuleEditorState">
-    <option name="LAST_EDITED_MODULE_NAME" />
-    <option name="LAST_EDITED_TAB_NAME" />
+    <option name="LAST_EDITED_MODULE_NAME"/>
+    <option name="LAST_EDITED_TAB_NAME"/>
   </component>
-  <component name="ProjectId" id="1YYras9OGFGnBzPRmkmEoAw042I" />
+  <component name="ProjectId" id="1YYras9OGFGnBzPRmkmEoAw042I"/>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
-      <profile-state />
+      <profile-state/>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true"/>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="0"/>
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true"/>
+    <option name="showExcludedFiles" value="true"/>
+    <option name="showLibraryContents" value="true"/>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="GoToClass.includeLibraries" value="false"/>
+    <property name="GoToClass.toSaveIncludeLibraries" value="false"/>
+    <property name="GoToFile.includeJavaFiles" value="false"/>
+    <property name="MemberChooser.copyJavadoc" value="false"/>
+    <property name="MemberChooser.showClasses" value="true"/>
+    <property name="MemberChooser.sorted" value="false"/>
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true"/>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$"/>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name=""/>
+      <option name="MAIN_CLASS_NAME"/>
+      <option name="HTML_FILE_NAME"/>
+      <option name="HTML_USED" value="false"/>
+      <option name="WIDTH" value="400"/>
+      <option name="HEIGHT" value="300"/>
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy"/>
+      <option name="VM_PARAMETERS"/>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false"/>
+      <option name="ALTERNATIVE_JRE_PATH"/>
       <method>
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="false"/>
+        <option name="Make" enabled="true"/>
       </method>
     </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -174,33 +174,33 @@
       <Port>5050</Port>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$"/>
       <method v="2">
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="false"/>
+        <option name="Make" enabled="true"/>
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_OBJECT" value="class"/>
+      <option name="VM_PARAMETERS"/>
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$"/>
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
+        <value defaultName="moduleWithDependencies"/>
       </option>
       <method v="2">
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="false"/>
+        <option name="Make" enabled="true"/>
       </method>
     </configuration>
     <configuration default="true" type="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <option name="AUTO_RESTART" value="false" />
+      <option name="USE_SOCKET_TRANSPORT" value="true"/>
+      <option name="SERVER_MODE" value="false"/>
+      <option name="SHMEM_ADDRESS" value="javadebug"/>
+      <option name="HOST" value="localhost"/>
+      <option name="PORT" value="5005"/>
+      <option name="AUTO_RESTART" value="false"/>
       <method v="2">
-        <option name="BuildArtifacts" enabled="false" />
+        <option name="BuildArtifacts" enabled="false"/>
       </method>
     </configuration>
   </component>
@@ -209,38 +209,38 @@
       <list>
         <serviceView>
           <treeState>
-            <expand />
-            <select />
+            <expand/>
+            <select/>
           </treeState>
         </serviceView>
       </list>
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration/>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="427cb748-50c6-49ae-bb8f-ca8317381bfd" name="Default Changelist" comment="" />
+      <changelist id="427cb748-50c6-49ae-bb8f-ca8317381bfd" name="Default Changelist" comment=""/>
       <created>1583130434814</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
+      <option name="number" value="Default"/>
+      <option name="presentableId" value="Default"/>
       <updated>1583130434814</updated>
     </task>
-    <servers />
+    <servers/>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true"/>
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true"/>
   </component>
   <component name="WindowStateProjectService">
     <state x="609" y="616" key="com.intellij.ide.util.TipDialog" timestamp="1584168669196">
-      <screen x="0" y="23" width="2880" height="1517" />
+      <screen x="0" y="23" width="2880" height="1517"/>
     </state>
-    <state x="609" y="616" key="com.intellij.ide.util.TipDialog/0.23.2880.1517@0.23.2880.1517" timestamp="1584168669196" />
+    <state x="609" y="616" key="com.intellij.ide.util.TipDialog/0.23.2880.1517@0.23.2880.1517" timestamp="1584168669196"/>
     <state x="617" y="371" width="670" height="675" key="run.anything.popup" timestamp="1583132296623">
-      <screen x="0" y="23" width="2880" height="1517" />
+      <screen x="0" y="23" width="2880" height="1517"/>
     </state>
-    <state x="617" y="371" width="670" height="675" key="run.anything.popup/0.23.2880.1517@0.23.2880.1517" timestamp="1583132296623" />
+    <state x="617" y="371" width="670" height="675" key="run.anything.popup/0.23.2880.1517@0.23.2880.1517" timestamp="1583132296623"/>
   </component>
 </project>

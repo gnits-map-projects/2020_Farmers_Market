@@ -61,10 +61,10 @@ Seq[Any](format.raw/*1.32*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Mar 02 09:35:10 IST 2020
-                  SOURCE: /Users/macadmin/projects/2020_Farmers_Market/service/app/views/main.scala.html
-                  HASH: 19dc28ded525fc3188f28d69896355eca8c606f8
-                  MATRIX: 971->1|1096->31|1124->33|1201->84|1226->89|1319->156|1333->162|1385->194|1436->219|1450->225|1515->270|1609->337|1637->344|1669->349
+                  DATE: Tue Mar 17 08:37:20 IST 2020
+                  SOURCE: C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/app/views/main.scala.html
+                  HASH: 02df9daa4e23795cc736b917d81ea4305af44128
+                  MATRIX: 971->1|1096->31|1126->35|1207->90|1232->95|1326->163|1340->169|1392->201|1444->227|1458->233|1523->278|1620->348|1648->355|1681->361
                   LINES: 29->1|34->1|36->3|40->7|40->7|41->8|41->8|41->8|42->9|42->9|42->9|45->12|45->12|46->13
                   -- GENERATED --
               */

@@ -18,12 +18,16 @@ public class BiddingController extends Controller {
 
     private final BiddingRepository biddingRepository;
     private final HttpExecutionContext ec;
+    private final AdminController adminController;
+    private final FormFactory formFactory;
 
 
     @Inject
-    public BiddingController(BiddingRepository biddingRepository, HttpExecutionContext ec) {
+    public BiddingController(BiddingRepository biddingRepository, HttpExecutionContext ec, FormFactory formFactory, AdminController adminController) {
         this.biddingRepository = biddingRepository;
         this.ec = ec;
+        this.adminController = adminController;
+        this.formFactory = formFactory;
     }
 
     public CompletionStage<Result> add() {

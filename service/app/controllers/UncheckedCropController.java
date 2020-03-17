@@ -13,7 +13,6 @@ import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 import static play.libs.Json.toJson;
 import static play.libs.Json.fromJson;
-import models.CropRepository;
 import play.data.FormFactory;
 
 /**

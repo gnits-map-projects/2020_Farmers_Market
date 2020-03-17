@@ -1,21 +1,38 @@
-2020-03-14 15:35:53,288 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-4 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:35:53,291 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-4 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:35:53,302 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
-2020-03-14 15:35:53,319 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-4 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:35:53,607 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-4 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:35:54,141 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-4 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:35:55,347 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2020-03-17 16:15:36,181 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-03-17 16:15:36,205 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-03-17 16:15:36,225 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2020-03-17 16:15:36,277 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-7 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-03-17 16:15:37,132 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-7 - datasource [default] bound to JNDI as DefaultDS
+2020-03-17 16:15:38,537 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-7 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-03-17 16:15:47,300 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     play.filters.cors.CORSFilter
 
-2020-03-14 15:35:55,351 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev)
-2020-03-14 15:35:55,705 [ERROR] from application in application-database.dispatcher-6 - 
+2020-03-17 16:15:47,324 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)
+2020-03-17 16:39:26,775 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
+2020-03-17 16:39:27,229 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-15 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-03-17 16:39:27,229 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-15 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-03-17 16:39:27,230 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-15 - Creating Pool for datasource 'default'
+2020-03-17 16:39:27,231 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-15 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-03-17 16:39:27,351 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-15 - datasource [default] bound to JNDI as DefaultDS
+2020-03-17 16:39:27,541 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-15 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-03-17 16:39:27,847 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-15 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
-! @7f651m8gn - Internal server error, for (GET) [/getBidTrends/82] ->
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.cors.CORSFilter
+
+2020-03-17 16:39:27,849 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-15 - Application started (Dev)
+2020-03-17 16:44:03,967 [WARN] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-database.dispatcher-6 - SQL Error: 1048, SQLState: 23000
+2020-03-17 16:44:03,968 [ERROR] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-database.dispatcher-6 - Column 'rating' cannot be null
+2020-03-17 16:44:04,030 [ERROR] from org.hibernate.internal.ExceptionMapperStandardImpl in application-database.dispatcher-6 - HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2020-03-17 16:44:04,106 [ERROR] from application in application-database.dispatcher-6 - 
+
+! @7f71608da - Internal server error, for (POST) [/register] ->
  
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.NullPointerException]]
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.RollbackException: Error while committing the transaction]]
 	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
 	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
 	at play.filters.cors.AbstractCORSPolicy$$anonfun$1.applyOrElse(AbstractCORSPolicy.scala:125)
@@ -34,782 +51,68 @@ play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[Completio
 	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:187)
 	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:94)
 	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:89)
-	at java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:760)
-	at java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:736)
-	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1595)
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:859)
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:837)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1705)
 	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.util.concurrent.CompletionException: java.lang.NullPointerException
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.util.concurrent.CompletionException: javax.persistence.RollbackException: Error while committing the transaction
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:314)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:319)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1702)
 	... 4 common frames omitted
-Caused by: java.lang.NullPointerException: null
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:91)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
+Caused by: javax.persistence.RollbackException: Error while committing the transaction
+	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:77)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:148)
 	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
+	at models.JPARegisterRepository.wrap(JPARegisterRepository.java:59)
+	at models.JPARegisterRepository.lambda$add$1(JPARegisterRepository.java:35)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700)
 	... 4 common frames omitted
-2020-03-14 15:36:46,301 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-4 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:36:46,302 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-4 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:37:24,789 [ERROR] from application in application-database.dispatcher-9 - 
-
-! @7f6521ab8 - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.NullPointerException]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.filters.cors.AbstractCORSPolicy$$anonfun$1.applyOrElse(AbstractCORSPolicy.scala:125)
-	at play.filters.cors.AbstractCORSPolicy$$anonfun$1.applyOrElse(AbstractCORSPolicy.scala:123)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at play.api.libs.streams.Execution$trampoline$.executeScheduled(Execution.scala:109)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:71)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:72)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:288)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:288)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
-	at scala.concurrent.Promise.complete(Promise.scala:53)
-	at scala.concurrent.Promise.complete$(Promise.scala:52)
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:187)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:94)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:89)
-	at java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:760)
-	at java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:736)
-	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1595)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.util.concurrent.CompletionException: java.lang.NullPointerException
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	... 4 common frames omitted
-Caused by: java.lang.NullPointerException: null
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:91)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:37:33,113 [ERROR] from application in application-database.dispatcher-10 - 
-
-! @7f6521mjb - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.NullPointerException]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.filters.cors.AbstractCORSPolicy$$anonfun$1.applyOrElse(AbstractCORSPolicy.scala:125)
-	at play.filters.cors.AbstractCORSPolicy$$anonfun$1.applyOrElse(AbstractCORSPolicy.scala:123)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at play.api.libs.streams.Execution$trampoline$.executeScheduled(Execution.scala:109)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:71)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:72)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:288)
-	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:288)
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
-	at scala.concurrent.Promise.complete(Promise.scala:53)
-	at scala.concurrent.Promise.complete$(Promise.scala:52)
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:187)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:94)
-	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:89)
-	at java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:760)
-	at java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:736)
-	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1595)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.util.concurrent.CompletionException: java.lang.NullPointerException
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	... 4 common frames omitted
-Caused by: java.lang.NullPointerException: null
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:91)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:37:50,290 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-8 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:37:50,291 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-8 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:37:50,298 [ERROR] from application in application-akka.actor.default-dispatcher-8 - 
-
-! @7f6522m4a - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.NullPointerException]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: java.lang.NullPointerException
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.lang.NullPointerException: null
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:91)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:41:44,503 [INFO] from application in application-akka.actor.default-dispatcher-13 - Shutting down connection pool.
-2020-03-14 15:41:44,751 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-12 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:41:44,751 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-12 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:41:44,751 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
-2020-03-14 15:41:44,752 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-12 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:41:44,770 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-12 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:41:44,959 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-12 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:41:45,070 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    play.filters.cors.CORSFilter
-
-2020-03-14 15:41:45,071 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev)
-2020-03-14 15:41:45,082 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:41:45,083 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:41:45,090 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7f652g5cm - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.NullPointerException]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: java.lang.NullPointerException
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.lang.NullPointerException: null
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:101)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:43:01,992 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2020-03-14 15:43:02,162 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-12 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:43:02,162 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-12 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:43:02,162 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
-2020-03-14 15:43:02,163 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-12 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:43:02,177 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-12 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:43:02,251 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-12 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:43:02,364 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    play.filters.cors.CORSFilter
-
-2020-03-14 15:43:02,365 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev)
-2020-03-14 15:43:02,381 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:43:02,381 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:43:02,388 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7f652kfln - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.NullPointerException]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: java.lang.NullPointerException
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.lang.NullPointerException: null
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:92)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:43:55,393 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2020-03-14 15:43:55,533 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-12 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:43:55,533 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-12 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:43:55,533 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
-2020-03-14 15:43:55,534 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-12 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:43:55,547 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-12 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:43:55,597 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-12 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:43:55,709 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    play.filters.cors.CORSFilter
-
-2020-03-14 15:43:55,710 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev)
-2020-03-14 15:43:55,724 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-2 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:43:55,724 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-2 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:43:55,733 [ERROR] from application in application-akka.actor.default-dispatcher-2 - 
-
-! @7f652ngjg - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.NoResultException: No entity found for query]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: javax.persistence.NoResultException: No entity found for query
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1556)
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:92)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:44:56,525 [INFO] from application in application-akka.actor.default-dispatcher-8 - Shutting down connection pool.
-2020-03-14 15:44:56,643 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-12 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:44:56,643 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-12 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:44:56,643 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
-2020-03-14 15:44:56,644 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-12 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:44:56,659 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-12 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:44:56,717 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-12 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:44:56,833 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    play.filters.cors.CORSFilter
-
-2020-03-14 15:44:56,835 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev)
-2020-03-14 15:44:56,850 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:44:56,850 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:44:56,860 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7f653134g - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.NoResultException: No entity found for query]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: javax.persistence.NoResultException: No entity found for query
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1556)
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:92)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:45:46,664 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
-2020-03-14 15:45:46,813 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-18 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:45:46,813 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-18 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:45:46,814 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-18 - Creating Pool for datasource 'default'
-2020-03-14 15:45:46,814 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-18 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:45:46,830 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-18 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:45:46,881 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-18 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:45:47,015 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-18 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    play.filters.cors.CORSFilter
-
-2020-03-14 15:45:47,017 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-18 - Application started (Dev)
-2020-03-14 15:45:47,030 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:45:47,030 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:45:47,040 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7f6533pah - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.NoResultException: No entity found for query]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: javax.persistence.NoResultException: No entity found for query
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1556)
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:92)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:46:05,120 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:46:05,120 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:46:05,129 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7f6535049 - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.NoResultException: No entity found for query]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: javax.persistence.NoResultException: No entity found for query
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1556)
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:92)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:46:14,643 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:46:14,643 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-3 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:46:14,648 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @7f6535e6d - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.NoResultException: No entity found for query]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: javax.persistence.NoResultException: No entity found for query
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1556)
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:92)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:48:04,678 [INFO] from application in application-akka.actor.default-dispatcher-8 - Shutting down connection pool.
-2020-03-14 15:48:04,786 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-14 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:48:04,786 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-14 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:48:04,787 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-14 - Creating Pool for datasource 'default'
-2020-03-14 15:48:04,787 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-14 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:48:04,801 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-14 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:48:04,850 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-14 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:48:04,918 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-14 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    play.filters.cors.CORSFilter
-
-2020-03-14 15:48:04,919 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-14 - Application started (Dev)
-2020-03-14 15:48:04,949 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-2 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:48:04,949 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-2 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:48:04,969 [ERROR] from application in application-akka.actor.default-dispatcher-2 - 
-
-! @7f653blbg - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.NoResultException: No entity found for query]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: javax.persistence.NoResultException: No entity found for query
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1556)
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:93)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:50:35,015 [INFO] from application in application-akka.actor.default-dispatcher-11 - Shutting down connection pool.
-2020-03-14 15:50:35,143 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-16 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:50:35,143 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-16 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:50:35,143 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-16 - Creating Pool for datasource 'default'
-2020-03-14 15:50:35,144 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-16 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:50:35,159 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-16 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:50:35,202 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-16 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:50:35,264 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-16 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    play.filters.cors.CORSFilter
-
-2020-03-14 15:50:35,265 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-16 - Application started (Dev)
-2020-03-14 15:50:35,275 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-4 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:50:35,275 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-4 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:50:35,282 [ERROR] from application in application-akka.actor.default-dispatcher-4 - 
-
-! @7f653k9km - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.NoResultException: No entity found for query]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: javax.persistence.NoResultException: No entity found for query
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1556)
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:93)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:51:34,941 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
-2020-03-14 15:51:35,072 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-30 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:51:35,072 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-30 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:51:35,073 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-30 - Creating Pool for datasource 'default'
-2020-03-14 15:51:35,073 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-30 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:51:35,087 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-30 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:51:35,129 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-30 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:51:35,194 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-30 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    play.filters.cors.CORSFilter
-
-2020-03-14 15:51:35,194 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-30 - Application started (Dev)
-2020-03-14 15:51:35,208 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-4 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:51:35,208 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-4 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:51:35,251 [ERROR] from application in application-akka.actor.default-dispatcher-4 - 
-
-! @7f653nkda - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.NoResultException: No entity found for query]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: javax.persistence.NoResultException: No entity found for query
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1556)
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:93)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
-2020-03-14 15:52:34,409 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
-2020-03-14 15:52:34,532 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-30 - application.conf @ jar:file:/Users/macadmin/projects/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-14 15:52:34,532 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-30 - Database [default] initialized at jdbc:mysql://localhost:3306/farmermkt
-2020-03-14 15:52:34,532 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-30 - Creating Pool for datasource 'default'
-2020-03-14 15:52:34,532 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-30 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-14 15:52:34,546 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-30 - datasource [default] bound to JNDI as DefaultDS
-2020-03-14 15:52:34,585 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-30 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-14 15:52:34,646 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-30 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    play.filters.cors.CORSFilter
-
-2020-03-14 15:52:34,646 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-30 - Application started (Dev)
-2020-03-14 15:52:34,657 [WARN] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-2 - decode: cookie has invalid signature! message = JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2020-03-14 15:52:34,657 [INFO] from play.api.mvc.DefaultJWTCookieDataCodec in application-akka.actor.default-dispatcher-2 - The JWT signature in the cookie does not match the locally computed signature with the server.
-This usually indicates the browser has a leftover cookie from another Play application,
-so clearing cookies may resolve this error message.
-2020-03-14 15:52:34,665 [ERROR] from application in application-akka.actor.default-dispatcher-2 - 
-
-! @7f65414ae - Internal server error, for (GET) [/getBidTrends/82] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.NoResultException: No entity found for query]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: javax.persistence.NoResultException: No entity found for query
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:273)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:280)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1592)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: javax.persistence.NoResultException: No entity found for query
-	at org.hibernate.query.internal.AbstractProducedQuery.getSingleResult(AbstractProducedQuery.java:1556)
-	at models.JPABiddingRepository.listbt(JPABiddingRepository.java:92)
-	at models.JPABiddingRepository.lambda$null$4(JPABiddingRepository.java:44)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:142)
-	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:100)
-	at models.JPABiddingRepository.wrap(JPABiddingRepository.java:58)
-	at models.JPABiddingRepository.lambda$listbt$5(JPABiddingRepository.java:44)
-	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1590)
-	... 4 common frames omitted
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:149)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:157)
+	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:61)
+	... 10 common frames omitted
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:59)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:111)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:97)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:178)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3136)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3651)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:90)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:478)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:356)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1454)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:511)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3278)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2474)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:473)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:178)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:39)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:271)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:98)
+	... 9 common frames omitted
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'rating' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1347)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:175)
+	... 25 common frames omitted
+2020-03-17 18:02:47,283 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-2 housekeeper - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=3m18s995ms952µs900ns).
+2020-03-17 19:04:24,193 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-2 housekeeper - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=1h1m37s60ms434µs300ns).

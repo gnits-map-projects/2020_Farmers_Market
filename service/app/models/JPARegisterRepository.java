@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.Persistence;
 import javax.persistence.EntityManagerFactory;
-import javax.xml.soap.Name;
 import java.util.List;
 import java.util.stream.Stream;
 import java.lang.Exception;

@@ -1,76 +1,16 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/macadmin/projects/2020_Farmers_Market/service/conf/routes
-// @DATE:Sat Mar 14 14:27:00 IST 2020
+// @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
+// @DATE:Tue Mar 17 08:35:42 IST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
 
 import _root_.controllers.Assets.Asset
 
-// @LINE:6
+// @LINE:7
 package controllers.javascript {
 
-  // @LINE:6
-  class ReversePersonController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:8
-    def addPersonJson: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PersonController.addPersonJson",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "personJson"})
-        }
-      """
-    )
-  
-    // @LINE:10
-    def delPersons: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PersonController.delPersons",
-      """
-        function() {
-          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "persons"})
-        }
-      """
-    )
-  
-    // @LINE:7
-    def addPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PersonController.addPerson",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "person"})
-        }
-      """
-    )
-  
-    // @LINE:9
-    def getPersons: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PersonController.getPersons",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "persons"})
-        }
-      """
-    )
-  
-    // @LINE:6
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PersonController.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:57
+  // @LINE:52
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -78,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:57
+    // @LINE:52
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -90,7 +30,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:20
+  // @LINE:15
   class ReverseRegisterController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -98,7 +38,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:42
+    // @LINE:37
     def updateRegister: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RegisterController.updateRegister",
       """
@@ -108,7 +48,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:38
+    // @LINE:33
     def getFarmer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RegisterController.getFarmer",
       """
@@ -118,7 +58,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:22
+    // @LINE:17
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RegisterController.login",
       """
@@ -128,7 +68,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:15
     def addRegister: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RegisterController.addRegister",
       """
@@ -140,7 +80,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:46
+  // @LINE:41
   class ReverseAdminController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -148,7 +88,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:46
+    // @LINE:41
     def sendEmail: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminController.sendEmail",
       """
@@ -160,7 +100,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:24
+  // @LINE:19
   class ReverseCropController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -168,7 +108,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:34
+    // @LINE:29
     def getCropTypes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CropController.getCropTypes",
       """
@@ -178,7 +118,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:23
     def getCrop: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CropController.getCrop",
       """
@@ -188,7 +128,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
+    // @LINE:21
     def getCrops: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CropController.getCrops",
       """
@@ -198,7 +138,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:30
+    // @LINE:25
     def cropsIn: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CropController.cropsIn",
       """
@@ -208,7 +148,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:32
+    // @LINE:27
     def getLocations: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CropController.getLocations",
       """
@@ -218,7 +158,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:24
+    // @LINE:19
     def getFarmerCrops: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CropController.getFarmerCrops",
       """
@@ -230,7 +170,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:40
+  // @LINE:35
   class ReverseBiddingController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -238,7 +178,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:50
+    // @LINE:45
     def rejectBid: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BiddingController.rejectBid",
       """
@@ -248,7 +188,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:40
+    // @LINE:35
     def add: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BiddingController.add",
       """
@@ -258,7 +198,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:48
+    // @LINE:43
     def acceptBid: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BiddingController.acceptBid",
       """
@@ -268,7 +208,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:44
+    // @LINE:39
     def getCropBids: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BiddingController.getCropBids",
       """
@@ -278,7 +218,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:52
+    // @LINE:47
     def getBidTrends: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BiddingController.getBidTrends",
       """
@@ -290,7 +230,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:12
+  // @LINE:7
   class ReverseUncheckedCropController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -298,7 +238,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:18
+    // @LINE:13
     def approveCrop: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UncheckedCropController.approveCrop",
       """
@@ -308,7 +248,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:14
+    // @LINE:9
     def getUncheckedCrops: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UncheckedCropController.getUncheckedCrops",
       """
@@ -318,7 +258,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:12
+    // @LINE:7
     def addUncheckedCrop: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UncheckedCropController.addUncheckedCrop",
       """
@@ -328,7 +268,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:36
+    // @LINE:31
     def deleteCrop: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UncheckedCropController.deleteCrop",
       """
@@ -338,7 +278,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:16
+    // @LINE:11
     def getUncheckedCrop: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UncheckedCropController.getUncheckedCrop",
       """

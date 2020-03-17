@@ -36,13 +36,8 @@ Seq[Any](format.raw/*1.4*/("""
 """),_display_(/*3.2*/main("Welcome to Play")/*3.25*/ {_display_(Seq[Any](format.raw/*3.27*/("""
     """),format.raw/*4.5*/("""<script type='text/javascript' src='"""),_display_(/*4.42*/routes/*4.48*/.Assets.at("javascripts/index.js")),format.raw/*4.82*/("""'></script>
 
-    <ul id="persons"></ul>
-
-    <form method="POST" action=""""),_display_(/*8.34*/routes/*8.40*/.PersonController.addPerson()),format.raw/*8.69*/("""">
-        <input type="text" name="name"/>
-        <button>Add Person</button>
-    </form>
-""")))}),format.raw/*12.2*/("""
+    <h1>HELLO</h1>
+""")))}),format.raw/*7.2*/("""
 """))
       }
     }
@@ -59,11 +54,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Mar 02 09:35:10 IST 2020
-                  SOURCE: /Users/macadmin/projects/2020_Farmers_Market/service/app/views/index.scala.html
-                  HASH: 0032e4d7e5b1fe20c18c5f8374fa8ca171d61e83
-                  MATRIX: 960->1|1056->3|1084->6|1115->29|1154->31|1185->36|1248->73|1262->79|1316->113|1416->187|1430->193|1479->222|1602->315
-                  LINES: 29->1|34->1|36->3|36->3|36->3|37->4|37->4|37->4|37->4|41->8|41->8|41->8|45->12
+                  DATE: Tue Mar 17 08:40:58 IST 2020
+                  SOURCE: C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/app/views/index.scala.html
+                  HASH: 00cc357179ad5b45dc66cb8a2c8613a1396f1897
+                  MATRIX: 960->1|1056->3|1086->8|1117->31|1156->33|1188->39|1251->76|1265->82|1319->116|1384->152
+                  LINES: 29->1|34->1|36->3|36->3|36->3|37->4|37->4|37->4|37->4|40->7
                   -- GENERATED --
               */
           

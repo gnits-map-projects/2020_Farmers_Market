@@ -3,11 +3,6 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.PersonController.index()
-POST    /person                     controllers.PersonController.addPerson()
-POST    /personJson                 controllers.PersonController.addPersonJson()
-GET     /persons                    controllers.PersonController.getPersons()
-DELETE  /persons                    controllers.PersonController.delPersons()
 
 POST    /addUncheckedCrop           controllers.UncheckedCropController.addUncheckedCrop()
 
