@@ -50,14 +50,8 @@ public class JPAUncheckedCropRepository implements UncheckedCropRepository {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-
         UncheckedCrop foundUncheckedCrop = em.createQuery("select c from UncheckedCrop c where c.id=:cid", UncheckedCrop.class).setParameter("cid", cid).getSingleResult();
-        //del(em, cid);
         return foundUncheckedCrop;
-
-        //insertIntoCrop(crop)
-        //em.remove(foundUncheckedCrop);
-        //approveCrop(em, cid)), executionContext);
     }
 
     @Override
@@ -65,7 +59,23 @@ public class JPAUncheckedCropRepository implements UncheckedCropRepository {
         return supplyAsync(() -> wrap(em -> del(em, cid)), executionContext);
     }
 
+    @Override
+    public Register getFarmer(Long cid){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        Register foundRegister = em.createQuery("select r from Register r where r.id = (select c.fid from UncheckedCrop c where c.id =: cid)",Register.class).setParameter("cid",cid).getSingleResult();
+        return foundRegister;
+    }
 
+    @Override
+    public UncheckedCrop getUCrop(Long cid){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        UncheckedCrop uncheckedCrop = em.createQuery("select c from UncheckedCrop c where c.id =: cid",UncheckedCrop.class).setParameter("cid",cid).getSingleResult();
+        return uncheckedCrop;
+    }
 
 
     private <T> T wrap(Function<EntityManager, T> function) {

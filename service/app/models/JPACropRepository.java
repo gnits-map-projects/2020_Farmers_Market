@@ -60,6 +60,10 @@ public class JPACropRepository implements CropRepository {
         return supplyAsync(() -> wrap(em -> listct(em, location)), executionContext);
     }
 
+    @Override
+    public CompletionStage<Crop> updateCrop(Long cid, String status) {
+        return supplyAsync(() -> wrap(em -> updatevalue(em, cid, status)), executionContext);
+    }
 
     private <T> T wrap(Function<EntityManager, T> function) {
         return jpaApi.withTransaction(function);
@@ -99,4 +103,17 @@ public class JPACropRepository implements CropRepository {
         List<Crop> locations = em.createQuery("select distinct c.name from Crop c where c.name in (select c1.name from Crop c1 where c1.location=:location)").setParameter("location",location).getResultList();
         return locations.stream();
     }
+
+    private Crop updatevalue(EntityManager em, Long cid, String status){
+        int i= em.createQuery("update Crop c set c.status =: status where c.id =: cid").setParameter("status",status).setParameter("cid",cid).executeUpdate();
+        if(i!=0){
+            Crop crop=em.createQuery("select c from Crop c where c.id=:cid",Crop.class).setParameter("cid",cid).getSingleResult();
+            return crop;
+        }
+        else{
+            return null;
+
+        }
+    }
+
 }

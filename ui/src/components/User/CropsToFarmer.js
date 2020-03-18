@@ -56,15 +56,13 @@ class CropsToFarmer extends Component {
     render(){
         return (
             <div className= "auth-inner">
-            <div className = "cropList">
             <Row>
-            <h1>Recent Crops</h1>
+            <h1>Recent Crops</h1><hr/>
             <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allBids/"+ this.state.fid}}>VIEW ALL CROPS</button>
             </Row><hr/>
             <Row>
                 <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">TRENDS</Col>
             </Row><hr/>
-            </div>
             <ul>
                 {this.renderList(this.state.id)}
             </ul>

@@ -20,37 +20,24 @@ render() {
     var uid=this.props.match.params.id
     return (<div>
         <Nav uid = {uid} role={'farmer'}/>
-    <div className = "userhomebg">
-    <div className="wrapper">
-    <div className="main_content">
-    </div>
-    </div>
     <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <Row>
                 <Col xs="6">
-                    <div>
                         <CropForm id={uid}/>
-                    </div> 
                 </Col>
                 <Col xs="6">
                     <Row> 
-                        <div>
                             <RecentCrops id={uid}/>
-                        </div>
                     </Row>
                         <br/>
                     <Row>
-                        <div>               
                             <CropsToFarmer/>
-                        </div>
                     </Row>
                 </Col>
                 
             </Row>
 
     </div>
-    </div>
-   
     </div>
     );
 }

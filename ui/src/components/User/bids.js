@@ -107,7 +107,7 @@ export default class Bids extends Component{
     
     render() {
         return (<div>
-            <Nav/>
+            <Nav uid = {this.state.fid} role={'farmer'}/>
         <div className = "userhomebg">
         
         <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >

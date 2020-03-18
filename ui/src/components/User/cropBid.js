@@ -92,7 +92,7 @@ export default class CropBid extends Component{
     render() {
         const {showBidForm} = this.state;
         return (<div>
-            <Nav/>
+            <Nav  uid = {this.state.buyerId} role={'buyer'}/>
         <div className = "userhomebg">
         <div className="wrapper">
         <div className="main_content">
@@ -119,8 +119,8 @@ export default class CropBid extends Component{
                 <Row><br/></Row>
                 <Row>
                 <form className="auth-inner">
-                <input type="number" min = {this.state.price + 1} placeholder={'Enter > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/>
-                <button type="submit" className="btn btn-primary btn-lg ml-auto" disabled = {!showBidForm} onClick={this.bidding}>BID</button>   
+                <input type="number" min = {this.state.price + 1} placeholder={'Enter amount > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/>
+                <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" disabled = {!showBidForm} onClick={this.bidding}>BID</button>   
                 </form></Row>
             </Col>  
             </Row>          

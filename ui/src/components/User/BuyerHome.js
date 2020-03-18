@@ -21,35 +21,22 @@ render() {
     window.localStorage.setItem('buyerId',this.state.id);
     return (<div>
         <Nav uid = {this.state.id} role={'buyer'}/>
-    <div className = "userhomebg">
-    <div className="wrapper">
-    <div className="main_content">
-    </div>
-    </div>
+
     <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
-        <Container >
         <ListLocations id={this.state.id}/>
         <br/>
         <Row>
         <Col>
-        <div background-color="#aacfb0">
-         <br/><h1>Bids closing soon</h1><br/>
         <CropsToBuyer id={this.state.id}/>
-        </div>
         </Col>
         <Col>
-        <div background-color="#c3b899">
         <br/><h1>Past Bids</h1><br/>
         
         
         {/*<PastBids id =  {uid}/>*/}
-        </div>
         </Col>
         </Row>
-        </Container>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-    </div>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </div>
     );
 }

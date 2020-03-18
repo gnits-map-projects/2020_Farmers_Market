@@ -16,7 +16,6 @@ class Navigation extends Component {
     }
     render(){
         console.log(this.state.role)
-        var navdone = 0;
         return (
             <div>
             <Navbar className="navbar-light" expand="md">
@@ -28,7 +27,7 @@ class Navigation extends Component {
                         <Nav.Link href="/Home">HOME</Nav.Link>
                         {this.state.role== 'admin' && <Nav.Link href={"/adminhome/"+this.state.uid}>DASHBOARD</Nav.Link>}
                         {this.state.role== 'farmer' && <Nav.Link href={"/userhome/"+this.state.uid}>DASHBOARD</Nav.Link>}
-                        {this.state.role== 'buyer' && <Nav.Link href={"/buyerhome/"+this.state.uid}>DASHBOARD</Nav.Link>}                        {this.state.role== 'buyer' && <Nav.Link href={"/buyerhome/"+this.state.uid}>DASHBOARD</Nav.Link>}
+                        {this.state.role== 'buyer' && <Nav.Link href={"/buyerhome/"+this.state.uid}></Nav.Link>}                        {this.state.role== 'buyer' && <Nav.Link href={"/buyerhome/"+this.state.uid}>DASHBOARD</Nav.Link>}
                         <NavDropdown title={window.localStorage.getItem("username")} id="basic-nav-dropdown">
                             <NavDropdown.Item href={"/updateProfile/" + this.state.uid}>Update Profile</NavDropdown.Item>
                             <NavDropdown.Item href="/Home" onClick={() => window.sessionStorage.clear() }>Sign out</NavDropdown.Item>
@@ -38,6 +37,7 @@ class Navigation extends Component {
             </Navbar>
             </div>
         );
-}}
+    }
+}
 
 export default Navigation;

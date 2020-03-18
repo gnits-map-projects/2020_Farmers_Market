@@ -40,7 +40,10 @@ class RecentCrops extends Component {
                 <div key={item.id} className = "cropList">
                     <Row>
                         <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
-                        <Col xs="3"><button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/bids/" + item.id +'/'+ item.fid}}>VIEW BIDS</button></Col>
+                        <Col xs="3">
+                            {item.status=="bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/bids/" + item.id +'/'+ item.fid}}>VIEW BIDS</button>}
+                            {item.status!="bidding" && <button type="submit" id={item.id} className="btn btn-warning btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id +'/'+ item.fid}}>VIEW BUYER</button>}
+                        </Col>
                     </Row><hr/>
                 </div>
             )

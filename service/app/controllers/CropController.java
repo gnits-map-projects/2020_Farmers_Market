@@ -33,8 +33,6 @@ public class CropController extends Controller {
     }
 
     public CompletionStage<Result> addChecked(Crop crop) {
-//        JsonNode js = request().body().asJson();
-//        Crop crop = fromJson(js, Crop.class);
         return cropRepository.add(crop).thenApplyAsync(p -> {
             return ok("Created.");
         }, ec.current());

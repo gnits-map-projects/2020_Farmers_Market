@@ -20,4 +20,8 @@ public interface UncheckedCropRepository {
     UncheckedCrop approveCrop(Long cid);
 
     CompletionStage<UncheckedCrop> deleteCrop(Long cid);
+
+    Register getFarmer(Long cid);
+
+    UncheckedCrop getUCrop(Long cid);
 }

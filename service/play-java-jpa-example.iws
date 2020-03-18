@@ -10,36 +10,30 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/BiddingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BiddingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/BiddingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/BiddingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/CropController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CropController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UncheckedCropController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UncheckedCropController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/CropRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/CropRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/JPACropRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPACropRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/JPAUncheckedCropRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPAUncheckedCropRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/UncheckedCropRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/UncheckedCropRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/UncheckedCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/UncheckedCropController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/BiddingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/BiddingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/CropRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/CropRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/JPACropRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/JPACropRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/lib/service.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/lib/service.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play-java-jpa-example.iws" beforeDir="false" afterPath="$PROJECT_DIR$/play-java-jpa-example.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/AdminHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/components/User/BuyerProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/BuyerProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/CropProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/CropProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/FarmerProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/FarmerProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/UncheckedCropProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/UncheckedCropProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/CropsToFarmer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/CropsToFarmer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bids.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/bids.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropCheck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropBid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropBid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropsToBuyer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropsToBuyer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/components/User/nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/AdminLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/AdminLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/crop.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/crop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/tandcSU.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/tandcSU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/updateProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/updateProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/recentCrops.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/recentCrops.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +100,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -122,7 +124,9 @@
       <profile-state />
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -141,6 +145,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="models" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -274,6 +283,14 @@
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="73" width="814" height="723" key="#Intentions" timestamp="1584545108549">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="73" width="814" height="723" key="#Intentions/0.0.1536.824@0.0.1536.824" timestamp="1584545108549" />
+    <state x="361" y="73" key="#Notifications" timestamp="1584524895855">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="73" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1584524895855" />
     <state x="583" y="332" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog" timestamp="1584414388008">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -310,9 +327,9 @@
       <screen x="0" y="23" width="2880" height="1517" />
     </state>
     <state x="609" y="616" key="com.intellij.ide.util.TipDialog/0.23.2880.1517@0.23.2880.1517" timestamp="1583121812220" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1584414054913">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1584543918214">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1584414054913" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1584543918214" />
   </component>
 </project>

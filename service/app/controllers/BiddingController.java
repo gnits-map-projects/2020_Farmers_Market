@@ -22,14 +22,18 @@ public class BiddingController extends Controller {
     private final FormFactory formFactory;
     private final RegisterController registerController;
     private final RegisterRepository registerRepository;
+    private final CropRepository cropRepository;
+    private final CropController cropController;
     EmailUtil emailUtil;
 
     @Inject
-    public BiddingController(RegisterRepository registerRepository, RegisterController registerController, BiddingRepository biddingRepository, HttpExecutionContext ec, FormFactory formFactory, AdminController adminController, EmailUtil emailUtil) {
-        this.registerController = registerController;
-        this.registerRepository = registerRepository;
+    public BiddingController(CropRepository cropRepository, CropController cropController, RegisterRepository registerRepository, RegisterController registerController, BiddingRepository biddingRepository, HttpExecutionContext ec, FormFactory formFactory, AdminController adminController, EmailUtil emailUtil) {
         this.biddingRepository = biddingRepository;
         this.ec = ec;
+        this.cropController = cropController;
+        this.cropRepository = cropRepository;
+        this.registerController = registerController;
+        this.registerRepository = registerRepository;
         this.adminController = adminController;
         this.formFactory = formFactory;
         this.emailUtil = emailUtil;
@@ -56,7 +60,7 @@ public class BiddingController extends Controller {
     }
 
     public CompletionStage<Result> acceptBid(Long bid, Long cid){
-        RegisterController registerController=new RegisterController(formFactory, registerRepository, ec);
+        CompletionStage<Crop> crop = cropRepository.updateCrop(cid, "closed");
         Register register = biddingRepository.getBuyer(bid);
         AdminController adminController = new AdminController(ec,emailUtil);
         Result res = adminController.sendBidAcceptedEmail(register.email); //to buyer

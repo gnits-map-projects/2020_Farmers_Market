@@ -100,7 +100,7 @@ class BuyerProfile extends Component {
     }
 }
     
-    componentWillMount() {
+    componentDidMount() {
         console.log("component did mount")
         const url = 'http://localhost:9000/getFarmer/'+this.props.id
         console.log(this.state.id)
