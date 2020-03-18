@@ -32,4 +32,28 @@ public class AdminController extends Controller {
         return ok("successful");
     }
 
+    public Result sendAuthEmail(String to) {
+        List<String> toList = new ArrayList<String>();
+        toList.add(to);
+        emailUtil.sendEmail("Test", toList, "<h2> Test </h2> <br><br> <p> Testing Email </p>");
+        return ok("successful");
+    }
+
+    public Result sendBidAcceptedEmail(String to) {
+        List<String> toList = new ArrayList<String>();
+        toList.add(to);
+        emailUtil.sendEmail("Congratulations", toList, "<h2> Your bid has been accepted. </h2> <br><br> <p> Please proceed to advance payment with in 5 days.<br/>" +
+                "http://localhost:3000/login</p>");
+        return ok("successful");
+    }
+
+    public Result sendBidRejectedEmail(String to) {
+        List<String> toList = new ArrayList<String>();
+        toList.add(to);
+        emailUtil.sendEmail("Test", toList, "<h2> Test </h2> <br><br> <p> Testing Email </p>");
+        return ok("successful");
+    }
+
+
+
 }

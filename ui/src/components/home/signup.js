@@ -124,6 +124,7 @@ var body = {
         mobile : this.state.mobile,
         role : this.state.role,
         rating : 6.0,
+        status : 'unauthenticated',
     }
 console.log(body);
 if(this.state.name==""){
@@ -177,15 +178,13 @@ render() {
 const {errors} = this.state;
 return (<div className ="bg">
 <Navigation/>
-
-<br></br><br/>
 <br/><br/><br/><br/>
 <Row>
 
 <Col>
 
 <div className="auth-wrapper1">
-<div className="auth-inner">
+<div className="auth-inner-half">
 <form>
 <h1>SIGN UP</h1><hr/>
  
@@ -226,20 +225,21 @@ return (<div className ="bg">
     </div>
 
     <div className="form-group">
-    <input type="checkbox" onChange={() => this.setState({checkbx : !this.state.checkbx})}/><span className='error'>  I accept the terms and conditions.</span>
+        <input type="checkbox" onChange={() => this.setState({checkbx : !this.state.checkbx})}/><span className='error'>  I accept the terms and conditions.</span>
     </div>
 
     <button type="submit" className="btn btn-primary btn-block btn-lg" onClick = {this.handleSubmit} disabled = {!this.state.checkbx}>SIGN UP</button>
     <p className="forgot-password text-right"> Already registered? <a href="/Login">Login</a></p>
-    </form>
+</form>
 </div>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 </div>
 </Col>
 <Col>
     <TandC/>
 </Col>
 </Row>
+<br/><br/><br/><br/><br/>
 </div>
 );
 }

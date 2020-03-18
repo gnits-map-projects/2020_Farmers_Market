@@ -73,34 +73,25 @@ export default class CropCheck extends Component{
         console.log("IN CROP CHECK COMPONENT.")
         return (<div>
             <Nav/>
-        <div className = "userhomebg">
-        <div className="wrapper">
-        <div className="main_content">
-        </div>
-        </div>
+
         <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <Container>
             <Row>
                 <Col>
-                <br/><h1>Crop Profile:</h1><br/>
                 <UncheckedCropProfile id = {this.state.id}/>
                 <br/>
+                <Row>
+                    <Col xs="1"></Col><Col><button id={this.state.id} className="btn btn-success btn-lg" onClick={() => {this.approve(this.state.id)}}>APPROVE</button></Col>
+                    <Col xs="3"></Col><Col><button id={this.state.id} className="btn btn-danger btn-lg" onClick={() => {this.reject(this.state.id)}}>REJECT</button></Col>
+                </Row>
                 </Col>
-            </Row>
                 <Col>
-                <br/><h1>Farmer Profile:</h1><br/>
                 <FarmerProfile id = {this.state.fid}/>
                 <br/>
                 </Col>
-            <Row>
-            <Col><button id={this.state.id} className="btn btn-success btn-lg" onClick={() => {this.approve(this.state.id)}}>APPROVE</button></Col>
-            <Col><button id={this.state.id} className="btn btn-danger btn-lg" onClick={() => {this.reject(this.state.id)}}>REJECT</button></Col>
-            </Row>
-            
+            </Row>            
             </Container>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
         </div>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
         );
     }

@@ -4,7 +4,8 @@ import './home.css';
 import Nav from '../User/nav.js';
 import Form from 'react-bootstrap/Form';
 import FarmerProfile from '../User/FarmerProfile'
-//import Header from './Header'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 var a=window.localStorage.getItem("name")
 var b=window.localStorage.getItem("email")
@@ -192,9 +193,14 @@ this.setState({errors, [name]: value});
       return (<div className ="bg">
 <Nav uid={this.state.user} role={window.sessionStorage.getItem("role")}/>
 
-<br></br><br/>
-<br/><br/><br/><br/>
-<FarmerProfile id={this.state.user}/> 
+<br></br><br/><br/><br/>
+<Row>
+<Col xs="3"></Col>
+<Col xs="6">
+  <FarmerProfile id={this.state.user}/>
+</Col>
+<Col xs="3"></Col>
+</Row>
 {/* Also for buyers since we don't need any buttons */}
 <br></br><br/>
 <br/><br/><br/><br/>

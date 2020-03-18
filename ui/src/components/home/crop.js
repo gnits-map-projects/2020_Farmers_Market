@@ -147,6 +147,7 @@ class CropForm extends Component{
           quantitymin: this.state.quantitymin,
           quantitymax: this.state.quantitymax,
           fid: this.state.uid,
+          status : 'bidding'
          
         }
         console.log(body);
@@ -228,7 +229,7 @@ class CropForm extends Component{
     
       render() {
         return (
-            <div className = "auth-inner">
+            <div className = "auth-inner-half">
             
             <Form onSubmit={this.handleSubmit}><h1>Add Crop</h1><hr/>         
                 <div className="form-group">

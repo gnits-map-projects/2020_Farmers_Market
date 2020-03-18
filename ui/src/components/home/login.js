@@ -136,15 +136,12 @@ class Login extends Component{
         return (<div className="bg">
 
 <Navigation/>
-            <br></br><br/>
-            <br/>
 
             <div className="auth-wrapper">
             <div className="auth-inner">
                
             <form>
-                <h3>Login</h3>
-
+                <h1>LOGIN</h1><hr/>
                 <div className="form-group">
                     <label>Email address</label>
                     <input type="email" name="email" id="exampleEmail" className="form-control" placeholder="Enter email"
@@ -174,10 +171,9 @@ class Login extends Component{
 
             </form>
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </div>
         );
     }

@@ -24,9 +24,11 @@ public class RegisterController extends Controller {
 
     private final RegisterRepository registerRepository;
     private final HttpExecutionContext ec;
+    private final FormFactory formFactory;
 
     @Inject
-    public RegisterController(RegisterRepository registerRepository, HttpExecutionContext ec) {
+    public RegisterController(FormFactory formFactory, RegisterRepository registerRepository, HttpExecutionContext ec) {
+        this.formFactory = formFactory;
         this.registerRepository = registerRepository;
         this.ec = ec;
     }

@@ -18,5 +18,5 @@ public interface BiddingRepository {
 
     public CompletionStage<Bidding> rejectBid(Long bid);
 
-
+    Register getBuyer(Long bid);
 }

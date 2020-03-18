@@ -49,8 +49,8 @@ class UncheckedCropProfile extends Component {
         console.log(this.state.crop)
         let s=this.state.crop
         return (
-            <div className = "recentbids">
-            <div className="auth-inner">
+
+            <div className="auth-inner-half">
             <h1>Crop Profile:</h1><hr/>
                 <Row><Col>Crop :</Col><Col>{this.state.crop.name}<br/></Col></Row>
                 <Row><Col>Location :</Col><Col>{this.state.crop.location}<br/></Col></Row>
@@ -59,7 +59,6 @@ class UncheckedCropProfile extends Component {
                 <Row><Col>Harvest date :</Col><Col>{this.state.crop.endtime}<br/></Col></Row>
                 <Row><Col>Bid end date :</Col><Col>{this.state.crop.bidendtime}<br/></Col></Row>
                 <Row><Col>Price :</Col><Col>{this.state.crop.price} ₹<br/></Col></Row>
-            </div>
             </div>
         );
     }

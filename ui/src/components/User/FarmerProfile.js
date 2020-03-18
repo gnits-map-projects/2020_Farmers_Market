@@ -47,14 +47,13 @@ class FarmerProfile extends Component {
             this.state.farmer.rating = "No rating yet"
         }
         return (
-            <div className = "recentbids">
-            <div className="auth-inner">
-                <h1>Farmer Profile:</h1>
+
+            <div className="auth-inner-half">
+                <h1>Farmer Profile:</h1><hr/>
                 <Row><Col>Name:</Col><Col>{this.state.farmer.name}<br/></Col></Row>
                 <Row><Col>Mobile:</Col><Col>{this.state.farmer.mobile}<br/></Col></Row>
                 <Row><Col>Email:</Col><Col>{this.state.farmer.email}<br/></Col></Row>
                 <Row><Col>Rating:</Col><Col>{this.state.farmer.rating}<br/></Col></Row>
-            </div>
             </div>
         );
     }

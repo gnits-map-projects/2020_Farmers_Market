@@ -136,8 +136,8 @@ class BuyerProfile extends Component {
         }
         return (
             <div className = "recentbids">
-            <div className="auth-inner">
-                <h1>Buyer Profile:</h1>
+            <div className="auth-inner-half">
+                <h1>Buyer Profile:</h1><hr/>
                 <Row><Col>Name:</Col><Col>{this.state.buyer.name}<br/></Col></Row>
                 <Row><Col>Mobile:</Col><Col>{this.state.buyer.mobile}<br/></Col></Row>
                 <Row><Col>Email:</Col><Col>{this.state.buyer.email}<br/></Col></Row>

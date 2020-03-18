@@ -10,9 +10,15 @@ import CropsToCheck from './cropsToCheck.js'
 
 
 export default class AdminHome extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            'id' :this.props.match.params.id,
+        };
+    }
 render() {
     return (<div>
-        <Nav/>
+        <Nav  uid = {this.state.id} role={'admin'}/>
     <div className = "userhomebg">
     <div className="wrapper">
     <div className="main_content">

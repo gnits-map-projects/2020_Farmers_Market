@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import play.db.jpa.JPAApi;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
@@ -52,6 +54,15 @@ public class JPABiddingRepository implements BiddingRepository {
     @Override
     public CompletionStage<Bidding> rejectBid(Long bid) {
         return supplyAsync(() -> wrap(em -> rejectBid(em, bid)), executionContext);
+    }
+
+    @Override
+    public Register getBuyer(Long bid) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        Register register = em.createQuery("select r from Register r where id = (select b.buyerId from Bidding b where b.id =: bid)",Register.class).setParameter("bid", bid).getSingleResult();
+        return register;
     }
 
     private <T> T wrap(Function<EntityManager, T> function) {
@@ -134,6 +145,5 @@ public class JPABiddingRepository implements BiddingRepository {
 
         }
     }
-
 
 }

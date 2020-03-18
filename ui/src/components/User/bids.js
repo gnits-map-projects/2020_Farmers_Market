@@ -112,7 +112,7 @@ export default class Bids extends Component{
         
         <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
         <Row>        
-            <Col>
+            <Col xs = "7">
             <div className="auth-inner">
             <div className = "cropList">
             <Row>
@@ -125,7 +125,7 @@ export default class Bids extends Component{
             </div>
             </Col>
 
-            <Col>
+            <Col xs="5">
                 <Row>
                 <CropProfile id = {this.state.cid} getPrice = {this.getPrice}/>
                 <br/></Row>

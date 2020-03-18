@@ -40,25 +40,23 @@ export default class Home extends Component {
         {window.sessionStorage.getItem("uid")==null && <NavUnset/>}
         {window.sessionStorage.getItem("uid")!=null && <NavSet uid = {window.sessionStorage.getItem("uid")} role = {window.sessionStorage.getItem("role")}/>}
             <div  style={{'background-image' : 'url(' + logo +')' }}  className = "auth-home">
-    
+            <div className = "auth-inner-full">
             <h2>
-                <p align = "justify">
+                <p align = "center">
                     Welcome to Farmer's Market!
-
-                    Register your crops and get the right price yout deserve.
-
-                    <br/><br/><h1>About us</h1><br/>
+                    <br/>
+                    Register your crops and get the right price yout deserve.<hr/></p>
+                    <p align = "justify">
+                    <h1>ABOUT US</h1><hr/>
                     Farmer’s Market is a web application that brings corporate to the farmers. The buyers of
 produce can bid for a farmer’s stock beforehand. Then, as per the farmer’s choice of the bidder,
 the bidder can pay a nominal upfront advance to the farmer. When the crop is delivered, the
 buyer may pay the pre-agreed full price irrespective of the market demand and current price.
 Farmers can use the upfront money to pay for the crop and insure it against any unexpected
 scenarios.
-                </p></h2>
+                </p></h2></div>
 
-                <br/><br/>
-
-
+      <br/><br/><br/><br/><br/>
       <div className="containerSlide">
           <Slide {...properties}>
               <div  className="each-slide">

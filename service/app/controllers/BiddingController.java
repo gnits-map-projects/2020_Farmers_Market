@@ -1,8 +1,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import models.Bidding;
-import models.BiddingRepository;
+import models.*;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -12,6 +11,7 @@ import java.util.concurrent.CompletionStage;
 import static play.libs.Json.toJson;
 import static play.libs.Json.fromJson;
 import play.data.FormFactory;
+import utils.EmailUtil;
 
 
 public class BiddingController extends Controller {
@@ -20,14 +20,19 @@ public class BiddingController extends Controller {
     private final HttpExecutionContext ec;
     private final AdminController adminController;
     private final FormFactory formFactory;
-
+    private final RegisterController registerController;
+    private final RegisterRepository registerRepository;
+    EmailUtil emailUtil;
 
     @Inject
-    public BiddingController(BiddingRepository biddingRepository, HttpExecutionContext ec, FormFactory formFactory, AdminController adminController) {
+    public BiddingController(RegisterRepository registerRepository, RegisterController registerController, BiddingRepository biddingRepository, HttpExecutionContext ec, FormFactory formFactory, AdminController adminController, EmailUtil emailUtil) {
+        this.registerController = registerController;
+        this.registerRepository = registerRepository;
         this.biddingRepository = biddingRepository;
         this.ec = ec;
         this.adminController = adminController;
         this.formFactory = formFactory;
+        this.emailUtil = emailUtil;
     }
 
     public CompletionStage<Result> add() {
@@ -51,6 +56,10 @@ public class BiddingController extends Controller {
     }
 
     public CompletionStage<Result> acceptBid(Long bid, Long cid){
+        RegisterController registerController=new RegisterController(formFactory, registerRepository, ec);
+        Register register = biddingRepository.getBuyer(bid);
+        AdminController adminController = new AdminController(ec,emailUtil);
+        Result res = adminController.sendBidAcceptedEmail(register.email); //to buyer
         return biddingRepository.acceptBid(bid, cid).thenApplyAsync(p->{
             return ok("update successful");
         },ec.current());
