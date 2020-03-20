@@ -61,8 +61,26 @@ public class JPABiddingRepository implements BiddingRepository {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        Register register = em.createQuery("select r from Register r where id = (select b.buyerId from Bidding b where b.id =: bid)",Register.class).setParameter("bid", bid).getSingleResult();
+        Register register = em.createQuery("select r from Register r where id = (select b.buyerId from Bidding b where b.id =: bid)",Register.class).
+                setParameter("bid", bid).
+                getSingleResult();
         return register;
+    }
+
+    @Override
+    public List<Register> getLosers(Long bid, Long cid) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+
+        List<Register> registers = em.createQuery("select r from Register r where r.id in " +
+                "(select b.buyerId from Bidding b where b.cropId =: cid and b.status=: status and not b.id=:bid)",Register.class).
+                setParameter("cid", cid).
+                setParameter("status", "waiting").
+                setParameter("bid", bid).
+                getResultList();
+        registers.forEach(register -> System.out.println(register.email));
+        return registers;
     }
 
     private <T> T wrap(Function<EntityManager, T> function) {
@@ -123,7 +141,6 @@ public class JPABiddingRepository implements BiddingRepository {
     private Bidding acceptBid(EntityManager em, Long bid, Long cid){
         int i= em.createQuery("update Bidding b set b.status =: status where b.id =: bid").setParameter("status","accepted").setParameter("bid",bid).executeUpdate();
         int j= em.createQuery("update Bidding b set b.status =: status where b.cropId =: cid and not b.id = :bid").setParameter("status","rejected").setParameter("bid",bid).setParameter("cid",cid).executeUpdate();
-
         if(i!=0){
             Bidding bidding = em.createQuery("select b from Bidding b where b.id=:bid",Bidding.class).setParameter("bid",bid).getSingleResult();
             return bidding;

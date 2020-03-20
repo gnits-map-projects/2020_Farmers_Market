@@ -4,50 +4,33 @@
 
 # Home page
 
-POST    /addUncheckedCrop           controllers.UncheckedCropController.addUncheckedCrop()
+POST    /register                       controllers.RegisterController.addRegister()
+POST    /login                          controllers.RegisterController.login()
+GET     /getFarmer/:fid                 controllers.RegisterController.getFarmer(fid: Long)
+POST    /updateProfile/:id              controllers.RegisterController.updateRegister(id: Long)
 
-GET     /getUncheckedCrops           controllers.UncheckedCropController.getUncheckedCrops()
+POST    /addUncheckedCrop               controllers.UncheckedCropController.addUncheckedCrop()
+GET     /getUncheckedCrops              controllers.UncheckedCropController.getUncheckedCrops()
+GET     /getUncheckedCrop/:cid          controllers.UncheckedCropController.getUncheckedCrop(cid: Long)
+GET     /approveCrop/:cid               controllers.UncheckedCropController.approveCrop(cid: Long)
+DELETE  /rejectCrop/:cid                controllers.UncheckedCropController.deleteCrop(cid: Long)
 
-GET     /getUncheckedCrop/:cid           controllers.UncheckedCropController.getUncheckedCrop(cid: Long)
+GET     /getFarmerCrops/:fid            controllers.CropController.getFarmerCrops(fid: Long)
+GET     /getCrops                       controllers.CropController.getCrops()
+GET     /getCrop/:cid                   controllers.CropController.getCrop(cid: Long)
+GET     /cropsIn/:location              controllers.CropController.cropsIn(location: String)
+GET     /getLocations                   controllers.CropController.getLocations()
+GET     /getCropTypes/:location         controllers.CropController.getCropTypes(location: String)
 
-GET    /approveCrop/:cid           controllers.UncheckedCropController.approveCrop(cid: Long)
+POST    /insertBid                      controllers.BiddingController.add()
+GET     /getCropBids/:cid               controllers.BiddingController.getCropBids(cid: Long)
+GET     /acceptBid/:bid/:cid            controllers.BiddingController.acceptBid(bid: Long, cid: Long)
+GET     /rejectBid/:bid/:cid            controllers.BiddingController.rejectBid(bid: Long, cid: Long)
+GET     /getBidTrends/:cid              controllers.BiddingController.getBidTrends(cid: Long)
 
-POST   /register                    controllers.RegisterController.addRegister()
-
-POST   /login                       controllers.RegisterController.login()
-
-GET   /getFarmerCrops/:fid          controllers.CropController.getFarmerCrops(fid: Long)
-
-GET   /getCrops                     controllers.CropController.getCrops()
-
-GET   /getCrop/:cid                 controllers.CropController.getCrop(cid: Long)
-
-GET   /cropsIn/:location            controllers.CropController.cropsIn(location: String)
-
-GET   /getLocations                 controllers.CropController.getLocations()
-
-GET   /getCropTypes/:location                 controllers.CropController.getCropTypes(location: String)
-
-DELETE  /rejectCrop/:cid            controllers.UncheckedCropController.deleteCrop(cid: Long)
-
-GET   /getFarmer/:fid                 controllers.RegisterController.getFarmer(fid: Long)
-
-POST  /insertBid                    controllers.BiddingController.add()
-
-POST /updateProfile/:id             controllers.RegisterController.updateRegister(id: Long)
-
-GET   /getCropBids/:cid             controllers.BiddingController.getCropBids(cid: Long)
-
-POST  /email/:to                        controllers.AdminController.sendEmail(to: String)
-
-GET   /acceptBid/:bid/:cid                    controllers.BiddingController.acceptBid(bid : Long, cid : Long)
-
-GET   /rejectBid/:bid                    controllers.BiddingController.rejectBid(bid : Long)
-
-GET   /getBidTrends/:cid             controllers.BiddingController.getBidTrends(cid: Long)
-
+POST    /email/:to/:subject/:body       controllers.AdminController.sendEmail(to: String, subject String, body: String)
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file                   controllers.Assets.at(path="/public", file)
 

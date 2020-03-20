@@ -25,13 +25,13 @@ public class AdminController extends Controller {
         this.emailUtil = emailUtil;
     }
 
-    public Result sendEmail(String to) {
+    public Result sendEmail(String to, String subjectMessage, String bodyMessage) {
         List<String> toList = new ArrayList<String>();
         toList.add(to);
-        emailUtil.sendEmail("Test", toList, "<h2> Test </h2> <br><br> <p> Testing Email </p>"+
-                "<a href=\"http://localhost:3000/login\" target=\"_blank\">\n" +
-                "                          Click             \n" +
-                "                      </a>");
+        emailUtil.sendEmail(subjectMessage, toList, "<h2>"+ subjectMessage +"</h2><p>"+bodyMessage+"</p>"+
+                "<a href=\"http://localhost:3000/login\" target=\"_blank\">" +
+                    "Farmer's Market" +
+                "</a>");
         return ok("successful");
     }
 
@@ -42,21 +42,12 @@ public class AdminController extends Controller {
         return ok("successful");
     }
 
-    public Result sendBidAcceptedEmail(String to) {
-        List<String> toList = new ArrayList<String>();
-        toList.add(to);
-        emailUtil.sendEmail("Congratulations", toList, "<h2> Your bid has been accepted.</h2><p>Please proceed to the advance payment.<br/></p>" +
-                "<a href=\"http://localhost:3000/login\" target=\"_blank\">Farmer's Market</a>");
-        return ok("successful");
-    }
-
-    public Result sendBidRejectedEmail(String to) {
-        List<String> toList = new ArrayList<String>();
-        toList.add(to);
-        emailUtil.sendEmail("Test", toList, "<h2> Test </h2> <br><br> <p> Testing Email </p>");
-        return ok("successful");
-    }
-
-
-
+//    public Result sendBidAcceptedEmail(String to) {
+//        List<String> toList = new ArrayList<String>();
+//        toList.add(to);
+//        emailUtil.sendEmail("Congratulations", toList, "<h2> Your bid has been accepted.</h2><p>Please proceed to the advance payment.<br/></p>" +
+//                "<a href=\"http://localhost:3000/login\" target=\"_blank\">Farmer's Market</a>");
+//        return ok("successful");
+//    }
+//
 }

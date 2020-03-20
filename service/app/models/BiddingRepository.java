@@ -19,4 +19,6 @@ public interface BiddingRepository {
     public CompletionStage<Bidding> rejectBid(Long bid);
 
     Register getBuyer(Long bid);
+
+    List<Register> getLosers(Long bid, Long cid);
 }

@@ -37,7 +37,7 @@ public class NotificationController extends Controller {
         JsonNode js = Json.parse("{" +
                 "\"userId\" : \""+userId+"\","+
                 "\"notification\" : \""+notification+"\","+
-                "\"status\" : \"unread\","+
+                "\"status\" : \"unread\""+
                 "}");
         Notification notification1 = fromJson(js, Notification.class);
         return notificationRepository.add(notification1).thenApplyAsync(p -> {
