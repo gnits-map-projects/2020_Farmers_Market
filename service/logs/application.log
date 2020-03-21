@@ -1,12 +1,303 @@
-2020-03-20 22:57:52,118 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-20 22:57:52,121 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
-2020-03-20 22:57:52,134 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
-2020-03-20 22:57:52,153 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-2 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-20 22:57:52,775 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-2 - datasource [default] bound to JNDI as DefaultDS
-2020-03-20 22:57:53,088 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2020-03-21 16:56:37,230 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-03-21 16:56:37,237 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-03-21 16:56:37,288 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2020-03-21 16:56:37,364 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-7 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-03-21 16:56:39,264 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-7 - datasource [default] bound to JNDI as DefaultDS
+2020-03-21 16:56:41,648 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-7 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-03-21 16:56:46,452 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     play.filters.cors.CORSFilter
 
-2020-03-20 22:57:53,145 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev)
+2020-03-21 16:56:46,479 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)
+2020-03-21 17:11:59,014 [ERROR] from application in application-akka.actor.default-dispatcher-6 - 
+
+! @7f84bokk9 - Internal server error, for (POST) [/sendAuthEmail/kaumudidegekar/1] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[EmailException: javax.mail.internet.AddressException: Missing final '@domain' in string ``kaumudidegekar'']]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: org.apache.commons.mail.EmailException: javax.mail.internet.AddressException: Missing final '@domain' in string ``kaumudidegekar''
+	at org.apache.commons.mail.Email.createInternetAddress(Email.java:1974)
+	at org.apache.commons.mail.Email.addTo(Email.java:846)
+	at org.apache.commons.mail.Email.addTo(Email.java:829)
+	at play.api.libs.mailer.CommonsMailer.$anonfun$createEmail$7(CommonsMailer.scala:31)
+	at play.api.libs.mailer.CommonsMailer.$anonfun$createEmail$7$adapted(CommonsMailer.scala:31)
+	at play.api.libs.mailer.CommonsMailer.setAddress(CommonsMailer.scala:117)
+	at play.api.libs.mailer.CommonsMailer.$anonfun$createEmail$6(CommonsMailer.scala:31)
+	at play.api.libs.mailer.CommonsMailer.$anonfun$createEmail$6$adapted(CommonsMailer.scala:31)
+	at scala.collection.Iterator.foreach(Iterator.scala:941)
+	at scala.collection.Iterator.foreach$(Iterator.scala:941)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1429)
+	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+	at play.api.libs.mailer.CommonsMailer.createEmail(CommonsMailer.scala:31)
+	at play.api.libs.mailer.CommonsMailer.send(CommonsMailer.scala:23)
+	at play.api.libs.mailer.SMTPMailer.send(SMTPMailer.scala:24)
+	at play.api.libs.mailer.SMTPDynamicMailer.send(SMTPDynamicMailer.scala:8)
+	at play.api.libs.mailer.MailerClient.send(MailerClient.scala:19)
+	at play.api.libs.mailer.MailerClient.send$(MailerClient.scala:17)
+	at play.api.libs.mailer.SMTPDynamicMailer.send(SMTPDynamicMailer.scala:5)
+	at utils.EmailUtil.sendEmail(EmailUtil.java:25)
+	at controllers.AdminController.sendAuthEmail(AdminController.java:42)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$46(Routes.scala:658)
+	at play.core.routing.HandlerInvokerFactory$$anon$6.resultCall(HandlerInvoker.scala:134)
+	at play.core.routing.HandlerInvokerFactory$$anon$6.resultCall(HandlerInvoker.scala:133)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:108)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:658)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:72)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:372)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:371)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:379)
+	at scala.concurrent.impl.Promise.transform(Promise.scala:33)
+	at scala.concurrent.impl.Promise.transform$(Promise.scala:31)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:379)
+	at scala.concurrent.Future.map(Future.scala:292)
+	at scala.concurrent.Future.map$(Future.scala:292)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:379)
+	at scala.concurrent.Future$.apply(Future.scala:658)
+	at play.core.j.JavaAction.apply(JavaAction.scala:138)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at scala.concurrent.Future.$anonfun$flatMap$1(Future.scala:307)
+	... 13 common frames omitted
+Caused by: javax.mail.internet.AddressException: Missing final '@domain'
+	at javax.mail.internet.InternetAddress.checkAddress(InternetAddress.java:1279)
+	at javax.mail.internet.InternetAddress.validate(InternetAddress.java:1154)
+	at org.apache.commons.mail.Email.createInternetAddress(Email.java:1970)
+	... 66 common frames omitted
+2020-03-21 17:18:37,520 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
+2020-03-21 17:18:38,101 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-15 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-03-21 17:18:38,101 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-15 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-03-21 17:18:38,101 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-15 - Creating Pool for datasource 'default'
+2020-03-21 17:18:38,103 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-15 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-03-21 17:18:38,242 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-15 - datasource [default] bound to JNDI as DefaultDS
+2020-03-21 17:18:38,535 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-15 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-03-21 17:18:39,119 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-15 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.cors.CORSFilter
+
+2020-03-21 17:18:39,121 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-15 - Application started (Dev)
+2020-03-21 17:23:25,183 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
+2020-03-21 17:23:25,617 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-13 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-03-21 17:23:25,618 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-13 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-03-21 17:23:25,618 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-13 - Creating Pool for datasource 'default'
+2020-03-21 17:23:25,619 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-13 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-03-21 17:23:25,760 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-13 - datasource [default] bound to JNDI as DefaultDS
+2020-03-21 17:23:26,006 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-13 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-03-21 17:23:26,406 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-13 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.cors.CORSFilter
+
+2020-03-21 17:23:26,408 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-13 - Application started (Dev)
+2020-03-21 17:23:26,422 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-13 - 
+
+! @7f84dbnho - Internal server error, for (POST) [/sendAuthEmail/kaumudidegekar@gmail.com/1] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[NullPointerException: null]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
+	at play.core.server.Server$.$anonfun$getHandlerFor$2(Server.scala:111)
+	at play.core.server.Server$.getHandlerFor(Server.scala:132)
+	at play.core.server.AkkaHttpServer.getHandler(AkkaHttpServer.scala:285)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:256)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:138)
+	at akka.stream.impl.fusing.MapAsyncUnordered$$anon$31.onPush(Ops.scala:1318)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:519)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:482)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:378)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:588)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:472)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:563)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:745)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:760)
+	at akka.actor.Actor.aroundReceive(Actor.scala:517)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:515)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:670)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:588)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:557)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:258)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:225)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:235)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.lang.NullPointerException: null
+	at play.core.j.JavaActionAnnotations.<init>(JavaAction.scala:35)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3.play$core$routing$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$$cachedAnnotations(HandlerInvoker.scala:95)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.<init>(HandlerInvoker.scala:103)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4.withComponents(HandlerInvoker.scala:102)
+	at play.api.http.JavaCompatibleHttpRequestHandler$MapJavaHandler.apply(HttpRequestHandler.scala:229)
+	at play.api.mvc.Handler$.applyStages(Handler.scala:36)
+	at play.api.http.DefaultHttpRequestHandler.handlerForRequest(HttpRequestHandler.scala:152)
+	at play.core.server.Server$.getHandlerFor(Server.scala:129)
+	... 24 common frames omitted
+2020-03-21 17:25:23,173 [INFO] from application in application-akka.actor.default-dispatcher-10 - Shutting down connection pool.
+2020-03-21 17:25:23,417 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-24 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-03-21 17:25:23,417 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-24 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-03-21 17:25:23,417 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-24 - Creating Pool for datasource 'default'
+2020-03-21 17:25:23,418 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-24 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-03-21 17:25:23,443 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-24 - datasource [default] bound to JNDI as DefaultDS
+2020-03-21 17:25:23,710 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-24 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-03-21 17:25:25,004 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-24 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.cors.CORSFilter
+
+2020-03-21 17:25:25,005 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-24 - Application started (Dev)
+2020-03-21 17:25:26,593 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
+
+! @7f84dijbm - Internal server error, for (POST) [/register] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.NullPointerException]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
+	at play.filters.cors.AbstractCORSPolicy$$anonfun$1.applyOrElse(AbstractCORSPolicy.scala:125)
+	at play.filters.cors.AbstractCORSPolicy$$anonfun$1.applyOrElse(AbstractCORSPolicy.scala:123)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.executeScheduled(Execution.scala:109)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:71)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:72)
+	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:288)
+	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:288)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+	at scala.concurrent.Promise.complete(Promise.scala:53)
+	at scala.concurrent.Promise.complete$(Promise.scala:52)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:187)
+	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:94)
+	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:89)
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:859)
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:837)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.postFire(CompletableFuture.java:610)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:649)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.util.concurrent.CompletionException: java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:314)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:319)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:645)
+	... 8 common frames omitted
+Caused by: java.lang.NullPointerException: null
+	at controllers.AdminController.sendAuthEmail(AdminController.java:42)
+	at controllers.RegisterController.lambda$addRegister$0(RegisterController.java:44)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:642)
+	... 8 common frames omitted
+2020-03-21 17:26:58,083 [ERROR] from application in application-akka.actor.default-dispatcher-2 - 
+
+! @7f84dnokj - Internal server error, for (POST) [/register] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.NullPointerException]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
+	at play.filters.cors.AbstractCORSPolicy$$anonfun$1.applyOrElse(AbstractCORSPolicy.scala:125)
+	at play.filters.cors.AbstractCORSPolicy$$anonfun$1.applyOrElse(AbstractCORSPolicy.scala:123)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:417)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.executeScheduled(Execution.scala:109)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:71)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:72)
+	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:288)
+	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:288)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+	at scala.concurrent.Promise.complete(Promise.scala:53)
+	at scala.concurrent.Promise.complete$(Promise.scala:52)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:187)
+	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:94)
+	at scala.concurrent.java8.FuturesConvertersImpl$P.accept(FutureConvertersImpl.scala:89)
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:859)
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:837)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.postFire(CompletableFuture.java:610)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:649)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:478)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.util.concurrent.CompletionException: java.lang.NullPointerException
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:314)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:319)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:645)
+	... 8 common frames omitted
+Caused by: java.lang.NullPointerException: null
+	at controllers.AdminController.sendAuthEmail(AdminController.java:42)
+	at controllers.RegisterController.lambda$addRegister$0(RegisterController.java:44)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:642)
+	... 8 common frames omitted
+2020-03-21 17:30:54,903 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-4 housekeeper - HikariPool-4 - Thread starvation or clock leap detected (housekeeper delta=1m1s355ms895µs).
+2020-03-21 18:07:18,423 [INFO] from application in application-akka.actor.default-dispatcher-12 - Shutting down connection pool.
+2020-03-21 18:07:19,791 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-45 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-03-21 18:07:19,791 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-45 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-03-21 18:07:19,792 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-45 - Creating Pool for datasource 'default'
+2020-03-21 18:07:19,797 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-45 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-03-21 18:07:20,091 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-45 - datasource [default] bound to JNDI as DefaultDS
+2020-03-21 18:07:20,672 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-45 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-03-21 18:07:21,770 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-45 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.cors.CORSFilter
+
+2020-03-21 18:07:21,771 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-45 - Application started (Dev)
+2020-03-21 18:26:25,908 [INFO] from application in application-akka.actor.default-dispatcher-10 - Shutting down connection pool.
+2020-03-21 18:26:26,913 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-58 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-03-21 18:26:26,913 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-58 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-03-21 18:26:26,914 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-58 - Creating Pool for datasource 'default'
+2020-03-21 18:26:26,914 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-58 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-03-21 18:26:27,445 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-58 - datasource [default] bound to JNDI as DefaultDS
+2020-03-21 18:26:27,953 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-58 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-03-21 18:26:29,239 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-58 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.cors.CORSFilter
+
+2020-03-21 18:26:29,241 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-58 - Application started (Dev)

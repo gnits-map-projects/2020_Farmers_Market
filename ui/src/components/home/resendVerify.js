@@ -17,9 +17,9 @@ export default class ResendVerify extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(){
+    handleSubmit(event) {
+        event.preventDefault();
         const url = "http://localhost:9000/sendAuthEmail/"+this.state.email+"/"+this.state.uid;
-        alert(url);
         let headers = new Headers();
         headers.append('Content-Type','application/json');
         headers.append('Accept','application/json');
@@ -28,7 +28,7 @@ export default class ResendVerify extends Component {
         headers.append('POST','GET');
         fetch(url, {
         headers:headers,
-        method: 'POST',
+        method: 'GET',
         body: JSON.stringify(body)
         })
         .then(response => {if(response.ok){

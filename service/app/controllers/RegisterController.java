@@ -30,7 +30,9 @@ public class RegisterController extends Controller {
     EmailUtil emailUtil;
 
     @Inject
-    public RegisterController(FormFactory formFactory, RegisterRepository registerRepository, HttpExecutionContext ec) {
+    public RegisterController(FormFactory formFactory,
+                              RegisterRepository registerRepository,
+                              HttpExecutionContext ec) {
         this.formFactory = formFactory;
         this.registerRepository = registerRepository;
         this.ec = ec;
@@ -55,8 +57,10 @@ public class RegisterController extends Controller {
             return null;
         }
         else{
-            String msg = "{\"role\" : \""+ps.role+"\",\"name\":\""+ps.name+"\",\"id\":\""+ps.id+"\"}";
-            //return ok("You are a valid user. "+ps.role);  //for postman
+            String msg = "{\"role\" : \""+ps.role+"\"," +
+                    "\"name\":\""+ps.name+"\"," +
+                    "\"status\":\""+ps.status+"\"," +
+                    "\"id\":\""+ps.id+"\"}";
             return ok(Json.parse(msg));
         }
     }

@@ -4,62 +4,31 @@
     <list default="true" id="b0645a6f-781c-4f2b-9b9d-a1ba95c28984" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.9/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JPARegisterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPARegisterRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/RegisterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/RegisterRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/AdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseAdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseAssets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseBiddingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseCropController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReversePersonController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseRegisterController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseUncheckedCropController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseAdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseAssets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseBiddingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseCropController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReversePersonController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseRegisterController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseUncheckedCropController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/routes$javascript.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/routes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/JPARegisterRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/JPARegisterRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/RegisterRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/RegisterRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/Routes$$anonfun$routes$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/Routes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/RoutesPrefix$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/RoutesPrefix.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/views/html/index$.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/views/html/index$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/views/html/main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/views/html/main$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/lib/service-assets.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/lib/service-assets.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/lib/service.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/lib/service.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/resources/routes" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/resources/routes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/play/binary/twirlTemplatesScalaSources/views/html/index.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/twirlTemplatesScalaSources/views/html/index.template.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/play/binary/twirlTemplatesScalaSources/views/html/main.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/play/binary/twirlTemplatesScalaSources/views/html/main.template.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/play-java-jpa-example.ipr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/play-java-jpa-example.iws" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/play-java-jpa-example.iws" beforeDir="false" afterPath="$PROJECT_DIR$/play-java-jpa-example.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.iws" beforeDir="false" afterPath="$PROJECT_DIR$/service.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/signup.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -76,13 +45,32 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1ZR5cYB8lF143UXeGHInZoo2g0K" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0645a6f-781c-4f2b-9b9d-a1ba95c28984" name="Default Changelist" comment="" />
+      <created>1584789156817</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584789156817</updated>
+    </task>
     <servers />
   </component>
 </project>

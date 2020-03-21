@@ -39,7 +39,7 @@ public class AdminController extends Controller {
         System.out.println("SENDING AUTH EMAIL");
         List<String> toList = new ArrayList<String>();
         toList.add(to);
-        emailUtil.sendEmail("Test", toList, "<h2>Activation</h2><p>Welcome to Farmer's Market.</p>"+
+        emailUtil.sendEmail("Account Activation", toList, "<h2>Activation</h2><p>Welcome to Farmer's Market.</p>"+
                 "<p>You need to confirm your email address to activate your account.</p>"+
                 "<a href=\"http://localhost:3000/verifyEmail/"+id+"\" target=\"_blank\">" +
                     "Activate Account" +

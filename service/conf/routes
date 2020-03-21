@@ -30,7 +30,7 @@ GET     /rejectBid/:bid/:cid            controllers.BiddingController.rejectBid(
 GET     /getBidTrends/:cid              controllers.BiddingController.getBidTrends(cid: Long)
 
 POST    /email/:to/:subject/:body       controllers.AdminController.sendEmail(to: String, subject:String, body: String)
-POST    /sendAuthEmail/:to/:id          controllers.AdminController.sendAuthEmail(to: String, id: Long)
+GET     /sendAuthEmail/:to/:id          controllers.AdminController.sendAuthEmail(to: String, id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)
