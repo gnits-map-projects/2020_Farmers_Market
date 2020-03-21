@@ -163,7 +163,7 @@ else{
         body: JSON.stringify(body)
         })
         .then(response => {if(response.ok){
-            alert("Registration successful!\nYou will be redirected to login page.");
+            alert("Registration successful!\nA verification link is sent to your email. You can login in after activating your account with the link.\n\nYou will be redirected to login page.");
             result = response.json();
             console.log(result);
             window.location.href = '/login'

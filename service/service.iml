@@ -19,6 +19,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="scala-sdk-2.12.6" level="project" />
+    <orderEntry type="library" name="scala-sdk-2.12.7" level="application" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -1804,6 +1805,5 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="scala-sdk-2.12.7" level="application" />
   </component>
 </module>

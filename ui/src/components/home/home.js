@@ -10,9 +10,6 @@ import slide1 from '../images/f1.jpeg';
 import slide2 from '../images/f2.jpeg';
 import slide3 from '../images/f3.jpeg';
 
-//import { useHistory, withRouter,Link } from "react-router-dom";
-// var Nav;
-
 const properties = {
   duration: 2000,
   transitionDuration: 500,
@@ -23,7 +20,7 @@ const properties = {
 
 export default class Home extends Component {
 
-    componentWillMount(){
+    componentDidMount(){
       // alert(window.localStorage.getItem("uid")) 
       // if (window.sessionStorage.getItem("uid") == null){    ////Call back to be tried
       //     console.log("Not logged in.")

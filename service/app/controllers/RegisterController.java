@@ -9,6 +9,8 @@ import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
 import com.fasterxml.jackson.databind.JsonNode;
+import utils.EmailUtil;
+
 import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 import java.util.stream.Collectors;
@@ -25,6 +27,7 @@ public class RegisterController extends Controller {
     private final RegisterRepository registerRepository;
     private final HttpExecutionContext ec;
     private final FormFactory formFactory;
+    EmailUtil emailUtil;
 
     @Inject
     public RegisterController(FormFactory formFactory, RegisterRepository registerRepository, HttpExecutionContext ec) {
@@ -36,7 +39,9 @@ public class RegisterController extends Controller {
     public CompletionStage<Result> addRegister() {
         JsonNode js = request().body().asJson();
         Register register = fromJson(js, Register.class);
+        AdminController adminController = new AdminController(ec, emailUtil);
         return registerRepository.add(register).thenApplyAsync(p -> {
+            adminController.sendAuthEmail(p.email,p.id);
             return ok("Created");
         }, ec.current());
     }
@@ -69,9 +74,14 @@ public class RegisterController extends Controller {
         String password = js.get("password").asText();
         String mobile = js.get("mobile").asText();
         return registerRepository.update(id, name, email, password, mobile).thenApplyAsync(p->{
-            return ok("update successful");
+            return ok("Update successful");
         },ec.current());
+    }
 
+    public CompletionStage<Result> verifyRegister(Long id){
+        return registerRepository.verify(id).thenApplyAsync(p->{
+            return ok("Verification successful");
+        },ec.current());
     }
 
 }

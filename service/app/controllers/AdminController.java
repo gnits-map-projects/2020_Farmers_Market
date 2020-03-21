@@ -35,19 +35,16 @@ public class AdminController extends Controller {
         return ok("successful");
     }
 
-    public Result sendAuthEmail(String to) {
+    public Result sendAuthEmail(String to, Long id) {
+        System.out.println("SENDING AUTH EMAIL");
         List<String> toList = new ArrayList<String>();
         toList.add(to);
-        emailUtil.sendEmail("Test", toList, "<h2> Test </h2> <br><br> <p> Testing Email </p>");
+        emailUtil.sendEmail("Test", toList, "<h2>Activation</h2><p>Welcome to Farmer's Market.</p>"+
+                "<p>You need to confirm your email address to activate your account.</p>"+
+                "<a href=\"http://localhost:3000/verifyEmail/"+id+"\" target=\"_blank\">" +
+                    "Activate Account" +
+                "</a>");
         return ok("successful");
     }
 
-//    public Result sendBidAcceptedEmail(String to) {
-//        List<String> toList = new ArrayList<String>();
-//        toList.add(to);
-//        emailUtil.sendEmail("Congratulations", toList, "<h2> Your bid has been accepted.</h2><p>Please proceed to the advance payment.<br/></p>" +
-//                "<a href=\"http://localhost:3000/login\" target=\"_blank\">Farmer's Market</a>");
-//        return ok("successful");
-//    }
-//
 }

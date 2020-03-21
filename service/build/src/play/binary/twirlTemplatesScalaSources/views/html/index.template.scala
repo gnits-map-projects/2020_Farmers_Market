@@ -54,7 +54,7 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Mar 17 08:40:58 IST 2020
+                  DATE: Fri Mar 20 23:00:14 IST 2020
                   SOURCE: C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/app/views/index.scala.html
                   HASH: 00cc357179ad5b45dc66cb8a2c8613a1396f1897
                   MATRIX: 960->1|1056->3|1086->8|1117->31|1156->33|1188->39|1251->76|1265->82|1319->116|1384->152

@@ -5,6 +5,8 @@ import { BrowserRouter as Router,
   Route,
    Link } from "react-router-dom";
    import Login from "./components/home/login";
+   import VerifyEmail from "./components/home/verifyEmail";
+   import ResendVerify from "./components/home/resendVerify";
    import SignUp from "./components/home/signup";
    import Home from "./components/home/home";
    import UserHome from "./components/User/UserHome";
@@ -40,6 +42,8 @@ class App extends Component {
                     <Route exact path='/' component={ Home } />
                     <Route exact path='/Home' component={ Home } />
                     <Route path="/Login" component={ Login } />
+                    <Route path="/verifyEmail/:id" component={ VerifyEmail } />
+                    <Route path="/resendVerify/:email/:id" component={ ResendVerify } />
                     <Route path="/signup" component={ SignUp } />
                     <Route path="/userhome/:id" component={ UserHome }/>
                     <Route path="/adminhome/:id" component={ AdminHome }/>

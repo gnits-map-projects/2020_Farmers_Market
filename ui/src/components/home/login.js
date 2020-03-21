@@ -8,6 +8,7 @@ var body;
 var urole;
 var uname;
 var uid;
+var status;
 var result;
 let token="";
 
@@ -63,29 +64,36 @@ class Login extends Component{
               urole = result.role
               uname = result.name
               uid = result.id
-              console.log(result)
-              if(urole=="farmer"){
-                window.localStorage.setItem("username",uname)
-                window.localStorage.setItem("uid",uid);
-                window.localStorage.setItem("role",urole);
-                window.sessionStorage.setItem("uid",uid);
-                window.sessionStorage.setItem("role",urole);
-                window.location.href  = "/userhome/"+uid;
-                }  //"/userhome" 
-              else if(urole=="buyer"){
-                window.localStorage.setItem("username",uname)
-                window.localStorage.setItem("uid",uid);
-                window.localStorage.setItem("role",urole);
-                window.sessionStorage.setItem("uid",uid);
-                window.sessionStorage.setItem("role",urole);
-                window.location.href  = "/buyerhome/"+uid;  
-                
-                //alert("buyer")
+              status = result.status
+              if(status=="authenticated"){
+                if(urole=="farmer"){
+                  window.localStorage.setItem("username",uname)
+                  window.localStorage.setItem("uid",uid);
+                  window.localStorage.setItem("role",urole);
+                  window.sessionStorage.setItem("uid",uid);
+                  window.sessionStorage.setItem("role",urole);
+                  window.location.href  = "/userhome/"+uid;
+                  }  //"/userhome" 
+                else if(urole=="buyer"){
+                  window.localStorage.setItem("username",uname)
+                  window.localStorage.setItem("uid",uid);
+                  window.localStorage.setItem("role",urole);
+                  window.sessionStorage.setItem("uid",uid);
+                  window.sessionStorage.setItem("role",urole);
+                  window.location.href  = "/buyerhome/"+uid;  
+                  
+                  //alert("buyer")
+              }
+              else{
+                alert("Please login from Admin page.")
+                window.location.href  = "/adminlogin"; 
+              }
             }
             else{
-              alert("You are not authenticated. Go Back!!!")
+              window.location.href = "/resendVerify/"+this.state.email+"/"+uid
             }
-            })
+          }
+          )
             
            // window.localStorage.getItem('uid');
             
@@ -172,7 +180,6 @@ class Login extends Component{
             </form>
             </div>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
             </div>
             </div>
         );

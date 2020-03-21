@@ -54,6 +54,10 @@ public class JPARegisterRepository implements RegisterRepository {
         return supplyAsync(() -> wrap(em -> updatevalue(em, id, name, email,password,mobile)), executionContext);
     }
 
+    @Override
+    public CompletionStage<Register> verify(Long id) {
+        return supplyAsync(() -> wrap(em -> verify(em, id)), executionContext);
+    }
 
     private <T> T wrap(Function<EntityManager, T> function) {
         return jpaApi.withTransaction(function);
@@ -70,9 +74,6 @@ public class JPARegisterRepository implements RegisterRepository {
     }
 
     private Register updatevalue(EntityManager em, Long id, String name, String email, String password, String mobile){
-        // EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
-        // EntityManager em = entityManagerFactory.createEntityManager();
-        //em.getTransaction().begin();
         int i= em.createQuery("update Register r set r.name =: name, r.email =: email, r.password =: password, r.mobile=:mobile where r.id =: id").setParameter("name",name).setParameter("email",email).setParameter("password",password).setParameter("mobile",mobile).setParameter("id",id).executeUpdate();
         if(i!=0){
             Register register=em.createQuery("select r from Register r where r.id=:id",Register.class).setParameter("id",id).getSingleResult();
@@ -85,6 +86,20 @@ public class JPARegisterRepository implements RegisterRepository {
 
     }
 
-
+    private Register verify(EntityManager em, Long id) {
+        int i= em.createQuery("update Register r set r.status =: status where r.id =: id").
+                setParameter("status","authenticated").
+                setParameter("id",id).
+                executeUpdate();
+        if(i!=0){
+            Register register=em.createQuery("select r from Register r where r.id=:id",Register.class).
+                    setParameter("id",id).
+                    getSingleResult();
+            return register;
+        }
+        else{
+            return null;
+        }
+    }
 
 }
