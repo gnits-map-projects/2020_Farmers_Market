@@ -1,0 +1,59 @@
+.notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+  }
+
+  .notification {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    display: table-cell;
+  }
+  
+  .notification:hover {
+    background: rgb(231, 252, 227);
+  }
+
+  .redText{
+    color: red;
+  }
+
+  .link-like {
+    color:rgba(0,0,0,.5) !important;
+    font-size: 24px;
+    margin: 0px;
+    background: white;
+  }
+  
+  .link-like:hover {
+    color: rgba(0,0,0,.7) !important;
+    background: rgb(231, 252, 227);
+  }
+
+  .overlay {
+    position: fixed;
+    display: block;
+    width: 30%;
+    height: 100%;
+    top: 7.8%;
+    left: 70%;
+    z-index: 1;
+    cursor: pointer;
+
+    margin: auto;
+    background: #ffffff;
+    padding: 40px 55px 45px 55px;
+    transition: all .3s;
+    font-size: 20px;
+  }
+
+  .btn-lg:focus,.btn-lg:active {
+    outline: none !important;
+    box-shadow: none;
+    border-radius: 0px;
+ }
+

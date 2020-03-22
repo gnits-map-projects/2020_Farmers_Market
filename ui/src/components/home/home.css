@@ -162,3 +162,6 @@ body, html, .App, #root,.auth-wrapper {
   color: red;
 }
 
+.nlink:hover {
+  background: rgb(231, 252, 227);
+}

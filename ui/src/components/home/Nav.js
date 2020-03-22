@@ -1,20 +1,7 @@
 import React ,{ Component } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './home.css';
-//import './App.css';
-import { BrowserRouter as Router, 
-  Switch, 
-  Route,
-   Link } from "react-router-dom";
-   import {
-    Navbar,
-    Nav,
-    Form,
-    FormControl,
-    NavDropdown,
-    Button,
-    Image
-  } from 'react-bootstrap'
+import {Navbar, Nav,} from 'react-bootstrap'
 
 class Navigation extends Component {
   constructor(props) {
@@ -29,10 +16,10 @@ class Navigation extends Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link href="/Home">HOME</Nav.Link>
-            <Nav.Link href="/signup">SIGN UP</Nav.Link>
-            <Nav.Link href="/login">LOGIN</Nav.Link>
-            <Nav.Link href="/adminlogin">ADMIN</Nav.Link>
+            <Nav.Link className="nlink" href="/Home">HOME</Nav.Link>
+            <Nav.Link className="nlink" href="/signup">SIGN UP</Nav.Link>
+            <Nav.Link className="nlink" href="/login">LOGIN</Nav.Link>
+            <Nav.Link className="nlink" href="/adminlogin">ADMIN</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

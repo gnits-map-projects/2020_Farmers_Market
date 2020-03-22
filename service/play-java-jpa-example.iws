@@ -7,20 +7,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/views/html/index$.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/views/html/index$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/views/html/main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/views/html/main$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/lib/service.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/lib/service.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/resources/routes" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/resources/routes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis.relations" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play-java-jpa-example.iws" beforeDir="false" afterPath="$PROJECT_DIR$/play-java-jpa-example.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
