@@ -77,7 +77,7 @@ public class UncheckedCropController extends Controller {
         CompletionStage<UncheckedCrop> cs = uncheckedCropRepository.deleteCrop(cid);
 
         Register register = uncheckedCropRepository.getFarmer(crop.id);
-        String message = "Your "+crop.name+" crop in "+crop.location+" had been approved.";
+        String message = "Your "+crop.name+" crop in "+crop.location+" has been approved.";
         NotificationController notificationController=new NotificationController(formFactory, notificationRepository, ec);
         CompletionStage<Result> n = notificationController.addNotification(register.id, message);
 
@@ -94,7 +94,7 @@ public class UncheckedCropController extends Controller {
         UncheckedCrop uncheckedCrop = uncheckedCropRepository.getUCrop(cid);
 
         Register register = uncheckedCropRepository.getFarmer(uncheckedCrop.id);
-        String message = "Your "+uncheckedCrop.name+" crop in "+uncheckedCrop.location+" had been rejected.";
+        String message = "Your "+uncheckedCrop.name+" crop in "+uncheckedCrop.location+" has been rejected.";
         NotificationController notificationController=new NotificationController(formFactory, notificationRepository, ec);
         CompletionStage<Result> n = notificationController.addNotification(register.id, message);
 

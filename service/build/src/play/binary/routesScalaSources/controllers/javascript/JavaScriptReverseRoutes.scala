@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
-// @DATE:Sat Mar 21 18:06:46 IST 2020
+// @DATE:Fri Apr 03 14:19:30 IST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,7 +10,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers.javascript {
 
-  // @LINE:36
+  // @LINE:38
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:36
+    // @LINE:38
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -304,6 +304,26 @@ package controllers.javascript {
       """
         function(cid0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getUncheckedCrop/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("cid", cid0))})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:35
+  class ReverseNotificationController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:35
+    def getNotification: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.NotificationController.getNotification",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getNotifications/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

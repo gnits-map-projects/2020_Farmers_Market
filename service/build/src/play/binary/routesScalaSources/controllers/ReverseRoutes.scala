@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
-// @DATE:Sat Mar 21 18:06:46 IST 2020
+// @DATE:Fri Apr 03 14:19:30 IST 2020
 
 import play.api.mvc.Call
 
@@ -10,14 +10,14 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers {
 
-  // @LINE:36
+  // @LINE:38
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:36
+    // @LINE:38
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -204,6 +204,21 @@ package controllers {
     def getUncheckedCrop(cid:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "getUncheckedCrop/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("cid", cid)))
+    }
+  
+  }
+
+  // @LINE:35
+  class ReverseNotificationController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:35
+    def getNotification(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "getNotifications/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
   }

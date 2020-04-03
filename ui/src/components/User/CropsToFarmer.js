@@ -39,9 +39,9 @@ class CropsToFarmer extends Component {
         .then(response => this.setState({ 'items' : response}));          
     }
 
-   renderList(buyer){
+   renderList(farmer){
         return this.state.items.map(function(item){
-            console.log("in render list" + buyer);
+            console.log("in render list: " + farmer);
             return(
                 <div key={item.id} className = "cropList">
                     <Row>

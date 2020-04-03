@@ -1,19 +1,41 @@
-2020-03-22 09:15:17,336 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
-2020-03-22 09:15:17,348 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
-2020-03-22 09:15:17,408 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
-2020-03-22 09:15:17,468 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-7 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2020-03-22 09:15:18,853 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-7 - datasource [default] bound to JNDI as DefaultDS
-2020-03-22 09:15:20,472 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-7 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2020-03-22 09:15:25,652 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2020-04-03 13:40:43,806 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-4 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-04-03 13:40:44,092 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-4 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-04-03 13:40:44,192 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2020-04-03 13:40:44,715 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-4 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-04-03 13:40:46,973 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-4 - datasource [default] bound to JNDI as DefaultDS
+2020-04-03 13:40:48,645 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-4 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-04-03 13:40:56,705 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     play.filters.cors.CORSFilter
 
-2020-03-22 09:15:25,672 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)
-2020-03-22 10:23:39,937 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=43m20s901ms444탎400ns).
-2020-03-22 15:06:44,966 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h49m34s465ms420탎800ns).
-2020-03-22 16:59:34,912 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m18s89ms21탎).
-2020-03-22 17:23:33,333 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m58s437ms129탎700ns).
-2020-03-22 19:26:21,300 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h9m47s274ms402탎).
-2020-03-22 22:23:56,757 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h56m35s459ms196탎400ns).
+2020-04-03 13:40:56,705 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev)
+2020-04-03 14:20:06,318 [INFO] from application in application-akka.actor.default-dispatcher-27 - Shutting down connection pool.
+2020-04-03 14:20:07,014 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-24 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-04-03 14:20:07,014 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-24 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-04-03 14:20:07,014 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-24 - Creating Pool for datasource 'default'
+2020-04-03 14:20:07,014 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-24 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-04-03 14:20:07,046 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-24 - datasource [default] bound to JNDI as DefaultDS
+2020-04-03 14:20:07,468 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-24 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-04-03 14:20:07,937 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-24 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.cors.CORSFilter
+
+2020-04-03 14:20:07,938 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-24 - Application started (Dev)
+2020-04-03 14:57:00,646 [INFO] from application in application-akka.actor.default-dispatcher-114 - Shutting down connection pool.
+2020-04-03 14:57:00,893 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-65 - application.conf @ jar:file:/C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/build/playBinary/lib/service.jar!/application.conf: 21: user is deprecated, use username instead
+2020-04-03 14:57:00,893 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-65 - Database [default] initialized at jdbc:mysql://localhost:3306/farmersmarket
+2020-04-03 14:57:00,894 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-65 - Creating Pool for datasource 'default'
+2020-04-03 14:57:00,895 [WARN] from com.zaxxer.hikari.util.DriverDataSource in play-dev-mode-akka.actor.default-dispatcher-65 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-04-03 14:57:00,914 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-65 - datasource [default] bound to JNDI as DefaultDS
+2020-04-03 14:57:01,008 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-65 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2020-04-03 14:57:01,193 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-65 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.cors.CORSFilter
+
+2020-04-03 14:57:01,195 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-65 - Application started (Dev)

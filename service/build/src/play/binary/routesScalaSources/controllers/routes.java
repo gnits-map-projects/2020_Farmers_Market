@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
-// @DATE:Sat Mar 21 18:06:46 IST 2020
+// @DATE:Fri Apr 03 14:19:30 IST 2020
 
 package controllers;
 
@@ -14,6 +14,7 @@ public class routes {
   public static final controllers.ReverseCropController CropController = new controllers.ReverseCropController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseBiddingController BiddingController = new controllers.ReverseBiddingController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseUncheckedCropController UncheckedCropController = new controllers.ReverseUncheckedCropController(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseNotificationController NotificationController = new controllers.ReverseNotificationController(RoutesPrefix.byNamePrefix());
 
   public static class javascript {
     
@@ -23,6 +24,7 @@ public class routes {
     public static final controllers.javascript.ReverseCropController CropController = new controllers.javascript.ReverseCropController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseBiddingController BiddingController = new controllers.javascript.ReverseBiddingController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseUncheckedCropController UncheckedCropController = new controllers.javascript.ReverseUncheckedCropController(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseNotificationController NotificationController = new controllers.javascript.ReverseNotificationController(RoutesPrefix.byNamePrefix());
   }
 
 }

@@ -23,7 +23,7 @@ class Navigation extends Component {
 
     componentDidMount(){
         const url = 'http://localhost:9000/getNotifications/'+this.state.uid;
-        console.log(this.state.id)
+        console.log(this.state.id+"FECTCHING NOTIFICAITONS")
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -39,7 +39,10 @@ class Navigation extends Component {
             method: 'GET',
         })
         .then(response => response.json()) 
-        .then(response => this.setState({ 'notifications' : response}));  
+        .then(response => {
+            this.setState({ 'notifications' : response})
+            this.state.notifications.forEach(notification => {if(notification.status == "unread") this.setState( {num : this.state.num + 1});}) 
+        }); 
     }
 
     handleClick(event){
@@ -59,6 +62,7 @@ class Navigation extends Component {
         return this.state.notifications.map(function(notification){
             return(
                 <div key={notification.id} className = "notificationList">
+                    {notification.status == "unread" && <div className="badge">New</div>}
                     <Row>
                         {notification.notification}
                     </Row><hr/>
@@ -79,15 +83,14 @@ class Navigation extends Component {
                         {this.state.role== 'admin' && <Nav.Link className="notification" href={"/adminhome/"+this.state.uid}>&nbsp;DASHBOARD&nbsp;</Nav.Link>}
                         {this.state.role== 'farmer' && <Nav.Link className="notification" href={"/userhome/"+this.state.uid}>&nbsp;DASHBOARD&nbsp;</Nav.Link>}
                         {this.state.role== 'buyer' && <Nav.Link className="notification" href={"/buyerhome/"+this.state.uid}>&nbsp;DASHBOARD&nbsp;</Nav.Link>}
-                        {/* <Nav.Link className="notification"> */}
-                            <button className="notification nav-link btn-lg border-0 link-like" onClick={this.handleClick}>NOTIFICATIONS</button>
+                        <button className="notification nav-link btn-lg border-0 link-like" onClick={this.handleClick}>NOTIFICATIONS
                             {this.state.num>0 && <span className="redText">({this.state.num})</span>}
-                            {this.state.display==true &&
-                            <div className="overlay">
-                                <h1>NOTIFICATIONS</h1>
-                                {/* {this.renderNotifications()} */}
-                            </div>}
-                        {/* </Nav.Link> */}
+                        </button>
+                        
+                        {this.state.display==true &&
+                        <div className="overlay">
+                            {this.renderNotifications()}
+                        </div>}
                         <NavDropdown className="notification" title={window.localStorage.getItem("username")} id="basic-nav-dropdown">
                             <NavDropdown.Item href={"/updateProfile/" + this.state.uid}>Update Profile</NavDropdown.Item>
                             <NavDropdown.Item href="/Home" onClick={() => window.sessionStorage.clear() }>Sign out</NavDropdown.Item>

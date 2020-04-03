@@ -45,5 +45,11 @@ public class NotificationController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> getNotification(Long id) {
+        return notificationRepository.getNotifications(id).thenApplyAsync(notificationStream -> {
+            return ok(toJson(notificationStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
 }
 
