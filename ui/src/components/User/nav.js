@@ -19,6 +19,7 @@ class Navigation extends Component {
             num : 0,
         }
         this.handleClick = this.handleClick.bind(this);
+        this.renderNotifications = this.renderNotifications.bind(this);
     }
 
     componentDidMount(){
@@ -58,14 +59,26 @@ class Navigation extends Component {
         console.log(this.state.display)
     }
 
+    handleRead(event){
+        event.preventDefault();
+    }
+
     renderNotifications(){
         return this.state.notifications.map(function(notification){
             return(
-                <div key={notification.id} className = "notificationList">
-                    {notification.status == "unread" && <div className="badge">New</div>}
-                    <Row>
+                <div key={notification.id}><Row>
+                    {notification.status == "unread" && <div key={notification.id} className="notificationUnreadList">  
+                            <div className="badge">New</div>
+                            <div className="dateBadge">{notification.created}</div>
+                            <br/>
+                            {notification.notification}
+                            {/* <button type="submit" className="btn btn-light btn-sm float-right ml-auto" onClick = {"http://localhost:9000/NotifocationRead/"+notification.id}>Mark as read</button>    */}
+                    </div>}
+                    {notification.status == "read" && <div key={notification.id} className="notificationReadList">
+                        <div className="dateBadge">{notification.created}</div>
+                        <br/>
                         {notification.notification}
-                    </Row><hr/>
+                    </div>}</Row><hr/>
                 </div>
             )
         })

@@ -74,9 +74,10 @@ public class UncheckedCropController extends Controller {
         JsonNode js = toJson(uncheckedCrop);
         Crop crop = fromJson(js, Crop.class);
 
+        Register register = uncheckedCropRepository.getFarmer(crop.id);
+
         CompletionStage<UncheckedCrop> cs = uncheckedCropRepository.deleteCrop(cid);
 
-        Register register = uncheckedCropRepository.getFarmer(crop.id);
         String message = "Your "+crop.name+" crop in "+crop.location+" has been approved.";
         NotificationController notificationController=new NotificationController(formFactory, notificationRepository, ec);
         CompletionStage<Result> n = notificationController.addNotification(register.id, message);

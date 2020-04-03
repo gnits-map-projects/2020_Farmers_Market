@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
 import java.util.function.Function;
@@ -45,6 +47,7 @@ public class JPANotificationRepository implements NotificationRepository {
     }
 
     private Notification insert(EntityManager em, Notification notification) {
+        notification.created = new java.sql.Date(Calendar.getInstance().getTime().getTime());;
         em.persist(notification);
         return notification;
     }
