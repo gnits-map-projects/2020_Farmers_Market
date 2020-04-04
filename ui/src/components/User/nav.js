@@ -51,11 +51,11 @@ class Navigation extends Component {
         this.setState({
             display : !this.state.display
         })
-        // DOESN'T WORK BECAUSE BODY IS ALREADY RENDERED ???
-        // if(this.state.display==true)
-        //     document.querySelector('body').style.overflow = 'hidden';
-        // else
-        //     document.querySelector('body').style.overflow = 'auto';
+        // DOESN'T WORK BECAUSE BODY IS ALREADY RENDERED ?
+        if(this.state.display==true)
+            document.querySelector('body').style.overflow = 'hidden';
+        else
+            document.querySelector('body').style.overflow = 'auto';
         console.log(this.state.display)
     }
 
@@ -87,6 +87,8 @@ class Navigation extends Component {
     render(){
         return (
             <div>
+                {this.state.display==true &&
+                <div className="restrictingOverlay"></div>}
             <Navbar className="navbar-light" expand="md">
                 <Navbar.Brand href="/Home"><h3><b>FARMER'S MARKET</b></h3></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -96,7 +98,7 @@ class Navigation extends Component {
                         {this.state.role== 'admin' && <Nav.Link className="notification" href={"/adminhome/"+this.state.uid}>&nbsp;DASHBOARD&nbsp;</Nav.Link>}
                         {this.state.role== 'farmer' && <Nav.Link className="notification" href={"/userhome/"+this.state.uid}>&nbsp;DASHBOARD&nbsp;</Nav.Link>}
                         {this.state.role== 'buyer' && <Nav.Link className="notification" href={"/buyerhome/"+this.state.uid}>&nbsp;DASHBOARD&nbsp;</Nav.Link>}
-                        <button className="notification nav-link btn-lg border-0 link-like" onClick={this.handleClick}>NOTIFICATIONS
+                        <button className="notificationTop nav-link btn-lg border-0 link-like" onClick={this.handleClick}>NOTIFICATIONS
                             {this.state.num>0 && <span className="redText">({this.state.num})</span>}
                         </button>
                         
