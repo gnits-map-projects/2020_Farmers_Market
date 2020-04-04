@@ -51,5 +51,11 @@ public class NotificationController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> notificationsRead(Long id) {
+        return notificationRepository.notificationsRead(id).thenApplyAsync(read -> {
+            return ok("No new notifications.");
+        }, ec.current());
+    }
+
 }
 

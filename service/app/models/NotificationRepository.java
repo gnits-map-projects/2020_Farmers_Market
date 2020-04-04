@@ -15,4 +15,5 @@ public interface NotificationRepository {
 
     CompletionStage<Stream<Notification>> getNotifications(Long uid);
 
+    CompletionStage<String> notificationsRead(Long id);
 }

@@ -33,6 +33,7 @@ POST    /email/:to/:subject/:body       controllers.AdminController.sendEmail(to
 GET     /sendAuthEmail/:to/:id          controllers.AdminController.sendAuthEmail(to: String, id: Long)
 
 GET     /getNotifications/:id           controllers.NotificationController.getNotification(id: Long)
+GET     /notificationsRead/:id          controllers.NotificationController.notificationsRead(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)

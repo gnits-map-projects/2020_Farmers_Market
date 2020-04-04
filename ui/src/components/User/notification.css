@@ -1,9 +1,11 @@
   .notificationReadList{
-    background-color: darkgray;   
+    background-color: rgba(195, 238, 198, 0.096); 
+    padding: 45px, 45px;  
   }
 
   .notificationUnreadList{
-    background-color: white;   
+    background-color: white; 
+    padding: 45px, 45px;  
   }
 
   .badge {
@@ -19,7 +21,7 @@
     float: right;
     top: 0;
     right: 0;
-    background: white;
+    background: transparent;
     color: gray;
   }
 
@@ -70,7 +72,7 @@
 
     margin: auto;
     background: #ffffff;
-    padding: 40px 55px 45px 55px;
+    padding: 5px 5px ;
     transition: all .3s;
     font-size: 20px;
   }
@@ -106,3 +108,6 @@
     border-radius: 0px;
  }
 
+ #text {
+   padding: 15px;
+ }

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
-// @DATE:Fri Apr 03 14:19:30 IST 2020
+// @DATE:Sat Apr 04 17:32:47 IST 2020
 
 package router
 
@@ -25,7 +25,7 @@ class Routes(
   AdminController_0: controllers.AdminController,
   // @LINE:35
   NotificationController_2: controllers.NotificationController,
-  // @LINE:38
+  // @LINE:39
   Assets_6: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -44,7 +44,7 @@ class Routes(
     AdminController_0: controllers.AdminController,
     // @LINE:35
     NotificationController_2: controllers.NotificationController,
-    // @LINE:38
+    // @LINE:39
     Assets_6: controllers.Assets
   ) = this(errorHandler, RegisterController_3, UncheckedCropController_5, CropController_1, BiddingController_4, AdminController_0, NotificationController_2, Assets_6, "/")
 
@@ -82,6 +82,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """email/""" + "$" + """to<[^/]+>/""" + "$" + """subject<[^/]+>/""" + "$" + """body<[^/]+>""", """controllers.AdminController.sendEmail(to:String, subject:String, body:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendAuthEmail/""" + "$" + """to<[^/]+>/""" + "$" + """id<[^/]+>""", """controllers.AdminController.sendAuthEmail(to:String, id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getNotifications/""" + "$" + """id<[^/]+>""", """controllers.NotificationController.getNotification(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """notificationsRead/""" + "$" + """id<[^/]+>""", """controllers.NotificationController.notificationsRead(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -522,11 +523,29 @@ class Routes(
     )
   )
 
-  // @LINE:38
-  private[this] lazy val controllers_Assets_at24_route = Route("GET",
+  // @LINE:36
+  private[this] lazy val controllers_NotificationController_notificationsRead24_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("notificationsRead/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_NotificationController_notificationsRead24_invoker = createInvoker(
+    NotificationController_2.notificationsRead(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.NotificationController",
+      "notificationsRead",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """notificationsRead/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:39
+  private[this] lazy val controllers_Assets_at25_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at24_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at25_invoker = createInvoker(
     Assets_6.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -687,10 +706,16 @@ class Routes(
         controllers_NotificationController_getNotification23_invoker.call(NotificationController_2.getNotification(id))
       }
   
-    // @LINE:38
-    case controllers_Assets_at24_route(params@_) =>
+    // @LINE:36
+    case controllers_NotificationController_notificationsRead24_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_NotificationController_notificationsRead24_invoker.call(NotificationController_2.notificationsRead(id))
+      }
+  
+    // @LINE:39
+    case controllers_Assets_at25_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at24_invoker.call(Assets_6.at(path, file))
+        controllers_Assets_at25_invoker.call(Assets_6.at(path, file))
       }
   }
 }

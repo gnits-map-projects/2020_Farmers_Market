@@ -42,6 +42,11 @@ public class JPANotificationRepository implements NotificationRepository {
         return supplyAsync(() -> wrap(em -> listNotifications(em, userId)), executionContext);
     }
 
+    @Override
+    public CompletionStage<String> notificationsRead(Long userId) {
+        return supplyAsync(() -> wrap(em -> readNotifications(em, userId)), executionContext);
+    }
+
     private <T> T wrap(Function<EntityManager, T> function) {
         return jpaApi.withTransaction(function);
     }
@@ -53,8 +58,13 @@ public class JPANotificationRepository implements NotificationRepository {
     }
 
     private Stream<Notification> listNotifications(EntityManager em, Long userId) {
-        List<Notification> notifications = em.createQuery("select n from Notification n where n.userId =: userId order by n.status desc", Notification.class).setParameter("userId", userId).getResultList();
+        List<Notification> notifications = em.createQuery("select n from Notification n where n.userId =: userId order by n.created desc", Notification.class).setParameter("userId", userId).getResultList();
         return notifications.stream();
+    }
+
+    private String readNotifications(EntityManager em, Long userId) {
+        int i = em.createQuery("update Notification n set n.status = 'read' where n.userId =: uid").setParameter("uid",userId).executeUpdate();
+        return "All read";
     }
 
 }

@@ -36,33 +36,31 @@ class App extends Component {
   render(){
   return (
     <div className="bg">
-            <Router>
-                <Switch>
-            {/* <Route exact path="/" component={App} /> */}
-                    <Route exact path='/' component={ Home } />
-                    <Route exact path='/Home' component={ Home } />
-                    <Route path="/Login" component={ Login } />
-                    <Route path="/verifyEmail/:id" component={ VerifyEmail } />
-                    <Route path="/resendVerify/:email/:id" component={ ResendVerify } />
-                    <Route path="/signup" component={ SignUp } />
-                    <Route path="/userhome/:id" component={ UserHome }/>
-                    <Route path="/adminhome/:id" component={ AdminHome }/>
-                    <Route path="/buyerhome/:id" component={ BuyerHome }/>
-                    <Route path="/adminlogin" component= { AdminLogin }/>
-                    <Route path="/cropsIn/:location/:id" component= { CropsIn }/>
-                    <Route path="/cropCheck/:id/:fid" component= { CropCheck }/>
-                    <Route path="/cropBid/:id/:fid/:buyerId" component= { CropBid }/>
-                    <Route path="/updateProfile/:id" component= { UpdateProfile }/>
-                    <Route path="/bids/:cid/:fid" component= { Bids }/>
-                    <Route path="/buyerProfile/:buyerId/:bid" component= { BuyerProfile }/>
-                    <Route path="/viewBuyer/:cid/:fid" component= { ViewBuyer }/>
-                    <Route path="/viewingTrends/:cid" component= { ViewingTrends }/>
-                    <Route path="/rating" component= { Rating }/>
-                  
-                </Switch>
-            </Router>
-            </div>
-        
+      <Router>
+        <Switch>
+        {/* <Route exact path="/" component={App} /> */}
+            <Route exact path='/' component={ Home } />
+            <Route exact path='/Home' component={ Home } />
+            <Route path="/Login" component={ Login } />
+            <Route path="/verifyEmail/:id" component={ VerifyEmail } />
+            <Route path="/resendVerify/:email/:id" component={ ResendVerify } />
+            <Route path="/signup" component={ SignUp } />
+            <Route path="/userhome/:id" component={ UserHome }/>
+            <Route path="/adminhome/:id" component={ AdminHome }/>
+            <Route path="/buyerhome/:id" component={ BuyerHome }/>
+            <Route path="/adminlogin" component= { AdminLogin }/>
+            <Route path="/cropsIn/:location/:id" component= { CropsIn }/>
+            <Route path="/cropCheck/:id/:fid" component= { CropCheck }/>
+            <Route path="/cropBid/:id/:fid/:buyerId" component= { CropBid }/>
+            <Route path="/updateProfile/:id" component= { UpdateProfile }/>
+            <Route path="/bids/:cid/:fid" component= { Bids }/>
+            <Route path="/buyerProfile/:buyerId/:bid" component= { BuyerProfile }/>
+            <Route path="/viewBuyer/:cid/:fid" component= { ViewBuyer }/>
+            <Route path="/viewingTrends/:cid" component= { ViewingTrends }/>
+            <Route path="/rating" component= { Rating }/>   
+        </Switch>
+      </Router>
+    </div>
   );
 }}
 

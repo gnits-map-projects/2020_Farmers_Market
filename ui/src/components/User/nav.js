@@ -17,6 +17,7 @@ class Navigation extends Component {
             role : this.props.role,
             display: false,
             num : 0,
+            read : false
         }
         this.handleClick = this.handleClick.bind(this);
         this.renderNotifications = this.renderNotifications.bind(this);
@@ -53,32 +54,55 @@ class Navigation extends Component {
         })
         // DOESN'T WORK BECAUSE BODY IS ALREADY RENDERED ?
         if(this.state.display==true)
-            document.querySelector('body').style.overflow = 'hidden';
+            // document.querySelector('body').style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden;'
         else
-            document.querySelector('body').style.overflow = 'auto';
+            // document.body.classList.remove("no-sroll");
+            document.body.style.overflow = 'auto'
+            if(this.state.read == false)
+                this.handleRead(this.state.uid);
         console.log(this.state.display)
     }
 
-    handleRead(event){
-        event.preventDefault();
+    handleRead(uid){
+        const url = 'http://localhost:9000/notificationsRead/'+this.state.uid;
+        console.log(this.state.id+"FECTCHING NOTIFICAITONS")
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+
+        headers.append('Access-Control-Allow-origin', url);
+        headers.append('Access-Control-Allow-Credentials', 'true');
+
+        headers.append('POST', 'GET');
+
+        fetch(url,{
+            headers: headers,
+            method: 'GET',
+        })
+        .then(response => response.json()) 
+        .then(this.setState({ 'read' : true}));             
     }
 
     renderNotifications(){
         return this.state.notifications.map(function(notification){
             return(
-                <div key={notification.id}><Row>
+                <div key={notification.id}>
                     {notification.status == "unread" && <div key={notification.id} className="notificationUnreadList">  
+                        <p id="text">
                             <div className="badge">New</div>
                             <div className="dateBadge">{notification.created}</div>
-                            <br/>
-                            {notification.notification}
+                        <br/>
+                        {notification.notification}</p><hr/>
                             {/* <button type="submit" className="btn btn-light btn-sm float-right ml-auto" onClick = {"http://localhost:9000/NotifocationRead/"+notification.id}>Mark as read</button>    */}
                     </div>}
                     {notification.status == "read" && <div key={notification.id} className="notificationReadList">
-                        <div className="dateBadge">{notification.created}</div>
+                        <p id="text">
+                            <div className="dateBadge">{notification.created}</div>
                         <br/>
-                        {notification.notification}
-                    </div>}</Row><hr/>
+                        {notification.notification}</p><hr/>
+                    </div>}
                 </div>
             )
         })
@@ -88,8 +112,8 @@ class Navigation extends Component {
         return (
             <div>
                 {this.state.display==true &&
-                <div className="restrictingOverlay"></div>}
-            <Navbar className="navbar-light" expand="md">
+                <div className="restrictingOverlay" onClick={this.handleClick}></div>}
+                <Navbar className="navbar-light" expand="md">
                 <Navbar.Brand href="/Home"><h3><b>FARMER'S MARKET</b></h3></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
