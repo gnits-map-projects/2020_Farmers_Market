@@ -19,5 +19,5 @@ public interface RegisterRepository {
 
     public CompletionStage<Register> update(Long id, String name, String email, String password, String mobile);
 
-    CompletionStage<Register> verify(Long id);
+    CompletionStage<String> verify(Long id);
 }

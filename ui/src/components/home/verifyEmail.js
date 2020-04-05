@@ -4,7 +4,6 @@ import './home.css';
 import NavUnset from './Nav.js';
 
 var body;
-var verified=0;
 
 export default class VerifyEmail extends Component { 
 
@@ -12,6 +11,7 @@ export default class VerifyEmail extends Component {
         super(props);
         this.state = {
             uid : this.props.match.params.id,
+            verify: '',
         }
     }
     
@@ -28,9 +28,13 @@ export default class VerifyEmail extends Component {
         method: 'GET',
         body: JSON.stringify(body)
         })
-        // .then(response => {if(response.ok){
-        //     verified = 1;
-        // }})
+        .then(response => response.json()) 
+        .then(response => {
+            this.setState({ 'verify' : response});
+            console.log(this.state.verify.verify)
+            if(this.state.verify.verify == "Already verified")
+                window.location.href = "/login";
+        })
     }
     
     render() {
@@ -38,12 +42,10 @@ export default class VerifyEmail extends Component {
                     <NavUnset/>
                     <br/><br/><br/><br/><br/>
                     <div className="auth-wrapper">
-                        {/* {verified==1 && */}
                         <div className="auth-inner-half"><center>
                             Your has been activated. Thank you for using Farmer's Market.<br/>
                             You can login.</center>
                         </div>
-                        {/* } */}
                     </div>
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 </div>

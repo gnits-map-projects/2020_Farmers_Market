@@ -84,7 +84,13 @@ public class RegisterController extends Controller {
 
     public CompletionStage<Result> verifyRegister(Long id){
         return registerRepository.verify(id).thenApplyAsync(p->{
-            return ok("Verification successful");
+            System.out.println(p);
+            String text = "";
+            if(p.equals("unauthenticated")) text="Verification successful";
+            else text="Already verified";
+            String str = "{ \"verify\" : \""+text+"\"}";
+            System.out.println(str);
+            return ok(Json.parse(str));
         },ec.current());
     }
 

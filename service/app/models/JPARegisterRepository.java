@@ -55,7 +55,7 @@ public class JPARegisterRepository implements RegisterRepository {
     }
 
     @Override
-    public CompletionStage<Register> verify(Long id) {
+    public CompletionStage<String> verify(Long id) {
         return supplyAsync(() -> wrap(em -> verify(em, id)), executionContext);
     }
 
@@ -86,20 +86,14 @@ public class JPARegisterRepository implements RegisterRepository {
 
     }
 
-    private Register verify(EntityManager em, Long id) {
+    private String verify(EntityManager em, Long id) {
+        String txt = (String) em.createQuery("select r.status from Register r where r.id =: id").setParameter("id",id).getSingleResult();
         int i= em.createQuery("update Register r set r.status =: status where r.id =: id").
                 setParameter("status","authenticated").
                 setParameter("id",id).
                 executeUpdate();
-        if(i!=0){
-            Register register=em.createQuery("select r from Register r where r.id=:id",Register.class).
-                    setParameter("id",id).
-                    getSingleResult();
-            return register;
-        }
-        else{
-            return null;
-        }
+        System.out.println(txt);
+        return txt;
     }
 
 }
