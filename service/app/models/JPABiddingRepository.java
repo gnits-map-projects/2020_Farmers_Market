@@ -47,6 +47,11 @@ public class JPABiddingRepository implements BiddingRepository {
     }
 
     @Override
+    public CompletionStage<JsonNode> getWinner(Long cid) {
+        return supplyAsync(() -> wrap(em -> getWinner(em, cid)), executionContext);
+    }
+
+    @Override
     public CompletionStage<Bidding> acceptBid(Long bid, Long cid) {
         return supplyAsync(() -> wrap(em -> acceptBid(em, bid, cid)), executionContext);
     }
@@ -134,6 +139,18 @@ public class JPABiddingRepository implements BiddingRepository {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        return json;
+    }
+
+    private JsonNode getWinner(EntityManager em, Long cid) {
+        ObjectNode json = null;
+        Long buyer = (Long) em.createQuery("select b.buyerId from Bidding b where b.cropId=:cid and b.status = 'accepted'").setParameter("cid", cid).getSingleResult();
+        Long bPrice = (Long) em.createQuery("select b.biddingPrice from Bidding b where b.cropId=:cid and b.status = 'accepted'").setParameter("cid", cid).getSingleResult();
+        try {
+            json = (ObjectNode) new ObjectMapper().readTree("{ \"id\" : \"" + buyer + "\",\"price\" : \"" + bPrice + "\" }");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return json;
     }

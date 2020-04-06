@@ -17,7 +17,11 @@ GET     /approveCrop/:cid               controllers.UncheckedCropController.appr
 DELETE  /rejectCrop/:cid                controllers.UncheckedCropController.deleteCrop(cid: Long)
 
 GET     /getFarmerCrops/:fid            controllers.CropController.getFarmerCrops(fid: Long)
+GET     /getAllFarmerCrops/:fid         controllers.CropController.getAllFarmerCrops(fid: Long)
 GET     /getCrops                       controllers.CropController.getCrops()
+GET     /getAllCrops                    controllers.CropController.getAllCrops()
+GET     /getOthersCrops/:fid            controllers.CropController.getOthersCrops(fid: Long)
+GET     /getAllOthersCrops/:fid         controllers.CropController.getAllOthersCrops(fid: Long)
 GET     /getCrop/:cid                   controllers.CropController.getCrop(cid: Long)
 GET     /cropsIn/:location              controllers.CropController.cropsIn(location: String)
 GET     /getLocations                   controllers.CropController.getLocations()
@@ -28,6 +32,7 @@ GET     /getCropBids/:cid               controllers.BiddingController.getCropBid
 GET     /acceptBid/:bid/:cid            controllers.BiddingController.acceptBid(bid: Long, cid: Long)
 GET     /rejectBid/:bid/:cid            controllers.BiddingController.rejectBid(bid: Long, cid: Long)
 GET     /getBidTrends/:cid              controllers.BiddingController.getBidTrends(cid: Long)
+GET     /getWinner/:cid                 controllers.BiddingController.getWinner(cid: Long)
 
 POST    /email/:to/:subject/:body       controllers.AdminController.sendEmail(to: String, subject:String, body: String)
 GET     /sendAuthEmail/:to/:id          controllers.AdminController.sendAuthEmail(to: String, id: Long)

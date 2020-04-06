@@ -6,8 +6,6 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 var body
-var result
-var key
 
 class CropsToBuyer extends Component {
     constructor(props) {
@@ -46,7 +44,10 @@ class CropsToBuyer extends Component {
                 <div key={item.id} className = "cropList">
                     <Row>
                         <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
-                        <Col xs="3"><button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + buyer}}>BID</button></Col>
+                        <Col xs="3">
+                        {item.status == "bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/cropBid/" + item.id + "/" + item.fid + "/" + buyer}}>BID</button>}
+                        {item.status != "bidding" && <button type="submit" id={item.id} className="btn btn-danger btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id + "/" + buyer + "/b"}}>CHECK WINNER</button>}
+                        </Col>
                     </Row><hr/>
                 </div>
             )
@@ -58,7 +59,7 @@ class CropsToBuyer extends Component {
             <div className= "auth-inner">
             <Row>
             <h1>Bids Closing Soon</h1><hr/>
-            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allBids/"+ this.state.fid}}>VIEW ALL CROPS</button>
+            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allCropsBuyer/"+ this.state.id}}>VIEW ALL CROPS</button>
             </Row><hr/>
             <Row>
                 <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">BID</Col>

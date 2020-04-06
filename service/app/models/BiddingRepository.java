@@ -21,4 +21,6 @@ public interface BiddingRepository {
     Register getBuyer(Long bid);
 
     List<Register> getLosers(Long bid, Long cid);
+
+    CompletionStage<JsonNode> getWinner(Long cid);
 }

@@ -24,11 +24,15 @@ class Login extends Component{
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(event) {
 
-  event.preventDefault();
+  componentDidMount(){
+    window.localStorage.removeItem('uid')
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
     console.log(this.state)
-     var body = {
+    var body = {
       email : this.state.email,
       password : this.state.password,
     }

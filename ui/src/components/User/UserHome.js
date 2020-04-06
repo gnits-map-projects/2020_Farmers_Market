@@ -31,7 +31,7 @@ render() {
                     </Row>
                         <br/>
                     <Row>
-                            <CropsToFarmer/>
+                            <CropsToFarmer id={uid}/>
                     </Row>
                 </Col>
                 

@@ -47,10 +47,14 @@ this.state = {
     }
 };
 }
+
 validateForm() {
 return this.state.name.length > 0 && this.state.passwordd.length > 5 ;
 }
 
+componentDidMount(){
+    window.localStorage.removeItem('uid')
+}
 
 handleNameChange = event => {
     const { name, value } = event.target;

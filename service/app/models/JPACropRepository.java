@@ -36,6 +36,11 @@ public class JPACropRepository implements CropRepository {
     }
 
     @Override
+    public CompletionStage<Stream<Crop>> listAllfc(Long fid) {
+        return supplyAsync(() -> wrap(em -> listAllfc(em, fid)), executionContext);
+    }
+
+    @Override
     public CompletionStage<Crop> getc(Long cid) {
         return supplyAsync(() -> wrap(em -> getc(em, cid)), executionContext);
     }
@@ -43,6 +48,21 @@ public class JPACropRepository implements CropRepository {
     @Override
     public CompletionStage<Stream<Crop>> listc() {
         return supplyAsync(() -> wrap(em -> listc(em)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<Stream<Crop>> listAllc() {
+        return supplyAsync(() -> wrap(em -> listAllc(em)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<Stream<Crop>> listOthersc(Long fid) {
+        return supplyAsync(() -> wrap(em -> listOthersc(em, fid)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<Stream<Crop>> listAllOthersc(Long fid) {
+        return supplyAsync(() -> wrap(em -> listAllOthersc(em, fid)), executionContext);
     }
 
     @Override
@@ -79,6 +99,11 @@ public class JPACropRepository implements CropRepository {
         return crops.stream();
     }
 
+    private Stream<Crop> listAllfc(EntityManager em, Long fid) {
+        List<Crop> crops = em.createQuery("select c from Crop c where c.fid=:fid order by c.id desc", Crop.class).setParameter("fid", fid).getResultList();
+        return crops.stream();
+    }
+
     private Crop getc(EntityManager em, Long cid) {
         Crop crop = em.createQuery("select c from Crop c where c.id=:cid", Crop.class).setParameter("cid", cid).getSingleResult();
         return crop;
@@ -86,6 +111,21 @@ public class JPACropRepository implements CropRepository {
 
     private Stream<Crop> listc(EntityManager em) {
         List<Crop> crops = em.createQuery("select c from Crop c order by c.bidendtime asc", Crop.class).setMaxResults(5).getResultList();
+        return crops.stream();
+    }
+
+    private Stream<Crop> listAllc(EntityManager em) {
+        List<Crop> crops = em.createQuery("select c from Crop c order by c.bidendtime asc", Crop.class).getResultList();
+        return crops.stream();
+    }
+
+    private Stream<Crop> listOthersc(EntityManager em, Long fid) {
+        List<Crop> crops = em.createQuery("select c from Crop c where not c.fid =: fid order by c.bidendtime asc", Crop.class).setParameter("fid",fid).setMaxResults(5).getResultList();
+        return crops.stream();
+    }
+
+    private Stream<Crop> listAllOthersc(EntityManager em, Long fid) {
+        List<Crop> crops = em.createQuery("select c from Crop c where not c.fid =: fid order by c.bidendtime asc", Crop.class).setParameter("fid",fid).getResultList();
         return crops.stream();
     }
 

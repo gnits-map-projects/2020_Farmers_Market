@@ -17,7 +17,15 @@ public interface CropRepository {
 
     CompletionStage<Stream<Crop>> listfc(Long fid);
 
+    CompletionStage<Stream<Crop>> listAllfc(Long fid);
+
     CompletionStage<Stream<Crop>> listc();
+
+    CompletionStage<Stream<Crop>> listAllc();
+
+    CompletionStage<Stream<Crop>> listOthersc(Long fid);
+
+    CompletionStage<Stream<Crop>> listAllOthersc(Long fid);
 
     CompletionStage<Stream<Crop>> listl();
 

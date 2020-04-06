@@ -123,7 +123,11 @@ public class BiddingController extends Controller {
         return biddingRepository.rejectBid(bid).thenApplyAsync(p->{
             return ok("update successful");
         },ec.current());
-
     }
 
+    public CompletionStage<Result> getWinner(Long cid) {
+        return biddingRepository.getWinner(cid).thenApplyAsync(buyer -> {
+            return ok(toJson(buyer));
+        }, ec.current());
+    }
 }

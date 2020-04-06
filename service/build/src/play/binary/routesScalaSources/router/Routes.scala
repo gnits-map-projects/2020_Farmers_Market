@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
-// @DATE:Sat Apr 04 17:32:47 IST 2020
+// @DATE:Mon Apr 06 10:52:25 IST 2020
 
 package router
 
@@ -19,13 +19,13 @@ class Routes(
   UncheckedCropController_5: controllers.UncheckedCropController,
   // @LINE:19
   CropController_1: controllers.CropController,
-  // @LINE:26
+  // @LINE:30
   BiddingController_4: controllers.BiddingController,
-  // @LINE:32
+  // @LINE:37
   AdminController_0: controllers.AdminController,
-  // @LINE:35
+  // @LINE:40
   NotificationController_2: controllers.NotificationController,
-  // @LINE:39
+  // @LINE:44
   Assets_6: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -38,13 +38,13 @@ class Routes(
     UncheckedCropController_5: controllers.UncheckedCropController,
     // @LINE:19
     CropController_1: controllers.CropController,
-    // @LINE:26
+    // @LINE:30
     BiddingController_4: controllers.BiddingController,
-    // @LINE:32
+    // @LINE:37
     AdminController_0: controllers.AdminController,
-    // @LINE:35
+    // @LINE:40
     NotificationController_2: controllers.NotificationController,
-    // @LINE:39
+    // @LINE:44
     Assets_6: controllers.Assets
   ) = this(errorHandler, RegisterController_3, UncheckedCropController_5, CropController_1, BiddingController_4, AdminController_0, NotificationController_2, Assets_6, "/")
 
@@ -69,7 +69,11 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """approveCrop/""" + "$" + """cid<[^/]+>""", """controllers.UncheckedCropController.approveCrop(cid:Long)"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rejectCrop/""" + "$" + """cid<[^/]+>""", """controllers.UncheckedCropController.deleteCrop(cid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getFarmerCrops/""" + "$" + """fid<[^/]+>""", """controllers.CropController.getFarmerCrops(fid:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getAllFarmerCrops/""" + "$" + """fid<[^/]+>""", """controllers.CropController.getAllFarmerCrops(fid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getCrops""", """controllers.CropController.getCrops()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getAllCrops""", """controllers.CropController.getAllCrops()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getOthersCrops/""" + "$" + """fid<[^/]+>""", """controllers.CropController.getOthersCrops(fid:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getAllOthersCrops/""" + "$" + """fid<[^/]+>""", """controllers.CropController.getAllOthersCrops(fid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getCrop/""" + "$" + """cid<[^/]+>""", """controllers.CropController.getCrop(cid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """cropsIn/""" + "$" + """location<[^/]+>""", """controllers.CropController.cropsIn(location:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getLocations""", """controllers.CropController.getLocations()"""),
@@ -79,6 +83,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """acceptBid/""" + "$" + """bid<[^/]+>/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.acceptBid(bid:Long, cid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rejectBid/""" + "$" + """bid<[^/]+>/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.rejectBid(bid:Long, cid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getBidTrends/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.getBidTrends(cid:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getWinner/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.getWinner(cid:Long)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """email/""" + "$" + """to<[^/]+>/""" + "$" + """subject<[^/]+>/""" + "$" + """body<[^/]+>""", """controllers.AdminController.sendEmail(to:String, subject:String, body:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendAuthEmail/""" + "$" + """to<[^/]+>/""" + "$" + """id<[^/]+>""", """controllers.AdminController.sendAuthEmail(to:String, id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getNotifications/""" + "$" + """id<[^/]+>""", """controllers.NotificationController.getNotification(id:Long)"""),
@@ -290,10 +295,28 @@ class Routes(
   )
 
   // @LINE:20
-  private[this] lazy val controllers_CropController_getCrops11_route = Route("GET",
+  private[this] lazy val controllers_CropController_getAllFarmerCrops11_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getAllFarmerCrops/"), DynamicPart("fid", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CropController_getAllFarmerCrops11_invoker = createInvoker(
+    CropController_1.getAllFarmerCrops(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CropController",
+      "getAllFarmerCrops",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """getAllFarmerCrops/""" + "$" + """fid<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:21
+  private[this] lazy val controllers_CropController_getCrops12_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getCrops")))
   )
-  private[this] lazy val controllers_CropController_getCrops11_invoker = createInvoker(
+  private[this] lazy val controllers_CropController_getCrops12_invoker = createInvoker(
     CropController_1.getCrops(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -307,11 +330,65 @@ class Routes(
     )
   )
 
-  // @LINE:21
-  private[this] lazy val controllers_CropController_getCrop12_route = Route("GET",
+  // @LINE:22
+  private[this] lazy val controllers_CropController_getAllCrops13_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getAllCrops")))
+  )
+  private[this] lazy val controllers_CropController_getAllCrops13_invoker = createInvoker(
+    CropController_1.getAllCrops(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CropController",
+      "getAllCrops",
+      Nil,
+      "GET",
+      this.prefix + """getAllCrops""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:23
+  private[this] lazy val controllers_CropController_getOthersCrops14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getOthersCrops/"), DynamicPart("fid", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CropController_getOthersCrops14_invoker = createInvoker(
+    CropController_1.getOthersCrops(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CropController",
+      "getOthersCrops",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """getOthersCrops/""" + "$" + """fid<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:24
+  private[this] lazy val controllers_CropController_getAllOthersCrops15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getAllOthersCrops/"), DynamicPart("fid", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CropController_getAllOthersCrops15_invoker = createInvoker(
+    CropController_1.getAllOthersCrops(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CropController",
+      "getAllOthersCrops",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """getAllOthersCrops/""" + "$" + """fid<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:25
+  private[this] lazy val controllers_CropController_getCrop16_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getCrop/"), DynamicPart("cid", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CropController_getCrop12_invoker = createInvoker(
+  private[this] lazy val controllers_CropController_getCrop16_invoker = createInvoker(
     CropController_1.getCrop(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -325,11 +402,11 @@ class Routes(
     )
   )
 
-  // @LINE:22
-  private[this] lazy val controllers_CropController_cropsIn13_route = Route("GET",
+  // @LINE:26
+  private[this] lazy val controllers_CropController_cropsIn17_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("cropsIn/"), DynamicPart("location", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CropController_cropsIn13_invoker = createInvoker(
+  private[this] lazy val controllers_CropController_cropsIn17_invoker = createInvoker(
     CropController_1.cropsIn(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -343,11 +420,11 @@ class Routes(
     )
   )
 
-  // @LINE:23
-  private[this] lazy val controllers_CropController_getLocations14_route = Route("GET",
+  // @LINE:27
+  private[this] lazy val controllers_CropController_getLocations18_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getLocations")))
   )
-  private[this] lazy val controllers_CropController_getLocations14_invoker = createInvoker(
+  private[this] lazy val controllers_CropController_getLocations18_invoker = createInvoker(
     CropController_1.getLocations(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -361,11 +438,11 @@ class Routes(
     )
   )
 
-  // @LINE:24
-  private[this] lazy val controllers_CropController_getCropTypes15_route = Route("GET",
+  // @LINE:28
+  private[this] lazy val controllers_CropController_getCropTypes19_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getCropTypes/"), DynamicPart("location", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_CropController_getCropTypes15_invoker = createInvoker(
+  private[this] lazy val controllers_CropController_getCropTypes19_invoker = createInvoker(
     CropController_1.getCropTypes(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -379,11 +456,11 @@ class Routes(
     )
   )
 
-  // @LINE:26
-  private[this] lazy val controllers_BiddingController_add16_route = Route("POST",
+  // @LINE:30
+  private[this] lazy val controllers_BiddingController_add20_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("insertBid")))
   )
-  private[this] lazy val controllers_BiddingController_add16_invoker = createInvoker(
+  private[this] lazy val controllers_BiddingController_add20_invoker = createInvoker(
     BiddingController_4.add(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -397,11 +474,11 @@ class Routes(
     )
   )
 
-  // @LINE:27
-  private[this] lazy val controllers_BiddingController_getCropBids17_route = Route("GET",
+  // @LINE:31
+  private[this] lazy val controllers_BiddingController_getCropBids21_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getCropBids/"), DynamicPart("cid", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_BiddingController_getCropBids17_invoker = createInvoker(
+  private[this] lazy val controllers_BiddingController_getCropBids21_invoker = createInvoker(
     BiddingController_4.getCropBids(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -415,11 +492,11 @@ class Routes(
     )
   )
 
-  // @LINE:28
-  private[this] lazy val controllers_BiddingController_acceptBid18_route = Route("GET",
+  // @LINE:32
+  private[this] lazy val controllers_BiddingController_acceptBid22_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("acceptBid/"), DynamicPart("bid", """[^/]+""",true), StaticPart("/"), DynamicPart("cid", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_BiddingController_acceptBid18_invoker = createInvoker(
+  private[this] lazy val controllers_BiddingController_acceptBid22_invoker = createInvoker(
     BiddingController_4.acceptBid(fakeValue[Long], fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -433,11 +510,11 @@ class Routes(
     )
   )
 
-  // @LINE:29
-  private[this] lazy val controllers_BiddingController_rejectBid19_route = Route("GET",
+  // @LINE:33
+  private[this] lazy val controllers_BiddingController_rejectBid23_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("rejectBid/"), DynamicPart("bid", """[^/]+""",true), StaticPart("/"), DynamicPart("cid", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_BiddingController_rejectBid19_invoker = createInvoker(
+  private[this] lazy val controllers_BiddingController_rejectBid23_invoker = createInvoker(
     BiddingController_4.rejectBid(fakeValue[Long], fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -451,11 +528,11 @@ class Routes(
     )
   )
 
-  // @LINE:30
-  private[this] lazy val controllers_BiddingController_getBidTrends20_route = Route("GET",
+  // @LINE:34
+  private[this] lazy val controllers_BiddingController_getBidTrends24_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getBidTrends/"), DynamicPart("cid", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_BiddingController_getBidTrends20_invoker = createInvoker(
+  private[this] lazy val controllers_BiddingController_getBidTrends24_invoker = createInvoker(
     BiddingController_4.getBidTrends(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -469,11 +546,29 @@ class Routes(
     )
   )
 
-  // @LINE:32
-  private[this] lazy val controllers_AdminController_sendEmail21_route = Route("POST",
+  // @LINE:35
+  private[this] lazy val controllers_BiddingController_getWinner25_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getWinner/"), DynamicPart("cid", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_BiddingController_getWinner25_invoker = createInvoker(
+    BiddingController_4.getWinner(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.BiddingController",
+      "getWinner",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """getWinner/""" + "$" + """cid<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:37
+  private[this] lazy val controllers_AdminController_sendEmail26_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("email/"), DynamicPart("to", """[^/]+""",true), StaticPart("/"), DynamicPart("subject", """[^/]+""",true), StaticPart("/"), DynamicPart("body", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_AdminController_sendEmail21_invoker = createInvoker(
+  private[this] lazy val controllers_AdminController_sendEmail26_invoker = createInvoker(
     AdminController_0.sendEmail(fakeValue[String], fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -487,11 +582,11 @@ class Routes(
     )
   )
 
-  // @LINE:33
-  private[this] lazy val controllers_AdminController_sendAuthEmail22_route = Route("GET",
+  // @LINE:38
+  private[this] lazy val controllers_AdminController_sendAuthEmail27_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendAuthEmail/"), DynamicPart("to", """[^/]+""",true), StaticPart("/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_AdminController_sendAuthEmail22_invoker = createInvoker(
+  private[this] lazy val controllers_AdminController_sendAuthEmail27_invoker = createInvoker(
     AdminController_0.sendAuthEmail(fakeValue[String], fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -505,11 +600,11 @@ class Routes(
     )
   )
 
-  // @LINE:35
-  private[this] lazy val controllers_NotificationController_getNotification23_route = Route("GET",
+  // @LINE:40
+  private[this] lazy val controllers_NotificationController_getNotification28_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getNotifications/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_NotificationController_getNotification23_invoker = createInvoker(
+  private[this] lazy val controllers_NotificationController_getNotification28_invoker = createInvoker(
     NotificationController_2.getNotification(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -523,11 +618,11 @@ class Routes(
     )
   )
 
-  // @LINE:36
-  private[this] lazy val controllers_NotificationController_notificationsRead24_route = Route("GET",
+  // @LINE:41
+  private[this] lazy val controllers_NotificationController_notificationsRead29_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("notificationsRead/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_NotificationController_notificationsRead24_invoker = createInvoker(
+  private[this] lazy val controllers_NotificationController_notificationsRead29_invoker = createInvoker(
     NotificationController_2.notificationsRead(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -541,11 +636,11 @@ class Routes(
     )
   )
 
-  // @LINE:39
-  private[this] lazy val controllers_Assets_at25_route = Route("GET",
+  // @LINE:44
+  private[this] lazy val controllers_Assets_at30_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at25_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at30_invoker = createInvoker(
     Assets_6.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -629,93 +724,123 @@ class Routes(
       }
   
     // @LINE:20
-    case controllers_CropController_getCrops11_route(params@_) =>
-      call { 
-        controllers_CropController_getCrops11_invoker.call(CropController_1.getCrops())
+    case controllers_CropController_getAllFarmerCrops11_route(params@_) =>
+      call(params.fromPath[Long]("fid", None)) { (fid) =>
+        controllers_CropController_getAllFarmerCrops11_invoker.call(CropController_1.getAllFarmerCrops(fid))
       }
   
     // @LINE:21
-    case controllers_CropController_getCrop12_route(params@_) =>
-      call(params.fromPath[Long]("cid", None)) { (cid) =>
-        controllers_CropController_getCrop12_invoker.call(CropController_1.getCrop(cid))
+    case controllers_CropController_getCrops12_route(params@_) =>
+      call { 
+        controllers_CropController_getCrops12_invoker.call(CropController_1.getCrops())
       }
   
     // @LINE:22
-    case controllers_CropController_cropsIn13_route(params@_) =>
-      call(params.fromPath[String]("location", None)) { (location) =>
-        controllers_CropController_cropsIn13_invoker.call(CropController_1.cropsIn(location))
+    case controllers_CropController_getAllCrops13_route(params@_) =>
+      call { 
+        controllers_CropController_getAllCrops13_invoker.call(CropController_1.getAllCrops())
       }
   
     // @LINE:23
-    case controllers_CropController_getLocations14_route(params@_) =>
-      call { 
-        controllers_CropController_getLocations14_invoker.call(CropController_1.getLocations())
+    case controllers_CropController_getOthersCrops14_route(params@_) =>
+      call(params.fromPath[Long]("fid", None)) { (fid) =>
+        controllers_CropController_getOthersCrops14_invoker.call(CropController_1.getOthersCrops(fid))
       }
   
     // @LINE:24
-    case controllers_CropController_getCropTypes15_route(params@_) =>
-      call(params.fromPath[String]("location", None)) { (location) =>
-        controllers_CropController_getCropTypes15_invoker.call(CropController_1.getCropTypes(location))
+    case controllers_CropController_getAllOthersCrops15_route(params@_) =>
+      call(params.fromPath[Long]("fid", None)) { (fid) =>
+        controllers_CropController_getAllOthersCrops15_invoker.call(CropController_1.getAllOthersCrops(fid))
+      }
+  
+    // @LINE:25
+    case controllers_CropController_getCrop16_route(params@_) =>
+      call(params.fromPath[Long]("cid", None)) { (cid) =>
+        controllers_CropController_getCrop16_invoker.call(CropController_1.getCrop(cid))
       }
   
     // @LINE:26
-    case controllers_BiddingController_add16_route(params@_) =>
-      call { 
-        controllers_BiddingController_add16_invoker.call(BiddingController_4.add())
+    case controllers_CropController_cropsIn17_route(params@_) =>
+      call(params.fromPath[String]("location", None)) { (location) =>
+        controllers_CropController_cropsIn17_invoker.call(CropController_1.cropsIn(location))
       }
   
     // @LINE:27
-    case controllers_BiddingController_getCropBids17_route(params@_) =>
-      call(params.fromPath[Long]("cid", None)) { (cid) =>
-        controllers_BiddingController_getCropBids17_invoker.call(BiddingController_4.getCropBids(cid))
+    case controllers_CropController_getLocations18_route(params@_) =>
+      call { 
+        controllers_CropController_getLocations18_invoker.call(CropController_1.getLocations())
       }
   
     // @LINE:28
-    case controllers_BiddingController_acceptBid18_route(params@_) =>
-      call(params.fromPath[Long]("bid", None), params.fromPath[Long]("cid", None)) { (bid, cid) =>
-        controllers_BiddingController_acceptBid18_invoker.call(BiddingController_4.acceptBid(bid, cid))
-      }
-  
-    // @LINE:29
-    case controllers_BiddingController_rejectBid19_route(params@_) =>
-      call(params.fromPath[Long]("bid", None), params.fromPath[Long]("cid", None)) { (bid, cid) =>
-        controllers_BiddingController_rejectBid19_invoker.call(BiddingController_4.rejectBid(bid, cid))
+    case controllers_CropController_getCropTypes19_route(params@_) =>
+      call(params.fromPath[String]("location", None)) { (location) =>
+        controllers_CropController_getCropTypes19_invoker.call(CropController_1.getCropTypes(location))
       }
   
     // @LINE:30
-    case controllers_BiddingController_getBidTrends20_route(params@_) =>
+    case controllers_BiddingController_add20_route(params@_) =>
+      call { 
+        controllers_BiddingController_add20_invoker.call(BiddingController_4.add())
+      }
+  
+    // @LINE:31
+    case controllers_BiddingController_getCropBids21_route(params@_) =>
       call(params.fromPath[Long]("cid", None)) { (cid) =>
-        controllers_BiddingController_getBidTrends20_invoker.call(BiddingController_4.getBidTrends(cid))
+        controllers_BiddingController_getCropBids21_invoker.call(BiddingController_4.getCropBids(cid))
       }
   
     // @LINE:32
-    case controllers_AdminController_sendEmail21_route(params@_) =>
-      call(params.fromPath[String]("to", None), params.fromPath[String]("subject", None), params.fromPath[String]("body", None)) { (to, subject, body) =>
-        controllers_AdminController_sendEmail21_invoker.call(AdminController_0.sendEmail(to, subject, body))
+    case controllers_BiddingController_acceptBid22_route(params@_) =>
+      call(params.fromPath[Long]("bid", None), params.fromPath[Long]("cid", None)) { (bid, cid) =>
+        controllers_BiddingController_acceptBid22_invoker.call(BiddingController_4.acceptBid(bid, cid))
       }
   
     // @LINE:33
-    case controllers_AdminController_sendAuthEmail22_route(params@_) =>
-      call(params.fromPath[String]("to", None), params.fromPath[Long]("id", None)) { (to, id) =>
-        controllers_AdminController_sendAuthEmail22_invoker.call(AdminController_0.sendAuthEmail(to, id))
+    case controllers_BiddingController_rejectBid23_route(params@_) =>
+      call(params.fromPath[Long]("bid", None), params.fromPath[Long]("cid", None)) { (bid, cid) =>
+        controllers_BiddingController_rejectBid23_invoker.call(BiddingController_4.rejectBid(bid, cid))
+      }
+  
+    // @LINE:34
+    case controllers_BiddingController_getBidTrends24_route(params@_) =>
+      call(params.fromPath[Long]("cid", None)) { (cid) =>
+        controllers_BiddingController_getBidTrends24_invoker.call(BiddingController_4.getBidTrends(cid))
       }
   
     // @LINE:35
-    case controllers_NotificationController_getNotification23_route(params@_) =>
-      call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_NotificationController_getNotification23_invoker.call(NotificationController_2.getNotification(id))
+    case controllers_BiddingController_getWinner25_route(params@_) =>
+      call(params.fromPath[Long]("cid", None)) { (cid) =>
+        controllers_BiddingController_getWinner25_invoker.call(BiddingController_4.getWinner(cid))
       }
   
-    // @LINE:36
-    case controllers_NotificationController_notificationsRead24_route(params@_) =>
-      call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_NotificationController_notificationsRead24_invoker.call(NotificationController_2.notificationsRead(id))
+    // @LINE:37
+    case controllers_AdminController_sendEmail26_route(params@_) =>
+      call(params.fromPath[String]("to", None), params.fromPath[String]("subject", None), params.fromPath[String]("body", None)) { (to, subject, body) =>
+        controllers_AdminController_sendEmail26_invoker.call(AdminController_0.sendEmail(to, subject, body))
       }
   
-    // @LINE:39
-    case controllers_Assets_at25_route(params@_) =>
+    // @LINE:38
+    case controllers_AdminController_sendAuthEmail27_route(params@_) =>
+      call(params.fromPath[String]("to", None), params.fromPath[Long]("id", None)) { (to, id) =>
+        controllers_AdminController_sendAuthEmail27_invoker.call(AdminController_0.sendAuthEmail(to, id))
+      }
+  
+    // @LINE:40
+    case controllers_NotificationController_getNotification28_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_NotificationController_getNotification28_invoker.call(NotificationController_2.getNotification(id))
+      }
+  
+    // @LINE:41
+    case controllers_NotificationController_notificationsRead29_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_NotificationController_notificationsRead29_invoker.call(NotificationController_2.notificationsRead(id))
+      }
+  
+    // @LINE:44
+    case controllers_Assets_at30_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at25_invoker.call(Assets_6.at(path, file))
+        controllers_Assets_at30_invoker.call(Assets_6.at(path, file))
       }
   }
 }

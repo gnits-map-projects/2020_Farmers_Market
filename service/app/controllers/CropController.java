@@ -44,8 +44,32 @@ public class CropController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> getAllFarmerCrops(Long fid) {
+        return cropRepository.listAllfc(fid).thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
     public CompletionStage<Result> getCrops() {
         return cropRepository.listc().thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
+    public CompletionStage<Result> getAllCrops() {
+        return cropRepository.listAllc().thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
+    public CompletionStage<Result> getOthersCrops(Long fid) {
+        return cropRepository.listOthersc(fid).thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
+    public CompletionStage<Result> getAllOthersCrops(Long fid) {
+        return cropRepository.listAllOthersc(fid).thenApplyAsync(cropStream -> {
             return ok(toJson(cropStream.collect(Collectors.toList())));
         }, ec.current());
     }

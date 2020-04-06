@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
-// @DATE:Sat Apr 04 17:32:47 IST 2020
+// @DATE:Mon Apr 06 10:52:25 IST 2020
 
 import play.api.mvc.Call
 
@@ -10,14 +10,14 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers {
 
-  // @LINE:39
+  // @LINE:44
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:39
+    // @LINE:44
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -64,20 +64,20 @@ package controllers {
   
   }
 
-  // @LINE:32
+  // @LINE:37
   class ReverseAdminController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:32
+    // @LINE:37
     def sendEmail(to:String, subject:String, body:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "email/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("to", to)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("subject", subject)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("body", body)))
     }
   
-    // @LINE:33
+    // @LINE:38
     def sendAuthEmail(to:String, id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "sendAuthEmail/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("to", to)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
@@ -92,34 +92,58 @@ package controllers {
     }
 
   
-    // @LINE:24
+    // @LINE:28
     def getCropTypes(location:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "getCropTypes/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("location", location)))
     }
   
-    // @LINE:21
+    // @LINE:20
+    def getAllFarmerCrops(fid:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "getAllFarmerCrops/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("fid", fid)))
+    }
+  
+    // @LINE:23
+    def getOthersCrops(fid:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "getOthersCrops/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("fid", fid)))
+    }
+  
+    // @LINE:25
     def getCrop(cid:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "getCrop/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("cid", cid)))
     }
   
-    // @LINE:20
+    // @LINE:21
     def getCrops(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "getCrops")
     }
   
-    // @LINE:22
+    // @LINE:24
+    def getAllOthersCrops(fid:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "getAllOthersCrops/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("fid", fid)))
+    }
+  
+    // @LINE:26
     def cropsIn(location:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "cropsIn/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("location", location)))
     }
   
-    // @LINE:23
+    // @LINE:27
     def getLocations(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "getLocations")
+    }
+  
+    // @LINE:22
+    def getAllCrops(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "getAllCrops")
     }
   
     // @LINE:19
@@ -130,38 +154,44 @@ package controllers {
   
   }
 
-  // @LINE:26
+  // @LINE:30
   class ReverseBiddingController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:29
+    // @LINE:33
     def rejectBid(bid:Long, cid:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "rejectBid/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("bid", bid)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("cid", cid)))
     }
   
-    // @LINE:26
+    // @LINE:30
     def add(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "insertBid")
     }
   
-    // @LINE:28
+    // @LINE:32
     def acceptBid(bid:Long, cid:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "acceptBid/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("bid", bid)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("cid", cid)))
     }
   
-    // @LINE:27
+    // @LINE:31
     def getCropBids(cid:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "getCropBids/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("cid", cid)))
     }
   
-    // @LINE:30
+    // @LINE:35
+    def getWinner(cid:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "getWinner/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("cid", cid)))
+    }
+  
+    // @LINE:34
     def getBidTrends(cid:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "getBidTrends/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("cid", cid)))
@@ -208,20 +238,20 @@ package controllers {
   
   }
 
-  // @LINE:35
+  // @LINE:40
   class ReverseNotificationController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:35
+    // @LINE:40
     def getNotification(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "getNotifications/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:36
+    // @LINE:41
     def notificationsRead(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "notificationsRead/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))

@@ -1,18 +1,21 @@
 import React ,{ Component } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './UserHome.css'
-import { Container } from "react-bootstrap";
+import logo from '../images/userhome.jpg';
+import '../images/bgimage.css';
+import Nav from './nav.js';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import CropProfile from './CropProfile'
 
 export default class ViewingTrends extends Component {
     constructor(props) {
         super(props);
         this.state = {
             cid : this.props.match.params.cid,
+            fid : this.props.match.params.fid,
             'trend' : '',
         };
-
     }
     
     componentDidMount() {
@@ -41,10 +44,28 @@ export default class ViewingTrends extends Component {
     }
     render(){
         return(
-        <div className="auth-inner-white">
-        <h1>Trends:</h1><hr/>
-        Maximum bid: {this.state.trend.maxBid}<br/>
-        Minimum bid: {this.state.trend.minBid}<br/>
+            <div>
+            <Nav uid = {this.state.fid} role={'farmer'}/>
+            <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
+            <Row>
+                <Col>
+                    <CropProfile id = {this.state.cid}/>
+                </Col>
+                <Col>
+                    <div className="auth-inner-half">
+                    <h1>Trends:</h1><hr/>
+                    <Row>
+                        <Col>Maximum bid:</Col>
+                        <Col>{this.state.trend.maxBid}</Col>
+                    </Row>
+                    <Row>
+                        <Col>Minimum bid:</Col>
+                        <Col>{this.state.trend.minBid}</Col>
+                    </Row>                    
+                    </div>
+                </Col>
+            </Row>
+            </div>
         </div>
         )
     }

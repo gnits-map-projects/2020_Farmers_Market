@@ -4,24 +4,27 @@ import { BrowserRouter as Router,
   Switch, 
   Route,
    Link } from "react-router-dom";
-   import Login from "./components/home/login";
-   import VerifyEmail from "./components/home/verifyEmail";
-   import ResendVerify from "./components/home/resendVerify";
-   import SignUp from "./components/home/signup";
-   import Home from "./components/home/home";
-   import UserHome from "./components/User/UserHome";
-   import BuyerHome from "./components/User/BuyerHome";
-   import AdminHome from "./components/User/AdminHome";
-   import CropsIn from "./components/User/cropsIn";
-   import AdminLogin from "./components/home/AdminLogin.js";
-   import CropCheck from "./components/User/cropCheck.js";
-   import CropBid from "./components/User/cropBid.js";
-   import UpdateProfile from "./components/home/updateProfile.js";
-   import Bids from './components/User/bids.js';
-   import BuyerProfile from './components/User/BuyerProfile.js';
-   import ViewingTrends from './components/User/ViewingTrends.js';
-   import Rating from './components/User/Rating.js';
-   import ViewBuyer from './components/User/viewBuyer.js';
+import Login from "./components/home/login";
+import VerifyEmail from "./components/home/verifyEmail";
+import ResendVerify from "./components/home/resendVerify";
+import SignUp from "./components/home/signup";
+import Home from "./components/home/home";
+import UserHome from "./components/User/UserHome";
+import BuyerHome from "./components/User/BuyerHome";
+import AdminHome from "./components/User/AdminHome";
+import CropsIn from "./components/User/cropsIn";
+import AdminLogin from "./components/home/AdminLogin.js";
+import CropCheck from "./components/User/cropCheck.js";
+import CropBid from "./components/User/cropBid.js";
+import UpdateProfile from "./components/home/updateProfile.js";
+import Bids from './components/User/bids.js';
+import BuyerProfile from './components/User/BuyerProfile.js';
+import ViewingTrends from './components/User/ViewingTrends.js';
+import Rating from './components/User/Rating.js';
+import ViewBuyer from './components/User/viewBuyer.js';
+import AllRecentCrops from './components/User/allRecentCrops.js'
+import AllCropsFarmer from './components/User/allCropsFarmer';
+import AllCropsBuyer from './components/User/allCropsBuyer';
 
 
 class App extends Component {
@@ -55,9 +58,12 @@ class App extends Component {
             <Route path="/updateProfile/:id" component= { UpdateProfile }/>
             <Route path="/bids/:cid/:fid" component= { Bids }/>
             <Route path="/buyerProfile/:buyerId/:bid" component= { BuyerProfile }/>
-            <Route path="/viewBuyer/:cid/:fid" component= { ViewBuyer }/>
-            <Route path="/viewingTrends/:cid" component= { ViewingTrends }/>
+            <Route path="/viewBuyer/:cid/:fid/:role" component= { ViewBuyer }/>
+            <Route path="/viewingTrends/:cid/:fid" component= { ViewingTrends }/>
             <Route path="/rating" component= { Rating }/>   
+            <Route path="/allRecentCrops/:id" component= { AllRecentCrops }/>   
+            <Route path="/allCropsFarmer/:id" component= { AllCropsFarmer }/>   
+            <Route path="/allCropsBuyer/:id" component= { AllCropsBuyer }/>   
         </Switch>
       </Router>
     </div>
