@@ -20,6 +20,8 @@ GET     /getFarmerCrops/:fid            controllers.CropController.getFarmerCrop
 GET     /getAllFarmerCrops/:fid         controllers.CropController.getAllFarmerCrops(fid: Long)
 GET     /getCrops                       controllers.CropController.getCrops()
 GET     /getAllCrops                    controllers.CropController.getAllCrops()
+GET     /getCropsForBuyer/:buyerId      controllers.CropController.getCropsForBuyer(buyerId: Long)
+GET     /getAllCropsForBuyer/:buyerId   controllers.CropController.getAllCropsForBuyer(buyerId: Long)
 GET     /getOthersCrops/:fid            controllers.CropController.getOthersCrops(fid: Long)
 GET     /getAllOthersCrops/:fid         controllers.CropController.getAllOthersCrops(fid: Long)
 GET     /getCrop/:cid                   controllers.CropController.getCrop(cid: Long)
@@ -33,6 +35,8 @@ GET     /acceptBid/:bid/:cid            controllers.BiddingController.acceptBid(
 GET     /rejectBid/:bid/:cid            controllers.BiddingController.rejectBid(bid: Long, cid: Long)
 GET     /getBidTrends/:cid              controllers.BiddingController.getBidTrends(cid: Long)
 GET     /getWinner/:cid                 controllers.BiddingController.getWinner(cid: Long)
+GET     /getPastBids/:buyerId           controllers.BiddingController.getPastBids(buyerId: Long)
+GET     /getAllPastBids/:buyerId        controllers.BiddingController.getAllPastBids(buyerId: Long)
 
 POST    /email/:to/:subject/:body       controllers.AdminController.sendEmail(to: String, subject:String, body: String)
 POST    /mailToAdmin/:id                controllers.AdminController.mailToAdmin(id: Long)

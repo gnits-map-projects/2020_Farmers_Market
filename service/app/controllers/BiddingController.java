@@ -67,6 +67,18 @@ public class BiddingController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> getPastBids(Long buyerId) {
+        return biddingRepository.listpb(buyerId).thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
+    public CompletionStage<Result> getAllPastBids(Long buyerId) {
+        return biddingRepository.listAllpb(buyerId).thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
     public CompletionStage<Result> getBidTrends(Long cid) {
         return biddingRepository.listbt(cid).thenApplyAsync(bidTrend -> {
             return ok(toJson(bidTrend));

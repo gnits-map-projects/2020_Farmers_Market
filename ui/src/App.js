@@ -25,6 +25,7 @@ import ViewBuyer from './components/User/viewBuyer.js';
 import AllRecentCrops from './components/User/allRecentCrops.js'
 import AllCropsFarmer from './components/User/allCropsFarmer';
 import AllCropsBuyer from './components/User/allCropsBuyer';
+import AllPastBids from './components/User/allPastBids';
 import Grievance from './components/User/grievance'
 
 
@@ -65,6 +66,7 @@ class App extends Component {
           <Route path="/allRecentCrops/:id" component= { AllRecentCrops }/>   
           <Route path="/allCropsFarmer/:id" component= { AllCropsFarmer }/>   
           <Route path="/allCropsBuyer/:id" component= { AllCropsBuyer }/>   
+          <Route path="/allPastBids/:id" component= { AllPastBids }/>   
           <Route path="/grievance/:id/:role" component= { Grievance }/>   
         </Switch>
       </Router>

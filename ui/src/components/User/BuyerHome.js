@@ -30,10 +30,7 @@ render() {
         <CropsToBuyer id={this.state.id}/>
         </Col>
         <Col>
-        <br/><h1>Past Bids</h1><br/>
-        
-        
-        {/*<PastBids id =  {uid}/>*/}
+        <PastBids id =  {this.state.id}/>
         </Col>
         </Row>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>

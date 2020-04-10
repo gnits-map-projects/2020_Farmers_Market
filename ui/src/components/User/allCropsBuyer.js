@@ -18,7 +18,7 @@ class AllCropsBuyer extends Component {
         };
     }
     componentDidMount() {
-        const url = 'http://localhost:9000/getCrops'
+        const url = 'http://localhost:9000/getAllCropsForBuyer'
         console.log(this.state.id)
         let headers = new Headers();
 

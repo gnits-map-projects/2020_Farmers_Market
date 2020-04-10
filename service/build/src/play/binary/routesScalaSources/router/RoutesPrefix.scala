@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
-// @DATE:Fri Apr 10 13:13:18 IST 2020
+// @DATE:Fri Apr 10 18:40:06 IST 2020
 
 
 package router {

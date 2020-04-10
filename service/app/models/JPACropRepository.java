@@ -4,6 +4,7 @@ import play.db.jpa.JPAApi;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
 import java.util.function.Function;
@@ -53,6 +54,16 @@ public class JPACropRepository implements CropRepository {
     @Override
     public CompletionStage<Stream<Crop>> listAllc() {
         return supplyAsync(() -> wrap(em -> listAllc(em)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<Stream<Crop>> listcForBuyer(Long buyerId) {
+        return supplyAsync(() -> wrap(em -> listcForBuyer(em, buyerId)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<Stream<Crop>> listAllcForBuyer(Long buyerId) {
+        return supplyAsync(() -> wrap(em -> listAllcForBuyer(em, buyerId)), executionContext);
     }
 
     @Override
@@ -117,6 +128,26 @@ public class JPACropRepository implements CropRepository {
     private Stream<Crop> listAllc(EntityManager em) {
         List<Crop> crops = em.createQuery("select c from Crop c order by c.bidendtime asc", Crop.class).getResultList();
         return crops.stream();
+    }
+
+    private Stream<Crop> listcForBuyer(EntityManager em, Long buyerId) {
+        List<Long> bidded = em.createQuery("select b.cropId from Bidding b where b.buyerId = :buyerId").setParameter("buyerId", buyerId).getResultList();
+        List<Crop> crops = em.createQuery("select c from Crop c where c.status = 'bidding' order by c.bidendtime asc", Crop.class).setMaxResults(5).getResultList();
+        List<Crop> notBidded = new ArrayList<Crop>();
+        crops.forEach(crop -> {
+            if(!bidded.contains(crop.id)) notBidded.add(crop);
+        });
+        return notBidded.stream();
+    }
+
+    private Stream<Crop> listAllcForBuyer(EntityManager em, Long buyerId) {
+        List<Long> bidded = em.createQuery("select b.cropId from Bidding b where b.buyerId = :buyerId").setParameter("buyerId", buyerId).getResultList();
+        List<Crop> crops = em.createQuery("select c from Crop c where c.status = 'bidding' order by c.bidendtime asc", Crop.class).getResultList();
+        List<Crop> notBidded = new ArrayList<Crop>();
+        crops.forEach(crop -> {
+            if(!bidded.contains(crop.id)) notBidded.add(crop);
+        });
+        return notBidded.stream();
     }
 
     private Stream<Crop> listOthersc(EntityManager em, Long fid) {

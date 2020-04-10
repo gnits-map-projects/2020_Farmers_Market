@@ -62,6 +62,18 @@ public class CropController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> getCropsForBuyer(Long buyerId) {
+        return cropRepository.listcForBuyer(buyerId).thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
+    public CompletionStage<Result> getAllCropsForBuyer(Long buyerId) {
+        return cropRepository.listAllcForBuyer(buyerId).thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
     public CompletionStage<Result> getOthersCrops(Long fid) {
         return cropRepository.listOthersc(fid).thenApplyAsync(cropStream -> {
             return ok(toJson(cropStream.collect(Collectors.toList())));

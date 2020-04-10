@@ -16,7 +16,7 @@ class CropsToBuyer extends Component {
         };
     }
     componentDidMount() {
-        const url = 'http://localhost:9000/getCrops'
+        const url = 'http://localhost:9000/getCropsForBuyer/'+this.state.id
         console.log(this.state.id)
         let headers = new Headers();
 
@@ -56,10 +56,10 @@ class CropsToBuyer extends Component {
 
     render(){
         return (
-            <div className= "auth-inner">
+            <div className= "auth-inner-half">
             <Row>
             <h1>Bids Closing Soon</h1><hr/>
-            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allCropsBuyer/"+ this.state.id}}>VIEW ALL CROPS</button>
+            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allCropsBuyer/"+ this.state.id}}>VIEW ALL</button>
             </Row><hr/>
             <Row>
                 <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">BID</Col>

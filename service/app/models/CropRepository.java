@@ -23,6 +23,10 @@ public interface CropRepository {
 
     CompletionStage<Stream<Crop>> listAllc();
 
+    CompletionStage<Stream<Crop>> listcForBuyer(Long buyerId);
+
+    CompletionStage<Stream<Crop>> listAllcForBuyer(Long buyerId);
+
     CompletionStage<Stream<Crop>> listOthersc(Long fid);
 
     CompletionStage<Stream<Crop>> listAllOthersc(Long fid);

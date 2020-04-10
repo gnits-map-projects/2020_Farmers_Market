@@ -42,6 +42,16 @@ public class JPABiddingRepository implements BiddingRepository {
     }
 
     @Override
+    public CompletionStage<Stream<Crop>> listpb(Long buyerId) {
+        return supplyAsync(() -> wrap(em -> listpb(em, buyerId)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<Stream<Crop>> listAllpb(Long buyerId) {
+        return supplyAsync(() -> wrap(em -> listAllpb(em, buyerId)), executionContext);
+    }
+
+    @Override
     public CompletionStage<JsonNode> listbt(Long cid) {
         return supplyAsync(() -> wrap(em -> listbt(em, cid)), executionContext);
     }
@@ -98,7 +108,7 @@ public class JPABiddingRepository implements BiddingRepository {
     }
 
     private Stream<JsonNode> listcb(EntityManager em, Long cid) {
-        List<Bidding> bids = em.createQuery("select b from Bidding b where b.cropId=:cid order by b.biddingPrice desc", Bidding.class).setParameter("cid", cid).getResultList();
+        List<Bidding> bids = em.createQuery("select b from Bidding b where b.cropId=:cid order by b.biddingPrice desc", Bidding.class).setParameter("cid", cid).setMaxResults(5).getResultList();
         List<JsonNode> bidDetails = new ArrayList<JsonNode>();
 
         for(int i =0; i<bids.size(); i++){
@@ -119,6 +129,32 @@ public class JPABiddingRepository implements BiddingRepository {
             }
         }
         return bidDetails.stream();
+    }
+
+    private Stream<Crop> listpb(EntityManager em, Long buyerId) {
+        List<Bidding> bids = em.createQuery("select b from Bidding b where b.buyerId=:buyerId order by b.id desc", Bidding.class).setParameter("buyerId", buyerId).getResultList();
+        List<Crop> cropsBidded = new ArrayList<Crop>();
+
+        for(int i =0; i<bids.size(); i++){
+            String id = (bids.get(i).cropId).toString();
+            Crop crop = em.createQuery("select c from Crop c where c.id=:cropId", Crop.class).setParameter("cropId", bids.get(i).cropId).getSingleResult();
+            crop.price = bids.get(i).biddingPrice;
+            cropsBidded.add(crop);
+        }
+        return cropsBidded.stream();
+    }
+
+    private Stream<Crop> listAllpb(EntityManager em, Long buyerId) {
+        List<Bidding> bids = em.createQuery("select b from Bidding b where b.buyerId=:buyerId order by b.id desc", Bidding.class).setParameter("buyerId", buyerId).getResultList();
+        List<Crop> cropsBidded = new ArrayList<Crop>();
+
+        for(int i =0; i<bids.size(); i++){
+            String id = (bids.get(i).cropId).toString();
+            Crop crop = em.createQuery("select c from Crop c where c.id=:cropId", Crop.class).setParameter("cropId", bids.get(i).cropId).getSingleResult();
+            crop.price = bids.get(i).biddingPrice;
+            cropsBidded.add(crop);
+        }
+        return cropsBidded.stream();
     }
 
     private JsonNode listbt(EntityManager em, Long cid) {
