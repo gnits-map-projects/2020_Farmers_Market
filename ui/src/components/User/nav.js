@@ -65,8 +65,8 @@ class Navigation extends Component {
     }
 
     handleRead(uid){
-        const url = 'http://localhost:9000/notificationsRead/'+this.state.uid;
-        console.log(this.state.id+"FECTCHING NOTIFICAITONS")
+        const url = 'http://localhost:9000/notificationsRead/'+uid;
+        console.log(uid+"FECTCHING NOTIFICAITONS")
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -130,6 +130,7 @@ class Navigation extends Component {
                         <div className="overlay">
                             {this.renderNotifications()}
                         </div>}
+                        <Nav.Link className="notification" href={"/grievance/"+this.state.uid+'/' + this.state.role}>&nbsp;GRIEVANCE&nbsp;</Nav.Link>
                         <NavDropdown className="notification" title={window.localStorage.getItem("username")} id="basic-nav-dropdown">
                             <NavDropdown.Item href={"/updateProfile/" + this.state.uid}>Update Profile</NavDropdown.Item>
                             <NavDropdown.Item href="/Home" onClick={() => window.sessionStorage.clear() }>Sign out</NavDropdown.Item>

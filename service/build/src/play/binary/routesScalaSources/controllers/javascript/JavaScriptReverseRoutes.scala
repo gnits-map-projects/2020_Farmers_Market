@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
-// @DATE:Mon Apr 06 10:52:25 IST 2020
+// @DATE:Fri Apr 10 13:13:18 IST 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,7 +10,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers.javascript {
 
-  // @LINE:44
+  // @LINE:45
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:44
+    // @LINE:45
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -108,12 +108,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:38
+    // @LINE:39
     def sendAuthEmail: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AdminController.sendAuthEmail",
       """
         function(to0,id1) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "sendAuthEmail/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("to", to0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id1))})
+        }
+      """
+    )
+  
+    // @LINE:38
+    def mailToAdmin: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AdminController.mailToAdmin",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "mailToAdmin/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -360,7 +370,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:40
+  // @LINE:41
   class ReverseNotificationController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -368,7 +378,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:40
+    // @LINE:41
     def getNotification: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.NotificationController.getNotification",
       """
@@ -378,7 +388,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:41
+    // @LINE:42
     def notificationsRead: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.NotificationController.notificationsRead",
       """

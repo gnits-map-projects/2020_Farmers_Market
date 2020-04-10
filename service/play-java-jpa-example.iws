@@ -8,26 +8,18 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BiddingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BiddingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/CropController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CropController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/BiddingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/BiddingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/CropRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/CropRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JPACropRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPACropRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/CropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/CropController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseAdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseAdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseBiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseBiddingController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseCropController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseNotificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseNotificationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseUncheckedCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/ReverseUncheckedCropController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseAdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseAdminController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseBiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseBiddingController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseCropController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseNotificationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseNotificationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseUncheckedCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/javascript/ReverseUncheckedCropController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/BiddingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/BiddingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/CropRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/CropRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/JPACropRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/JPACropRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/Routes$$anonfun$routes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/router/Routes$$anonfun$routes$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/router/Routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/router/Routes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/lib/service.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/lib/service.jar" afterDir="false" />
@@ -42,14 +34,7 @@
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play-java-jpa-example.iws" beforeDir="false" afterPath="$PROJECT_DIR$/play-java-jpa-example.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/CropsToFarmer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/CropsToFarmer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/UserHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bids.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/bids.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/cropsToBuyer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/cropsToBuyer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/recentCrops.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/recentCrops.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/viewBuyer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/viewBuyer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/home/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/home/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/nav.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Kaumudi/Desktop/project/2020_Farmers_Market/service/conf/routes
-// @DATE:Mon Apr 06 10:52:25 IST 2020
+// @DATE:Fri Apr 10 13:13:18 IST 2020
 
 package router
 
@@ -23,9 +23,9 @@ class Routes(
   BiddingController_4: controllers.BiddingController,
   // @LINE:37
   AdminController_0: controllers.AdminController,
-  // @LINE:40
+  // @LINE:41
   NotificationController_2: controllers.NotificationController,
-  // @LINE:44
+  // @LINE:45
   Assets_6: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -42,9 +42,9 @@ class Routes(
     BiddingController_4: controllers.BiddingController,
     // @LINE:37
     AdminController_0: controllers.AdminController,
-    // @LINE:40
+    // @LINE:41
     NotificationController_2: controllers.NotificationController,
-    // @LINE:44
+    // @LINE:45
     Assets_6: controllers.Assets
   ) = this(errorHandler, RegisterController_3, UncheckedCropController_5, CropController_1, BiddingController_4, AdminController_0, NotificationController_2, Assets_6, "/")
 
@@ -85,6 +85,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getBidTrends/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.getBidTrends(cid:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getWinner/""" + "$" + """cid<[^/]+>""", """controllers.BiddingController.getWinner(cid:Long)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """email/""" + "$" + """to<[^/]+>/""" + "$" + """subject<[^/]+>/""" + "$" + """body<[^/]+>""", """controllers.AdminController.sendEmail(to:String, subject:String, body:String)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """mailToAdmin/""" + "$" + """id<[^/]+>""", """controllers.AdminController.mailToAdmin(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendAuthEmail/""" + "$" + """to<[^/]+>/""" + "$" + """id<[^/]+>""", """controllers.AdminController.sendAuthEmail(to:String, id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getNotifications/""" + "$" + """id<[^/]+>""", """controllers.NotificationController.getNotification(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """notificationsRead/""" + "$" + """id<[^/]+>""", """controllers.NotificationController.notificationsRead(id:Long)"""),
@@ -583,10 +584,28 @@ class Routes(
   )
 
   // @LINE:38
-  private[this] lazy val controllers_AdminController_sendAuthEmail27_route = Route("GET",
+  private[this] lazy val controllers_AdminController_mailToAdmin27_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("mailToAdmin/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_AdminController_mailToAdmin27_invoker = createInvoker(
+    AdminController_0.mailToAdmin(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.AdminController",
+      "mailToAdmin",
+      Seq(classOf[Long]),
+      "POST",
+      this.prefix + """mailToAdmin/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:39
+  private[this] lazy val controllers_AdminController_sendAuthEmail28_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendAuthEmail/"), DynamicPart("to", """[^/]+""",true), StaticPart("/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_AdminController_sendAuthEmail27_invoker = createInvoker(
+  private[this] lazy val controllers_AdminController_sendAuthEmail28_invoker = createInvoker(
     AdminController_0.sendAuthEmail(fakeValue[String], fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -600,11 +619,11 @@ class Routes(
     )
   )
 
-  // @LINE:40
-  private[this] lazy val controllers_NotificationController_getNotification28_route = Route("GET",
+  // @LINE:41
+  private[this] lazy val controllers_NotificationController_getNotification29_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getNotifications/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_NotificationController_getNotification28_invoker = createInvoker(
+  private[this] lazy val controllers_NotificationController_getNotification29_invoker = createInvoker(
     NotificationController_2.getNotification(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -618,11 +637,11 @@ class Routes(
     )
   )
 
-  // @LINE:41
-  private[this] lazy val controllers_NotificationController_notificationsRead29_route = Route("GET",
+  // @LINE:42
+  private[this] lazy val controllers_NotificationController_notificationsRead30_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("notificationsRead/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_NotificationController_notificationsRead29_invoker = createInvoker(
+  private[this] lazy val controllers_NotificationController_notificationsRead30_invoker = createInvoker(
     NotificationController_2.notificationsRead(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -636,11 +655,11 @@ class Routes(
     )
   )
 
-  // @LINE:44
-  private[this] lazy val controllers_Assets_at30_route = Route("GET",
+  // @LINE:45
+  private[this] lazy val controllers_Assets_at31_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at30_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at31_invoker = createInvoker(
     Assets_6.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -820,27 +839,33 @@ class Routes(
       }
   
     // @LINE:38
-    case controllers_AdminController_sendAuthEmail27_route(params@_) =>
-      call(params.fromPath[String]("to", None), params.fromPath[Long]("id", None)) { (to, id) =>
-        controllers_AdminController_sendAuthEmail27_invoker.call(AdminController_0.sendAuthEmail(to, id))
+    case controllers_AdminController_mailToAdmin27_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_AdminController_mailToAdmin27_invoker.call(AdminController_0.mailToAdmin(id))
       }
   
-    // @LINE:40
-    case controllers_NotificationController_getNotification28_route(params@_) =>
-      call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_NotificationController_getNotification28_invoker.call(NotificationController_2.getNotification(id))
+    // @LINE:39
+    case controllers_AdminController_sendAuthEmail28_route(params@_) =>
+      call(params.fromPath[String]("to", None), params.fromPath[Long]("id", None)) { (to, id) =>
+        controllers_AdminController_sendAuthEmail28_invoker.call(AdminController_0.sendAuthEmail(to, id))
       }
   
     // @LINE:41
-    case controllers_NotificationController_notificationsRead29_route(params@_) =>
+    case controllers_NotificationController_getNotification29_route(params@_) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_NotificationController_notificationsRead29_invoker.call(NotificationController_2.notificationsRead(id))
+        controllers_NotificationController_getNotification29_invoker.call(NotificationController_2.getNotification(id))
       }
   
-    // @LINE:44
-    case controllers_Assets_at30_route(params@_) =>
+    // @LINE:42
+    case controllers_NotificationController_notificationsRead30_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_NotificationController_notificationsRead30_invoker.call(NotificationController_2.notificationsRead(id))
+      }
+  
+    // @LINE:45
+    case controllers_Assets_at31_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at30_invoker.call(Assets_6.at(path, file))
+        controllers_Assets_at31_invoker.call(Assets_6.at(path, file))
       }
   }
 }

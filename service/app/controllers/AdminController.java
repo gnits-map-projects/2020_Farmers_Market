@@ -1,5 +1,6 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -47,4 +48,15 @@ public class AdminController extends Controller {
         return ok("successful");
     }
 
+    public Result mailToAdmin(Long id) {
+        JsonNode js = request().body().asJson();
+        String subjectMessage = js.get("subject").asText();
+        String bodyMessage = js.get("description").asText();
+        List<String> toList = new ArrayList<String>();
+        String to = "farmers.market.no.reply@gmail.com";
+        toList.add(to);
+        emailUtil.sendEmail("Grievance: "+subjectMessage, toList, "<h1>GRIEVANCE</h1><p>"+bodyMessage+"</p>"+
+                "<h2>Complaint by user (Register ID): "+id+"</h2>");
+        return ok("successful");
+    }
 }

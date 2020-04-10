@@ -35,6 +35,7 @@ GET     /getBidTrends/:cid              controllers.BiddingController.getBidTren
 GET     /getWinner/:cid                 controllers.BiddingController.getWinner(cid: Long)
 
 POST    /email/:to/:subject/:body       controllers.AdminController.sendEmail(to: String, subject:String, body: String)
+POST    /mailToAdmin/:id                controllers.AdminController.mailToAdmin(id: Long)
 GET     /sendAuthEmail/:to/:id          controllers.AdminController.sendAuthEmail(to: String, id: Long)
 
 GET     /getNotifications/:id           controllers.NotificationController.getNotification(id: Long)
