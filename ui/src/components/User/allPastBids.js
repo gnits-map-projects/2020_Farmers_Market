@@ -14,7 +14,7 @@ class AllCropsBuyer extends Component {
         super(props);
         this.state = {
             'items' : [],
-            'id' : this.props.id
+            'id' : this.props.match.params.id
         };
     }
     componentDidMount() {
@@ -24,10 +24,8 @@ class AllCropsBuyer extends Component {
 
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
-
         headers.append('Access-Control-Allow-origin', url);
         headers.append('Access-Control-Allow-Credentials', 'true');
-
         headers.append('POST', 'GET');
 
         fetch(url,{
@@ -36,7 +34,7 @@ class AllCropsBuyer extends Component {
             body: JSON.stringify(body)
         })
         .then(response => response.json()) 
-        .then(response => this.setState({ 'items' : response}));          
+        .then(response => this.setState({ 'items' : response})); 
     }
 
    renderList(buyer){
@@ -47,7 +45,7 @@ class AllCropsBuyer extends Component {
                                 <Row>
                                     <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
                                     <Col xs="3">
-                                    {item.status == "bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/UpdateBid/" + item.id + "/" + this.state.buyerid}}>UPDATE BID</button>}
+                                    {item.status == "bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/updateBid/" + item.id + "/" + item.fid + "/" + this.state.buyerid}}>UPDATE BID</button>}
                                     {item.status != "bidding" && <button type="submit" id={item.id} className="btn btn-danger btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id + "/" + this.state.buyerid + "/b"}}>CHECK WINNER</button>}
                                     </Col>
                                 </Row><hr/>

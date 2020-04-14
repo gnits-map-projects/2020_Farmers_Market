@@ -42,12 +42,12 @@ public class JPABiddingRepository implements BiddingRepository {
     }
 
     @Override
-    public CompletionStage<Stream<Crop>> listpb(Long buyerId) {
+    public CompletionStage<Stream<JsonNode>> listpb(Long buyerId) {
         return supplyAsync(() -> wrap(em -> listpb(em, buyerId)), executionContext);
     }
 
     @Override
-    public CompletionStage<Stream<Crop>> listAllpb(Long buyerId) {
+    public CompletionStage<Stream<JsonNode>> listAllpb(Long buyerId) {
         return supplyAsync(() -> wrap(em -> listAllpb(em, buyerId)), executionContext);
     }
 
@@ -131,30 +131,56 @@ public class JPABiddingRepository implements BiddingRepository {
         return bidDetails.stream();
     }
 
-    private Stream<Crop> listpb(EntityManager em, Long buyerId) {
-        List<Bidding> bids = em.createQuery("select b from Bidding b where b.buyerId=:buyerId order by b.id desc", Bidding.class).setParameter("buyerId", buyerId).getResultList();
-        List<Crop> cropsBidded = new ArrayList<Crop>();
-
+    private Stream<JsonNode> listpb(EntityManager em, Long buyerId) {
+        List<Bidding> bids = em.createQuery("select b from Bidding b where b.buyerId=:buyerId order by b.id desc", Bidding.class)
+                .setParameter("buyerId", buyerId).setMaxResults(5).getResultList();
+        List<JsonNode> cropsBade = new ArrayList<JsonNode>();
         for(int i =0; i<bids.size(); i++){
-            String id = (bids.get(i).cropId).toString();
-            Crop crop = em.createQuery("select c from Crop c where c.id=:cropId", Crop.class).setParameter("cropId", bids.get(i).cropId).getSingleResult();
-            crop.price = bids.get(i).biddingPrice;
-            cropsBidded.add(crop);
+            Crop crop = em.createQuery("select c from Crop c where c.id=:cropId", Crop.class)
+                    .setParameter("cropId", bids.get(i).cropId).getSingleResult();
+            ObjectNode js = null;
+            try {
+                js = (ObjectNode) new ObjectMapper().readTree("{" +
+                        "\"id\" : \"" + crop.id + "\"," +
+                        "\"name\" : \"" + crop.name + "\"," +
+                        "\"area\" : \"" + crop.area + "\"," +
+                        "\"location\" : \"" + crop.location + "\"," +
+                        "\"fid\" : \"" + crop.fid + "\"," +
+                        "\"status\" : \"" + crop.status + "\"," +
+                        "\"price\" : \"" + bids.get(i).biddingPrice + "\"" +
+                        "}");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            cropsBade.add(js);
         }
-        return cropsBidded.stream();
+        return cropsBade.stream();
     }
 
-    private Stream<Crop> listAllpb(EntityManager em, Long buyerId) {
-        List<Bidding> bids = em.createQuery("select b from Bidding b where b.buyerId=:buyerId order by b.id desc", Bidding.class).setParameter("buyerId", buyerId).getResultList();
-        List<Crop> cropsBidded = new ArrayList<Crop>();
-
+    private Stream<JsonNode> listAllpb(EntityManager em, Long buyerId) {
+        List<Bidding> bids = em.createQuery("select b from Bidding b where b.buyerId=:buyerId order by b.id desc", Bidding.class)
+                .setParameter("buyerId", buyerId).getResultList();
+        List<JsonNode> cropsBade = new ArrayList<JsonNode>();
         for(int i =0; i<bids.size(); i++){
-            String id = (bids.get(i).cropId).toString();
-            Crop crop = em.createQuery("select c from Crop c where c.id=:cropId", Crop.class).setParameter("cropId", bids.get(i).cropId).getSingleResult();
-            crop.price = bids.get(i).biddingPrice;
-            cropsBidded.add(crop);
+            Crop crop = em.createQuery("select c from Crop c where c.id=:cropId", Crop.class)
+                    .setParameter("cropId", bids.get(i).cropId).getSingleResult();
+            ObjectNode js = null;
+            try {
+                js = (ObjectNode) new ObjectMapper().readTree("{" +
+                        "\"id\" : \"" + crop.id + "\"," +
+                        "\"name\" : \"" + crop.name + "\"," +
+                        "\"area\" : \"" + crop.area + "\"," +
+                        "\"location\" : \"" + crop.location + "\"," +
+                        "\"fid\" : \"" + crop.fid + "\"," +
+                        "\"status\" : \"" + crop.status + "\"," +
+                        "\"price\" : \"" + bids.get(i).biddingPrice + "\"" +
+                        "}");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            cropsBade.add(js);
         }
-        return cropsBidded.stream();
+        return cropsBade.stream();
     }
 
     private JsonNode listbt(EntityManager em, Long cid) {

@@ -6,6 +6,7 @@ import Nav from './nav.js';
 import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Trends from './Trends'
 import CropProfile from './CropProfile'
 import FarmerProfile from './FarmerProfile'
 import TandC from '../home/tandc.js';
@@ -23,8 +24,8 @@ export default class CropBid extends Component{
             'price': '',
             'biddingPrice': '',
             showBidForm: false,
-            
         };
+        console.log(this.state.buyerId)
         this.getPrice = this.getPrice.bind(this);
         this.bidding = this.bidding.bind(this);
         this.handleBiddingPriceChange = this.handleBiddingPriceChange.bind(this);
@@ -55,10 +56,9 @@ export default class CropBid extends Component{
             buyerId: this.state.buyerId,
             cropId: this.state.cid,
             biddingPrice: this.state.biddingPrice,
-            status : "waiting"
         }
         if(this.state.biddingPrice > this.state.price){
-            const url = 'http://localhost:9000/insertBid'
+            const url = 'http://localhost:9000/updateBid'
             console.log("ON CLICK BIDDING.")
             console.log(body)
             let headers = new Headers();
@@ -82,11 +82,7 @@ export default class CropBid extends Component{
         }
         else{
             alert('Bidding price not sufficient')
-        }
-
-        //TO DO
-        //window.location.href = "/buyerhome/" + this.state.buyerId
- 
+        } 
     }
     
     render() {
@@ -100,7 +96,14 @@ export default class CropBid extends Component{
         </div>
         <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
         <Row>
+            Your Bid: 
+        </Row>
+        <Row>
             <Col>
+                <Row>
+                    <Trends id = {this.state.cid}/>
+                    <br/>
+                </Row>
                 <Row>
                     <CropProfile id = {this.state.cid}
                     getPrice = {this.getPrice}/>
@@ -119,7 +122,7 @@ export default class CropBid extends Component{
                 <Row><br/></Row>
                 <Row>
                 <form className="auth-inner">
-                <input type="number" min = {this.state.price + 1} placeholder={'Enter amount > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/> ₹
+                <input type="number" min = {this.state.price + 1} placeholder={'Enter new amount > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/> ₹
                 <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" disabled = {!showBidForm} onClick={this.bidding}>BID</button>   
                 </form></Row>
             </Col>  

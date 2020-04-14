@@ -14,11 +14,11 @@ class AllCropsBuyer extends Component {
         super(props);
         this.state = {
             'items' : [],
-            'id' : this.props.id
+            'id' : this.props.match.params.id
         };
     }
     componentDidMount() {
-        const url = 'http://localhost:9000/getAllCropsForBuyer'
+        const url = 'http://localhost:9000/getAllCropsForBuyer/'+this.state.id
         console.log(this.state.id)
         let headers = new Headers();
 

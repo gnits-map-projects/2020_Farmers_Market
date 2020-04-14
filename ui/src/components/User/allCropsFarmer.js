@@ -40,8 +40,8 @@ class AllCropsFarmer extends Component {
                     <Row>
                         <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
                         <Col xs="3">
-                            {item.status=="bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/bids/" + item.id +'/'+ item.fid}}>VIEW BIDS</button>}
-                            {item.status!="bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/viewingTrends/" + item.id +'/' + this.state.fid}}>VIEW TRENDS</button>}
+                            {item.status=="bidding" && <button type="submit" id={item.id} className="btn btn-warning btn-lg" onClick={() => {window.location.href = "/viewingTrends/" + item.id + '/' + this.state.fid}}>VIEW TREND</button>}
+                            {item.status!="bidding" && <button type="submit" id={item.id} className="btn btn-warning btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id +'/'+ item.fid +'/f'}}>CHECK WINNER</button>}
                         </Col>
                     </Row><hr/>
                 </div>
@@ -60,7 +60,7 @@ class AllCropsFarmer extends Component {
             <h1>Recent Crops Of Other Farmers</h1>
             </Row><hr/>
             <Row>
-                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">VIEW BIDS</Col>
+                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">ACTION</Col>
             </Row><hr/>
             </div>
                 <ul>

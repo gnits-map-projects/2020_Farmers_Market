@@ -12,9 +12,9 @@ public interface BiddingRepository {
 
     CompletionStage<Stream<JsonNode>> listcb(Long cid);
 
-    CompletionStage<Stream<Crop>> listpb(Long buyerId);
+    CompletionStage<Stream<JsonNode>> listpb(Long buyerId);
 
-    CompletionStage<Stream<Crop>> listAllpb(Long buyerId);
+    CompletionStage<Stream<JsonNode>> listAllpb(Long buyerId);
 
     CompletionStage<JsonNode> listbt(Long cid);
 

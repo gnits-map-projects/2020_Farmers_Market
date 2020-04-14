@@ -36,7 +36,7 @@ class PastBids extends Component {
                                 <Row>
                                     <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
                                     <Col xs="3">
-                                    {item.status == "bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/UpdateBid/" + item.id + "/" + this.state.buyerid}}>UPDATE BID</button>}
+                                    {item.status == "bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/updateBid/" + item.id + "/" + item.fid + "/" + this.state.buyerid}}>UPDATE BID</button>}
                                     {item.status != "bidding" && <button type="submit" id={item.id} className="btn btn-danger btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id + "/" + this.state.buyerid + "/b"}}>CHECK WINNER</button>}
                                     </Col>
                                 </Row><hr/>

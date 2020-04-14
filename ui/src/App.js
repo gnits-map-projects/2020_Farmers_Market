@@ -16,6 +16,7 @@ import CropsIn from "./components/User/cropsIn";
 import AdminLogin from "./components/home/AdminLogin.js";
 import CropCheck from "./components/User/cropCheck.js";
 import CropBid from "./components/User/cropBid.js";
+import UpdateBid from "./components/User/updateBid.js";
 import UpdateProfile from "./components/home/updateProfile.js";
 import Bids from './components/User/bids.js';
 import BuyerProfile from './components/User/BuyerProfile.js';
@@ -57,6 +58,7 @@ class App extends Component {
           <Route path="/cropsIn/:location/:id" component= { CropsIn }/>
           <Route path="/cropCheck/:id/:fid" component= { CropCheck }/>
           <Route path="/cropBid/:id/:fid/:buyerId" component= { CropBid }/>
+          <Route path="/updateBid/:id/:fid/:buyerId" component= { UpdateBid }/>
           <Route path="/updateProfile/:id" component= { UpdateProfile }/>
           <Route path="/bids/:cid/:fid" component= { Bids }/>
           <Route path="/buyerProfile/:buyerId/:bid" component= { BuyerProfile }/>
