@@ -67,6 +67,11 @@ public class JPACropRepository implements CropRepository {
     }
 
     @Override
+    public CompletionStage<Stream<Crop>> cropsToPay(Long buyerId) {
+        return supplyAsync(() -> wrap(em -> cropsToPay(em, buyerId)), executionContext);
+    }
+
+    @Override
     public CompletionStage<Stream<Crop>> listOthersc(Long fid) {
         return supplyAsync(() -> wrap(em -> listOthersc(em, fid)), executionContext);
     }
@@ -148,6 +153,16 @@ public class JPACropRepository implements CropRepository {
             if(!bidded.contains(crop.id)) notBidded.add(crop);
         });
         return notBidded.stream();
+    }
+
+    private Stream<Crop> cropsToPay(EntityManager em, Long buyerId) {
+        List<Long> accepted = em.createQuery("select b.cropId from Bidding b where b.buyerId = :buyerId and b.status = 'accepted'").setParameter("buyerId", buyerId).getResultList();
+        List<Crop> notPayed = em.createQuery("select c from Crop c where c.status = 'closed' order by c.starttime asc", Crop.class).getResultList();
+        List<Crop> toPay = new ArrayList<Crop>();
+        notPayed.forEach(crop -> {
+            if(!accepted.contains(crop.id)) toPay.add(crop);
+        });
+        return toPay.stream();
     }
 
     private Stream<Crop> listOthersc(EntityManager em, Long fid) {

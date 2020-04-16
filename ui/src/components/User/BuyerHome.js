@@ -15,14 +15,24 @@ export default class BuyerHome extends Component{
         super(props);
         this.state = {
             'id' :this.props.match.params.id,
+            'items':[],
         };
     }
+
+componentDidMount(){
+    fetch('http://localhost:9000/cropsToPay/'+this.state.id)
+        .then(response => response.json())
+        .then(data => this.setState({ items : data }));
+}
+
 render() {
     window.localStorage.setItem('buyerId',this.state.id);
     return (<div>
         <Nav uid = {this.state.id} role={'buyer'}/>
+        <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
 
-    <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
+        {/* <CROPS TO PAY/> */}
+        
         <ListLocations id={this.state.id}/>
         <br/>
         <Row>
@@ -33,7 +43,7 @@ render() {
         <PastBids id =  {this.state.id}/>
         </Col>
         </Row>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
     </div>
     );
 }

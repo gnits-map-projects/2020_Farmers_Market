@@ -25,12 +25,13 @@ public class Scheduler {
                 .scheduler()
                 .schedule(
                         Duration.create(10, TimeUnit.SECONDS), // initialDelay
-                        Duration.create(1, TimeUnit.MINUTES), // interval
+                        Duration.create(10, TimeUnit.MINUTES), // interval
                         () -> repetitiveTask(),
                         this.executionContext);
     }
 
     private void repetitiveTask() {
         System.out.println("############ TEST SCHEDULER ############");
+
     }
 }

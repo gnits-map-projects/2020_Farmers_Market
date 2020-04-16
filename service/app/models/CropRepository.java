@@ -38,4 +38,6 @@ public interface CropRepository {
     CompletionStage<Stream<Crop>> listct(String location);
 
     public CompletionStage<Crop> updateCrop(Long cid, String status);
+
+    CompletionStage<Stream<Crop>> cropsToPay(Long buyerId);
 }

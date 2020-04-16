@@ -74,6 +74,12 @@ public class CropController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> cropsToPay(Long buyerId) {
+        return cropRepository.cropsToPay(buyerId).thenApplyAsync(cropStream -> {
+            return ok(toJson(cropStream.collect(Collectors.toList())));
+        }, ec.current());
+    }
+
     public CompletionStage<Result> getOthersCrops(Long fid) {
         return cropRepository.listOthersc(fid).thenApplyAsync(cropStream -> {
             return ok(toJson(cropStream.collect(Collectors.toList())));

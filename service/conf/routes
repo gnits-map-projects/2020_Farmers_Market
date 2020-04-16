@@ -28,6 +28,7 @@ GET     /getCrop/:cid                   controllers.CropController.getCrop(cid: 
 GET     /cropsIn/:location              controllers.CropController.cropsIn(location: String)
 GET     /getLocations                   controllers.CropController.getLocations()
 GET     /getCropTypes/:location         controllers.CropController.getCropTypes(location: String)
+GET     /cropsToPay/:buyerId            controllers.CropController.cropsToPay(buyerId: Long)
 
 POST    /insertBid                      controllers.BiddingController.add()
 POST    /updateBid                      controllers.BiddingController.update()

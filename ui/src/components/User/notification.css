@@ -84,7 +84,8 @@
     height: 100%;
     z-index: 1;
     cursor: pointer;
-    background: rgba(128, 128, 128, 0.356);
+    background: transparent;
+    /* background: rgba(128, 128, 128, 0.356); */
   }
 
   .restrictingNav {
@@ -97,7 +98,8 @@
     cursor: pointer;
 
     margin: auto;
-    background: rgba(128, 128, 128, 0.356);
+    background: transparent;
+    /* background: rgba(124, 113, 113, 0.356); */
     transition: all .3s;
     font-size: 20px;
   }
