@@ -37,6 +37,11 @@ public class JPABiddingRepository implements BiddingRepository {
     }
 
     @Override
+    public CompletionStage<String> update(JsonNode js) {
+        return supplyAsync(() -> wrap(em -> update(em, js)), executionContext);
+    }
+
+    @Override
     public CompletionStage<Stream<JsonNode>> listcb(Long cid) {
         return supplyAsync(() -> wrap(em -> listcb(em, cid)), executionContext);
     }
@@ -54,6 +59,11 @@ public class JPABiddingRepository implements BiddingRepository {
     @Override
     public CompletionStage<JsonNode> listbt(Long cid) {
         return supplyAsync(() -> wrap(em -> listbt(em, cid)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<JsonNode> getPrevBid(Long buyerId, Long cid) {
+        return supplyAsync(() -> wrap(em -> getPrevBid(em, buyerId, cid)), executionContext);
     }
 
     @Override
@@ -105,6 +115,12 @@ public class JPABiddingRepository implements BiddingRepository {
     public Bidding insert(EntityManager em, Bidding bidding) {
         em.persist(bidding);
         return bidding;
+    }
+
+    public String update(EntityManager em, JsonNode js) {
+        int i= em.createQuery("update Bidding b set b.biddingPrice =: biddingPrice where b.buyerId =: buyerId and b.cropId =: cropId").setParameter("biddingPrice",js.get("biddingPrice").asLong()).setParameter("buyerId",js.get("buyerId").asLong()).setParameter("cropId",js.get("cropId").asLong()).executeUpdate();
+        if (i!=0) return "Updated";
+        else return "Update failed";
     }
 
     private Stream<JsonNode> listcb(EntityManager em, Long cid) {
@@ -201,6 +217,17 @@ public class JPABiddingRepository implements BiddingRepository {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        return json;
+    }
+
+    private JsonNode getPrevBid(EntityManager em, Long buyerId, Long cid) {
+        ObjectNode json = null;
+        Long prevBid = (Long) em.createQuery("select b.biddingPrice from Bidding b where b.cropId=:cid and b.buyerId=:buyerId").setParameter("cid", cid).setParameter("buyerId",buyerId).getSingleResult();
+        try {
+            json = (ObjectNode) new ObjectMapper().readTree("{ \"previousBid\" : \"" + prevBid + "\"}");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return json;
     }

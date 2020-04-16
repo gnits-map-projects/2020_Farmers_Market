@@ -30,6 +30,7 @@ GET     /getLocations                   controllers.CropController.getLocations(
 GET     /getCropTypes/:location         controllers.CropController.getCropTypes(location: String)
 
 POST    /insertBid                      controllers.BiddingController.add()
+POST    /updateBid                      controllers.BiddingController.update()
 GET     /getCropBids/:cid               controllers.BiddingController.getCropBids(cid: Long)
 GET     /acceptBid/:bid/:cid            controllers.BiddingController.acceptBid(bid: Long, cid: Long)
 GET     /rejectBid/:bid/:cid            controllers.BiddingController.rejectBid(bid: Long, cid: Long)
@@ -37,6 +38,7 @@ GET     /getBidTrends/:cid              controllers.BiddingController.getBidTren
 GET     /getWinner/:cid                 controllers.BiddingController.getWinner(cid: Long)
 GET     /getPastBids/:buyerId           controllers.BiddingController.getPastBids(buyerId: Long)
 GET     /getAllPastBids/:buyerId        controllers.BiddingController.getAllPastBids(buyerId: Long)
+GET     /getPreviousBid/:buyerId/:cid   controllers.BiddingController.getPreviousBid(buyerId: Long, cid: Long)
 
 POST    /email/:to/:subject/:body       controllers.AdminController.sendEmail(to: String, subject:String, body: String)
 POST    /mailToAdmin/:id                controllers.AdminController.mailToAdmin(id: Long)

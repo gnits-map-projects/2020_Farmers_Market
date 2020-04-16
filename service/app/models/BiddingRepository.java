@@ -10,6 +10,8 @@ public interface BiddingRepository {
 
     CompletionStage<Bidding> add(Bidding bidding);
 
+    CompletionStage<String> update(JsonNode js);
+
     CompletionStage<Stream<JsonNode>> listcb(Long cid);
 
     CompletionStage<Stream<JsonNode>> listpb(Long buyerId);
@@ -17,6 +19,8 @@ public interface BiddingRepository {
     CompletionStage<Stream<JsonNode>> listAllpb(Long buyerId);
 
     CompletionStage<JsonNode> listbt(Long cid);
+
+    CompletionStage<JsonNode> getPrevBid(Long buyerId, Long cid);
 
     public CompletionStage<Bidding> acceptBid(Long bid, Long cid);
 

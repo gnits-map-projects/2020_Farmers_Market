@@ -11,12 +11,31 @@ class PastBids extends Component {
             'items' : [],
             buyerid: this.props.id,
         };
+        console.log(this.state.buyerid);        //prints buyer id.
     }
     
     componentDidMount() {
         fetch('http://localhost:9000/getPastBids/'+this.state.buyerid)
         .then(response => response.json())
         .then(data => this.setState({ 'items' : data }));
+    }
+
+    renderList(buyerid){
+        return(
+            this.state.items.map(function(item){
+                return(
+                    <div key={item.id} className = "cropList">
+                        <Row>
+                            <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
+                            <Col xs="3">
+                            {item.status == "bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/updateBid/" + item.id + "/" + item.fid + "/" + buyerid}}>UPDATE BID</button>}
+                            {item.status != "bidding" && <button type="submit" id={item.id} className="btn btn-danger btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id + "/" + buyerid + "/b"}}>CHECK WINNER</button>}
+                            </Col>
+                        </Row><hr/>
+                    </div>
+                )
+            })
+        )
     }
 
     render(){
@@ -30,19 +49,8 @@ class PastBids extends Component {
                 <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">YOUR BID</Col><Col xs="3">ACTION</Col>
             </Row><hr/>
                 <ul>
-                   {this.state.items.map(function(item){
-                       return(
-                            <div key={item.id} className = "cropList">
-                                <Row>
-                                    <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
-                                    <Col xs="3">
-                                    {item.status == "bidding" && <button type="submit" id={item.id} className="btn btn-success btn-lg" onClick={() => {window.location.href = "/updateBid/" + item.id + "/" + item.fid + "/" + this.state.buyerid}}>UPDATE BID</button>}
-                                    {item.status != "bidding" && <button type="submit" id={item.id} className="btn btn-danger btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id + "/" + this.state.buyerid + "/b"}}>CHECK WINNER</button>}
-                                    </Col>
-                                </Row><hr/>
-                            </div>
-                       )
-                   })}
+                   {console.log(this.state.buyerid)}
+                   {this.renderList(this.state.buyerid)}
                </ul>
             </div>
         );

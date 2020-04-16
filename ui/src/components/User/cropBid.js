@@ -119,7 +119,7 @@ export default class CropBid extends Component{
                 <Row><br/></Row>
                 <Row>
                 <form className="auth-inner">
-                <input type="number" min = {this.state.price + 1} placeholder={'Enter amount > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/> ₹
+                <input type="number" className="col-8" min = {this.state.price + 1} placeholder={'Enter amount > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/> ₹
                 <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" disabled = {!showBidForm} onClick={this.bidding}>BID</button>   
                 </form></Row>
             </Col>  
