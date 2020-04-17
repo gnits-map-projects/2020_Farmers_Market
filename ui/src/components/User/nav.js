@@ -122,15 +122,18 @@ class Navigation extends Component {
                         {this.state.role== 'admin' && <Nav.Link className="notification" href={"/adminhome/"+this.state.uid}>&nbsp;DASHBOARD&nbsp;</Nav.Link>}
                         {this.state.role== 'farmer' && <Nav.Link className="notification" href={"/userhome/"+this.state.uid}>&nbsp;DASHBOARD&nbsp;</Nav.Link>}
                         {this.state.role== 'buyer' && <Nav.Link className="notification" href={"/buyerhome/"+this.state.uid}>&nbsp;DASHBOARD&nbsp;</Nav.Link>}
+                        {this.state.role!= 'admin' &&
                         <button className="notificationTop nav-link btn-lg border-0 link-like" onClick={this.handleClick}>NOTIFICATIONS
                             {this.state.num>0 && <span className="redText">({this.state.num})</span>}
-                        </button>
+                        </button>}
                         
                         {this.state.display==true &&
                         <div className="overlay">
                             {this.renderNotifications()}
                         </div>}
-                        <Nav.Link className="notification" href={"/grievance/"+this.state.uid+'/' + this.state.role}>&nbsp;GRIEVANCE&nbsp;</Nav.Link>
+
+                        {this.state.role != 'admin' &&
+                        <Nav.Link className="notification" href={"/grievance/"+this.state.uid+'/' + this.state.role}>&nbsp;GRIEVANCE&nbsp;</Nav.Link>}
                         <NavDropdown className="notification" title={window.localStorage.getItem("username")} id="basic-nav-dropdown">
                             <NavDropdown.Item href={"/updateProfile/" + this.state.uid}>Update Profile</NavDropdown.Item>
                             <NavDropdown.Item href="/Home" onClick={() => window.sessionStorage.clear() }>Sign out</NavDropdown.Item>

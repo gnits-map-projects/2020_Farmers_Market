@@ -47,16 +47,12 @@ class CropsToCheck extends Component {
              
     }
 
-    render(){
+    renderList(farmer){
         return this.state.items.map(function(item){
             return(
                 <div key={item.id} className= "cropList">
-
                     <Row>
-                        <Col xs="2">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="1"></Col><Col xs="1">CHECK</Col>
-                    </Row><hr/>
-                    <Row>
-                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col><Col xs="1"></Col>
+                        <Col xs="2">{item.name}</Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
                         <Col xs="1"><button type="submit" id={item.id} className="btn btn-primary btn-lg" onClick={() => {window.location.href = "/cropCheck/" + item.id + "/" + item.fid}}>CHECK</button></Col>
                     </Row>
                     <Row><br/></Row>
@@ -65,46 +61,24 @@ class CropsToCheck extends Component {
         })
     }
 
-    // render(){
-    //     this.hc()
-    //     return (
-    //         <div className = "recentbids">
-    //         <div className="auth-inner">
-    //             <ul>
-    //                {this.renderList()}
-    //            </ul>
-    //         </div>
-    //         </div>
-    //     );
-    // }
-
-    // render(){
-    //     return (
-    //         <div>
-    //         <div>
-    //             <br/><h1 align = "center">Crops to check:</h1><br/>
-    //             <div className="inner">
-    //             <Container className="cont">
-    //             <ul>
-    //                {this.state.items.map(function(item){
-    //                    return(
-    //                        <div key={item.id}>
-    //                             <Row>
-    //                             <Col>{item.name}</Col><Col>{item.area}</Col><Col>{item.price}</Col><Col>{item.id}</Col>
-    //                             <Col><button id={item.id} className="btn btn-success">Approve</button></Col>
-    //                             <Col><button id={item.id} className="btn btn-danger">Reject</button></Col>
-    //                             </Row><Row><br/></Row>
-    //                         </div>
-    //                    );
-    //                }.bind(this))}
-    //            </ul>
-    //            </Container>
-    //            </div>
-    //            <br/>
-    //         </div>
-    //         </div>
-    //     );
-    // }
+    render(){
+        return (
+            <div className= "auth-inner-full">
+            <Row>
+            <h1>Crops To Check</h1><hr/>
+            </Row><hr/>
+            {this.state.items.length == 0 && <h3>No crops here</h3>}
+            {this.state.items.length > 0 &&
+            <Row>
+                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">ACTION</Col>
+            </Row>}
+            <hr/>
+            <ul>
+                {this.renderList(this.state.id)}
+            </ul>
+            </div>
+        );
+    }
 }
 export default CropsToCheck;
 

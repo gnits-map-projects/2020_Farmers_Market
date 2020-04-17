@@ -33,14 +33,14 @@ class AllCropsFarmer extends Component {
         .then(response => this.setState({ 'items' : response}));         
     }
 
-    renderList(){
+    renderList(farmer){
         return this.state.items.map(function(item){
             return(
                 <div key={item.id} className = "cropList">
                     <Row>
                         <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
                         <Col xs="3">
-                            {item.status=="bidding" && <button type="submit" id={item.id} className="btn btn-warning btn-lg" onClick={() => {window.location.href = "/viewingTrends/" + item.id + '/' + this.state.fid}}>VIEW TREND</button>}
+                            {item.status=="bidding" && <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {window.location.href = "/viewingTrends/" + item.id + '/' + farmer}}>VIEW TREND</button>}
                             {item.status!="bidding" && <button type="submit" id={item.id} className="btn btn-warning btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id +'/'+ item.fid +'/f'}}>CHECK WINNER</button>}
                         </Col>
                     </Row><hr/>
@@ -64,7 +64,7 @@ class AllCropsFarmer extends Component {
             </Row><hr/>
             </div>
                 <ul>
-                   {this.renderList()}
+                   {this.renderList(this.state.fid)}
                </ul>
             </div>
             </div>

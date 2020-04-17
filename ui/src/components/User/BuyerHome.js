@@ -25,16 +25,57 @@ componentDidMount(){
         .then(data => this.setState({ items : data }));
 }
 
+renderList(buyer){
+    return this.state.items.map(function(item){
+        console.log("in render list" + buyer);
+        return(
+            <div key={item.id} className = "cropList">
+                <Row>
+                    <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
+                    <Col xs="3">
+                    <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {window.location.href = "/payment/" + item.id + "/" + buyer + "/b"}}>PAY NOW</button>
+                    </Col>
+                </Row><hr/>
+            </div>
+        )
+    })
+}
+
 render() {
     window.localStorage.setItem('buyerId',this.state.id);
     return (<div>
         <Nav uid = {this.state.id} role={'buyer'}/>
         <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
 
-        {/* <CROPS TO PAY/> */}
         
         <ListLocations id={this.state.id}/>
         <br/>
+        <Row><br/></Row>
+
+        {/* <CROPS TO PAY/> */}
+        <Row>
+            {this.state.items.length>0 && 
+            <div className= "auth-inner-half">
+            <Row>
+            <h1>Pending Payments</h1><hr/>
+            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allCropsBuyer/"+ this.state.id}}>VIEW ALL</button>
+            </Row><hr/>
+            <Row>
+                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">ACTION</Col>
+            </Row><hr/>
+            <ul>
+                {this.renderList(this.state.id)}
+            </ul>
+            </div>}
+            
+            {this.state.items.length == 0 && 
+            <div className= "auth-inner-half">
+            <h2>You have no pending payments.</h2>
+            </div>}    
+        </Row>
+        {/* crops to pay end */}
+        <Row><br/></Row>
+
         <Row>
         <Col>
         <CropsToBuyer id={this.state.id}/>

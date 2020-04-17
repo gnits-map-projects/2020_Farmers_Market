@@ -74,7 +74,7 @@ public class JPARegisterRepository implements RegisterRepository {
     }
 
     private Register updatevalue(EntityManager em, Long id, String name, String email, String password, String mobile){
-        int i= em.createQuery("update Register r set r.name =: name, r.email =: email, r.password =: password, r.mobile=:mobile where r.id =: id").setParameter("name",name).setParameter("email",email).setParameter("password",password).setParameter("mobile",mobile).setParameter("id",id).executeUpdate();
+        int i= em.createQuery("update Register r set r.name =: name, r.email =: email, r.status = 'unauthenticated', r.password =: password, r.mobile=:mobile where r.id =: id").setParameter("name",name).setParameter("email",email).setParameter("password",password).setParameter("mobile",mobile).setParameter("id",id).executeUpdate();
         if(i!=0){
             Register register=em.createQuery("select r from Register r where r.id=:id",Register.class).setParameter("id",id).getSingleResult();
             return register;

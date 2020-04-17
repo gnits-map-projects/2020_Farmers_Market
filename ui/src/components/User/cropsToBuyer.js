@@ -22,10 +22,8 @@ class CropsToBuyer extends Component {
 
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
-
         headers.append('Access-Control-Allow-origin', url);
         headers.append('Access-Control-Allow-Credentials', 'true');
-
         headers.append('POST', 'GET');
 
         fetch(url,{
@@ -62,7 +60,7 @@ class CropsToBuyer extends Component {
             <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allCropsBuyer/"+ this.state.id}}>VIEW ALL</button>
             </Row><hr/>
             <Row>
-                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">BID</Col>
+                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">ACTION</Col>
             </Row><hr/>
             <ul>
                 {this.renderList(this.state.id)}

@@ -58,7 +58,7 @@ public class JPANotificationRepository implements NotificationRepository {
     }
 
     private Stream<Notification> listNotifications(EntityManager em, Long userId) {
-        List<Notification> notifications = em.createQuery("select n from Notification n where n.userId =: userId order by n.created desc", Notification.class).setParameter("userId", userId).getResultList();
+        List<Notification> notifications = em.createQuery("select n from Notification n where n.userId =: userId order by n.id desc", Notification.class).setParameter("userId", userId).getResultList();
         return notifications.stream();
     }
 
