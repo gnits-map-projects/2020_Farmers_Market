@@ -98,7 +98,7 @@ public class UncheckedCropController extends Controller {
         String message = "Your "+uncheckedCrop.name+" crop in "+uncheckedCrop.location+" has been rejected.";
         NotificationController notificationController=new NotificationController(formFactory, notificationRepository, ec);
         CompletionStage<Result> n = notificationController.addNotification(register.id, message);
-
+        System.out.println("REJECTED NOTIFICATION INSERTION RESULT: "+ n);
         AdminController adminController = new AdminController(ec, emailUtil);
         adminController.sendEmail(register.email, "Crop Rejected", message);
 

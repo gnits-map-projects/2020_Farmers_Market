@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row'
 import CropProfile from './CropProfile'
 import FarmerProfile from './FarmerProfile'
 import TandC from '../home/tandc.js';
+import Trends from './Trends';
 
 var body;
 
@@ -104,6 +105,11 @@ export default class CropBid extends Component{
                 <Row>
                     <CropProfile id = {this.state.cid}
                     getPrice = {this.getPrice}/>
+                    <br/>
+                </Row>
+                <Row><br/></Row>
+                <Row>
+                    <Trends id = {this.state.cid}/>
                     <br/>
                 </Row>
                 <Row><br/></Row>

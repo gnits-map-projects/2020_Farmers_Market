@@ -38,6 +38,14 @@ export default class Trends extends Component {
     }
 
     render(){
+        if(this.state.trend.noBids == "NoBidsYet")
+        return(
+            <div className="auth-inner-half">
+            <h1>Trends:</h1><hr/>
+            No bids yet.                   
+            </div>
+        );
+        else
         return(
             <div className="auth-inner-half">
             <h1>Trends:</h1><hr/>

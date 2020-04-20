@@ -7,7 +7,6 @@ import Row from 'react-bootstrap/Row';
 class WinnerProfile extends Component {
     constructor(props) {
         super(props);
-        console.log("PROPS: "+this.props.id) //prints undefined
         this.state = {
             'winner' : {},
             id: this.props.id,

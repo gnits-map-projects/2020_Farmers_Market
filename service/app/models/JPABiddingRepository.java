@@ -201,8 +201,10 @@ public class JPABiddingRepository implements BiddingRepository {
 
     private JsonNode listbt(EntityManager em, Long cid) {
         ObjectNode json = null;
-        if(em.createQuery("select b from Bidding b where b.cropId=:cid").setParameter("cid", cid).setMaxResults(1).getSingleResult().toString() == null){
-            String noBids = "No bids yet";
+        Long count = (Long)(em.createQuery("select count(b) from Bidding b where b.cropId=:cid").setParameter("cid", cid).getSingleResult());
+        System.out.println("View trends: "+count);
+        if(count==0){
+            String noBids = "NoBidsYet";
             try {
                 json = (ObjectNode) new ObjectMapper().readTree("{ \"noBids\" : \"" + noBids + "\"}");
             } catch (IOException e) {
@@ -213,7 +215,7 @@ public class JPABiddingRepository implements BiddingRepository {
             String maxBid = em.createQuery("select max(b.biddingPrice) from Bidding b where b.cropId=:cid").setParameter("cid", cid).getSingleResult().toString();
             String minBid = em.createQuery("select min(b.biddingPrice) from Bidding b where b.cropId=:cid").setParameter("cid", cid).getSingleResult().toString();
             try {
-                json = (ObjectNode) new ObjectMapper().readTree("{ \"maxBid\" : \"" + maxBid + "\", \"minBid\" : \"" + minBid + "\"}");
+                json = (ObjectNode) new ObjectMapper().readTree("{ \"noBids\" : \"" + "bidsPresent" + "\","+"\"maxBid\" : \"" + maxBid + "\", \"minBid\" : \"" + minBid + "\"}");
             } catch (IOException e) {
                 e.printStackTrace();
             }

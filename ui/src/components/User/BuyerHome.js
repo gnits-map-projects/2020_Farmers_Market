@@ -23,6 +23,7 @@ componentDidMount(){
     fetch('http://localhost:9000/cropsToPay/'+this.state.id)
         .then(response => response.json())
         .then(data => this.setState({ items : data }));
+    console.log("Crops to pay of: "+this.state.id)
 }
 
 renderList(buyer){
@@ -45,20 +46,16 @@ render() {
     window.localStorage.setItem('buyerId',this.state.id);
     return (<div>
         <Nav uid = {this.state.id} role={'buyer'}/>
-        <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
-
-        
-        <ListLocations id={this.state.id}/>
-        <br/>
-        <Row><br/></Row>
+        <div className="auth-inner-half-transparent">
+        <ListLocations id={this.state.id}/></div>
 
         {/* <CROPS TO PAY/> */}
         <Row>
             {this.state.items.length>0 && 
             <div className= "auth-inner-half">
             <Row>
-            <h1>Pending Payments</h1><hr/>
-            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allCropsBuyer/"+ this.state.id}}>VIEW ALL</button>
+            <h1><center>Pending Payments</center></h1><hr/>
+            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allPendingPayment/"+ this.state.id}}>VIEW ALL</button>
             </Row><hr/>
             <Row>
                 <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">ACTION</Col>
@@ -75,7 +72,6 @@ render() {
         </Row>
         {/* crops to pay end */}
         <Row><br/></Row>
-
         <Row>
         <Col>
         <CropsToBuyer id={this.state.id}/>
@@ -84,8 +80,8 @@ render() {
         <PastBids id =  {this.state.id}/>
         </Col>
         </Row>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-    </div>
+        <Row><br/></Row>
+        </div>
     );
 }
 }

@@ -1,10 +1,8 @@
 import React ,{ Component } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './UserHome.css'
-import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Rating from './Rating.js';
 
 class FarmerProfile extends Component {
     constructor(props) {

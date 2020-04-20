@@ -146,7 +146,7 @@ public class BiddingController extends Controller {
         AdminController adminController = new AdminController(ec, emailUtil);
         adminController.sendEmail(register.email, "Crop Bid Not Selected", message);
         return biddingRepository.rejectBid(bid).thenApplyAsync(p->{
-            return ok("update successful");
+            return ok("reject successful");
         },ec.current());
     }
 

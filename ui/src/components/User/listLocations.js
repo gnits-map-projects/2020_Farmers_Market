@@ -75,7 +75,7 @@ export default class ListLocations extends Component {
     render(){
         return (
             <div>  
-            <Select
+            <Select className="form-group"
               ref={ref => {
                 this.selectRef = ref;
               }}

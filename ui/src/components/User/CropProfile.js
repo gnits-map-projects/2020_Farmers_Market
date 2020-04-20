@@ -1,11 +1,10 @@
 import React ,{ Component } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './UserHome.css'
-import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-class UncheckedCropProfile extends Component {
+class CropProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -47,9 +46,7 @@ class UncheckedCropProfile extends Component {
 
     render(){
         console.log(this.state.crop)
-        let s=this.state.crop
         return (
-
             <div className="auth-inner-half">
             <h1>Crop Profile:</h1><hr/>
                 <Row><Col>Crop :</Col><Col>{this.state.crop.name}<br/></Col></Row>
@@ -64,5 +61,5 @@ class UncheckedCropProfile extends Component {
     }
 }
 
-export default UncheckedCropProfile;
+export default CropProfile;
 

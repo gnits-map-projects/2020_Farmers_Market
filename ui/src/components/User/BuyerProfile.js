@@ -46,8 +46,8 @@ class BuyerProfile extends Component {
     }
 
     reject() {
-        const url = 'http://localhost:9000/rejectBid/'+this.state.id+'/'+this.props.cid
-        console.log("ON CLICK REJECT.")
+        const url = 'http://localhost:9000/rejectBid/'+this.props.bid+'/'+this.props.cid
+        console.log("ON CLICK REJECT." + url)
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');

@@ -90,8 +90,10 @@ export default class Bids extends Component{
                 <div key={item.id} className = "cropList">
                     <Row>
                         <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.rating}</Col><Col xs="1"></Col><Col xs="2">{item.biddingPrice} ₹</Col><Col xs="1"></Col>
-                        <Col xs="2"><button type="submit" id={item.buyerId} className="btn btn-primary btn-lg" onClick={(event) => this.handleClick(event, item.buyerId, item.id)}
-                            >PROCEED</button></Col>
+                        <Col xs="2">
+                        {item.status == "waiting" && <button type="submit" id={item.buyerId} className="btn btn-primary btn-lg" onClick={(event) => this.handleClick(event, item.buyerId, item.id)}>PROCEED</button>}
+                        {item.status == "rejected" && <p>Rejected</p>}
+                        </Col>
                     </Row><hr/>
                 </div>
             )

@@ -50,9 +50,7 @@ export default class ViewBuyer extends Component{
                     <CropProfile id = {this.state.cid}/>
                 </Col>
                 <Col>
-                    {console.log("passing prop: "+ this.state.buyer.price + "<-price winner->" +this.state.buyer.id)} {/* prints id */}
                     <WinnerProfile id = {this.state.buyer.id}/>
-                    {console.log(this.state.buyer.id)} {/* prints id */}
                 </Col>
             </Row>            
         </div>
