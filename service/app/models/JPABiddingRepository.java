@@ -238,8 +238,15 @@ public class JPABiddingRepository implements BiddingRepository {
         ObjectNode json = null;
         Long buyer = (Long) em.createQuery("select b.buyerId from Bidding b where b.cropId=:cid and b.status = 'accepted'").setParameter("cid", cid).getSingleResult();
         Long bPrice = (Long) em.createQuery("select b.biddingPrice from Bidding b where b.cropId=:cid and b.status = 'accepted'").setParameter("cid", cid).getSingleResult();
+        Register details = em.createQuery("select r from Register r where r.id=:buyer",Register.class).setParameter("buyer",buyer).getSingleResult();
         try {
-            json = (ObjectNode) new ObjectMapper().readTree("{ \"id\" : \"" + buyer + "\",\"price\" : \"" + bPrice + "\" }");
+            json = (ObjectNode) new ObjectMapper().readTree("{ " +
+                    "\"id\" : \"" + buyer + "\"," +
+                    "\"name\" : \"" + details.name + "\"," +
+                    "\"mobile\" : \"" + details.mobile + "\"," +
+                    "\"email\" : \"" + details.email + "\"," +
+                    "\"rating\" : \"" + details.rating + "\"," +
+                    "\"price\" : \"" + bPrice + "\" }");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -8,20 +8,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.9/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BiddingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BiddingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/UncheckedCropController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UncheckedCropController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPABiddingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/JPACropRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/JPACropRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/BiddingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/controllers/UncheckedCropController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/controllers/UncheckedCropController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/JPABiddingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/playBinary/classes/models/JPACropRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/classes/models/JPACropRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/playBinary/lib/service.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/playBinary/lib/service.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/scala/compilerAnalysis/compilePlayBinaryScala.analysis" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play-java-jpa-example.iws" beforeDir="false" afterPath="$PROJECT_DIR$/play-java-jpa-example.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/BuyerHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/User/bids.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/bids.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/components/User/viewBuyer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/User/viewBuyer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,5 +67,11 @@
       <updated>1584789156817</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1587381372976">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1587381372976" />
   </component>
 </project>

@@ -55,7 +55,6 @@ render() {
             <div className= "auth-inner-half">
             <Row>
             <h1><center>Pending Payments</center></h1><hr/>
-            <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allPendingPayment/"+ this.state.id}}>VIEW ALL</button>
             </Row><hr/>
             <Row>
                 <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">ACTION</Col>
