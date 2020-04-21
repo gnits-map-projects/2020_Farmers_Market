@@ -150,23 +150,25 @@ public class CropController extends Controller {
             e.printStackTrace();
         }
 
+        char rupee = '\u20B9'; //₹
+
         NotificationController notificationController=new NotificationController(formFactory, notificationRepository, ec);
         AdminController adminController = new AdminController(ec, emailUtil);
         Register farmer = registerRepository.getUser(farmerId);
         Register buyer = registerRepository.getUser(buyerId);
 
-        String message = "Your "+c.name+" crop in "+c.location+" has received an advance payment of " +advancePayment+ "₹ from " +buyer.name+".";
+        String message = "Your "+c.name+" crop in "+c.location+" has received an advance payment of " +advancePayment + rupee +" from " +buyer.name+".";
         CompletionStage<Result> n = notificationController.addNotification(farmer.id, message);
         adminController.sendEmail(farmer.email, "Advance Payment received.", message +
                 "You may contact them on their email: "+buyer.email+
                 "<br/><hr/>We wish you a prosperous crop.");
 
-        message = "Your payment of "+advancePayment+"₹ for "+c.name+" crop in "+c.location+" has been processed.";
+        message = "Your payment of "+ advancePayment + rupee + " for "+c.name+" crop in "+c.location+" has been processed.";
         n = notificationController.addNotification(buyer.id, message);
         adminController.sendEmail(buyer.email, "Advance Payment Processed.", message +
                 "<h1>Payment Receipt</h1><hr/>" +
-                "Total tentative amount: "+priceBade+"₹<br/>" +
-                "Amount paid as advance: "+advancePayment+"₹<br/><hr/>" +
+                "Total tentative amount: "+priceBade+"&#x20b9;<br/>" +
+                "Amount paid as advance: "+advancePayment+"&#x20b9;<br/><hr/>" +
                 "Thank you.");
 
         return cropRepository.advPayment(cropId, advancePayment).thenApplyAsync(str -> {
