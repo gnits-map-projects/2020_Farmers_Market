@@ -3,7 +3,7 @@ import React ,{ Component } from 'react';
 import { BrowserRouter as Router, 
   Switch, 
   Route,
-   Link } from "react-router-dom";
+  Link } from "react-router-dom";
 import Login from "./components/home/login";
 import VerifyEmail from "./components/home/verifyEmail";
 import ResendVerify from "./components/home/resendVerify";
@@ -29,7 +29,7 @@ import AllCropsBuyer from './components/User/allCropsBuyer';
 import AllPastBids from './components/User/allPastBids';
 import Grievance from './components/User/grievance'
 import Payment from './components/User/payment'
-
+import DeliverCrop from './components/User/deliverCrop'
 
 class App extends Component {
   constructor(props) {
@@ -72,6 +72,7 @@ class App extends Component {
           <Route path="/allPastBids/:id" component= { AllPastBids }/>   
           <Route path="/grievance/:id/:role" component= { Grievance }/>   
           <Route path="/payment/:cid/:buyerId/:fid/:priceBade" component= { Payment }/>
+          <Route path="/deliverCrop/:cid/:fid" component= { DeliverCrop }/>
         </Switch>
       </Router>
     </div>

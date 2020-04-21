@@ -81,7 +81,7 @@ render() {
         <PastBids id =  {this.state.id}/>
         </Col>
         </Row>
-        <Row><br/></Row>
+        <Row><br/></Row><Row><br/></Row><Row><br/></Row>
         </div>
     );
 }

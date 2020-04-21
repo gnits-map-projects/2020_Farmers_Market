@@ -70,10 +70,9 @@ export default class ViewBuyer extends Component{
             <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <Row>
                 <div className= "auth-inner"><h1>Payment</h1><hr/>
-                Your total price as bade: {this.state.priceBade} ₹
-                <br/>
-                Advance payment (minimum 20%): {this.state.priceBade/5} ₹
-                <br/><hr/>
+                <Row><Col>Your total price as bade :</Col><Col>{this.state.priceBade} ₹</Col></Row>
+                <Row><Col>Advance payment (minimum 20%) :</Col><Col>{this.state.priceBade/5} ₹</Col></Row>
+                <hr/>
                 <form>
                 <input type="number" className="col-8" min = {this.state.priceBade/5} placeholder={'Enter amount > '+this.state.priceBade/5} name="advancePayment" onChange = {this.handleBiddingPriceChange}/> ₹
                 <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={this.bidding}>PAY</button>   

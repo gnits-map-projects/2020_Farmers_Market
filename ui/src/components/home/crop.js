@@ -255,11 +255,11 @@ class CropForm extends Component{
                 </div>
 
                 <div className="form-group">
-                    <label>Quantity range: (In quintals)</label>
+                    <label>Quantity range (In quintals): <i>Try to keep the range small.</i></label>
                     <Row>
-                    <Col><input type="Number" name="quantitymin" className="form-control" id="examplequantitymin" placeholder="Enter minimum quantity"
+                    <Col><input type="Number" step="0.01" name="quantitymin" className="form-control" id="examplequantitymin" placeholder="Enter minimum quantity"
                                 value = {this.state.quantitymin} onChange = {this.handleQuantityminChange} /></Col>
-                    <Col><input type="Number" name="quantitymax" className="form-control" id="examplequantitymax" placeholder="Enter maximum quantity"
+                    <Col><input type="Number" step="0.01" name="quantitymax" className="form-control" id="examplequantitymax" placeholder="Enter maximum quantity"
                                 value = {this.state.quantitymax} onChange = {this.handleQuantitymaxChange} /></Col>
                     </Row>
                 </div>

@@ -83,11 +83,7 @@ export default class CropBid extends Component{
         }
         else{
             alert('Bidding price not sufficient')
-        }
-
-        //TO DO
-        //window.location.href = "/buyerhome/" + this.state.buyerId
- 
+        } 
     }
     
     render() {
