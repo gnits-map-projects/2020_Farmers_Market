@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.ImplementedBy;
 
 import java.util.concurrent.CompletionStage;
@@ -39,5 +40,7 @@ public interface CropRepository {
 
     public CompletionStage<Crop> updateCrop(Long cid, String status);
 
-    CompletionStage<Stream<Crop>> cropsToPay(Long buyerId);
+    CompletionStage<Stream<JsonNode>> cropsToPay(Long buyerId);
+
+    CompletionStage<String> advPayment(Long cropId, Long advancePayment);
 }

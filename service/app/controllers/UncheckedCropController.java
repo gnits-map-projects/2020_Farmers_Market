@@ -1,6 +1,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.*;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
@@ -27,6 +28,7 @@ public class UncheckedCropController extends Controller {
     private final FormFactory formFactory;
     private final NotificationRepository notificationRepository;
     private final AdminController adminController;
+    private final RegisterRepository registerRepository;
     EmailUtil emailUtil;
 
 
@@ -38,6 +40,7 @@ public class UncheckedCropController extends Controller {
                                    UncheckedCropRepository uncheckedCropRepository,
                                    CropRepository cropRepository,
                                    HttpExecutionContext ec,
+                                   RegisterRepository registerRepository,
                                    CropController cropController) {
         this.uncheckedCropRepository = uncheckedCropRepository;
         this.cropRepository  = cropRepository;
@@ -47,6 +50,7 @@ public class UncheckedCropController extends Controller {
         this.adminController = adminController;
         this.formFactory = formFactory;
         this.emailUtil = emailUtil;
+        this.registerRepository = registerRepository;
     }
 
     public CompletionStage<Result> addUncheckedCrop() {
@@ -72,6 +76,7 @@ public class UncheckedCropController extends Controller {
     public CompletionStage<Result> approveCrop(Long cid) {
         UncheckedCrop uncheckedCrop = uncheckedCropRepository.approveCrop(cid);
         JsonNode js = toJson(uncheckedCrop);
+        ((ObjectNode) js).put("avdPayment", 0);
         Crop crop = fromJson(js, Crop.class);
 
         Register register = uncheckedCropRepository.getFarmer(crop.id);
@@ -85,7 +90,7 @@ public class UncheckedCropController extends Controller {
         AdminController adminController = new AdminController(ec, emailUtil);
         adminController.sendEmail(register.email, "Crop Approved", message);
 
-        CropController cropController=new CropController(formFactory, cropRepository, ec);
+        CropController cropController=new CropController(formFactory, adminController, emailUtil, notificationRepository, cropRepository, registerRepository, ec);
         return cropController.addChecked(crop).thenApplyAsync(p -> {
             return ok("Approved.");                                                                                       ///////added for approval
         }, ec.current());

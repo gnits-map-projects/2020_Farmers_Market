@@ -34,7 +34,9 @@ renderList(buyer){
                 <Row>
                     <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
                     <Col xs="3">
-                    <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {window.location.href = "/payment/" + item.id + "/" + buyer + "/b"}}>PAY NOW</button>
+                    <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {
+                        window.location.href = "/payment/" + item.id + "/" + buyer + "/" + item.fid+"/"+item.price
+                    }}>PAY NOW</button>
                     </Col>
                 </Row><hr/>
             </div>
@@ -57,7 +59,7 @@ render() {
             <h1><center>Pending Payments</center></h1><hr/>
             </Row><hr/>
             <Row>
-                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">PRICE</Col><Col xs="3">ACTION</Col>
+                <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">YOUR BID</Col><Col xs="3">ACTION</Col>
             </Row><hr/>
             <ul>
                 {this.renderList(this.state.id)}

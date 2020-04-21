@@ -133,6 +133,16 @@ public class Crop {
         this.fid = fid;
     }
 
+    public Long advPayment;
+
+    public Long getAdvPayment() {
+        return advPayment;
+    }
+
+    public void setAdvPayment(Long advPayment) {
+        this.advPayment = advPayment;
+    }
+
     public String status;
 
     public String getStatus() {

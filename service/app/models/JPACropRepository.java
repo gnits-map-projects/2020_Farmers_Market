@@ -1,9 +1,13 @@
 package models;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.db.jpa.JPAApi;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
@@ -67,7 +71,7 @@ public class JPACropRepository implements CropRepository {
     }
 
     @Override
-    public CompletionStage<Stream<Crop>> cropsToPay(Long buyerId) {
+    public CompletionStage<Stream<JsonNode>> cropsToPay(Long buyerId) {
         return supplyAsync(() -> wrap(em -> cropsToPay(em, buyerId)), executionContext);
     }
 
@@ -99,6 +103,11 @@ public class JPACropRepository implements CropRepository {
     @Override
     public CompletionStage<Crop> updateCrop(Long cid, String status) {
         return supplyAsync(() -> wrap(em -> updatevalue(em, cid, status)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<String> advPayment(Long cropId, Long advancePayment) {
+        return supplyAsync(() -> wrap(em -> advPayment(em, cropId, advancePayment)), executionContext);
     }
 
     private <T> T wrap(Function<EntityManager, T> function) {
@@ -155,7 +164,7 @@ public class JPACropRepository implements CropRepository {
         return notBidded.stream();
     }
 
-    private Stream<Crop> cropsToPay(EntityManager em, Long buyerId) {
+    private Stream<JsonNode> cropsToPay(EntityManager em, Long buyerId) {
         List<Long> accepted = em.createQuery("select b.cropId from Bidding b where b.buyerId = :buyerId and b.status = 'accepted'").setParameter("buyerId", buyerId).getResultList();
         List<Crop> notPayed = em.createQuery("select c from Crop c where c.status = 'closed' order by c.starttime asc", Crop.class).getResultList();
         List<Crop> toPay = new ArrayList<Crop>();
@@ -163,7 +172,27 @@ public class JPACropRepository implements CropRepository {
         notPayed.forEach(crop -> {
             if(accepted.contains(crop.id)) toPay.add(crop);
         });
-        return toPay.stream();
+
+        List<JsonNode> payable = new ArrayList<JsonNode>();
+        for(int i=0; i<toPay.size();i++){
+            Long priceBade = (Long) em.createQuery("select b.biddingPrice from Bidding b where b.cropId=:crop and b.buyerId=:buyerId").setParameter("crop",toPay.get(i).id).setParameter("buyerId",buyerId).getSingleResult();
+            ObjectNode js = null;
+            try {
+                js = (ObjectNode) new ObjectMapper().readTree("{" +
+                        "\"id\" : \"" + toPay.get(i).id + "\"," +
+                        "\"name\" : \"" + toPay.get(i).name + "\"," +
+                        "\"area\" : \"" + toPay.get(i).area + "\"," +
+                        "\"location\" : \"" + toPay.get(i).location + "\"," +
+                        "\"fid\" : \"" + toPay.get(i).fid + "\"," +
+                        "\"status\" : \"" + toPay.get(i).status + "\"," +
+                        "\"price\" : \"" + priceBade + "\"" +
+                        "}");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            payable.add(js);
+        }
+        return payable.stream();
     }
 
     private Stream<Crop> listOthersc(EntityManager em, Long fid) {
@@ -201,6 +230,16 @@ public class JPACropRepository implements CropRepository {
             return null;
 
         }
+    }
+
+    private String advPayment(EntityManager em, Long cropId, Long advancePayment){
+        int update = em.createQuery("update Crop c set c.status = 'payed', c.advPayment=:advancePayment where c.id=: cropId").setParameter("advancePayment",advancePayment).setParameter("cropId",cropId).executeUpdate();
+        update += em.createQuery("update Crop c set c.status = 'payed' where c.id=: cropId").setParameter("cropId",cropId).executeUpdate();
+        System.out.println(update);
+        if(update==2)
+            return "Payment done.";
+        else
+            return "Payment error.";
     }
 
 }

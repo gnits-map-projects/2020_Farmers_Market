@@ -28,6 +28,7 @@ import AllCropsFarmer from './components/User/allCropsFarmer';
 import AllCropsBuyer from './components/User/allCropsBuyer';
 import AllPastBids from './components/User/allPastBids';
 import Grievance from './components/User/grievance'
+import Payment from './components/User/payment'
 
 
 class App extends Component {
@@ -70,6 +71,7 @@ class App extends Component {
           <Route path="/allCropsBuyer/:id" component= { AllCropsBuyer }/>   
           <Route path="/allPastBids/:id" component= { AllPastBids }/>   
           <Route path="/grievance/:id/:role" component= { Grievance }/>   
+          <Route path="/payment/:cid/:buyerId/:fid/:priceBade" component= { Payment }/>
         </Switch>
       </Router>
     </div>

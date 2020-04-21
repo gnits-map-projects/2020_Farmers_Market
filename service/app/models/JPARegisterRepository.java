@@ -41,6 +41,14 @@ public class JPARegisterRepository implements RegisterRepository {
     }
 
     @Override
+    public Register getUser(Long uid) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        Register register = em.createQuery("select r from Register r where r.id=:userId", Register.class).setParameter("userId", uid).getSingleResult();
+        return register;
+    }
+    @Override
     public Register login(String email,String password){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
         EntityManager em = entityManagerFactory.createEntityManager();
@@ -83,7 +91,6 @@ public class JPARegisterRepository implements RegisterRepository {
             return null;
 
          }
-
     }
 
     private String verify(EntityManager em, Long id) {
