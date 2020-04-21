@@ -26,6 +26,10 @@ body, html, .App, #root,.auth-wrapper {
   height: 100%;
 }
 
+body {
+  padding-top: 65px;
+}
+
 .bg{
   background-image: url("../images/userhome.jpg");
   width: auto;

@@ -113,7 +113,7 @@ class Navigation extends Component {
             <div>
                 {this.state.display==true &&
                 <div className="restrictingOverlay" onClick={this.handleClick}></div>}
-                <Navbar className="navbar-light" expand="md">
+                <Navbar className="navbar-light fixed-top" expand="md">
                 <Navbar.Brand href="/Home"><h3><b>FARMER'S MARKET</b></h3></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
