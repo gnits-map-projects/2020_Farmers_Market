@@ -47,8 +47,8 @@ class CropForm extends Component{
         location : '',
         transport : '',
         description : '',
-        quantitymin : '',
-        quantitymax : '',
+        quantitymin : null,
+        quantitymax : null,
         uid : this.props.id,
       }
       this.handleNameChange = this.handleNameChange.bind(this);
@@ -120,16 +120,30 @@ class CropForm extends Component{
         });
       }
 
-    handleQuantityminChange = event => {
+    handleQuantityminChange = e => {
+      if(e.target.value>0)
         this.setState({
-          quantitymin: event.target.value
+          quantitymin:  e.target.type === 'number' ? parseFloat(e.target.value) : e.target.value
         });
+        else
+        alert("Minimum quantity cannot be zero.")
       }
 
-    handleQuantitymaxChange = event => {
+    handleQuantitymaxChange = e => {
+      var limit = this.state.quantitymin + 10
+      var qmax =  e.target.type === 'number' ? parseFloat(e.target.value) : e.target.value
+      if(this.state.quantitymin == null)
+        alert("Please fill minimum quantity before filling maximum quantity.")
+      else if(this.state.quantitymin > qmax)
+        alert("Maximum quantity must be greater than minimum quantity.")
+      else if(qmax <= limit)
         this.setState({
-          quantitymax: event.target.value
+          quantitymax:  e.target.type === 'number' ? parseFloat(e.target.value) : e.target.value
         });
+      else{
+        alert("Maximum and minimum quantity range cannot exceed 10 quintals.")
+        e.target.value = limit
+      }
       }
 
     handleSubmit(event) {
@@ -244,7 +258,7 @@ class CropForm extends Component{
                 </div>
                 <div className="form-group">
                     <label>Area</label>
-                    <input type="Number" name="area" id="examplearea" className="form-control" placeholder="Enter area in acres"
+                    <input type="Number" step="0.01" name="area" id="examplearea" className="form-control" placeholder="Enter area in acres"
                                 value = {this.state.area} onChange = {this.handleAreaChange} />
                 </div>
 
@@ -257,9 +271,9 @@ class CropForm extends Component{
                 <div className="form-group">
                     <label>Quantity range (In quintals): <i>Try to keep the range small.</i></label>
                     <Row>
-                    <Col><input type="Number" step="0.01" name="quantitymin" className="form-control" id="examplequantitymin" placeholder="Enter minimum quantity"
+                    <Col><input type="Number" step="0.1" name="quantitymin" className="form-control" id="examplequantitymin" placeholder="Enter minimum quantity"
                                 value = {this.state.quantitymin} onChange = {this.handleQuantityminChange} /></Col>
-                    <Col><input type="Number" step="0.01" name="quantitymax" className="form-control" id="examplequantitymax" placeholder="Enter maximum quantity"
+                    <Col><input type="Number" step="0.1" name="quantitymax" min={this.state.quantitymin} max={this.state.quantitymin+10} className="form-control" id="examplequantitymax" placeholder="Enter maximum quantity"
                                 value = {this.state.quantitymax} onChange = {this.handleQuantitymaxChange} /></Col>
                     </Row>
                 </div>
