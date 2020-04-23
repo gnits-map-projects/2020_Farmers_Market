@@ -152,6 +152,16 @@ public class Crop {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Float harvestedQuantity;
+
+    public Float getHarvestedQuantity() {
+        return harvestedQuantity;
+    }
+
+    public void setHarvestedQuantity(Float harvestedQuantity) {
+        this.harvestedQuantity = harvestedQuantity;
+    }
 }
 
 

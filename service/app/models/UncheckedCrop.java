@@ -142,6 +142,27 @@ public class UncheckedCrop {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Long advPayment;
+
+    public Long getAdvPayment() {
+        return advPayment;
+    }
+
+    public void setAdvPayment(Long advPayment) {
+        this.advPayment = advPayment;
+    }
+
+    public Float harvestedQuantity;
+
+    public Float getHarvestedQuantity() {
+        return harvestedQuantity;
+    }
+
+    public void setHarvestedQuantity(Float harvestedQuantity) {
+        this.harvestedQuantity = harvestedQuantity;
+    }
+
 }
 
 

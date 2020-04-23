@@ -39,7 +39,7 @@ export default class CropCheck extends Component{
         .then(response => response) ////for alert, convert response promise object to string
         .then(response => {this.setState({ 'data' : response});
         console.log(this.state.data);
-        // alert(this.state.data);
+        alert("Crop approved succesfully.")
         window.location.href = "/adminhome/"+window.localStorage.getItem('uid')}
         );
          
@@ -65,6 +65,7 @@ export default class CropCheck extends Component{
         .then(response => response.json()) 
         .then(response => this.setState({ 'data' : response}));
         console.log(this.state.data);
+        alert("Crop rejected succesfully.")
         window.location.href = "/adminhome/"+window.localStorage.getItem('uid') 
  
     }
@@ -81,20 +82,17 @@ export default class CropCheck extends Component{
             </Col>
             <Col>
             <FarmerProfile id = {this.state.fid}/>
-            <br/>
+            <Row><br/><br/></Row>
+            <div className="auth-inner-half">
+            <Row>
+                <Col><button id={this.state.id} className="btn btn-success btn-lg" onClick={() => {this.approve(this.state.id)}}>APPROVE</button></Col>
+                <Col xs="3"></Col>
+                <Col><button id={this.state.id} className="btn btn-danger btn-lg" onClick={() => {this.reject(this.state.id)}}>REJECT</button></Col>
+            </Row>
+            </div>
             </Col>
         </Row>   
-        <Row><br/><br/><br/></Row>
-        <div className="auth-inner-half">
-        <Row>
-            <Col xs="3"></Col>
-            <Col><button id={this.state.id} className="btn btn-success btn-lg" onClick={() => {this.approve(this.state.id)}}>APPROVE</button></Col>
-            <Col xs="3"></Col>
-            <Col><button id={this.state.id} className="btn btn-danger btn-lg" onClick={() => {this.reject(this.state.id)}}>REJECT</button></Col>
-            <Col xs="3"></Col>
-        </Row>
         </div>         
-        </div>
         </div>
         );
     }
