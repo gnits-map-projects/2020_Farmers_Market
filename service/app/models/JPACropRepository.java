@@ -14,6 +14,7 @@ import java.util.concurrent.CompletionStage;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+import static java.lang.Math.round;
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 
 /**
@@ -108,6 +109,11 @@ public class JPACropRepository implements CropRepository {
     @Override
     public CompletionStage<String> advPayment(Long cropId, Long advancePayment) {
         return supplyAsync(() -> wrap(em -> advPayment(em, cropId, advancePayment)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<String> harvested(Long cropId, Float harvestedQuantity) {
+        return supplyAsync(() -> wrap(em -> harvested(em, cropId, harvestedQuantity)), executionContext);
     }
 
     private <T> T wrap(Function<EntityManager, T> function) {
@@ -233,13 +239,30 @@ public class JPACropRepository implements CropRepository {
     }
 
     private String advPayment(EntityManager em, Long cropId, Long advancePayment){
-        int update = em.createQuery("update Crop c set c.status = 'payed', c.advPayment=:advancePayment where c.id=: cropId").setParameter("advancePayment",advancePayment).setParameter("cropId",cropId).executeUpdate();
+        int update = em.createQuery("update Crop c set c.advPayment=:advancePayment where c.id=: cropId").setParameter("advancePayment",advancePayment).setParameter("cropId",cropId).executeUpdate();
         update += em.createQuery("update Crop c set c.status = 'payed' where c.id=: cropId").setParameter("cropId",cropId).executeUpdate();
         System.out.println(update);
         if(update==2)
             return "Payment done.";
         else
             return "Payment error.";
+    }
+
+    private String harvested(EntityManager em, Long cropId, Float harvestedQuantity){
+        int update = em.createQuery("update Crop c set c.harvestedQuantity = 'harvestedQuantity' where c.id=: cropId").setParameter("harvestedQuantity",harvestedQuantity).setParameter("cropId",cropId).executeUpdate();
+
+        Crop crop = em.createQuery("select c from Crop c where c.id =: cropId", Crop.class).setParameter("cropId",cropId).getSingleResult();
+        Long priceAgreed = (Long)em.createQuery("select b.biddingPrice from Bidding b where cropId =: cropId and c.status=:'accepted'").setParameter("cropId",cropId).getSingleResult();
+        Float fraction = 1f;
+        if(harvestedQuantity <= crop.quantitymin) {
+            fraction = (crop.quantitymin - harvestedQuantity) / crop.quantitymin;
+        }
+        Long totalPayable = Long.valueOf(round(priceAgreed * fraction));
+        update += em.createQuery("update Crop c set c.totalPayable =: totalPayable, c.status = 'harvested' where c.id=: cropId").setParameter("totalPayable",totalPayable).setParameter("cropId",cropId).executeUpdate();
+        System.out.println(update);
+        if(update==2)
+            return "Harvest and total calculation success.";
+        return "Harvested and total calculation error.";
     }
 
 }

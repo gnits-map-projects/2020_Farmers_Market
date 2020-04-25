@@ -163,6 +163,16 @@ public class UncheckedCrop {
         this.harvestedQuantity = harvestedQuantity;
     }
 
+    public Long totalPayable;
+
+    public Long getTotalPayable() {
+        return totalPayable;
+    }
+
+    public void setTotalPayable(Long totalPayable) {
+        this.totalPayable = totalPayable;
+    }
+
 }
 
 

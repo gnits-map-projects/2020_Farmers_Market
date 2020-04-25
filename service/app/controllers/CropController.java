@@ -175,4 +175,13 @@ public class CropController extends Controller {
             return ok("Advance payment successful.");
         }, ec.current());
     }
+
+    public CompletionStage<Result> harvestedAndTotalCalculation(){
+        JsonNode js = request().body().asJson();
+        Long cropId = js.get("cropId").asLong();
+        Float harvestedQuantity = js.get("harvestedQuantity").floatValue();
+        return cropRepository.harvested(cropId, harvestedQuantity).thenApplyAsync(str -> {
+            return ok("Harvested quantity entered successful.");
+        }, ec.current());
+    }
 }

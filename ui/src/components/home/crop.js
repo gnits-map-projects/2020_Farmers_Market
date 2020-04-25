@@ -160,7 +160,8 @@ class CropForm extends Component{
           fid: this.state.uid,
           status : 'bidding',
           harvestedQuantity : 0,
-          advPayment : 0
+          advPayment : 0,
+          totalPayable : 0,
         }
         console.log(body);
         if (this.state.name == "") {

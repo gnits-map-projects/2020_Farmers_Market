@@ -53,7 +53,7 @@ export default class DeliverCrop extends Component{
         event.preventDefault();
         body = {
             cropId: this.state.cid,
-            harvestQuantity: this.state.harvestQuantity,
+            harvestedQuantity: this.state.harvestQuantity,
         }
         console.log(body)
         const url = 'http://localhost:9000/harvested'
