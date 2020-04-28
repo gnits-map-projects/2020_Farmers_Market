@@ -172,7 +172,7 @@ public class JPACropRepository implements CropRepository {
 
     private Stream<JsonNode> cropsToPay(EntityManager em, Long buyerId) {
         List<Long> accepted = em.createQuery("select b.cropId from Bidding b where b.buyerId = :buyerId and b.status = 'accepted'").setParameter("buyerId", buyerId).getResultList();
-        List<Crop> notPayed = em.createQuery("select c from Crop c where c.status = 'closed' order by c.starttime asc", Crop.class).getResultList();
+        List<Crop> notPayed = em.createQuery("select c from Crop c order by c.starttime asc", Crop.class).getResultList();
         List<Crop> toPay = new ArrayList<Crop>();
         System.out.println("Crops ids that accepted bid: "+accepted);
         notPayed.forEach(crop -> {

@@ -57,24 +57,23 @@ export default class DeliverCrop extends Component{
             harvestedQuantity: this.state.harvestQuantity,
         }
         console.log(body)
-        alert(this.state.harvestQuantity)
-        // const url = 'http://localhost:9000/harvested'
-        // let headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // headers.append('Accept', 'application/json');
-        // headers.append('Access-Control-Allow-origin', url);
-        // headers.append('Access-Control-Allow-Credentials', 'true');
-        // headers.append('POST', 'GET');
+        const url = 'http://localhost:9000/harvested'
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+        headers.append('Access-Control-Allow-origin', url);
+        headers.append('Access-Control-Allow-Credentials', 'true');
+        headers.append('POST', 'GET');
 
-        // fetch(url,{
-        //     headers: headers,
-        //     method : 'POST',
-        //     body: JSON.stringify(body)
-        // })
-        // .then(response => {if(response.ok){alert("Form submitted.");
-        // window.location.href = "/userhome/" + this.state.fid
-        // }
-        // else{alert("Error.")}})
+        fetch(url,{
+            headers: headers,
+            method : 'POST',
+            body: JSON.stringify(body)
+        })
+        .then(response => {if(response.ok){alert("Form submitted.");
+        window.location.href = "/userhome/" + this.state.fid
+        }
+        else{alert("Error.")}})
     }
 
     renderWinner(){

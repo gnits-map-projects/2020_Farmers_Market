@@ -148,7 +148,7 @@ public class JPABiddingRepository implements BiddingRepository {
     }
 
     private Stream<JsonNode> listpb(EntityManager em, Long buyerId) {
-        List<Bidding> bids = em.createQuery("select b from Bidding b where b.buyerId=:buyerId order by b.id desc", Bidding.class)
+        List<Bidding> bids = em.createNativeQuery("SELECT * FROM (SELECT * FROM Bidding where buyerId=:buyerId and not status='accepted') as notWon order by status desc", Bidding.class)
                 .setParameter("buyerId", buyerId).setMaxResults(5).getResultList();
         List<JsonNode> cropsBade = new ArrayList<JsonNode>();
         for(int i =0; i<bids.size(); i++){
@@ -174,7 +174,7 @@ public class JPABiddingRepository implements BiddingRepository {
     }
 
     private Stream<JsonNode> listAllpb(EntityManager em, Long buyerId) {
-        List<Bidding> bids = em.createQuery("select b from Bidding b where b.buyerId=:buyerId order by b.id desc", Bidding.class)
+        List<Bidding> bids = em.createNativeQuery("SELECT * FROM (SELECT * FROM Bidding where buyerId=:buyerId and not status='accepted') as notWon order by status desc", Bidding.class)
                 .setParameter("buyerId", buyerId).getResultList();
         List<JsonNode> cropsBade = new ArrayList<JsonNode>();
         for(int i =0; i<bids.size(); i++){

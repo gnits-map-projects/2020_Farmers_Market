@@ -63,9 +63,7 @@ export default class ListLocations extends Component {
         var value2 = larray[i]
         tempJson[tag1] = value1
         tempJson[tag2] = value2
-        console.log(tempJson)
         this.state.locationOptions[i] = tempJson
-        console.log(locationOptions)
       }
       console.log("locationOptions", this.state.locationOptions);
     })
