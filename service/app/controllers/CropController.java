@@ -178,8 +178,10 @@ public class CropController extends Controller {
 
     public CompletionStage<Result> harvestedAndTotalCalculation(){
         JsonNode js = request().body().asJson();
+        System.out.println(js);
         Long cropId = js.get("cropId").asLong();
-        Float harvestedQuantity = js.get("harvestedQuantity").floatValue();
+        Float harvestedQuantity = Float.valueOf(js.get("harvestedQuantity").asText());
+        System.out.println(harvestedQuantity);
         return cropRepository.harvested(cropId, harvestedQuantity).thenApplyAsync(str -> {
             return ok("Harvested quantity entered successful.");
         }, ec.current());

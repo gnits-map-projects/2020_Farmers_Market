@@ -249,18 +249,24 @@ public class JPACropRepository implements CropRepository {
     }
 
     private String harvested(EntityManager em, Long cropId, Float harvestedQuantity){
-        int update = em.createQuery("update Crop c set c.harvestedQuantity = 'harvestedQuantity' where c.id=: cropId").setParameter("harvestedQuantity",harvestedQuantity).setParameter("cropId",cropId).executeUpdate();
-
+        int update = em.createQuery("update Crop c set c.harvestedQuantity =: harvestedQuantity where c.id=: cropId").setParameter("harvestedQuantity",harvestedQuantity).setParameter("cropId",cropId).executeUpdate();
+        System.out.println(harvestedQuantity + "update: "+update);
         Crop crop = em.createQuery("select c from Crop c where c.id =: cropId", Crop.class).setParameter("cropId",cropId).getSingleResult();
-        Long priceAgreed = (Long)em.createQuery("select b.biddingPrice from Bidding b where cropId =: cropId and c.status=:'accepted'").setParameter("cropId",cropId).getSingleResult();
+        Long priceAgreed = (Long)em.createQuery("select b.biddingPrice from Bidding b where b.cropId =: cropId and b.status='accepted'").setParameter("cropId",cropId).getSingleResult();
         Float fraction = 1f;
-        if(harvestedQuantity <= crop.quantitymin) {
-            fraction = (crop.quantitymin - harvestedQuantity) / crop.quantitymin;
+        System.out.println("price agreed: "+priceAgreed);
+        if(harvestedQuantity < crop.quantitymin) {
+            fraction = harvestedQuantity / crop.quantitymin;
+        }
+        else if(harvestedQuantity > crop.quantitymax) {
+            fraction = harvestedQuantity / crop.quantitymax;
         }
         Long totalPayable = Long.valueOf(round(priceAgreed * fraction));
-        update += em.createQuery("update Crop c set c.totalPayable =: totalPayable, c.status = 'harvested' where c.id=: cropId").setParameter("totalPayable",totalPayable).setParameter("cropId",cropId).executeUpdate();
-        System.out.println(update);
-        if(update==2)
+        update += em.createQuery("update Crop c set c.totalPayable =: totalPayable where c.id=: cropId").setParameter("totalPayable",totalPayable).setParameter("cropId",cropId).executeUpdate();
+        System.out.println("fraction: "+fraction+"\ntotalPayable: "+totalPayable);
+        update += em.createQuery("update Crop c set c.status = 'harvested' where c.id=: cropId").setParameter("cropId",cropId).executeUpdate();
+        System.out.println("Status" + "update: "+update);
+        if(update==3)
             return "Harvest and total calculation success.";
         return "Harvested and total calculation error.";
     }

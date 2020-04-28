@@ -127,20 +127,9 @@ class CropForm extends Component{
       }
 
     handleQuantitymaxChange = e => {
-      var limit = this.state.quantitymin + 10
-      var qmax =  e.target.type === 'number' ? parseFloat(e.target.value) : e.target.value
-      if(this.state.quantitymin == null)
-        alert("Please fill minimum quantity before filling maximum quantity.")
-      else if(this.state.quantitymin > qmax)
-        alert("Maximum quantity must be greater than minimum quantity.")
-      else if(qmax <= limit)
         this.setState({
           quantitymax:  e.target.type === 'number' ? parseFloat(e.target.value) : e.target.value
         });
-      else{
-        alert("Maximum and minimum quantity range cannot exceed 10 quintals.")
-        e.target.value = limit
-      }
       }
 
     handleSubmit(event) {
@@ -177,8 +166,20 @@ class CropForm extends Component{
           alert('Please enter the price')
         }
 
+        else if(this.state.quantitymin == null)
+          alert("Please enter minimum quantity")
+
+        else if(this.state.quantitymin == null)
+          alert("Please enter minimum quantity")
+
         else if(this.state.quantitymin <= 0)
-          alert("Minimum quantity cannot be zero.")
+          alert("Minimum quantity cannot be zero")
+
+        else if(this.state.quantitymax < this.state.quantitymin)
+          alert("Maximum quantity must be greater than minimum quantity")
+
+        else if(this.state.quantitymax > this.state.quantitymin + 10)
+          alert("Maximum and minimum quantity range cannot exceed 10 quintals.")
 
         else if (this.state.starttime == "") {
           alert('Please enter the start date')
@@ -276,7 +277,7 @@ class CropForm extends Component{
                     <Col><input type="Number" step="0.1" name="quantitymin" min="0" className="form-control" id="examplequantitymin" placeholder="Enter minimum quantity"
                                 value = {this.state.quantitymin} onChange = {this.handleQuantityminChange} /></Col>
                     <Col><input type="Number" step="0.1" name="quantitymax" min={this.state.quantitymin} max={this.state.quantitymin+10} className="form-control" id="examplequantitymax" placeholder="Enter maximum quantity"
-                                value = {this.state.quantitymax} onBlur = {this.handleQuantitymaxChange} /></Col>
+                                value = {this.state.quantitymax} onChange = {this.handleQuantitymaxChange} /></Col>
                     </Row>
                 </div>
 
