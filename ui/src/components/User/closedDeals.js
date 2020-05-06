@@ -45,7 +45,7 @@ class ClosedDeals extends Component {
                     <Row>
                         <Col xs="1">{item.name}</Col><Col xs="1"></Col><Col xs="2">{item.area} acres</Col><Col xs="2">{item.location}</Col><Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
                         <Col xs="3">
-                        <button type="submit" id={item.id} className="btn btn-danger btn-lg" onClick={() => {window.location.href = "/viewBill/" + item.id + "/" + buyer}}>VIEW BILL</button>
+                        <button type="submit" id={item.id} className="btn btn-danger btn-lg" onClick={() => {window.location.href = "/viewBill/" + item.id + "/" + item.fid + "/" + buyer}}>VIEW BILL</button>
                         </Col>
                     </Row><hr/>
                 </div>
@@ -62,12 +62,18 @@ class ClosedDeals extends Component {
             <Row>
             <h1>Your Closed Deals</h1><hr/>
             </Row><hr/>
+            {this.state.items.length>0 && <React.Fragment>
             <Row>
                 <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">FINAL PRICE</Col><Col xs="3">ACTION</Col>
             </Row><hr/>
             <ul>
                 {this.renderList(this.state.id)}
             </ul>
+            </React.Fragment>}
+
+            {this.state.items.length == 0 && <React.Fragment>
+            <h3>You have no pending payments.</h3></React.Fragment>}
+
             </div>
             </div>
             </div>

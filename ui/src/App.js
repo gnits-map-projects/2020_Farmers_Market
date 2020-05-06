@@ -31,6 +31,7 @@ import Grievance from './components/User/grievance'
 import Payment from './components/User/payment'
 import DeliverCrop from './components/User/deliverCrop'
 import ClosedDeals from './components/User/closedDeals'
+import ViewCrop from './components/User/viewCrop'
 
 class App extends Component {
   constructor(props) {
@@ -74,7 +75,8 @@ class App extends Component {
           <Route path="/grievance/:id/:role" component= { Grievance }/>   
           <Route path="/payment/:cid/:buyerId/:fid/:priceBade" component= { Payment }/>
           <Route path="/deliverCrop/:cid/:fid" component= { DeliverCrop }/>
-          <Route path="/closedDeals/:id" component= { ClosedDeals }/>
+          <Route path="/closedDeals/:cid/:fid/:buyerId" component= { ClosedDeals }/>
+          <Route path="/viewCrop/:cid/:fid/:buyerId" component= { ViewCrop }/>
         </Switch>
       </Router>
     </div>

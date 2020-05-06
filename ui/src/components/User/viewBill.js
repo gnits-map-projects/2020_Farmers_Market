@@ -12,7 +12,9 @@ export default class Bill extends Component{
     constructor(props){
         super(props);
         this.state = {
-            'id' :this.props.match.params.id,
+            'id' :this.props.match.params.cid,
+            'fid': this.props.match.params.fid,
+            'buyer' : this.props.match.params.buyerId,
             'crop': '',
         };
     }
@@ -24,9 +26,9 @@ export default class Bill extends Component{
     }
 
     render() {
-        window.localStorage.setItem('buyerId',this.state.id);
+        window.localStorage.setItem('buyerId',this.state.buyer);
         return (<div>
-            <Nav uid = {this.state.id} role={'buyer'}/>
+            <Nav uid = {this.state.buyer} role={'buyer'}/>
             <Col>
             <Row>
                 <h1>Bill</h1> 
@@ -37,11 +39,11 @@ export default class Bill extends Component{
             </Col>
             <Col>
             <Row>
-            <CropProfile id = {this.state.cid}/>
+            <CropProfile id = {this.state.id}/>
             </Row>
-            {/* <Row>
-            <FarmerProfile />
-            </Row> */}
+            <Row>
+            <FarmerProfile id = {this.state.fid}/>
+            </Row>
             </Col>
             </div>
         );

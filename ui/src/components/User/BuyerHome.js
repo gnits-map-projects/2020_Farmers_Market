@@ -28,7 +28,7 @@ export default class BuyerHome extends Component{
                 this.setState(
                     { items: [...this.state.items, data[i]] }
                 );
-            else
+            if(data[i].status == 'payed')                   //sold goes into past deals
                 this.setState(
                     { won: [...this.state.won, data[i]] }
                 );
@@ -78,14 +78,11 @@ export default class BuyerHome extends Component{
                         <Col xs="2">{item.location}</Col>
                         <Col xs="1"></Col><Col xs="2">{item.price} ₹</Col>
                         <Col xs="3">
-                        {item.status == 'payed' && <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {
-                            window.location.href = "/cropStatus/" + item.id + "/" + buyer + "/" + item.fid+"/"+item.price
-                        }}>VIEW STATUS</button>} 
+                        <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {
+                            window.location.href = "/viewCrop/" + item.id + "/" + item.fid + "/" + buyer
+                        }}>VIEW CROP</button>
                         {/* After advance payment and before harvest by farmer */}
-                        {item.status == 'sold' && <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {
-                            window.location.href = "/pastDeal/" + item.id + "/" + buyer + "/" + item.fid+"/"+item.price
-                        }}>VIEW DEAL</button>}
-                        {/* After the deal and rating */}
+                        
                         </Col>
                     </Row><hr/>
                 </div>
@@ -100,7 +97,6 @@ export default class BuyerHome extends Component{
             <div className="auth-inner-half-transparent">
             <ListLocations id={this.state.id}/></div>
 
-            {/* <CROPS TO PAY/> */}
             <Row>
                 <div className= "auth-inner-half">
 
@@ -108,7 +104,7 @@ export default class BuyerHome extends Component{
                 <h1><center>Pending Payments</center></h1><hr/>
 
                 <button type="submit" className="btn btn-danger btn-lg float-right ml-auto" onClick={() => {window.location.href = "/closedDeals/"+ this.state.id}}>VIEW CLOSED DEALS</button>
-                {/* TO DO accepted and sold in backend and a page. */}
+                {/* TO CHECK accepted and sold in backend and a page. */}
 
 
                 </Row><hr/>
@@ -125,9 +121,7 @@ export default class BuyerHome extends Component{
                 
                 {this.state.items.length == 0 && <React.Fragment>
                 <h3>You have no pending payments.</h3></React.Fragment>}
-
-                <hr/>
-
+                <Row><br/></Row> 
                 <Row>
                 <h1><center>Other Deals In Progress</center></h1><hr/>
                 </Row><hr/>
