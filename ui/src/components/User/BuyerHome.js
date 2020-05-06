@@ -107,7 +107,7 @@ export default class BuyerHome extends Component{
                 <Row>
                 <h1><center>Pending Payments</center></h1><hr/>
 
-                <button type="submit" className="btn btn-danger btn-lg float-right ml-auto" onClick={() => {window.location.href = "/closedDealsBuyer/"+ this.state.id}}>VIEW CLOSED DEALS</button>
+                <button type="submit" className="btn btn-danger btn-lg float-right ml-auto" onClick={() => {window.location.href = "/closedDeals/"+ this.state.id}}>VIEW CLOSED DEALS</button>
                 {/* TO DO accepted and sold in backend and a page. */}
 
 

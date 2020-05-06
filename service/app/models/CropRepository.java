@@ -42,6 +42,8 @@ public interface CropRepository {
 
     CompletionStage<Stream<JsonNode>> cropsToPay(Long buyerId);
 
+    CompletionStage<Stream<JsonNode>> getClosedDeals(Long buyerId);
+
     CompletionStage<String> advPayment(Long cropId, Long advancePayment);
 
     CompletionStage<String> harvested(Long cropId, Float harvestedQuantity);

@@ -80,13 +80,10 @@ class BuyerProfile extends Component {
         console.log(this.state.id)
         console.log(url)
         let headers = new Headers();
-
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
-
         headers.append('Access-Control-Allow-origin', url);
         headers.append('Access-Control-Allow-Credentials', 'true');
-
         headers.append('POST', 'GET');
 
         fetch(url,{
@@ -96,7 +93,6 @@ class BuyerProfile extends Component {
         .then(response => this.setState({ 'buyer' : response}),
         console.log(this.state.buyer))
         .catch((error) => {console.error('Error:', error);}); 
-                  
     }
 }
     
@@ -106,13 +102,10 @@ class BuyerProfile extends Component {
         console.log(this.state.id)
         console.log(url)
         let headers = new Headers();
-
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
-
         headers.append('Access-Control-Allow-origin', url);
         headers.append('Access-Control-Allow-Credentials', 'true');
-
         headers.append('POST', 'GET');
 
         fetch(url,{

@@ -77,6 +77,11 @@ public class JPACropRepository implements CropRepository {
     }
 
     @Override
+    public CompletionStage<Stream<JsonNode>> getClosedDeals(Long buyerId) {
+        return supplyAsync(() -> wrap(em -> getClosedDeals(em, buyerId)), executionContext);
+    }
+
+    @Override
     public CompletionStage<Stream<Crop>> listOthersc(Long fid) {
         return supplyAsync(() -> wrap(em -> listOthersc(em, fid)), executionContext);
     }
@@ -172,7 +177,38 @@ public class JPACropRepository implements CropRepository {
 
     private Stream<JsonNode> cropsToPay(EntityManager em, Long buyerId) {
         List<Long> accepted = em.createQuery("select b.cropId from Bidding b where b.buyerId = :buyerId and b.status = 'accepted'").setParameter("buyerId", buyerId).getResultList();
-        List<Crop> notPayed = em.createQuery("select c from Crop c order by c.starttime asc", Crop.class).getResultList();
+        List<Crop> notPayed = em.createQuery("select c from Crop c where not c.status='sold' order by c.starttime asc", Crop.class).getResultList();
+        List<Crop> toPay = new ArrayList<Crop>();
+        System.out.println("Crops ids that accepted bid: "+accepted);
+        notPayed.forEach(crop -> {
+            if(accepted.contains(crop.id)) toPay.add(crop);
+        });
+
+        List<JsonNode> payable = new ArrayList<JsonNode>();
+        for(int i=0; i<toPay.size();i++){
+            Long priceBade = (Long) em.createQuery("select b.biddingPrice from Bidding b where b.cropId=:crop and b.buyerId=:buyerId").setParameter("crop",toPay.get(i).id).setParameter("buyerId",buyerId).getSingleResult();
+            ObjectNode js = null;
+            try {
+                js = (ObjectNode) new ObjectMapper().readTree("{" +
+                        "\"id\" : \"" + toPay.get(i).id + "\"," +
+                        "\"name\" : \"" + toPay.get(i).name + "\"," +
+                        "\"area\" : \"" + toPay.get(i).area + "\"," +
+                        "\"location\" : \"" + toPay.get(i).location + "\"," +
+                        "\"fid\" : \"" + toPay.get(i).fid + "\"," +
+                        "\"status\" : \"" + toPay.get(i).status + "\"," +
+                        "\"price\" : \"" + priceBade + "\"" +
+                        "}");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            payable.add(js);
+        }
+        return payable.stream();
+    }
+
+    private Stream<JsonNode> getClosedDeals(EntityManager em, Long buyerId) {
+        List<Long> accepted = em.createQuery("select b.cropId from Bidding b where b.buyerId = :buyerId and b.status = 'accepted'").setParameter("buyerId", buyerId).getResultList();
+        List<Crop> notPayed = em.createQuery("select c from Crop c where c.status='sold' order by c.starttime asc", Crop.class).getResultList();
         List<Crop> toPay = new ArrayList<Crop>();
         System.out.println("Crops ids that accepted bid: "+accepted);
         notPayed.forEach(crop -> {
