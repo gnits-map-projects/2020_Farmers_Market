@@ -46,5 +46,7 @@ public interface CropRepository {
 
     CompletionStage<String> advPayment(Long cropId, Long advancePayment);
 
+    CompletionStage<String> totalPayment(Long cropId, Float rating, Long fid);
+
     CompletionStage<String> harvested(Long cropId, Float harvestedQuantity);
 }

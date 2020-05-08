@@ -32,6 +32,7 @@ GET     /cropsToPay/:buyerId            controllers.CropController.cropsToPay(bu
 POST    /advPayment                     controllers.CropController.advPayment()
 POST    /harvested                      controllers.CropController.harvestedAndTotalCalculation()
 GET     /getClosedDeals/:buyerId        controllers.CropController.getClosedDeals(buyerId: Long)
+POST    /totalPayment                   controllers.CropController.totalPayment()
 
 POST    /insertBid                      controllers.BiddingController.add()
 POST    /updateBid                      controllers.BiddingController.update()

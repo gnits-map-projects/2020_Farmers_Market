@@ -7,10 +7,11 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import CropProfile from './CropProfile'
 import FarmerProfile from './FarmerProfile'
+import Rating from './Rating'
 
 var body;
 
-export default class Payment extends Component{
+export default class PayTotal extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -18,16 +19,23 @@ export default class Payment extends Component{
             buyerId: this.props.match.params.buyerId,
             fid: this.props.match.params.fid,
             priceBade : this.props.match.params.priceBade,
+            paid : this.props.match.params.paid,
+            harvestedQuantity : this.props.match.params.harvestedQuantity,
+            showBidForm: false,
         };
-        this.handleBiddingPriceChange = this.handleBiddingPriceChange.bind(this);
         this.bidding = this.bidding.bind(this);
+        this.handleBidForm = this.handleBidForm.bind(this);
     }
 
-    handleBiddingPriceChange (event) {
+    handleBidForm () {
+      this.setState({showBidForm: !this.state.showBidForm})
+    }
+
+    handleRatingChange (event) {
         this.setState({
-        advancePayment: event.target.value
+        rating: event.target.value
         });
-        console.log(event.target.value)
+        console.log(this.state.rating)
     }
 
     bidding(event) {
@@ -35,13 +43,11 @@ export default class Payment extends Component{
         body = {
             buyerId: this.state.buyerId,
             cropId: this.state.cid,
-            advancePayment: this.state.advancePayment,
             fid: this.state.fid,
-            priceBade : this.state.priceBade,
+            rating: this.state.rating,
         }
         console.log(body)
-        if(this.state.advancePayment >= this.state.priceBade/5){
-            const url = 'http://localhost:9000/advPayment'
+            const url = 'http://localhost:9000/totalPayment'
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             headers.append('Accept', 'application/json');
@@ -58,10 +64,6 @@ export default class Payment extends Component{
             window.location.href = "/buyerhome/" + this.state.buyerId
         }
         else{alert("Advance payment unSuccessful.")}})
-        }
-        else{
-            alert('Advance payment price not sufficient')
-        }
     }
 
     render() {
@@ -69,26 +71,32 @@ export default class Payment extends Component{
             <Nav uid = {this.state.buyerId} role={'buyer'}/>
             <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <Row>
+            <Col>
                 <div className= "auth-inner"><h1>Payment</h1><hr/>
                 <Row><Col>Your total price as bade :</Col><Col>{this.state.priceBade} ₹</Col></Row>
-                <Row><Col>Advance payment (minimum 20%) :</Col><Col>{this.state.priceBade/5} ₹</Col></Row>
+                <Row><Col>Advance paid :</Col><Col>{this.state.paid} ₹</Col></Row>
+                <Row><Col>Remaining amount :</Col><Col>{this.state.priceBade - this.state.paid} ₹</Col></Row>
+                <Row><Col>Crop Quantity harvested :</Col><Col>{this.state.harvestedQuantity} quintals</Col></Row>
+                <Row><Col><br/><b>The price is calculated based on the quantity harvested by your farmer. Please verify quantiy of the crop before payment. If there is any mismatch, please proceed to grievances page. Our Admin will help you.</b></Col></Row>
                 <hr/>
+                Please rate your farmer.<Rating handleRatingChange = {(event) => this.handleRatingChange(event)}/>
                 <form>
-                <input type="number" className="col-8" min = {this.state.priceBade/5} placeholder={'Enter amount > '+this.state.priceBade/5} name="advancePayment" onChange = {this.handleBiddingPriceChange}/> ₹
-                <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={this.bidding}>PAY</button>   
+                <input type="checkbox" onChange={this.handleBidForm}/><span className='error'>  I recieved the crop and quantity of the crop is as above.</span>
+                <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" disabled = {!this.state.showBidForm} onClick={this.bidding}>PAY</button>   
                 </form>
                 </div>
-            </Row>
-            <Row><br/></Row>
-            <br/>
-            <Row>
-                <Col>
+                <Row><br/></Row>
+            </Col>
+            <Col>
+                <Row>
                     <CropProfile id = {this.state.cid}/>
-                </Col>
-                <Col>
+                </Row>
+                <Row><br/></Row>
+                <Row>
                     <FarmerProfile id = {this.state.fid}/>
-                </Col>
-            </Row>            
+                </Row>
+            </Col> 
+            </Row>           
         </div>
         </div>
         );

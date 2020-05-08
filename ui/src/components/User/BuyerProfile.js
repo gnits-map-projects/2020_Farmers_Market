@@ -134,7 +134,7 @@ class BuyerProfile extends Component {
                 <Row><Col>Name:</Col><Col>{this.state.buyer.name}<br/></Col></Row>
                 <Row><Col>Mobile:</Col><Col>{this.state.buyer.mobile}<br/></Col></Row>
                 <Row><Col>Email:</Col><Col>{this.state.buyer.email}<br/></Col></Row>
-                <Row><Col>Rating:</Col><Col>{this.state.buyer.rating}<br/></Col></Row>
+                <Row><Col>Rating:</Col><Col>{this.state.buyer.rating} &nbsp; &nbsp; (out of {this.state.buyer.numrating})<br/></Col></Row>
                 <hr/>
                 <input type="checkbox" onChange={() => this.setState({checkbx : !this.state.checkbx})}/><span className='error'>  I understand that other bids will be rejected when I accept this bid.</span><br/><br/>
                 <Row>

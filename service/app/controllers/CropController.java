@@ -192,4 +192,47 @@ public class CropController extends Controller {
             return ok("Harvested quantity entered successful.");
         }, ec.current());
     }
+
+    public CompletionStage<Result> totalPayment() {
+        JsonNode jsPayment = request().body().asJson();
+        Long buyerId = jsPayment.get("buyerId").asLong();
+        Long cropId = jsPayment.get("cropId").asLong();
+        Long farmerId = jsPayment.get("fid").asLong();
+        Float rating = Float.valueOf(jsPayment.get("rating").asText());
+
+        CompletionStage<Crop> crop = cropRepository.getc(cropId);
+        Crop c = null;
+        try {
+            c = crop.toCompletableFuture().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        char rupee = '\u20B9'; //₹
+
+        NotificationController notificationController=new NotificationController(formFactory, notificationRepository, ec);
+        AdminController adminController = new AdminController(ec, emailUtil);
+        Register farmer = registerRepository.getUser(farmerId);
+        Register buyer = registerRepository.getUser(buyerId);
+
+        String message = "Your "+c.name+" crop in "+c.location+" has received remaining payment of " + (c.totalPayable - c.advPayment) + rupee +" from " +buyer.name+".";
+        CompletionStage<Result> n = notificationController.addNotification(farmer.id, message);
+        adminController.sendEmail(farmer.email, "Total Payment received.", message +
+                "You may contact them on their email: "+buyer.email+
+                "<br/><hr/>We wish you a prosperous crop.");
+
+        message = "Your total payment of "+ (c.totalPayable - c.advPayment) + rupee + " for "+c.name+" crop in "+c.location+" has been processed.";
+        n = notificationController.addNotification(buyer.id, message);
+        adminController.sendEmail(buyer.email, "Total Payment Processed.", message +
+                "<h1>Payment Receipt</h1><hr/>" +
+                "Amount paid : "+ c.advPayment +"&#x20b9;<br/><hr/>" +
+                "Total payment received." +
+                "Thank you for buying.");
+
+        return cropRepository.totalPayment(cropId, rating, farmerId).thenApplyAsync(str -> {
+            return ok("Total payment successful.");
+        }, ec.current());
+    }
 }

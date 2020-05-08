@@ -51,7 +51,7 @@ class FarmerProfile extends Component {
                 <Row><Col>Name:</Col><Col>{this.state.farmer.name}<br/></Col></Row>
                 <Row><Col>Mobile:</Col><Col>{this.state.farmer.mobile}<br/></Col></Row>
                 <Row><Col>Email:</Col><Col>{this.state.farmer.email}<br/></Col></Row>
-                <Row><Col>Rating:</Col><Col>{this.state.farmer.rating}<br/></Col></Row>
+                <Row><Col>Rating:</Col><Col>{this.state.farmer.rating} &nbsp; &nbsp; (out of {this.state.farmer.numrating})<br/></Col></Row>
             </div>
         );
     }

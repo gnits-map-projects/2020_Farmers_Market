@@ -6,25 +6,15 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 class Rating extends Component {
-constructor(props) {
-super(props);
-this.state = {
-'rate':0
-};
-this.handleChange = this.handleChange.bind(this);
-}
-
-handleChange(event){
-this.setState({'rate' : event.target.value})
-
-}
-
 render(){
-    console.log('Rating: ' + this.state.rate)
-let s=this.state.crop
+    const {handleRatingChange} = this.props;
 return (
     <div>
-<form className="rating" onClick = {this.handleChange}>
+<form className="rating" onClick = {handleRatingChange}>
+<label>
+<input type="radio" name="stars" value="0" />
+<span className="icon"></span>
+</label>
 <label>
 <input type="radio" name="stars" value="1" />
 <span className="icon">★</span>

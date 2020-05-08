@@ -35,15 +35,16 @@ export default class CropBid extends Component{
         this.setState({price : price});
     }
 
+    getAdvPayment(price){
+    }
+
     handleBidForm () {
       this.setState({showBidForm: !this.state.showBidForm})
     }
 
     handleBiddingPriceChange (event) {
     this.setState({
-      
       biddingPrice: event.target.value
-
     });
     console.log(event.target.value)
   }
@@ -100,7 +101,8 @@ export default class CropBid extends Component{
             <Col>
                 <Row>
                     <CropProfile id = {this.state.cid}
-                    getPrice = {this.getPrice}/>
+                    getPrice = {this.getPrice}
+                    getAdvPayment = {this.getAdvPayment}/>
                     <br/>
                 </Row>
                 <Row><br/></Row>

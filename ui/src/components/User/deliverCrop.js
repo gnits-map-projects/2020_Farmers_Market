@@ -28,6 +28,8 @@ export default class DeliverCrop extends Component{
         this.setState({advPayment : advPayment});
     }
 
+    getPrice(price){}
+
     componentDidMount() {
         const url = 'http://localhost:9000/getWinner/'+this.state.cid
         let headers = new Headers();
@@ -113,7 +115,8 @@ export default class DeliverCrop extends Component{
             <Row>
                 <Col>
                     <CropProfile id = {this.state.cid}
-                    getAdvPayment = {this.getAdvPayment}/>
+                    getAdvPayment = {this.getAdvPayment}
+                    getPrice = {this.getPrice}/>
                 </Col>
                 <Col>
                     {this.renderWinner()}

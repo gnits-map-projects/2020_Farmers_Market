@@ -128,6 +128,7 @@ var body = {
         mobile : this.state.mobile,
         role : this.state.role,
         rating : 6.0,
+        numrating : 0,
         status : 'unauthenticated',
     }
 console.log(body);

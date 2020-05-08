@@ -34,6 +34,8 @@ export default class Bids extends Component{
         this.setState({price : price});
     }
 
+    getAdvPayment(price){}
+
     handleClick = (event, buyerId, bid) => {
         this.setState({
           profile: true,
@@ -89,7 +91,7 @@ export default class Bids extends Component{
             return(
                 <div key={item.id} className = "cropList">
                     <Row>
-                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.rating}</Col><Col xs="1"></Col><Col xs="2">{item.biddingPrice} ₹</Col><Col xs="1"></Col>
+                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.rating}  &nbsp; &nbsp; (out of {this.state.farmer.numrating})</Col><Col xs="1"></Col><Col xs="2">{item.biddingPrice} ₹</Col><Col xs="1"></Col>
                         <Col xs="2">
                         {item.status == "waiting" && <button type="submit" id={item.buyerId} className="btn btn-primary btn-lg" onClick={(event) => this.handleClick(event, item.buyerId, item.id)}>PROCEED</button>}
                         {item.status == "rejected" && <p>Rejected</p>}
@@ -135,7 +137,7 @@ export default class Bids extends Component{
 
             <Col xs="5">
                 <Row>
-                <CropProfile id = {this.state.cid} getPrice = {this.getPrice}/>
+                <CropProfile id = {this.state.cid} getPrice = {this.getPrice} getAdvPayment = {this.getAdvPayment}/>
                 <br/></Row>
                 <br/>
                 {this.state.profile &&

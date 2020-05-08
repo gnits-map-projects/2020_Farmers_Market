@@ -72,7 +72,7 @@ class ClosedDeals extends Component {
             </React.Fragment>}
 
             {this.state.items.length == 0 && <React.Fragment>
-            <h3>You have no pending payments.</h3></React.Fragment>}
+            <h3>You have no past deals.</h3></React.Fragment>}
 
             </div>
             </div>

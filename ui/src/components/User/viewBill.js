@@ -27,24 +27,34 @@ export default class Bill extends Component{
 
     render() {
         window.localStorage.setItem('buyerId',this.state.buyer);
-        return (<div>
+        return (
+        <div><div>
             <Nav uid = {this.state.buyer} role={'buyer'}/>
-            <Col>
+            <Row><br/></Row><Row><br/></Row><Row><br/></Row>
             <Row>
-                <h1>Bill</h1> 
-                <Row><Col>Quantity of crop:</Col><Col>{this.state.crop.harvestedQuantity}<br/></Col></Row>
-                <Row><Col>Total amount paid:</Col><Col>{this.state.crop.totalPayable}<br/></Col></Row>
-                <Row><Col>Advance paid:</Col><Col>{this.state.crop.advPayment}<br/></Col></Row>
-            </Row>
+            <Col>
+                <div className= "auth-inner">
+                    <h1>Bill</h1><hr/>
+                    <Row><Col>Quantity of crop:</Col><Col>{this.state.crop.harvestedQuantity}<br/></Col></Row>
+                    <Row><Col>Advance paid:</Col><Col>{this.state.crop.advPayment}<br/></Col></Row>
+                    <Row><Col>Remaining amount paid:</Col><Col>{this.state.crop.totalPayable - this.state.crop.advPayment}<br/></Col></Row>
+                    <Row><Col>Total amount paid:</Col><Col>{this.state.crop.totalPayable}<br/></Col></Row>
+                </div>
+                <Row><br/></Row>
+                <Row><br/></Row>
+                <Row><br/></Row>
+                <Row>
+                    <FarmerProfile id = {this.state.fid}/>
+                </Row>
             </Col>
             <Col>
-            <Row>
-            <CropProfile id = {this.state.id}/>
-            </Row>
-            <Row>
-            <FarmerProfile id = {this.state.fid}/>
-            </Row>
+                <Row>
+                    <CropProfile id = {this.state.id}/>
+                </Row>
             </Col>
+            </Row>
+            <Row><br/></Row><Row><br/></Row><Row><br/></Row>
+            </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </div>
         );
     }

@@ -121,6 +121,11 @@ public class JPACropRepository implements CropRepository {
         return supplyAsync(() -> wrap(em -> harvested(em, cropId, harvestedQuantity)), executionContext);
     }
 
+    @Override
+    public CompletionStage<String> totalPayment(Long cropId, Float rating, Long fid) {
+        return supplyAsync(() -> wrap(em -> totalPayment(em, cropId, rating, fid)), executionContext);
+    }
+
     private <T> T wrap(Function<EntityManager, T> function) {
         return jpaApi.withTransaction(function);
     }
@@ -196,7 +201,9 @@ public class JPACropRepository implements CropRepository {
                         "\"location\" : \"" + toPay.get(i).location + "\"," +
                         "\"fid\" : \"" + toPay.get(i).fid + "\"," +
                         "\"status\" : \"" + toPay.get(i).status + "\"," +
-                        "\"price\" : \"" + priceBade + "\"" +
+                        "\"price\" : \"" + priceBade + "\"," +
+                        "\"advPayment\" : \"" + toPay.get(i).advPayment + "\"," +
+                        "\"harvestedQuantity\" : \"" + toPay.get(i).harvestedQuantity + "\"" +
                         "}");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -208,7 +215,7 @@ public class JPACropRepository implements CropRepository {
 
     private Stream<JsonNode> getClosedDeals(EntityManager em, Long buyerId) {
         List<Long> accepted = em.createQuery("select b.cropId from Bidding b where b.buyerId = :buyerId and b.status = 'accepted'").setParameter("buyerId", buyerId).getResultList();
-        List<Crop> notPayed = em.createQuery("select c from Crop c where c.status='sold' order by c.starttime asc", Crop.class).getResultList();
+        List<Crop> notPayed = em.createQuery("select c from Crop c where c.status='sold' or c.status='toratebuyer' order by c.starttime asc", Crop.class).getResultList();
         List<Crop> toPay = new ArrayList<Crop>();
         System.out.println("Crops ids that accepted bid: "+accepted);
         notPayed.forEach(crop -> {
@@ -270,7 +277,6 @@ public class JPACropRepository implements CropRepository {
         }
         else{
             return null;
-
         }
     }
 
@@ -279,9 +285,9 @@ public class JPACropRepository implements CropRepository {
         update += em.createQuery("update Crop c set c.status = 'payed' where c.id=: cropId").setParameter("cropId",cropId).executeUpdate();
         System.out.println(update);
         if(update==2)
-            return "Payment done.";
+            return "Advance payment done.";
         else
-            return "Payment error.";
+            return "Advance payment error.";
     }
 
     private String harvested(EntityManager em, Long cropId, Float harvestedQuantity){
@@ -305,6 +311,21 @@ public class JPACropRepository implements CropRepository {
         if(update==3)
             return "Harvest and total calculation success.";
         return "Harvested and total calculation error.";
+    }
+
+    private String totalPayment(EntityManager em, Long cropId, Float rating, Long fid){
+        int update = em.createQuery("update Crop c set c.status = 'toratebuyer' where c.id=: cropId").setParameter("cropId",cropId).executeUpdate();
+        Long numrating = (Long)em.createQuery("select r.numrating from Register r where r.id =: fid").setParameter("fid",fid).getSingleResult();
+        Float prevRating = (Float)em.createQuery("select r.rating from Register r where r.id =: fid").setParameter("fid",fid).getSingleResult();
+        if (prevRating==6.0)
+            prevRating = 0f;
+        Float newRating = ((prevRating*numrating) + rating)/(numrating+1);
+        update += em.createQuery("update Register r set r.rating =: rating, r.numrating=:numrating where r.id=: fid").setParameter("rating", newRating).setParameter("numrating", numrating+1).setParameter("fid",fid).executeUpdate();
+        System.out.println(update);
+        if(update==2)
+            return "Total payment done.";
+        else
+            return "Total payment error.";
     }
 
 }

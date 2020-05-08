@@ -29,9 +29,11 @@ import AllCropsBuyer from './components/User/allCropsBuyer';
 import AllPastBids from './components/User/allPastBids';
 import Grievance from './components/User/grievance'
 import Payment from './components/User/payment'
+import PayTotal from './components/User/payTotal'
 import DeliverCrop from './components/User/deliverCrop'
 import ClosedDeals from './components/User/closedDeals'
 import ViewCrop from './components/User/viewCrop'
+import ViewBill from './components/User/viewBill'
 
 class App extends Component {
   constructor(props) {
@@ -74,9 +76,11 @@ class App extends Component {
           <Route path="/allPastBids/:id" component= { AllPastBids }/>   
           <Route path="/grievance/:id/:role" component= { Grievance }/>   
           <Route path="/payment/:cid/:buyerId/:fid/:priceBade" component= { Payment }/>
+          <Route path="/payTotal/:cid/:buyerId/:fid/:priceBade/:paid/:harvestedQuantity" component= { PayTotal }/>
           <Route path="/deliverCrop/:cid/:fid" component= { DeliverCrop }/>
-          <Route path="/closedDeals/:cid/:fid/:buyerId" component= { ClosedDeals }/>
+          <Route path="/closedDeals/:id" component= { ClosedDeals }/>
           <Route path="/viewCrop/:cid/:fid/:buyerId" component= { ViewCrop }/>
+          <Route path="/viewBill/:cid/:fid/:buyerId" component= {ViewBill}/>
         </Switch>
       </Router>
     </div>
