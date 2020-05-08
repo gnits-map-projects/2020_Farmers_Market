@@ -34,6 +34,8 @@ import DeliverCrop from './components/User/deliverCrop'
 import ClosedDeals from './components/User/closedDeals'
 import ViewCrop from './components/User/viewCrop'
 import ViewBill from './components/User/viewBill'
+import CloseDeal from './components/User/closeDeal'
+import ClosedCrop from './components/User/closedCrop'
 
 class App extends Component {
   constructor(props) {
@@ -78,9 +80,11 @@ class App extends Component {
           <Route path="/payment/:cid/:buyerId/:fid/:priceBade" component= { Payment }/>
           <Route path="/payTotal/:cid/:buyerId/:fid/:priceBade/:paid/:harvestedQuantity" component= { PayTotal }/>
           <Route path="/deliverCrop/:cid/:fid" component= { DeliverCrop }/>
+          <Route path="/closedCrop/:cid/:fid" component= { ClosedCrop }/>
           <Route path="/closedDeals/:id" component= { ClosedDeals }/>
           <Route path="/viewCrop/:cid/:fid/:buyerId" component= { ViewCrop }/>
           <Route path="/viewBill/:cid/:fid/:buyerId" component= {ViewBill}/>
+          <Route path="/closeDeal/:cid/:fid" component = {CloseDeal}/>
         </Switch>
       </Router>
     </div>

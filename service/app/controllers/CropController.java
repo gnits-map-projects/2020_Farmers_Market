@@ -138,6 +138,16 @@ public class CropController extends Controller {
         }, ec.current());
     }
 
+    public CompletionStage<Result> closeDeal() {
+        JsonNode js = request().body().asJson();
+        Long cropId = js.get("cropId").asLong();
+        Long buyerId = js.get("buyerId").asLong();
+        Float rating = Float.valueOf(js.get("rating").asText());
+        return cropRepository.closeDeal(cropId, rating, buyerId).thenApplyAsync(res -> {
+            return ok("Deal Closed");
+        }, ec.current());
+    }
+
     public CompletionStage<Result> advPayment() {
         JsonNode jsPayment = request().body().asJson();
         Long buyerId = jsPayment.get("buyerId").asLong();

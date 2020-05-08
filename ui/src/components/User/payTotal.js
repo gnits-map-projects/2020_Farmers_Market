@@ -22,6 +22,7 @@ export default class PayTotal extends Component{
             paid : this.props.match.params.paid,
             harvestedQuantity : this.props.match.params.harvestedQuantity,
             showBidForm: false,
+            rating:'',
         };
         this.bidding = this.bidding.bind(this);
         this.handleBidForm = this.handleBidForm.bind(this);
@@ -47,6 +48,9 @@ export default class PayTotal extends Component{
             rating: this.state.rating,
         }
         console.log(body)
+        if(this.state.rating == "")
+            alert("Please rate the farmer.")
+        else{
             const url = 'http://localhost:9000/totalPayment'
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
@@ -61,9 +65,9 @@ export default class PayTotal extends Component{
                 body: JSON.stringify(body)
             })
             .then(response => {if(response.ok){alert("Advance payment successful.");
-            window.location.href = "/buyerhome/" + this.state.buyerId
+            window.location.href = "/buyerhome/" + this.state.buyerId}
+            else{alert("Advance payment unSuccessful.")}})
         }
-        else{alert("Advance payment unSuccessful.")}})
     }
 
     render() {

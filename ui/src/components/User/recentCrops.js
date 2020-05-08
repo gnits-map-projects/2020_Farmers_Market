@@ -44,7 +44,8 @@ class RecentCrops extends Component {
                             {item.status=="closed" && <button type="submit" id={item.id} className="btn btn-warning btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id +'/'+ item.fid +'/f'}}>CHECK WINNER</button>}
                             {item.status=="payed" && <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {window.location.href = "/deliverCrop/" + item.id +'/'+ item.fid}}>CROP HARVESTED</button>}
                             {item.status=="harvested" && <button type="submit" id={item.id} className="btn btn-warning btn-lg" onClick={() => {window.location.href = "/viewBuyer/" + item.id +'/'+ item.fid +'/f'}}>VIEW BUYER</button>}
-                            {item.status=="sold" && <button type="submit" id={item.id} className="btn btn-danger btn-lg" onClick={() => {window.location.href = "/closedCrop/" + item.id +'/'+ item.fid}}>CLOSE DEAL</button>}
+                            {item.status=="toratebuyer" && <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {window.location.href = "/closeDeal/" + item.id +'/'+ item.fid}}>CLOSE DEAL</button>}
+                            {item.status=="sold" && <button type="submit" id={item.id} className="btn btn-danger btn-lg" onClick={() => {window.location.href = "/closedCrop/" + item.id +'/'+ item.fid}}>VIEW DEAL</button>}
                         </Col>
                     </Row><hr/>
                 </div>

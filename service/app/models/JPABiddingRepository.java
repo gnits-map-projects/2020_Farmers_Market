@@ -246,6 +246,7 @@ public class JPABiddingRepository implements BiddingRepository {
                     "\"mobile\" : \"" + details.mobile + "\"," +
                     "\"email\" : \"" + details.email + "\"," +
                     "\"rating\" : \"" + details.rating + "\"," +
+                    "\"numrating\" : \"" + details.numrating + "\"," +
                     "\"price\" : \"" + bPrice + "\" }");
         } catch (IOException e) {
             e.printStackTrace();

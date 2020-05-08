@@ -29,13 +29,13 @@ export default class ViewCrop extends Component{
         window.localStorage.setItem('buyerId',this.state.buyerId);
         return (<div>
                 <Nav uid = {this.state.buyerId} role={'buyer'}/>
-                <Row><br/></Row>
+                <Row><br/></Row><Row><br/></Row><Row><br/></Row> 
                 <Row>
                 <div className = "auth-inner">
                     <h1>Advance payment of {this.state.crop.advPayment} ₹ done.</h1>
                 </div>  
                 </Row>
-                <Row><br/></Row> 
+                <Row><br/></Row><Row><br/></Row><Row><br/></Row> 
                 <Row>            
                     <Col>
                         <CropProfile id = {this.state.id}/>
@@ -44,7 +44,7 @@ export default class ViewCrop extends Component{
                         <FarmerProfile id = {this.state.fid}/>
                     </Col>
                 </Row>
-                <Row><br/></Row> 
+                <Row><br/></Row><Row><br/></Row><Row><br/></Row><Row><br/></Row>  
             </div>
         );
     }

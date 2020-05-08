@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
@@ -124,6 +126,11 @@ public class JPACropRepository implements CropRepository {
     @Override
     public CompletionStage<String> totalPayment(Long cropId, Float rating, Long fid) {
         return supplyAsync(() -> wrap(em -> totalPayment(em, cropId, rating, fid)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<String> closeDeal(Long cropId, Float rating, Long fid) { //fid == buyerId
+        return supplyAsync(() -> wrap(em -> closeDeal(em, cropId, rating, fid)), executionContext);
     }
 
     private <T> T wrap(Function<EntityManager, T> function) {
@@ -319,7 +326,30 @@ public class JPACropRepository implements CropRepository {
         Float prevRating = (Float)em.createQuery("select r.rating from Register r where r.id =: fid").setParameter("fid",fid).getSingleResult();
         if (prevRating==6.0)
             prevRating = 0f;
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.CEILING);
+
         Float newRating = ((prevRating*numrating) + rating)/(numrating+1);
+        newRating = Float.valueOf(df.format(newRating));        update += em.createQuery("update Register r set r.rating =: rating, r.numrating=:numrating where r.id=: fid").setParameter("rating", newRating).setParameter("numrating", numrating+1).setParameter("fid",fid).executeUpdate();
+        System.out.println(update);
+        if(update==2)
+            return "Total payment done.";
+        else
+            return "Total payment error.";
+    }
+
+    private String closeDeal(EntityManager em, Long cropId, Float rating, Long fid){
+        int update = em.createQuery("update Crop c set c.status = 'sold' where c.id=: cropId").setParameter("cropId",cropId).executeUpdate();
+        Long numrating = (Long)em.createQuery("select r.numrating from Register r where r.id =: fid").setParameter("fid",fid).getSingleResult();
+        Float prevRating = (Float)em.createQuery("select r.rating from Register r where r.id =: fid").setParameter("fid",fid).getSingleResult();
+        if (prevRating==6.0)
+            prevRating = 0f;
+
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.CEILING);
+
+        Float newRating = ((prevRating*numrating) + rating)/(numrating+1);
+        newRating = Float.valueOf(df.format(newRating));
         update += em.createQuery("update Register r set r.rating =: rating, r.numrating=:numrating where r.id=: fid").setParameter("rating", newRating).setParameter("numrating", numrating+1).setParameter("fid",fid).executeUpdate();
         System.out.println(update);
         if(update==2)

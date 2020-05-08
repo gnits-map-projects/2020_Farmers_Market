@@ -7,13 +7,12 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import CropProfile from './CropProfile'
 
-export default class ViewBuyer extends Component{
+export default class ClosedCrop extends Component{
     constructor(props) {
         super(props);
         this.state = {
             cid: this.props.match.params.cid,
             fid: this.props.match.params.fid,
-            role: this.props.match.params.role,
             winner : {},
         };
     }
@@ -50,11 +49,10 @@ export default class ViewBuyer extends Component{
 
     render() {
         return (<div>
-            {this.state.role == 'f' && <Nav uid = {this.state.fid} role={'farmer'}/>}
-            {this.state.role == 'b' && <Nav uid = {this.state.fid} role={'buyer'}/>}
+            <Nav uid = {this.state.fid} role={'farmer'}/>
             <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <Row>
-                <div className= "auth-inner"><h1>Bidding won at price: {this.state.winner.price} ₹</h1></div>
+                <div className= "auth-inner"><h1>Your crop was sold at price: {this.state.winner.price} ₹</h1></div>
             </Row>
             <br/>
             <Row>
