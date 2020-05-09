@@ -6,10 +6,14 @@ import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
+import java.util.stream.Stream;
+
 import static play.libs.Json.toJson;
 import static play.libs.Json.fromJson;
 import play.data.FormFactory;
@@ -24,6 +28,7 @@ import utils.EmailUtil;
 public class CropController extends Controller {
 
     private final CropRepository cropRepository;
+    private final BiddingRepository biddingRepository;
     private final HttpExecutionContext ec;
     private final FormFactory formFactory;
     private final NotificationRepository notificationRepository;
@@ -37,10 +42,12 @@ public class CropController extends Controller {
                           EmailUtil emailUtil,
                           NotificationRepository notificationRepository,
                           CropRepository cropRepository,
+                          BiddingRepository biddingRepository,
                           RegisterRepository registerRepository,
                           HttpExecutionContext ec) {
         this.formFactory = formFactory;
         this.cropRepository = cropRepository;
+        this.biddingRepository = biddingRepository;
         this.adminController = adminController;
         this.emailUtil = emailUtil;
         this.notificationRepository = notificationRepository;
@@ -244,5 +251,53 @@ public class CropController extends Controller {
         return cropRepository.totalPayment(cropId, rating, farmerId).thenApplyAsync(str -> {
             return ok("Total payment successful.");
         }, ec.current());
+    }
+
+    public void remind(){
+        CompletionStage<Stream<Crop>> crop = cropRepository.remind();
+        Stream<Crop> c = null;
+        List<Crop> crops = new ArrayList<Crop>();
+        try {
+            c = crop.toCompletableFuture().get();
+            crops = c.collect(Collectors.toList());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        NotificationController notificationController=new NotificationController(formFactory, notificationRepository, ec);
+        AdminController adminController = new AdminController(ec, emailUtil);
+
+        crops.forEach(crp -> {
+            Register farmer = registerRepository.getUser(crp.fid);
+            CompletionStage<JsonNode> winner = biddingRepository.getWinner(crp.id);
+            JsonNode buyer = null;
+            try {
+                buyer = winner.toCompletableFuture().get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+
+            String message = "Your "+crp.name+" crop in "+crp.location+" is due for harvest and delivery in 5 days.";
+            CompletionStage<Result> n = notificationController.addNotification(farmer.id, message);
+            adminController.sendEmail(farmer.email, "Harvest and delivery reminder.", message +
+                    "Login to your account and fill the harvested amount. The total payable amount will be then calculated."+
+                    "<br/>Ignore if already done."+
+                    "<br/>You may contact them on their email: "+buyer.get("email").asText()+
+                    "You will receive remaining amount for your crop at the time of delivery when your buyer verifies the crop quantity."+
+                    "<br/><hr/>We wish you a prosperous crop.");
+
+            message = crp.name+" crop in "+crp.location+" is due for harvest and delivery in 5 days.";
+            n = notificationController.addNotification(buyer.get("id").asLong(), message);
+            adminController.sendEmail(buyer.get("email").asText(), "Harvest and delivery reminder.", message +
+                    "Login to your account to check the harvested crop quantity and proceed to pay remaining amount after you receive the crop."+
+                    "<br/>Ignore if already done."+
+                    "Thank you for buying.");
+
+            System.out.println(message);
+        });
     }
 }

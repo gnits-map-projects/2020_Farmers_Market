@@ -23,6 +23,7 @@ public class UncheckedCropController extends Controller {
 
     private final UncheckedCropRepository uncheckedCropRepository;
     private final CropRepository cropRepository;
+    private final BiddingRepository biddingRepository;
     private final HttpExecutionContext ec;
     private final CropController cropController;
     private final FormFactory formFactory;
@@ -39,11 +40,13 @@ public class UncheckedCropController extends Controller {
                                    NotificationRepository notificationRepository,
                                    UncheckedCropRepository uncheckedCropRepository,
                                    CropRepository cropRepository,
+                                   BiddingRepository biddingRepository,
                                    HttpExecutionContext ec,
                                    RegisterRepository registerRepository,
                                    CropController cropController) {
         this.uncheckedCropRepository = uncheckedCropRepository;
         this.cropRepository  = cropRepository;
+        this.biddingRepository = biddingRepository;
         this.ec = ec;
         this.cropController =cropController;
         this.notificationRepository = notificationRepository;
@@ -90,7 +93,7 @@ public class UncheckedCropController extends Controller {
         AdminController adminController = new AdminController(ec, emailUtil);
         adminController.sendEmail(register.email, "Crop Approved", message);
 
-        CropController cropController=new CropController(formFactory, adminController, emailUtil, notificationRepository, cropRepository, registerRepository, ec);
+        CropController cropController=new CropController(formFactory, adminController, emailUtil, notificationRepository, cropRepository, biddingRepository, registerRepository, ec);
         return cropController.addChecked(crop).thenApplyAsync(p -> {
             return ok("Approved.");                                                                                       ///////added for approval
         }, ec.current());

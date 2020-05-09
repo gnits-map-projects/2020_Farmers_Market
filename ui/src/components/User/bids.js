@@ -12,7 +12,7 @@ import BuyerProfile from './BuyerProfile'
 var profile;
 var buyer;
 var bid;
-var flag = 0;
+var flag = 2;
 var i;
 
 export default class Bids extends Component{

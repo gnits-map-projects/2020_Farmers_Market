@@ -9,6 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.io.IOException;
 import java.math.RoundingMode;
+import java.util.Calendar;
+import java.util.Date;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -131,6 +133,10 @@ public class JPACropRepository implements CropRepository {
     @Override
     public CompletionStage<String> closeDeal(Long cropId, Float rating, Long fid) { //fid == buyerId
         return supplyAsync(() -> wrap(em -> closeDeal(em, cropId, rating, fid)), executionContext);
+    }
+    @Override
+    public CompletionStage<Stream<Crop>> remind() {
+        return supplyAsync(() -> wrap(em -> remind(em)), executionContext);
     }
 
     private <T> T wrap(Function<EntityManager, T> function) {
@@ -358,4 +364,18 @@ public class JPACropRepository implements CropRepository {
             return "Total payment error.";
     }
 
+    private Stream<Crop> remind(EntityManager em) {
+        Date dt = new Date();
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        c.add(Calendar.DATE, 5);
+        dt = c.getTime();
+        java.sql.Date sqlDate = new java.sql.Date(dt.getTime());
+        System.out.println("sqlDate to check: "+sqlDate);
+
+        List<Crop> crops = em.createQuery("select c from Crop c where c.endtime=:sqlDate and (c.status='payed' or c.status='harvested')",Crop.class).setParameter("sqlDate", sqlDate).getResultList();
+
+        return crops.stream();
+    }
 }

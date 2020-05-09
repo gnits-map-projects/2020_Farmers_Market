@@ -51,4 +51,6 @@ public interface CropRepository {
     CompletionStage<String> closeDeal(Long cropId, Float rating, Long buyerId);
 
     CompletionStage<String> harvested(Long cropId, Float harvestedQuantity);
+
+    CompletionStage<Stream<Crop>> remind();
 }
