@@ -9,6 +9,11 @@ POST    /login                          controllers.RegisterController.login()
 GET     /getFarmer/:fid                 controllers.RegisterController.getFarmer(fid: Long)
 POST    /updateProfile/:id              controllers.RegisterController.updateRegister(id: Long)
 GET     /verifyUser/:id                 controllers.RegisterController.verifyRegister(id: Long)
+POST    /resetPassword                  controllers.RegisterController.resetPassword()
+POST    /sendResetLink                  controllers.RegisterController.sendResetLink()
+
+GET     /sendResetLink/:email/:id       controllers.AdminController.sendResetLink(email: String, id: Long)
+#sendResetLink GET works. POST gives null pinter exception. GET only to test.
 
 POST    /addUncheckedCrop               controllers.UncheckedCropController.addUncheckedCrop()
 GET     /getUncheckedCrops              controllers.UncheckedCropController.getUncheckedCrops()

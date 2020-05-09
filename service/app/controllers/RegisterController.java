@@ -48,6 +48,24 @@ public class RegisterController extends Controller {
         }, ec.current());
     }
 
+    public Result sendResetLink() {
+        String email = request().body().asJson().get("email").asText();
+        String str = registerRepository.sendResetLink(email);
+        String exists = "";
+        Long id = 0L;
+        if(str.equals("Absent"))
+            exists = "No";
+        else{
+            exists = "Yes";
+            id = Long.valueOf(str.substring(7));
+            AdminController adminController = new AdminController(ec,emailUtil);
+            System.out.println(email+":"+id+".");
+//            adminController.sendResetLink(email,id);
+        }
+        String msg = "{\"exists\" : \""+exists+"\"}";
+        return ok(Json.parse(msg));
+    }
+
     public Result login(){
         JsonNode j = request().body().asJson();
         String email = j.get("email").asText();
@@ -75,9 +93,17 @@ public class RegisterController extends Controller {
         JsonNode js = request().body().asJson();
         String name = js.get("name").asText();
         String email = js.get("email").asText();
-        String password = js.get("password").asText();
         String mobile = js.get("mobile").asText();
-        return registerRepository.update(id, name, email, password, mobile).thenApplyAsync(p->{
+        return registerRepository.update(id, name, email, mobile).thenApplyAsync(p->{
+            return ok("Update successful");
+        },ec.current());
+    }
+
+    public CompletionStage<Result> resetPassword(){
+        JsonNode js = request().body().asJson();
+        Long id = js.get("id").asLong();
+        String password = js.get("password").asText();
+        return registerRepository.resetPassword(id, password).thenApplyAsync(p->{
             return ok("Update successful");
         },ec.current());
     }

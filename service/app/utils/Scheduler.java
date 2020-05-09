@@ -36,7 +36,7 @@ public class Scheduler {
     }
 
     private void repetitiveTask() {
-        cropController.remind(); //5 days before crop end date
+//        cropController.remind(); //5 days before crop end date
         System.out.println("############ TEST SCHEDULER ############");
 
     }

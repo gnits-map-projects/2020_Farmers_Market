@@ -131,13 +131,15 @@ public class JPABiddingRepository implements BiddingRepository {
             String id = (bids.get(i).buyerId).toString();
             String buyer = em.createQuery("select name from Register r where r.id=:buyerId").setParameter("buyerId", bids.get(i).buyerId).getSingleResult().toString();
             String rating = em.createQuery("select rating from Register r where r.id=:buyerId").setParameter("buyerId", bids.get(i).buyerId).getSingleResult().toString();
+            String numrating = em.createQuery("select numrating from Register r where r.id=:buyerId").setParameter("buyerId", bids.get(i).buyerId).getSingleResult().toString();
+
             System.out.println(rating);
             if(rating.equals("6.0")) {
                 rating = "No rating yet";
             }
             System.out.println(rating);
             try {
-                ObjectNode json = (ObjectNode) new ObjectMapper().readTree("{ \"id\" : \""+ bids.get(i).id +"\", \"buyerId\" : \""+id+"\", \"name\" : \""+buyer+"\", \"rating\" : \""+rating+"\", \"biddingPrice\" : \"" + (bids.get(i).biddingPrice).toString()+"\", \"status\" : \""+bids.get(i).status+"\" }");
+                ObjectNode json = (ObjectNode) new ObjectMapper().readTree("{ \"id\" : \""+ bids.get(i).id +"\", \"buyerId\" : \""+id+"\", \"name\" : \""+buyer+"\", \"rating\" : \""+rating+"\", \"numrating\" : \""+numrating+"\", \"biddingPrice\" : \"" + (bids.get(i).biddingPrice).toString()+"\", \"status\" : \""+bids.get(i).status+"\" }");
                 System.out.println(json);
                 bidDetails.add(json);
             } catch (IOException e) {

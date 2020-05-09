@@ -12,7 +12,7 @@ import BuyerProfile from './BuyerProfile'
 var profile;
 var buyer;
 var bid;
-var flag = 2;
+var flag = 0;
 var i;
 
 export default class Bids extends Component{
@@ -91,7 +91,7 @@ export default class Bids extends Component{
             return(
                 <div key={item.id} className = "cropList">
                     <Row>
-                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.rating}  &nbsp; &nbsp; (out of {this.state.farmer.numrating})</Col><Col xs="1"></Col><Col xs="2">{item.biddingPrice} ₹</Col><Col xs="1"></Col>
+                        <Col xs="2">{item.name}</Col><Col xs="1"></Col><Col xs="3">{item.rating}  &nbsp; &nbsp; (out of {item.numrating})</Col><Col xs="1"></Col><Col xs="2">{item.biddingPrice} ₹</Col><Col xs="1"></Col>
                         <Col xs="2">
                         {item.status == "waiting" && <button type="submit" id={item.buyerId} className="btn btn-primary btn-lg" onClick={(event) => this.handleClick(event, item.buyerId, item.id)}>PROCEED</button>}
                         {item.status == "rejected" && <p>Rejected</p>}

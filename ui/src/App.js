@@ -36,6 +36,8 @@ import ViewCrop from './components/User/viewCrop'
 import ViewBill from './components/User/viewBill'
 import CloseDeal from './components/User/closeDeal'
 import ClosedCrop from './components/User/closedCrop'
+import ForgotPassword from './components/home/forgotPassword'
+import ResetPassword from './components/home/resetPassword'
 
 class App extends Component {
   constructor(props) {
@@ -85,6 +87,8 @@ class App extends Component {
           <Route path="/viewCrop/:cid/:fid/:buyerId" component= { ViewCrop }/>
           <Route path="/viewBill/:cid/:fid/:buyerId" component= {ViewBill}/>
           <Route path="/closeDeal/:cid/:fid" component = {CloseDeal}/>
+          <Route path="/forgotPassword" component = {ForgotPassword}/>
+          <Route path="/resetPassword/:id" component = {ResetPassword}/>
         </Switch>
       </Router>
     </div>
