@@ -29,7 +29,7 @@ public class Scheduler {
         this.actorSystem
                 .scheduler()
                 .schedule(
-                        Duration.create(5, TimeUnit.SECONDS), // initialDelay
+                        Duration.create(10, TimeUnit.SECONDS), // initialDelay
                         Duration.create(1, TimeUnit.DAYS), // interval
                         () -> repetitiveTask(),
                         this.executionContext);
