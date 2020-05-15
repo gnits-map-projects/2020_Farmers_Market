@@ -21,6 +21,7 @@ export default class PayTotal extends Component{
             priceBade : this.props.match.params.priceBade,
             paid : this.props.match.params.paid,
             harvestedQuantity : this.props.match.params.harvestedQuantity,
+            totalPayable : this.props.match.params.totalPayable,
             showBidForm: false,
             rating:'',
         };
@@ -78,8 +79,9 @@ export default class PayTotal extends Component{
             <Col>
                 <div className= "auth-inner"><h1>Payment</h1><hr/>
                 <Row><Col>Your total price as bade :</Col><Col>{this.state.priceBade} ₹</Col></Row>
+                <Row><Col>Total payable price :</Col><Col>{this.state.totalPayable} ₹</Col></Row>
                 <Row><Col>Advance paid :</Col><Col>{this.state.paid} ₹</Col></Row>
-                <Row><Col>Remaining amount :</Col><Col>{this.state.priceBade - this.state.paid} ₹</Col></Row>
+                <Row><Col>Remaining amount :</Col><Col>{this.state.totalPayable - this.state.paid} ₹</Col></Row>
                 <Row><Col>Crop Quantity harvested :</Col><Col>{this.state.harvestedQuantity} quintals</Col></Row>
                 <Row><Col><br/><b>The price is calculated based on the quantity harvested by your farmer. Please verify quantiy of the crop before payment. If there is any mismatch, please proceed to grievances page. Our Admin will help you.</b></Col></Row>
                 <hr/>

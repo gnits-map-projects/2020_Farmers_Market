@@ -58,7 +58,7 @@ export default class BuyerHome extends Component{
                             window.location.href = "/payment/" + item.id + "/" + buyer + "/" + item.fid+"/"+item.price
                         }}>PAY ADVANCE</button>}
                         {item.status == 'harvested' && <button type="submit" id={item.id} className="btn btn-info btn-lg" onClick={() => {
-                            window.location.href = "/payTotal/" + item.id + "/" + buyer + "/" + item.fid+"/"+ item.price + "/" + item.advPayment + "/" + item.harvestedQuantity
+                            window.location.href = "/payTotal/" + item.id + "/" + buyer + "/" + item.fid+"/"+ item.price + "/" + item.advPayment + "/" + item.harvestedQuantity +"/"+ item.totalPayable
                         }}>PAY TOTAL</button>}
                         </Col>
                     </Row><hr/>

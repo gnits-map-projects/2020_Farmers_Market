@@ -61,7 +61,7 @@ class AllCropsBuyer extends Component {
             <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <div className= "auth-inner-full">
             <Row>
-            <h1>Your Past Bids</h1><hr/>
+            <h1>Your Bids</h1><hr/>
             </Row><hr/>
             <Row>
                 <Col xs="1">CROP</Col><Col xs="1"></Col><Col xs="2">AREA</Col><Col xs="2">LOCATION</Col><Col xs="1"></Col><Col xs="2">YOUR BID</Col><Col xs="3">ACTION</Col>

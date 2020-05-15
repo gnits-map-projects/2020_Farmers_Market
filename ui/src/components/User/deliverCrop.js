@@ -98,7 +98,7 @@ export default class DeliverCrop extends Component{
             <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <Row>
                 <div className= "auth-inner">
-                <h1>Crop Delivery Form</h1><hr/>
+                <h1>Crop Harvested Quantity Form</h1><hr/>
                 Please fill this form after harvest of the crop to get payable price and thereby, close this crop.<br/>
                 The quantity will be cross verified by your buyer.<br/><br/>
                 <form>

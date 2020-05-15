@@ -174,7 +174,7 @@ this.setState({errors, [name]: value});
 <div className="auth-wrapper1">
 <div className="auth-inner">
 <form>
-<center><h3>Update Form</h3></center>
+<center><h3>Update Profile</h3></center>
  
 <div className="form-group">
 <label>Name</label>

@@ -42,7 +42,7 @@ class PastBids extends Component {
         return (
             <div class = "auth-inner-half">
             <Row>
-            <h1>Your Past Bids</h1><hr/>
+            <h1>Your Bids</h1><hr/>
             <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" onClick={() => {window.location.href = "/allPastBids/"+ this.state.buyerid}}>VIEW ALL</button>
             </Row><hr/>
             <Row>

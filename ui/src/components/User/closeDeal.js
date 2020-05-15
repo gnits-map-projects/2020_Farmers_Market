@@ -100,12 +100,13 @@ export default class CloseDeal extends Component{
             <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <Row>
             <Col>
-                <CropProfile id = {this.state.cid}/>
+            <Row>
+                <div className= "auth-inner-half"><h1>This crop was bought at price: {this.state.winner.price} ₹</h1></div>
+            </Row>
+            <Row><br/></Row>
+            <CropProfile id = {this.state.cid}/>
             </Col> 
             <Col>
-            <Row>
-                <div className= "auth-inner"><h1>This crop was bought at price: {this.state.winner.price} ₹</h1></div>
-            </Row>
             <br/>
             <Row>
                 {this.renderWinner()}

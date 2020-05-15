@@ -80,7 +80,7 @@ class App extends Component {
           <Route path="/allPastBids/:id" component= { AllPastBids }/>   
           <Route path="/grievance/:id/:role" component= { Grievance }/>   
           <Route path="/payment/:cid/:buyerId/:fid/:priceBade" component= { Payment }/>
-          <Route path="/payTotal/:cid/:buyerId/:fid/:priceBade/:paid/:harvestedQuantity" component= { PayTotal }/>
+          <Route path="/payTotal/:cid/:buyerId/:fid/:priceBade/:paid/:harvestedQuantity/:totalPayable" component= { PayTotal }/>
           <Route path="/deliverCrop/:cid/:fid" component= { DeliverCrop }/>
           <Route path="/closedCrop/:cid/:fid" component= { ClosedCrop }/>
           <Route path="/closedDeals/:id" component= { ClosedDeals }/>
