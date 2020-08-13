@@ -1,10 +1,8 @@
 import React ,{ Component } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './UserHome.css'
-import { Container } from "react-bootstrap";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Rating from './Rating.js';
 
 class FarmerProfile extends Component {
     constructor(props) {
@@ -47,14 +45,13 @@ class FarmerProfile extends Component {
             this.state.farmer.rating = "No rating yet"
         }
         return (
-            <div className = "recentbids">
-            <div className="auth-inner">
-                <h1>Farmer Profile:</h1>
+
+            <div className="auth-inner-half">
+                <h1>Farmer Profile:</h1><hr/>
                 <Row><Col>Name:</Col><Col>{this.state.farmer.name}<br/></Col></Row>
                 <Row><Col>Mobile:</Col><Col>{this.state.farmer.mobile}<br/></Col></Row>
                 <Row><Col>Email:</Col><Col>{this.state.farmer.email}<br/></Col></Row>
-                <Row><Col>Rating:</Col><Col>{this.state.farmer.rating}<br/></Col></Row>
-            </div>
+                <Row><Col>Rating:</Col><Col>{this.state.farmer.rating} &nbsp; &nbsp; (out of {this.state.farmer.numrating})<br/></Col></Row>
             </div>
         );
     }

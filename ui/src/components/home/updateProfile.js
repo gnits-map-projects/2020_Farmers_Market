@@ -3,14 +3,13 @@ import { useHistory, withRouter,Link } from "react-router-dom";
 import './home.css';
 import Nav from '../User/nav.js';
 import Form from 'react-bootstrap/Form';
-import FarmerProfile from '../User/FarmerProfile'
-//import Header from './Header'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 var a=window.localStorage.getItem("name")
 var b=window.localStorage.getItem("email")
 var c=window.localStorage.getItem("mobile")
 //var d=window.localStorage.getItem("role")
-var e=window.localStorage.getItem("password")
 const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 const validMobileRegex = RegExp(/^[6-9]{1}[0-9]{9}$/);
 
@@ -30,11 +29,9 @@ class UpdateProfile extends Component {
       email: b,
       mobile: c,
       //role: d,
-      password: e,
       errors: {
           name: '',
           email: '',
-          password: '',
           mobile : '',
           //role : '',
         }
@@ -43,7 +40,6 @@ class UpdateProfile extends Component {
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleEmailChange = this.handleEmailChange.bind(this)
     this.handleMobileChange = this.handleMobileChange.bind(this)
-    this.handlePasswordChange = this.handlePasswordChange.bind(this)
     //this.handleRoleChange = this.handleRoleChange.bind(this)
     //this.handleImageChange = this.handleImageChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -75,20 +71,6 @@ validEmailRegex.test(value)
 if(errors.email == '')
 {
 this.setState({e : true});
-}
-this.setState({errors, [name]: value});
-}
-
-handlePasswordChange = event => {
-const { name, value } = event.target;
-let errors = this.state.errors;
-errors.password =
-value.length < 8
-? 'Password must be 8 characters long!'
-: '';
-if(errors.password == '')
-{
-this.setState({p : true});
 }
 this.setState({errors, [name]: value});
 }
@@ -127,7 +109,6 @@ this.setState({errors, [name]: value});
     var body = {
         name : this.state.name,
         email : this.state.email,
-        password : this.state.password,
         mobile : this.state.mobile,
         //role : this.state.role
       }
@@ -138,9 +119,6 @@ this.setState({errors, [name]: value});
         }
         else if(this.state.email==""){
         alert('Please enter the email')
-        }
-        else if(this.state.password==""){
-        alert('Please enter the password')
         }
         else if(this.state.mobile==""){
         alert('Please enter the phone number')
@@ -192,16 +170,11 @@ this.setState({errors, [name]: value});
       return (<div className ="bg">
 <Nav uid={this.state.user} role={window.sessionStorage.getItem("role")}/>
 
-<br></br><br/>
-<br/><br/><br/><br/>
-<FarmerProfile id={this.state.user}/> 
-{/* Also for buyers since we don't need any buttons */}
-<br></br><br/>
-<br/><br/><br/><br/>
+<br></br><br/><br/>
 <div className="auth-wrapper1">
 <div className="auth-inner">
 <form>
-<center><h3>Update Form</h3></center>
+<center><h3>Update Profile</h3></center>
  
 <div className="form-group">
 <label>Name</label>
@@ -242,24 +215,14 @@ onChange = {this.handleMobileChange} required/>
 <Form.Check inline type='radio' name='role' value='buyer' label='Buyer' onChange={this.handleRoleChange} />
 </div> */}
 
-<div className="form-group">
-<label>Password</label>
-<input type="password"
-name="password"
-id="examplePassword"
-placeholder="********"
-className="form-control"
-value = {this.state.psw}
-onChange = {this.handlePasswordChange} required/>
-<span className='error'>{this.state.errors.password}</span>
-</div>
+
 <button type="submit" className="btn btn-primary btn-block" onClick = {this.handleSubmit}>Update</button>
 
 </form>
 </div>
 
 </div>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/>
 </div>
 );
 }

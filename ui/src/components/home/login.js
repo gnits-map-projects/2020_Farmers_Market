@@ -8,6 +8,7 @@ var body;
 var urole;
 var uname;
 var uid;
+var status;
 var result;
 let token="";
 
@@ -23,11 +24,15 @@ class Login extends Component{
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(event) {
 
-  event.preventDefault();
+  componentDidMount(){
+    window.localStorage.removeItem('uid')
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
     console.log(this.state)
-     var body = {
+    var body = {
       email : this.state.email,
       password : this.state.password,
     }
@@ -63,29 +68,36 @@ class Login extends Component{
               urole = result.role
               uname = result.name
               uid = result.id
-              console.log(result)
-              if(urole=="farmer"){
-                window.localStorage.setItem("username",uname)
-                window.localStorage.setItem("uid",uid);
-                window.localStorage.setItem("role",urole);
-                window.sessionStorage.setItem("uid",uid);
-                window.sessionStorage.setItem("role",urole);
-                window.location.href  = "/userhome/"+uid;
-                }  //"/userhome" 
-              else if(urole=="buyer"){
-                window.localStorage.setItem("username",uname)
-                window.localStorage.setItem("uid",uid);
-                window.localStorage.setItem("role",urole);
-                window.sessionStorage.setItem("uid",uid);
-                window.sessionStorage.setItem("role",urole);
-                window.location.href  = "/buyerhome/"+uid;  
-                
-                //alert("buyer")
+              status = result.status
+              if(status=="authenticated"){
+                if(urole=="farmer"){
+                  window.localStorage.setItem("username",uname)
+                  window.localStorage.setItem("uid",uid);
+                  window.localStorage.setItem("role",urole);
+                  window.sessionStorage.setItem("uid",uid);
+                  window.sessionStorage.setItem("role",urole);
+                  window.location.href  = "/userhome/"+uid;
+                  }  //"/userhome" 
+                else if(urole=="buyer"){
+                  window.localStorage.setItem("username",uname)
+                  window.localStorage.setItem("uid",uid);
+                  window.localStorage.setItem("role",urole);
+                  window.sessionStorage.setItem("uid",uid);
+                  window.sessionStorage.setItem("role",urole);
+                  window.location.href  = "/buyerhome/"+uid;  
+                  
+                  //alert("buyer")
+              }
+              else{
+                alert("Please login from Admin page.")
+                window.location.href  = "/adminlogin"; 
+              }
             }
             else{
-              alert("You are not authenticated. Go Back!!!")
+              window.location.href = "/resendVerify/"+this.state.email+"/"+uid
             }
-            })
+          }
+          )
             
            // window.localStorage.getItem('uid');
             
@@ -136,15 +148,12 @@ class Login extends Component{
         return (<div className="bg">
 
 <Navigation/>
-            <br></br><br/>
-            <br/>
 
             <div className="auth-wrapper">
             <div className="auth-inner">
                
             <form>
-                <h3>Login</h3>
-
+                <h1>LOGIN</h1><hr/>
                 <div className="form-group">
                     <label>Email address</label>
                     <input type="email" name="email" id="exampleEmail" className="form-control" placeholder="Enter email"
@@ -161,7 +170,7 @@ class Login extends Component{
 
                 <button type="submit" className="btn btn-primary btn-block btn-lg" onClick={this.handleSubmit}>LOGIN</button>
                 <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
+                    <a href="/forgotPassword">Forgot password?</a>
                 </p>
                 
          
@@ -174,10 +183,8 @@ class Login extends Component{
 
             </form>
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </div>
         );
     }

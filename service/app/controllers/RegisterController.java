@@ -9,6 +9,8 @@ import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
 import com.fasterxml.jackson.databind.JsonNode;
+import utils.EmailUtil;
+
 import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 import java.util.stream.Collectors;
@@ -24,9 +26,14 @@ public class RegisterController extends Controller {
 
     private final RegisterRepository registerRepository;
     private final HttpExecutionContext ec;
+    private final FormFactory formFactory;
+    EmailUtil emailUtil;
 
     @Inject
-    public RegisterController(RegisterRepository registerRepository, HttpExecutionContext ec) {
+    public RegisterController(FormFactory formFactory,
+                              RegisterRepository registerRepository,
+                              HttpExecutionContext ec) {
+        this.formFactory = formFactory;
         this.registerRepository = registerRepository;
         this.ec = ec;
     }
@@ -34,9 +41,29 @@ public class RegisterController extends Controller {
     public CompletionStage<Result> addRegister() {
         JsonNode js = request().body().asJson();
         Register register = fromJson(js, Register.class);
+        AdminController adminController = new AdminController(ec, emailUtil);
         return registerRepository.add(register).thenApplyAsync(p -> {
+            adminController.sendAuthEmail(p.email,p.id);
             return ok("Created");
         }, ec.current());
+    }
+
+    public Result sendResetLink() {
+        String email = request().body().asJson().get("email").asText();
+        String str = registerRepository.sendResetLink(email);
+        String exists = "";
+        Long id = 0L;
+        if(str.equals("Absent"))
+            exists = "No";
+        else{
+            exists = "Yes";
+            id = Long.valueOf(str.substring(7));
+            AdminController adminController = new AdminController(ec,emailUtil);
+            System.out.println(email+":"+id+".");
+//            adminController.sendResetLink(email,id);
+        }
+        String msg = "{\"exists\" : \""+exists+"\"}";
+        return ok(Json.parse(msg));
     }
 
     public Result login(){
@@ -48,8 +75,10 @@ public class RegisterController extends Controller {
             return null;
         }
         else{
-            String msg = "{\"role\" : \""+ps.role+"\",\"name\":\""+ps.name+"\",\"id\":\""+ps.id+"\"}";
-            //return ok("You are a valid user. "+ps.role);  //for postman
+            String msg = "{\"role\" : \""+ps.role+"\"," +
+                    "\"name\":\""+ps.name+"\"," +
+                    "\"status\":\""+ps.status+"\"," +
+                    "\"id\":\""+ps.id+"\"}";
             return ok(Json.parse(msg));
         }
     }
@@ -64,12 +93,31 @@ public class RegisterController extends Controller {
         JsonNode js = request().body().asJson();
         String name = js.get("name").asText();
         String email = js.get("email").asText();
-        String password = js.get("password").asText();
         String mobile = js.get("mobile").asText();
-        return registerRepository.update(id, name, email, password, mobile).thenApplyAsync(p->{
-            return ok("update successful");
+        return registerRepository.update(id, name, email, mobile).thenApplyAsync(p->{
+            return ok("Update successful");
         },ec.current());
+    }
 
+    public CompletionStage<Result> resetPassword(){
+        JsonNode js = request().body().asJson();
+        Long id = js.get("id").asLong();
+        String password = js.get("password").asText();
+        return registerRepository.resetPassword(id, password).thenApplyAsync(p->{
+            return ok("Update successful");
+        },ec.current());
+    }
+
+    public CompletionStage<Result> verifyRegister(Long id){
+        return registerRepository.verify(id).thenApplyAsync(p->{
+            System.out.println(p);
+            String text = "";
+            if(p.equals("unauthenticated")) text="Verification successful";
+            else text="Already verified";
+            String str = "{ \"verify\" : \""+text+"\"}";
+            System.out.println(str);
+            return ok(Json.parse(str));
+        },ec.current());
     }
 
 }

@@ -47,10 +47,14 @@ this.state = {
     }
 };
 }
+
 validateForm() {
 return this.state.name.length > 0 && this.state.passwordd.length > 5 ;
 }
 
+componentDidMount(){
+    window.localStorage.removeItem('uid')
+}
 
 handleNameChange = event => {
     const { name, value } = event.target;
@@ -122,7 +126,10 @@ var body = {
         email : this.state.email,
         password : this.state.password,
         mobile : this.state.mobile,
-        role : this.state.role
+        role : this.state.role,
+        rating : 6.0,
+        numrating : 0,
+        status : 'unauthenticated',
     }
 console.log(body);
 if(this.state.name==""){
@@ -161,12 +168,12 @@ else{
         body: JSON.stringify(body)
         })
         .then(response => {if(response.ok){
-            alert("Registration successful!");
+            alert("Registration successful!\nA verification link is sent to your email. You can login in after activating your account with the link.\n\nYou will be redirected to login page.");
             result = response.json();
             console.log(result);
+            window.location.href = '/login'
         }})
-        .catch(()=> console.log("can't access " + url + " response. "))
-        window.location.href = '/login'
+        .catch(()=> console.log("Can't access " + url + " response. "))
     }
 }
 
@@ -176,17 +183,15 @@ render() {
 const {errors} = this.state;
 return (<div className ="bg">
 <Navigation/>
-
-<br></br><br/>
 <br/><br/><br/><br/>
 <Row>
 
 <Col>
 
 <div className="auth-wrapper1">
-<div className="auth-inner">
+<div className="auth-inner-half">
 <form>
-<center><h3>Sign Up</h3></center>
+<h1>SIGN UP</h1><hr/>
  
     <div className="form-group">
         <label>Name</label>
@@ -225,20 +230,21 @@ return (<div className ="bg">
     </div>
 
     <div className="form-group">
-    <input type="checkbox" onChange={() => this.setState({checkbx : !this.state.checkbx})}/><span className='error'>  I accept the terms and conditions.</span>
+        <input type="checkbox" onChange={() => this.setState({checkbx : !this.state.checkbx})}/><span className='error'>  I accept the terms and conditions.</span>
     </div>
 
     <button type="submit" className="btn btn-primary btn-block btn-lg" onClick = {this.handleSubmit} disabled = {!this.state.checkbx}>SIGN UP</button>
     <p className="forgot-password text-right"> Already registered? <a href="/Login">Login</a></p>
-    </form>
+</form>
 </div>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 </div>
 </Col>
 <Col>
     <TandC/>
 </Col>
 </Row>
+<br/><br/><br/><br/><br/>
 </div>
 );
 }

@@ -68,6 +68,8 @@ class AdminLogin extends Component{
                 window.localStorage.setItem("username",aname);
                 window.localStorage.setItem("uid",aid);
                 window.sessionStorage.setItem("uid",aid);
+                window.sessionStorage.setItem("role",arole);
+                window.localStorage.setItem("role",arole);;
                 window.location.href  = "/adminhome/"+aid;
                 }  //"/userhome" 
               else{
@@ -107,15 +109,13 @@ class AdminLogin extends Component{
         return (<div className="bg">
 
 <Navigation/>
-            <br></br><br/>
-            <br/>
+           
 
             <div className="auth-wrapper">
             <div className="auth-inner">
                
             <form>
-                <h3>Login</h3>
-
+                <h1>ADMIN LOGIN</h1><hr/>
                 <div className="form-group">
                     <label>Email address</label>
                     <input type="email" name="email" id="exampleEmail" className="form-control" placeholder="Enter email"
@@ -136,10 +136,9 @@ class AdminLogin extends Component{
                 </p>
             </form>
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
             </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </div>
         );
     }

@@ -1,5 +1,6 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -25,10 +26,57 @@ public class AdminController extends Controller {
         this.emailUtil = emailUtil;
     }
 
-    public Result sendEmail(String to) {
+    public Result sendEmail(String to, String subjectMessage, String bodyMessage) {
         List<String> toList = new ArrayList<String>();
         toList.add(to);
-        emailUtil.sendEmail("Test", toList, "<h2> Test </h2> <br><br> <p> Testing Email </p>");
+        if(toList != null)
+            emailUtil.sendEmail(subjectMessage, toList, "<h2>"+ subjectMessage +"</h2><p>"+bodyMessage+"</p>"+
+                "<a href=\"http://localhost:3000/login\" target=\"_blank\">" +
+                    "Farmer's Market" +
+                "</a>");
+        else
+            System.out.println(toList.get(0));
+        return ok("successful");
+    }
+
+    public Result sendAuthEmail(String to, Long id) {
+        System.out.println("SENDING AUTH EMAIL");
+        List<String> toList = new ArrayList<String>();
+        toList.add(to);
+        if(toList != null)
+            emailUtil.sendEmail("Account Activation", toList, "<h2>Activation</h2><p>Welcome to Farmer's Market.</p>"+
+                "<p>You need to confirm your email address to activate your account.</p>"+
+                "<a href=\"http://localhost:3000/verifyEmail/"+id+"\" target=\"_blank\">" +
+                    "Activate Account" +
+                "</a>");
+        else
+            System.out.println(toList.get(0));
+        return ok("successful");
+    }
+
+    public Result sendResetLink(String to, Long id) {
+        List<String> toList = new ArrayList<String>();
+        toList.add(to);
+        System.out.println(toList.get(0) + " " + id);
+        if(toList.get(0) != null)
+            emailUtil.sendEmail("Reset Password", toList, "<p>We received your request for password reset. Click the below link.</p>"+
+                "<a href=\"http://localhost:3000/resetPassword/"+id+"\" target=\"_blank\">" +
+                "Reset Password" +
+                "</a>");
+        else
+            System.out.println(toList.get(0));
+        return ok("Successful");
+    }
+
+    public Result mailToAdmin(Long id) {
+        JsonNode js = request().body().asJson();
+        String subjectMessage = js.get("subject").asText();
+        String bodyMessage = js.get("description").asText();
+        List<String> toList = new ArrayList<String>();
+        String to = "farmers.market.no.reply@gmail.com";
+        toList.add(to);
+        emailUtil.sendEmail("Grievance: "+subjectMessage, toList, "<h1>GRIEVANCE</h1><p>"+bodyMessage+"</p>"+
+                "<h2>Complaint by user (Register ID): "+id+"</h2>");
         return ok("successful");
     }
 

@@ -15,7 +15,15 @@ public interface RegisterRepository {
 
     CompletionStage<Register> getFarmer(Long fid);
 
+    Register getUser(Long uid);
+
+    String sendResetLink(String email);
+
     abstract Register login(String email,String password);
 
-    public CompletionStage<Register> update(Long id, String name, String email, String password, String mobile);
+    public CompletionStage<Register> update(Long id, String name, String email, String mobile);
+
+    public CompletionStage<Register> resetPassword(Long id, String password);
+
+    CompletionStage<String> verify(Long id);
 }

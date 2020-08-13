@@ -46,8 +46,8 @@ class BuyerProfile extends Component {
     }
 
     reject() {
-        const url = 'http://localhost:9000/rejectBid/'+this.state.id
-        console.log("ON CLICK REJECT.")
+        const url = 'http://localhost:9000/rejectBid/'+this.props.bid+'/'+this.props.cid
+        console.log("ON CLICK REJECT." + url)
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -80,13 +80,10 @@ class BuyerProfile extends Component {
         console.log(this.state.id)
         console.log(url)
         let headers = new Headers();
-
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
-
         headers.append('Access-Control-Allow-origin', url);
         headers.append('Access-Control-Allow-Credentials', 'true');
-
         headers.append('POST', 'GET');
 
         fetch(url,{
@@ -96,23 +93,19 @@ class BuyerProfile extends Component {
         .then(response => this.setState({ 'buyer' : response}),
         console.log(this.state.buyer))
         .catch((error) => {console.error('Error:', error);}); 
-                  
     }
 }
     
-    componentWillMount() {
+    componentDidMount() {
         console.log("component did mount")
         const url = 'http://localhost:9000/getFarmer/'+this.props.id
         console.log(this.state.id)
         console.log(url)
         let headers = new Headers();
-
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
-
         headers.append('Access-Control-Allow-origin', url);
         headers.append('Access-Control-Allow-Credentials', 'true');
-
         headers.append('POST', 'GET');
 
         fetch(url,{
@@ -136,12 +129,12 @@ class BuyerProfile extends Component {
         }
         return (
             <div className = "recentbids">
-            <div className="auth-inner">
-                <h1>Buyer Profile:</h1>
+            <div className="auth-inner-half">
+                <h1>Buyer Profile:</h1><hr/>
                 <Row><Col>Name:</Col><Col>{this.state.buyer.name}<br/></Col></Row>
                 <Row><Col>Mobile:</Col><Col>{this.state.buyer.mobile}<br/></Col></Row>
                 <Row><Col>Email:</Col><Col>{this.state.buyer.email}<br/></Col></Row>
-                <Row><Col>Rating:</Col><Col>{this.state.buyer.rating}<br/></Col></Row>
+                <Row><Col>Rating:</Col><Col>{this.state.buyer.rating} &nbsp; &nbsp; (out of {this.state.buyer.numrating})<br/></Col></Row>
                 <hr/>
                 <input type="checkbox" onChange={() => this.setState({checkbx : !this.state.checkbx})}/><span className='error'>  I understand that other bids will be rejected when I accept this bid.</span><br/><br/>
                 <Row>

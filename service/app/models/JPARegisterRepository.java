@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.Persistence;
 import javax.persistence.EntityManagerFactory;
-import javax.xml.soap.Name;
 import java.util.List;
 import java.util.stream.Stream;
 import java.lang.Exception;
@@ -42,6 +41,30 @@ public class JPARegisterRepository implements RegisterRepository {
     }
 
     @Override
+    public String sendResetLink(String email){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        Long id = 0L;
+        try{
+            id = (Long)em.createQuery("select r.id from Register r where r.email =: email").setParameter("email",email).getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(id == 0)
+            return "Absent";
+        return "Present" + id;
+    }
+
+    @Override
+    public Register getUser(Long uid) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        Register register = em.createQuery("select r from Register r where r.id=:userId", Register.class).setParameter("userId", uid).getSingleResult();
+        return register;
+    }
+    @Override
     public Register login(String email,String password){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
         EntityManager em = entityManagerFactory.createEntityManager();
@@ -51,10 +74,19 @@ public class JPARegisterRepository implements RegisterRepository {
     }
 
     @Override
-    public CompletionStage<Register> update(Long id, String name, String email, String password, String mobile) {
-        return supplyAsync(() -> wrap(em -> updatevalue(em, id, name, email,password,mobile)), executionContext);
+    public CompletionStage<Register> update(Long id, String name, String email, String mobile) {
+        return supplyAsync(() -> wrap(em -> updatevalue(em, id, name, email, mobile)), executionContext);
     }
 
+    @Override
+    public CompletionStage<Register> resetPassword(Long id, String password) {
+        return supplyAsync(() -> wrap(em -> resetPassword(em, id, password)), executionContext);
+    }
+
+    @Override
+    public CompletionStage<String> verify(Long id) {
+        return supplyAsync(() -> wrap(em -> verify(em, id)), executionContext);
+    }
 
     private <T> T wrap(Function<EntityManager, T> function) {
         return jpaApi.withTransaction(function);
@@ -70,22 +102,36 @@ public class JPARegisterRepository implements RegisterRepository {
         return register;
     }
 
-    private Register updatevalue(EntityManager em, Long id, String name, String email, String password, String mobile){
-        // EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("defaultPersistenceUnit");
-        // EntityManager em = entityManagerFactory.createEntityManager();
-        //em.getTransaction().begin();
-        int i= em.createQuery("update Register r set r.name =: name, r.email =: email, r.password =: password, r.mobile=:mobile where r.id =: id").setParameter("name",name).setParameter("email",email).setParameter("password",password).setParameter("mobile",mobile).setParameter("id",id).executeUpdate();
+    private Register updatevalue(EntityManager em, Long id, String name, String email, String mobile){
+        int i= em.createQuery("update Register r set r.name =: name, r.email =: email, r.status = 'unauthenticated', r.password =: password, r.mobile=:mobile where r.id =: id").setParameter("name",name).setParameter("email",email).setParameter("mobile",mobile).setParameter("id",id).executeUpdate();
         if(i!=0){
             Register register=em.createQuery("select r from Register r where r.id=:id",Register.class).setParameter("id",id).getSingleResult();
             return register;
         }
         else{
             return null;
-
          }
-
     }
 
+    private Register resetPassword(EntityManager em, Long id, String password){
+        int i= em.createQuery("update Register r set r.password =: password where r.id =: id").setParameter("password",password).setParameter("id",id).executeUpdate();
+        if(i!=0){
+            Register register=em.createQuery("select r from Register r where r.id=:id",Register.class).setParameter("id",id).getSingleResult();
+            return register;
+        }
+        else{
+            return null;
+        }
+    }
 
+    private String verify(EntityManager em, Long id) {
+        String txt = (String) em.createQuery("select r.status from Register r where r.id =: id").setParameter("id",id).getSingleResult();
+        int i= em.createQuery("update Register r set r.status =: status where r.id =: id").
+                setParameter("status","authenticated").
+                setParameter("id",id).
+                executeUpdate();
+        System.out.println(txt);
+        return txt;
+    }
 
 }

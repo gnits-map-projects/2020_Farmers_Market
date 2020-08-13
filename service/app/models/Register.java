@@ -77,6 +77,22 @@ public class Register {
         this.rating = rating;
     }
 
+    public Long numrating;
 
+    public Long getNumrating() { return numrating;  }
+
+    public void setNumrating(Long rating) {
+        this.numrating = numrating;
+    }
+
+    public String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 }

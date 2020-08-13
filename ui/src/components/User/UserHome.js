@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import RecentCrops from "./recentCrops";
 import CropForm from "../home/crop";
-import CropsToFarmer from "./cropsToFarmer";
+import CropsToFarmer from "./CropsToFarmer";
 
 //import SignUp from "../components/signup.component";
 //import User from "./components/user"
@@ -20,37 +20,24 @@ render() {
     var uid=this.props.match.params.id
     return (<div>
         <Nav uid = {uid} role={'farmer'}/>
-    <div className = "userhomebg">
-    <div className="wrapper">
-    <div className="main_content">
-    </div>
-    </div>
     <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
             <Row>
                 <Col xs="6">
-                    <div>
                         <CropForm id={uid}/>
-                    </div> 
                 </Col>
                 <Col xs="6">
                     <Row> 
-                        <div>
                             <RecentCrops id={uid}/>
-                        </div>
                     </Row>
                         <br/>
                     <Row>
-                        <div>               
-                            <CropsToFarmer/>
-                        </div>
+                            <CropsToFarmer id={uid}/>
                     </Row>
                 </Col>
                 
             </Row>
 
     </div>
-    </div>
-   
     </div>
     );
 }

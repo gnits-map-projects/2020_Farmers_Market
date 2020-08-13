@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row'
 import CropProfile from './CropProfile'
 import FarmerProfile from './FarmerProfile'
 import TandC from '../home/tandc.js';
+import Trends from './Trends';
 
 var body;
 
@@ -34,15 +35,16 @@ export default class CropBid extends Component{
         this.setState({price : price});
     }
 
+    getAdvPayment(price){
+    }
+
     handleBidForm () {
       this.setState({showBidForm: !this.state.showBidForm})
     }
 
     handleBiddingPriceChange (event) {
     this.setState({
-      
       biddingPrice: event.target.value
-
     });
     console.log(event.target.value)
   }
@@ -82,17 +84,13 @@ export default class CropBid extends Component{
         }
         else{
             alert('Bidding price not sufficient')
-        }
-
-        //TO DO
-        //window.location.href = "/buyerhome/" + this.state.buyerId
- 
+        } 
     }
     
     render() {
         const {showBidForm} = this.state;
         return (<div>
-            <Nav/>
+            <Nav  uid = {this.state.buyerId} role={'buyer'}/>
         <div className = "userhomebg">
         <div className="wrapper">
         <div className="main_content">
@@ -103,7 +101,13 @@ export default class CropBid extends Component{
             <Col>
                 <Row>
                     <CropProfile id = {this.state.cid}
-                    getPrice = {this.getPrice}/>
+                    getPrice = {this.getPrice}
+                    getAdvPayment = {this.getAdvPayment}/>
+                    <br/>
+                </Row>
+                <Row><br/></Row>
+                <Row>
+                    <Trends id = {this.state.cid}/>
                     <br/>
                 </Row>
                 <Row><br/></Row>
@@ -119,8 +123,8 @@ export default class CropBid extends Component{
                 <Row><br/></Row>
                 <Row>
                 <form className="auth-inner">
-                <input type="number" min = {this.state.price + 1} placeholder={'Enter > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/>
-                <button type="submit" className="btn btn-primary btn-lg ml-auto" disabled = {!showBidForm} onClick={this.bidding}>BID</button>   
+                <input type="number" className="col-8" min = {this.state.price + 1} placeholder={'Enter amount > '+this.state.price} name="biddingPrice" onChange = {this.handleBiddingPriceChange}/> ₹
+                <button type="submit" className="btn btn-primary btn-lg float-right ml-auto" disabled = {!showBidForm} onClick={this.bidding}>BID</button>   
                 </form></Row>
             </Col>  
             </Row>          

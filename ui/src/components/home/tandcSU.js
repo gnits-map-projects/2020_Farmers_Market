@@ -6,7 +6,7 @@ import {createBrowserHistory} from 'history';
 
 export default class TandCSU extends Component {
     render() {
-        return (<div className = "auth-inner">
+        return (<div className = "auth-inner-half">
         <h1>TERMS AND CONDITIONS</h1>
         <ul>
         <hr/><li>The bidding shall take place in a fair manner. The winner of the bid shall pay at least 20% of the price qoted by the farmer prior to the start date of farming.</li>

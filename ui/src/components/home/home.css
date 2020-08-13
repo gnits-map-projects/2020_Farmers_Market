@@ -26,6 +26,10 @@ body, html, .App, #root,.auth-wrapper {
   height: 100%;
 }
 
+body {
+  padding-top: 65px;
+}
+
 .bg{
   background-image: url("../images/userhome.jpg");
   width: auto;
@@ -54,6 +58,39 @@ body, html, .App, #root,.auth-wrapper {
   margin: auto;
   background: #ffffffda;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+  font-size: 20px;
+}
+
+.auth-inner-full {
+  width: 100%;
+  margin: auto;
+  background: #ffffffda;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+  font-size: 20px;
+}
+
+.auth-inner-half {
+  width: 85%;
+  margin: auto;
+  background: #ffffffda;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+  font-size: 20px;
+}
+
+.auth-inner-half-transparent {
+  width: 85%;
+  margin: auto;
+  background: #ffffff00;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0);
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all .3s;
@@ -111,7 +148,7 @@ body, html, .App, #root,.auth-wrapper {
   text-align: left;
   outline: none;
   font-size: 15px;
-  transition: 0.4s;
+  transition: 2s;
 }
 
 .active, .accordion:hover {
@@ -140,3 +177,6 @@ body, html, .App, #root,.auth-wrapper {
   color: red;
 }
 
+.nlink:hover {
+  background: rgb(231, 252, 227);
+}

@@ -1,6 +1,7 @@
 package utils;
 
 import akka.actor.ActorSystem;
+import controllers.CropController;
 import scala.concurrent.ExecutionContext;
 import scala.concurrent.duration.Duration;
 
@@ -12,12 +13,16 @@ public class Scheduler {
     private final ActorSystem actorSystem;
     private final ExecutionContext executionContext;
 
+    private final CropController cropController;
+
     @Inject
-    public Scheduler(ActorSystem actorSystem, ExecutionContext executionContext) {
+    public Scheduler(ActorSystem actorSystem, ExecutionContext executionContext, CropController cropController) {
         this.actorSystem = actorSystem;
         this.executionContext = executionContext;
 
         this.initialize();
+
+        this.cropController = cropController;
     }
 
     private void initialize() {
@@ -25,12 +30,14 @@ public class Scheduler {
                 .scheduler()
                 .schedule(
                         Duration.create(10, TimeUnit.SECONDS), // initialDelay
-                        Duration.create(1, TimeUnit.MINUTES), // interval
+                        Duration.create(1, TimeUnit.DAYS), // interval
                         () -> repetitiveTask(),
                         this.executionContext);
     }
 
     private void repetitiveTask() {
+        cropController.remind(); //5 days before crop end date
         System.out.println("############ TEST SCHEDULER ############");
+
     }
 }

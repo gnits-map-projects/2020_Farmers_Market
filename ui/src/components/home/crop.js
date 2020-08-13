@@ -47,8 +47,8 @@ class CropForm extends Component{
         location : '',
         transport : '',
         description : '',
-        quantitymin : '',
-        quantitymax : '',
+        quantitymin : null,
+        quantitymax : null,
         uid : this.props.id,
       }
       this.handleNameChange = this.handleNameChange.bind(this);
@@ -120,15 +120,15 @@ class CropForm extends Component{
         });
       }
 
-    handleQuantityminChange = event => {
+    handleQuantityminChange = e => {
         this.setState({
-          quantitymin: event.target.value
+          quantitymin:  e.target.type === 'number' ? parseFloat(e.target.value) : e.target.value
         });
       }
 
-    handleQuantitymaxChange = event => {
+    handleQuantitymaxChange = e => {
         this.setState({
-          quantitymax: event.target.value
+          quantitymax:  e.target.type === 'number' ? parseFloat(e.target.value) : e.target.value
         });
       }
 
@@ -147,7 +147,10 @@ class CropForm extends Component{
           quantitymin: this.state.quantitymin,
           quantitymax: this.state.quantitymax,
           fid: this.state.uid,
-         
+          status : 'bidding',
+          harvestedQuantity : 0,
+          advPayment : 0,
+          totalPayable : 0,
         }
         console.log(body);
         if (this.state.name == "") {
@@ -162,7 +165,22 @@ class CropForm extends Component{
         else if (this.state.price == "") {
           alert('Please enter the price')
         }
-    
+
+        else if(this.state.quantitymin == null)
+          alert("Please enter minimum quantity")
+
+        else if(this.state.quantitymin == null)
+          alert("Please enter minimum quantity")
+
+        else if(this.state.quantitymin <= 0)
+          alert("Minimum quantity cannot be zero")
+
+        else if(this.state.quantitymax < this.state.quantitymin)
+          alert("Maximum quantity must be greater than minimum quantity")
+
+        else if(this.state.quantitymax > this.state.quantitymin + 10)
+          alert("Maximum and minimum quantity range cannot exceed 10 quintals.")
+
         else if (this.state.starttime == "") {
           alert('Please enter the start date')
     
@@ -228,7 +246,7 @@ class CropForm extends Component{
     
       render() {
         return (
-            <div className = "auth-inner">
+            <div className = "auth-inner-half">
             
             <Form onSubmit={this.handleSubmit}><h1>Add Crop</h1><hr/>         
                 <div className="form-group">
@@ -243,7 +261,7 @@ class CropForm extends Component{
                 </div>
                 <div className="form-group">
                     <label>Area</label>
-                    <input type="Number" name="area" id="examplearea" className="form-control" placeholder="Enter area in acres"
+                    <input type="Number" step="0.01" name="area" id="examplearea" className="form-control" placeholder="Enter area in acres"
                                 value = {this.state.area} onChange = {this.handleAreaChange} />
                 </div>
 
@@ -254,11 +272,11 @@ class CropForm extends Component{
                 </div>
 
                 <div className="form-group">
-                    <label>Quantity range: (In quintals)</label>
+                    <label>Quantity range (In quintals): <i>Try to keep the range small.</i></label>
                     <Row>
-                    <Col><input type="Number" name="quantitymin" className="form-control" id="examplequantitymin" placeholder="Enter minimum quantity"
+                    <Col><input type="Number" step="0.1" name="quantitymin" min="0" className="form-control" id="examplequantitymin" placeholder="Enter minimum quantity"
                                 value = {this.state.quantitymin} onChange = {this.handleQuantityminChange} /></Col>
-                    <Col><input type="Number" name="quantitymax" className="form-control" id="examplequantitymax" placeholder="Enter maximum quantity"
+                    <Col><input type="Number" step="0.1" name="quantitymax" min={this.state.quantitymin} max={this.state.quantitymin+10} className="form-control" id="examplequantitymax" placeholder="Enter maximum quantity"
                                 value = {this.state.quantitymax} onChange = {this.handleQuantitymaxChange} /></Col>
                     </Row>
                 </div>
@@ -288,9 +306,9 @@ class CropForm extends Component{
                 </div>
 
                 <div className="form-group">
-                    <label>Other details <i>(Optional)</i></label>
+                    <label>Other details/conditions <i>(Optional)</i></label>
                     <textarea rows = "5" cols = "70" className="form-control" name = "description" 
-                    placeholder = "Enter any extra information that you want your buyer to know and accept" onChange={this.handleTransportChange}/><br/>
+                    placeholder = "Enter any extra information or conditons that you want your buyer to know and accept" onChange={this.handleTransportChange}/><br/>
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block" onClick = {this.handleSubmit}>ADD YOUR CROP</button>

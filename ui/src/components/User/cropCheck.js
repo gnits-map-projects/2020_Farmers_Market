@@ -39,7 +39,7 @@ export default class CropCheck extends Component{
         .then(response => response) ////for alert, convert response promise object to string
         .then(response => {this.setState({ 'data' : response});
         console.log(this.state.data);
-        // alert(this.state.data);
+        alert("Crop approved succesfully.")
         window.location.href = "/adminhome/"+window.localStorage.getItem('uid')}
         );
          
@@ -65,6 +65,7 @@ export default class CropCheck extends Component{
         .then(response => response.json()) 
         .then(response => this.setState({ 'data' : response}));
         console.log(this.state.data);
+        alert("Crop rejected succesfully.")
         window.location.href = "/adminhome/"+window.localStorage.getItem('uid') 
  
     }
@@ -72,35 +73,26 @@ export default class CropCheck extends Component{
     render() {
         console.log("IN CROP CHECK COMPONENT.")
         return (<div>
-            <Nav/>
-        <div className = "userhomebg">
-        <div className="wrapper">
-        <div className="main_content">
-        </div>
-        </div>
+        <Nav  uid = {this.state.id} role={'admin'}/>
         <div style={{'background-image' : 'url(' + logo +')' }} className = "auth-home" >
-            <Container>
+        <Row>
+            <Col>
+            <UncheckedCropProfile id = {this.state.id}/>
+            <br/>
+            </Col>
+            <Col>
+            <FarmerProfile id = {this.state.fid}/>
+            <Row><br/><br/></Row>
+            <div className="auth-inner-half">
             <Row>
-                <Col>
-                <br/><h1>Crop Profile:</h1><br/>
-                <UncheckedCropProfile id = {this.state.id}/>
-                <br/>
-                </Col>
+                <Col><button id={this.state.id} className="btn btn-success btn-lg" onClick={() => {this.approve(this.state.id)}}>APPROVE</button></Col>
+                <Col xs="3"></Col>
+                <Col><button id={this.state.id} className="btn btn-danger btn-lg" onClick={() => {this.reject(this.state.id)}}>REJECT</button></Col>
             </Row>
-                <Col>
-                <br/><h1>Farmer Profile:</h1><br/>
-                <FarmerProfile id = {this.state.fid}/>
-                <br/>
-                </Col>
-            <Row>
-            <Col><button id={this.state.id} className="btn btn-success btn-lg" onClick={() => {this.approve(this.state.id)}}>APPROVE</button></Col>
-            <Col><button id={this.state.id} className="btn btn-danger btn-lg" onClick={() => {this.reject(this.state.id)}}>REJECT</button></Col>
-            </Row>
-            
-            </Container>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
-        </div>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </div>
+            </Col>
+        </Row>   
+        </div>         
         </div>
         );
     }

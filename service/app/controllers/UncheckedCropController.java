@@ -1,10 +1,8 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import models.UncheckedCrop;
-import models.UncheckedCropRepository;
-import models.Crop;                                 ///////added for approval
-import models.CropRepository;                       ///////added for approval
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import models.*;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -13,8 +11,8 @@ import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 import static play.libs.Json.toJson;
 import static play.libs.Json.fromJson;
-import models.CropRepository;
 import play.data.FormFactory;
+import utils.EmailUtil;
 
 /**
  * The controller keeps all database operations behind the repository, and uses
@@ -25,18 +23,37 @@ public class UncheckedCropController extends Controller {
 
     private final UncheckedCropRepository uncheckedCropRepository;
     private final CropRepository cropRepository;
+    private final BiddingRepository biddingRepository;
     private final HttpExecutionContext ec;
     private final CropController cropController;
     private final FormFactory formFactory;
+    private final NotificationRepository notificationRepository;
+    private final AdminController adminController;
+    private final RegisterRepository registerRepository;
+    EmailUtil emailUtil;
 
 
     @Inject
-    public UncheckedCropController(FormFactory formFactory, UncheckedCropRepository uncheckedCropRepository, CropRepository cropRepository, HttpExecutionContext ec,CropController cropController) {           ///////added for approval
+    public UncheckedCropController(AdminController adminController,
+                                   EmailUtil emailUtil,
+                                   FormFactory formFactory,
+                                   NotificationRepository notificationRepository,
+                                   UncheckedCropRepository uncheckedCropRepository,
+                                   CropRepository cropRepository,
+                                   BiddingRepository biddingRepository,
+                                   HttpExecutionContext ec,
+                                   RegisterRepository registerRepository,
+                                   CropController cropController) {
         this.uncheckedCropRepository = uncheckedCropRepository;
-        this.cropRepository  = cropRepository;                                                                             ///////added for approval
+        this.cropRepository  = cropRepository;
+        this.biddingRepository = biddingRepository;
         this.ec = ec;
         this.cropController =cropController;
+        this.notificationRepository = notificationRepository;
+        this.adminController = adminController;
         this.formFactory = formFactory;
+        this.emailUtil = emailUtil;
+        this.registerRepository = registerRepository;
     }
 
     public CompletionStage<Result> addUncheckedCrop() {
@@ -62,40 +79,40 @@ public class UncheckedCropController extends Controller {
     public CompletionStage<Result> approveCrop(Long cid) {
         UncheckedCrop uncheckedCrop = uncheckedCropRepository.approveCrop(cid);
         JsonNode js = toJson(uncheckedCrop);
+        ((ObjectNode) js).put("avdPayment", 0);
         Crop crop = fromJson(js, Crop.class);
-        CompletionStage<UncheckedCrop> cs = uncheckedCropRepository.deleteCrop(cid);///////added for approval
-        CropController cropController=new CropController(formFactory, cropRepository, ec);
+
+        Register register = uncheckedCropRepository.getFarmer(crop.id);
+
+        CompletionStage<UncheckedCrop> cs = uncheckedCropRepository.deleteCrop(cid);
+
+        String message = "Your "+crop.name+" crop in "+crop.location+" has been approved.";
+        NotificationController notificationController=new NotificationController(formFactory, notificationRepository, ec);
+        CompletionStage<Result> n = notificationController.addNotification(register.id, message);
+
+        AdminController adminController = new AdminController(ec, emailUtil);
+        adminController.sendEmail(register.email, "Crop Approved", message);
+
+        CropController cropController=new CropController(formFactory, adminController, emailUtil, notificationRepository, cropRepository, biddingRepository, registerRepository, ec);
         return cropController.addChecked(crop).thenApplyAsync(p -> {
             return ok("Approved.");                                                                                       ///////added for approval
         }, ec.current());
     }
 
-//    public CompletionStage<Result> approveCrop(Long cid) {
-//        UncheckedCrop uncheckedCrop = uncheckedCropRepository.approveCrop(cid);
-//        JsonNode js = toJson(uncheckedCrop);
-//        Crop crop = fromJson(js, Crop.class);                                                                           ///////added for approval
-//        return cropRepository.add(crop).thenApplyAsync(p -> {
-//            return ok("Approved.");                                                                                       ///////added for approval
-//        }, ec.current());
-//    }
-
-
     public CompletionStage<Result> deleteCrop(Long cid) {
-        System.out.println("Called delete with id:" + cid);
+        UncheckedCrop uncheckedCrop = uncheckedCropRepository.getUCrop(cid);
+
+        Register register = uncheckedCropRepository.getFarmer(uncheckedCrop.id);
+        String message = "Your "+uncheckedCrop.name+" crop in "+uncheckedCrop.location+" has been rejected.";
+        NotificationController notificationController=new NotificationController(formFactory, notificationRepository, ec);
+        CompletionStage<Result> n = notificationController.addNotification(register.id, message);
+        System.out.println("REJECTED NOTIFICATION INSERTION RESULT: "+ n);
+        AdminController adminController = new AdminController(ec, emailUtil);
+        adminController.sendEmail(register.email, "Crop Rejected", message);
+
         return uncheckedCropRepository.deleteCrop(cid).thenApplyAsync(crop -> {
             return ok("Rejected. Deleted.");
         }, ec.current());
     }
 
-//    public CompletionStage<Result> cropsIn(String location) {
-//        return cropRepository.listCinL(location).thenApplyAsync(cropStream -> {
-//            return ok(toJson(cropStream.collect(Collectors.toList())));
-//        }, ec.current());
-//    }
-//
-//    public CompletionStage<Result> getLocations() {
-//        return cropRepository.listl().thenApplyAsync(cropStream -> {
-//            return ok(toJson(cropStream.collect(Collectors.toList())));
-//        }, ec.current());
-//    }
 }

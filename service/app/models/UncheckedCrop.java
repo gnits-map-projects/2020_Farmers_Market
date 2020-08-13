@@ -41,13 +41,13 @@ public class UncheckedCrop {
         this.location = location;
     }
 
-    public Long area;
+    public Float area;
 
-    public Long getArea() {
+    public Float getArea() {
         return area;
     }
 
-    public void setArea(Long area) {
+    public void setArea(Float area) {
         this.area = area;
     }
 
@@ -103,23 +103,23 @@ public class UncheckedCrop {
 
     public void setDescription(String description) { this.description = description; }
 
-    public Long quantitymin;
+    public Float quantitymin;
 
-    public Long getQuantitymin() {
+    public Float getQuantitymin() {
         return quantitymin;
     }
 
-    public void setQuantitymin(Long quantitymin) {
+    public void setQuantitymin(Float quantitymin) {
         this.quantitymin = quantitymin;
     }
 
-    public Long quantitymax;
+    public Float quantitymax;
 
-    public Long getQuantitymax() {
+    public Float getQuantitymax() {
         return quantitymax;
     }
 
-    public void setQuantitymax(Long quantitymax) {
+    public void setQuantitymax(Float quantitymax) {
         this.quantitymax = quantitymax;
     }
     
@@ -132,6 +132,47 @@ public class UncheckedCrop {
     public void setFid(Long fid) {
         this.fid = fid;
     }
+
+    public String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Long advPayment;
+
+    public Long getAdvPayment() {
+        return advPayment;
+    }
+
+    public void setAdvPayment(Long advPayment) {
+        this.advPayment = advPayment;
+    }
+
+    public Float harvestedQuantity;
+
+    public Float getHarvestedQuantity() {
+        return harvestedQuantity;
+    }
+
+    public void setHarvestedQuantity(Float harvestedQuantity) {
+        this.harvestedQuantity = harvestedQuantity;
+    }
+
+    public Long totalPayable;
+
+    public Long getTotalPayable() {
+        return totalPayable;
+    }
+
+    public void setTotalPayable(Long totalPayable) {
+        this.totalPayable = totalPayable;
+    }
+
 }
 
 
